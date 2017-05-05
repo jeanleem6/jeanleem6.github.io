@@ -214,6 +214,8 @@
       
         
         
+          
+        
 
         
           <blockquote>
@@ -229,12 +231,9 @@
 <p>  下载 Node.js：<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="external"><em>DOWNLOAD</em></a></p>
 </li>
 </ul>
-<h2 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h2><p>快捷键 <code>Ctrl+~</code> 调出控制台，执行如下代码：</p>
-<p><strong>S・T 3：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure></p>
-<p><strong>S・T 2：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib2,os; pf=&apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), &apos;wb&apos; ).write( urllib2.urlopen( &apos;http://sublime.wbond.net/&apos; +pf.replace( &apos; &apos;,&apos;%20&apos; )).read()); print( &apos;Please restart Sublime Text to finish installation&apos;)</div></pre></td></tr></table></figure></p>
-<h2 id="自定义-SideBar"><a href="#自定义-SideBar" class="headerlink" title="自定义 SideBar"></a>自定义 SideBar</h2><p>将文件 <a href="Default.sublime-theme">Default.sublime-theme</a> 拷贝到目录：<code>/Packages/User/</code></p>
-<h2 id="汉化（非必需）"><a href="#汉化（非必需）" class="headerlink" title="汉化（非必需）"></a>汉化（非必需）</h2><p>将文件 <a href="Default.sublime-package">Default.sublime-package</a> 拷贝到目录：<code>/Installed Packages/</code></p>
-
+          <div class="read-more">
+            <a href="/2017/05/05/sublime-config/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
