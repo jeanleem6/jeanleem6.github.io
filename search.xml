@@ -352,6 +352,8 @@
         
         <tags>
             
+            <tag> server </tag>
+            
             <tag> Mac </tag>
             
             <tag> nginx </tag>
@@ -359,8 +361,6 @@
             <tag> mysql </tag>
             
             <tag> php </tag>
-            
-            <tag> server </tag>
             
         </tags>
         
@@ -399,9 +399,9 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> server </tag>
+            
+            <tag> Mac </tag>
             
         </tags>
         
@@ -423,9 +423,9 @@
         
         <tags>
             
-            <tag> mysql </tag>
-            
             <tag> server </tag>
+            
+            <tag> mysql </tag>
             
         </tags>
         
@@ -771,9 +771,9 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> server </tag>
+            
+            <tag> Mac </tag>
             
         </tags>
         
@@ -867,9 +867,9 @@
     
     <entry>
       <title><![CDATA[Get Sizes]]></title>
-      <url>/2016/09/14/size-of-window-screen-page-domitem/</url>
+      <url>/2016/09/14/get-sizes/</url>
       <content type="html"><![CDATA[<p>How can I get <code>windowWidth</code>, <code>windowHeight</code>, <code>pageWidth</code>, <code>pageHeight</code>, <code>screenWidth</code>, <code>screenHeight</code>, <code>pageX</code>, <code>pageY</code>, <code>screenX</code>, <code>screenY</code> which will work in all major browsers?</p>
-<p><img src="/2016/09/14/size-of-window-screen-page-domitem/about-js-get-size.jpg" alt="getSize"></p>
+<p><img src="/2016/09/14/get-sizes/about-js-get-size.jpg" alt="getSize"></p>
 <a id="more"></a>
 ]]></content>
       
@@ -1780,9 +1780,9 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> server </tag>
+            
+            <tag> Mac </tag>
             
         </tags>
         
