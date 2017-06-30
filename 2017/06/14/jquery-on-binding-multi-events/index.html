@@ -12,12 +12,12 @@
 
 
 
-  <meta name="description" content="sublime text 3 实现浏览器预览"/>
+  <meta name="description" content="jquery on()方法绑定多个选择器，多个事件"/>
 
 
 
 
-  <meta name="keywords" content="sublime," />
+  <meta name="keywords" content="jQuery," />
 
 
 
@@ -31,20 +31,20 @@
 
 
 
-<link rel="canonical" href="https://jeanleem6.github.io/2017/06/13/sublime-open-in-browse/"/>
+<link rel="canonical" href="https://jeanleem6.github.io/2017/06/14/jquery-on-binding-multi-events/"/>
 
 
-<meta name="description" content="Tools&amp;gt;build system&amp;gt;new build system1234&amp;#123;  &quot;cmd&quot;: [&quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;, &quot;$file&quot;],  &quot;selector&quot;: [&quot;text.html&quot;]&amp;#125; 保存为browse.sublime-build，然后写一个htm">
-<meta name="keywords" content="sublime">
+<meta name="description" content="这样一个需求，如果用live()方法实现的话 非常简单，容易理解。123$(&apos;nav li, #sb-nav li, #help li&apos;).live(&apos;click&apos;, function () &amp;#123;    // code...&amp;#125;); jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。那上面一句如果用on的话，怎么写呢？ 其实查看liv">
+<meta name="keywords" content="jQuery">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sublime text 3 实现浏览器预览">
-<meta property="og:url" content="https://jeanleem6.github.io/2017/06/13/sublime-open-in-browse/index.html">
+<meta property="og:title" content="jquery on()方法绑定多个选择器，多个事件">
+<meta property="og:url" content="https://jeanleem6.github.io/2017/06/14/jquery-on-binding-multi-events/index.html">
 <meta property="og:site_name" content="JH.LEE">
-<meta property="og:description" content="Tools&amp;gt;build system&amp;gt;new build system1234&amp;#123;  &quot;cmd&quot;: [&quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;, &quot;$file&quot;],  &quot;selector&quot;: [&quot;text.html&quot;]&amp;#125; 保存为browse.sublime-build，然后写一个htm">
-<meta property="og:updated_time" content="2017-06-13T00:10:44.000Z">
+<meta property="og:description" content="这样一个需求，如果用live()方法实现的话 非常简单，容易理解。123$(&apos;nav li, #sb-nav li, #help li&apos;).live(&apos;click&apos;, function () &amp;#123;    // code...&amp;#125;); jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。那上面一句如果用on的话，怎么写呢？ 其实查看liv">
+<meta property="og:updated_time" content="2017-06-18T00:16:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sublime text 3 实现浏览器预览">
-<meta name="twitter:description" content="Tools&amp;gt;build system&amp;gt;new build system1234&amp;#123;  &quot;cmd&quot;: [&quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;, &quot;$file&quot;],  &quot;selector&quot;: [&quot;text.html&quot;]&amp;#125; 保存为browse.sublime-build，然后写一个htm">
+<meta name="twitter:title" content="jquery on()方法绑定多个选择器，多个事件">
+<meta name="twitter:description" content="这样一个需求，如果用live()方法实现的话 非常简单，容易理解。123$(&apos;nav li, #sb-nav li, #help li&apos;).live(&apos;click&apos;, function () &amp;#123;    // code...&amp;#125;); jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。那上面一句如果用on的话，怎么写呢？ 其实查看liv">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -73,7 +73,7 @@
 
 
 
-    <title> sublime text 3 实现浏览器预览 · JH.LEE </title>
+    <title> jquery on()方法绑定多个选择器，多个事件 · JH.LEE </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -198,13 +198,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          sublime text 3 实现浏览器预览
+          jquery on()方法绑定多个选择器，多个事件
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          Jun 13, 2017
+          Jun 14, 2017
         </span>
       </div>
     </header>
@@ -214,8 +214,13 @@
 
     <div class="post-content">
       
-        <p>Tools&gt;build system&gt;new build system<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"cmd"</span>: [<span class="string">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"</span>, <span class="string">"<span class="variable">$file</span>"</span>],</div><div class="line">  <span class="string">"selector"</span>: [<span class="string">"text.html"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>保存为browse.sublime-build，然后写一个html。mac上用<code>command+b</code>,windows上用<code>win+b</code></p>
+        <p>这样一个需求，如果用<code>live()</code>方法实现的话 非常简单，容易理解。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'nav li, #sb-nav li, #help li'</span>).live(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// code...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。<br>那上面一句如果用on的话，怎么写呢？</p>
+<p>其实查看live源码就知道，live实际是委托doucment进行事件委派的。<br>按照这个思路，可以将on方法绑定到document即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'#header .fixed-feedback-bn, #sb-sec .feedback-bn'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="comment">// code...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>还有一种情况，<code>on()</code>方法绑定<strong>多个事件</strong>，可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"table.planning_grid"</span>).on(&#123;</div><div class="line">    <span class="attr">mouseenter</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// Handle mouseenter...</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">mouseleave</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// Handle mouseleave...</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">click</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// Handle click...</span></div><div class="line">    &#125;</div><div class="line">&#125;, <span class="string">"td"</span>);</div></pre></td></tr></table></figure></p>
+<p>最后，用<code>on()</code>方法绑定<strong>多个选择器</strong>，多个事件则可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).on(&#123;</div><div class="line">    <span class="attr">mouseenter</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// Handle mouseenter...</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">mouseleave</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// Handle mouseleave...</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">click</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// Handle click...</span></div><div class="line">    &#125;</div><div class="line">&#125;, <span class="string">'#header .fixed-feedback-bn, #sb-sec .feedback-bn'</span>);</div></pre></td></tr></table></figure></p>
+<!-- source: http://www.ghugo.com/jquery-on-method-multiple-event-selectors/ -->
 
       
     </div>
@@ -235,7 +240,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="https://jeanleem6.github.io/2017/06/13/sublime-open-in-browse/">https://jeanleem6.github.io/2017/06/13/sublime-open-in-browse/</a>
+      <a href="https://jeanleem6.github.io/2017/06/14/jquery-on-binding-multi-events/">https://jeanleem6.github.io/2017/06/14/jquery-on-binding-multi-events/</a>
     </p>
 
     <p class="copyright-item lincese">
@@ -255,7 +260,7 @@
         
           <div class="post-tags">
             
-              <a href="/tags/sublime/">sublime</a>
+              <a href="/tags/jQuery/">jQuery</a>
             
           </div>
         
@@ -263,15 +268,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/06/14/jquery-on-binding-multi-events/">
+      <a class="prev" href="/2017/06/14/jquery-toggle-settings/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">jquery on()方法绑定多个选择器，多个事件</span>
+        <span class="prev-text nav-default">jquery toggle()及相关动画设置</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
     
-      <a class="next" href="/2017/05/05/sublime-config/">
-        <span class="next-text nav-default">sublime-config</span>
+      <a class="next" href="/2017/06/13/sublime-open-in-browse/">
+        <span class="next-text nav-default">sublime text 3 实现浏览器预览</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -378,9 +383,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://jeanleem6.github.io/2017/06/13/sublime-open-in-browse/';
-        this.page.identifier = '2017/06/13/sublime-open-in-browse/';
-        this.page.title = 'sublime text 3 实现浏览器预览';
+        this.page.url = 'https://jeanleem6.github.io/2017/06/14/jquery-on-binding-multi-events/';
+        this.page.identifier = '2017/06/14/jquery-on-binding-multi-events/';
+        this.page.title = 'jquery on()方法绑定多个选择器，多个事件';
     };
     (function() {
     var d = document, s = d.createElement('script');

@@ -196,6 +196,151 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/11/16/git-fresher-03/">Git 使用入门 03-远程仓库的使用（Mac）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 16, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote  <span class="comment"># 至少应该能看到 origin - 这是 Git 给你克隆的仓库服务器的默认名字</span></div><div class="line">git remote -v  <span class="comment"># 显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL</span></div></pre></td></tr></table></figure>
+<h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote add &lt;shortname&gt; &lt;url&gt;  <span class="comment"># 添加一个新的远程 Git 仓库</span></div><div class="line"></div><div class="line"><span class="comment"># 例如：</span></div><div class="line">git remote add pb https://github.com/paulboone/ticgit</div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/16/git-fresher-03/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/11/16/git-fresher-02/">Git 使用入门 02-基础（Mac）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 16, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>将你的 <code>code</code> 托管到 <code>git</code>，从此不用再担心：<strong>代码丢失、误删、误改</strong><br><code>git</code> <em>鼓励</em>你多提交代码，这样你的备份愈多，可回溯的点也愈多</p>
+</blockquote>
+<h2 id="clone-项目"><a href="#clone-项目" class="headerlink" title="clone 项目"></a>clone 项目</h2><p>clone项目时自定义本地仓库的名字<strong>mydemo</strong>；如果不自定义，可去掉</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/jeanleem6/demo mydemo  <span class="comment"># mydemo为可选项</span></div></pre></td></tr></table></figure>
+<h2 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h2><p>如果你打算使用 Git 来对现有的项目进行管理，你只需要进入该项目目录并输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/16/git-fresher-02/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/11/14/git-fresher-01/">Git 使用入门 01-准备（Mac）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 14, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>将你的 <code>code</code> 托管到 <code>git</code>，从此不用再担心：<strong>代码丢失、误删、误改</strong><br><code>git</code> <em>鼓励</em>你多提交代码，这样你的备份愈多，可回溯的点也愈多</p>
+<p>下面就来get这项技能</p>
+</blockquote>
+<h2 id="一-安装-git"><a href="#一-安装-git" class="headerlink" title="一 安装 git"></a>一 安装 git</h2><p>打开terminal，执行如下命令</p>
+<ul>
+<li><p>如果你没有安装过git，这个命令将为你<strong>自动安装</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看版本</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git --version</div></pre></td></tr></table></figure>
+</li>
+</ul>
+          <div class="read-more">
+            <a href="/2016/11/14/git-fresher-01/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/11/14/ssh-on-and-off-in-Terminal/">如何通过终端开启/关闭SSH</a>
         
       </h1>
@@ -764,166 +909,6 @@
 <p>两种模式都可以进行下载，但第一种模式非技术人员不推荐。本人推荐第二种模式。</p>
           <div class="read-more">
             <a href="/2016/09/01/boost-baidu-cloud/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/26/english-grammar-guide2/">English Grammar Guide 2－[英语语法手册 2]</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 26, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="短语、从句和句子"><a href="#短语、从句和句子" class="headerlink" title="短语、从句和句子"></a>短语、从句和句子</h2><h3 id="短语-phrase"><a href="#短语-phrase" class="headerlink" title="短语(phrase)"></a>短语(phrase)</h3><blockquote>
-<p>具有一定意义但不构成从句或句子的一组词，叫做<em>短语</em>。短语在句子里可以单独作为一个句子成分。短语的种类很多，但这里只用下列几个短语名称：</p>
-</blockquote>
-<ol>
-<li><p><strong>不定式短语</strong>(infinitive phrase)</p>
-<p> He likes <strong>to read newspapers after lunch</strong>.<br> 他喜欢在午饭后读报。</p>
-</li>
-<li><p><strong>动名词短语</strong>(gerundial phrase)</p>
-<p> <strong>Staying indoors all day</strong> is unhealthy.<br> 整天呆在家里不利于健康。</p></li></ol>
-          <div class="read-more">
-            <a href="/2016/08/26/english-grammar-guide2/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/25/english-grammar-guide1/">English Grammar Guide 1－[英语语法手册 1]</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 25, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>[英语语法手册 1] 主要讲<strong>词类和句子成分</strong>、<strong>词法和句法</strong>、<strong>词类和句子成分的关系</strong></p>
-</blockquote>
-<h2 id="关于词类和句子成分"><a href="#关于词类和句子成分" class="headerlink" title="关于词类和句子成分"></a>关于词类和句子成分</h2><p>根据词的形式、意义及其在句中的功用将词分为若干类，叫做词类。一个句子由各个功用不同的部分所构成，这些部分叫做句子成分。</p>
-<p>学一个词，要学它的发音、拼法、意义，也要记它的词类；更重要的是要了解它和其他词的关系，及其在句中作什么句子成分。如China is in East Asia(中国位于东亚)一句中的China这个单词所属的词类是名词，在句子中作主语。</p>
-<h3 id="词类-Parts-of-speech"><a href="#词类-Parts-of-speech" class="headerlink" title="词类(Parts of speech)"></a>词类(Parts of speech)</h3><p>英语的词通常分为<em>十大类</em>：</p>
-<ol>
-<li><p><strong>名词</strong>(noun，缩写为<code>n.</code>)是人和事物的名称，如pen(钢笔)，English(英语)，life(生活)。</p></li></ol>
-          <div class="read-more">
-            <a href="/2016/08/25/english-grammar-guide1/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/24/emmet-hotkey/">Emmet Hotkey</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 24, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><strong>Available actions</strong></p>
-<ol>
-<li><a href="http://docs.emmet.io/actions/expand-abbreviation/" target="_blank" rel="external">Expand Abbreviation</a> – <code>Tab</code> or <code>Ctrl+E</code></li>
-<li>Interactive “Expand Abbreviation” — <code>Ctrl+Alt+Enter</code></li>
-<li><a href="http://docs.emmet.io/actions/match-pair/" target="_blank" rel="external"><strong>Match Tag Pair Outward</strong></a> – <code>⌃D</code> (Mac) / <code>Ctrl+,</code> (PC)</li>
-<li><a href="http://docs.emmet.io/actions/match-pair/" target="_blank" rel="external"><strong>Match Tag Pair Inward</strong></a> – <code>⌃J</code> / <code>Shift+Ctrl+0</code></li>
-<li><a href="http://docs.emmet.io/actions/go-to-pair/" target="_blank" rel="external"><strong>Go to Matching Pair</strong></a> – <code>⇧⌃T</code> / <code>Ctrl+Alt+J</code></li>
-<li><a href="http://docs.emmet.io/actions/wrap-with-abbreviation/" target="_blank" rel="external">Wrap With Abbreviation</a> — <code>⌃W</code> / <code>Shift+Ctrl+G</code></li>
-<li><a href="http://docs.emmet.io/actions/go-to-edit-point/" target="_blank" rel="external">Go to Edit Point</a> — <code>Ctrl+Alt+→</code> or <code>Ctrl+Alt+←</code></li>
-<li><a href="http://docs.emmet.io/actions/select-item/" target="_blank" rel="external">Select Item</a> – <code>⇧⌘.</code> or <code>⇧⌘,</code> / <code>Shift+Ctrl+.</code> or <code>Shift+Ctrl+,</code></li>
-<li><a href="http://docs.emmet.io/actions/toggle-comment/" target="_blank" rel="external">Toggle Comment</a> — <code>⇧⌥/</code> / <code>Shift+Ctrl+/</code></li>
-<li><a href="http://docs.emmet.io/actions/split-join-tag/" target="_blank" rel="external">Split/Join Tag</a> — <code>⇧⌘&#39;</code> / <code>Shift+Ctrl+` </code></li>
-<li><a href="http://docs.emmet.io/actions/remove-tag/" target="_blank" rel="external"><strong>Remove Tag</strong></a> – <code>⌘&#39;</code> / <code>Shift+Ctrl+;</code></li>
-<li><a href="http://docs.emmet.io/actions/update-image-size/" target="_blank" rel="external">Update Image Size</a> — <code>⇧⌃I</code> / <code>Ctrl+U</code></li>
-<li><a href="http://docs.emmet.io/actions/evaluate-math/" target="_blank" rel="external">Evaluate Math Expression</a> — <code>⇧⌘Y</code> / <code>Shift+Ctrl+Y</code></li>
-<li><a href="http://docs.emmet.io/actions/reflect-css-value/" target="_blank" rel="external">Reflect CSS Value</a> – <code>⇧⌘R</code> / <code>Shift+Ctrl+R</code></li>
-<li><a href="http://docs.emmet.io/actions/base64/" target="_blank" rel="external">Encode/Decode Image to data:URL</a> – <code>⇧⌃D</code> / <code>Ctrl+&#39;</code></li>
-<li><strong>Rename Tag</strong> – <code>⇧⌘K</code> / <code>Shift+Ctrl+&#39;</code></li>
-<li><strong>Merge Row</strong> – <code>⌘J</code></li>
-</ol>
-          <div class="read-more">
-            <a href="/2016/08/24/emmet-hotkey/" class="read-more-link">Read more..</a>
           </div>
         
       
