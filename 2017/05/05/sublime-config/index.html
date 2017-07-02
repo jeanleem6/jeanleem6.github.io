@@ -42,7 +42,7 @@
 <meta property="og:site_name" content="JH.LEE">
 <meta property="og:description" content="本文是安装和配置 Sublime Text 的流程，请按照顺序一步一步来  安装 Sublime Text下载 Sublime Text：Download 安装 node.js安装 Sublime 插件需要 node.js  Mac 12# Install node.jsbrew install node  Windows   下载 Node.js：DOWNLOAD">
 <meta property="og:image" content="https://jeanleem6.github.io/2017/05/05/sublime-config/plugin.png">
-<meta property="og:updated_time" content="2017-06-30T00:13:41.000Z">
+<meta property="og:updated_time" content="2017-06-30T08:18:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sublime-config">
 <meta name="twitter:description" content="本文是安装和配置 Sublime Text 的流程，请按照顺序一步一步来  安装 Sublime Text下载 Sublime Text：Download 安装 node.js安装 Sublime 插件需要 node.js  Mac 12# Install node.jsbrew install node  Windows   下载 Node.js：DOWNLOAD">
@@ -247,12 +247,30 @@
 <h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p><img src="/2017/05/05/sublime-config/plugin.png" alt="Plugin"></p>
 <ul>
 <li><p>Markdown 语法高亮的插件：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Markdown Extended</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Markdown Extended</div></pre></td></tr></table></figure>
 <p>  并依次点击：<em>右下角文档格式 &gt; Open all with current extention as… &gt; Markdown Extended</em></p>
 </li>
 <li><p>主题插件：</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Material Theme</div></pre></td></tr></table></figure>
 <p>  安装好之后（安装时间一般比较长），在文档中依此点 <code>右键 &gt; Material Theme &gt; Activate</code> 启用</p>
+</li>
+<li><p>javascript自动提示插件：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">JavaScript Completions</div></pre></td></tr></table></figure>
+<p>  安装之后重启sublime。</p>
+</li>
+<li><p>SublimeLinter 插件：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SublimeLinter</div><div class="line">SublimeLinter-jshint</div><div class="line">SublimeLinter-csslint</div><div class="line">SublimeLinter-contrib-htmlhint</div></pre></td></tr></table></figure>
+<p>  ST3开始 SublimeLinter 只是一个框架，并没有实际的检查验证功能。需要单独安装，如上面的js验证插件<code>SublimeLinter-jshint</code>、css验证插件<code>SublimeLinter-csslint</code>和html验证插件<code>SublimeLinter-contrib-htmlhint</code>。<br>  插件安装之后，打开命令行工具（Terminal）全局安装相应的功能包：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g jshint</div><div class="line">npm install -g csslint</div><div class="line">npm install -g htmlhint@latest</div></pre></td></tr></table></figure>
+<p>  参数设置(<code>Preferences → Package Settings → SublimeLinter → Settings - user</code>)：</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"user"</span>: &#123;</div><div class="line">        <span class="attr">"lint_mode"</span>: <span class="string">"load/save"</span>,</div><div class="line">        <span class="attr">"linters"</span>: &#123;</div><div class="line">            <span class="attr">"csslint"</span>: &#123;</div><div class="line">                <span class="attr">"@disable"</span>: <span class="literal">false</span>,</div><div class="line">                <span class="attr">"args"</span>: [</div><div class="line">                    <span class="string">"--ignore=order-alphabetical,ids,box-model,font-sizes"</span></div><div class="line">                ],</div><div class="line">                <span class="attr">"errors"</span>: <span class="string">""</span>,</div><div class="line">                <span class="attr">"excludes"</span>: [],</div><div class="line">                <span class="attr">"ignore"</span>: <span class="string">""</span>,</div><div class="line">                <span class="attr">"warnings"</span>: <span class="string">""</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  <code>lint_mode</code>: lint模式-加载/保存文件时执行lint检查；<br>  <code>@disable</code>: false-启用csslint，true-关闭csslint；<br>  csslint的调用参数传入<code>--ignore</code>关闭几个开关：</p>
+<ol>
+<li><code>order-alphabetical</code>：样式属性必须按照名称顺序排列</li>
+<li><code>ids</code>：不允许用id作为选择器（即选择器以 # 打头）</li>
+<li><code>box-model</code>：盒模型的警告</li>
+<li><code>font-sizes</code>：使用太多 font-size 属性的警告</li>
+</ol>
 </li>
 <li><p>js 压缩插件：<br>  需要先<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank" rel="external">安装java</a></p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">YUI Compressor</div></pre></td></tr></table></figure>
