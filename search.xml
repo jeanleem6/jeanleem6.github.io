@@ -44,15 +44,15 @@
 <li><code>⌃ + M</code> <strong>定位匹配的括号</strong></li>
 </ul>
 <h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li><code>⌘ + L</code> <strong>选中光标所在的行</strong>，重复按下将下一行加入选择</li>
-<li><code>⌃ + ⌘ + G</code> <strong>选中所有与当前选中部分相同的内容</strong>，仅当前文件内；也可连续按<code>⌘ + D</code>，使用<code>⌘ + U</code>回退，<code>Esc</code>退出多重编辑</li>
-<li><code>⌘ + ⇧ + ,/.</code> 向前/后<strong>逐个选择 属性值、属性及其值、开标签</strong></li>
-<li><code>⌃ + ⇧ + M</code> <strong>选中花括号里面</strong>的全部内容不包括{}，重复按下可以选择{}及下一个括号内容…</li>
-<li><code>⌃ + ⇧ + ↑/↓</code> 加选上/下一行</li>
-<li><code>⌃ + ⇧ + ←/→</code> 向左/右单位性地选中文本(一般以空格为区分)</li>
 <li><code>⌘ + ⇧ + K</code> <strong>选择标签对</strong></li>
-<li><code>⌃ + D</code> 按<strong>内容及标签层级</strong>一层一层向上选（很怪异的操作，不过感觉很酷炫）</li>
+<li><code>⌘ + ⇧ + ,/.</code> 向前/后<strong>逐个选择 属性值、属性及其值、开标签</strong></li>
 <li><code>⌃ + J</code> <strong>选择标签/标签内容</strong></li>
+<li><code>⌃ + D</code> 按<strong>内容及标签层级</strong>一层一层向上选（很怪异的操作，不过感觉很酷炫）</li>
+<li><code>⌃ + ⌘ + G</code> <strong>选中所有与当前选中部分相同的内容</strong>，仅当前文件内；也可连续按<code>⌘ + D</code>，使用<code>⌘ + U</code>回退，<code>Esc</code>退出多重编辑</li>
+<li><code>⌃ + ⇧ + ←/→</code> 向左/右单位性地选中文本(一般以空格为区分)</li>
+<li><code>⌃ + ⇧ + M</code> <strong>选中花括号里面</strong>的全部内容不包括{}，重复按下可以选择{}及下一个括号内容…</li>
+<li><code>⌘ + L</code> <strong>选中光标所在的行</strong>，重复按下将下一行加入选择</li>
+<li><code>⌃ + ⇧ + ↑/↓</code> 加选上/下一行</li>
 <li><code>⌘ + ⌥ + [</code> 折叠选中的代码</li>
 <li><code>⌘ + ⌥ + ]</code> 展开选中的代码</li>
 <li><code>⌘ + K + 0</code> 展开所有折叠代码</li>
