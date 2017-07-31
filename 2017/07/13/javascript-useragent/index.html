@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="javascript 用户代理(userAgent)"/>
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+  <link rel="alternate" href="/default" title="JH.LEE">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="https://jeanleem6.github.io/2017/07/13/javascript-useragent/"/>
+
+
+<meta name="description" content="强调一下，用户代理检测是客户端检测的最后一个选择。只要可能，都应该优先采用能力检测和怪癖检测。用户代理检测一般适用以下情形：  不能直接准确地使用能力检测或怪癖检测。例如，某些浏览器实现了为将来功能预留的存根(stub)函数。在这种情况下，仅测试相应的函数是否存在还得不到足够的信息。 同一款浏览器在不同平台下具备不同的能力。这时候，可能就有必要确定浏览器位于哪个平台下。 为了跟踪分析等目的需要知道">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 用户代理(userAgent)">
+<meta property="og:url" content="https://jeanleem6.github.io/2017/07/13/javascript-useragent/index.html">
+<meta property="og:site_name" content="JH.LEE">
+<meta property="og:description" content="强调一下，用户代理检测是客户端检测的最后一个选择。只要可能，都应该优先采用能力检测和怪癖检测。用户代理检测一般适用以下情形：  不能直接准确地使用能力检测或怪癖检测。例如，某些浏览器实现了为将来功能预留的存根(stub)函数。在这种情况下，仅测试相应的函数是否存在还得不到足够的信息。 同一款浏览器在不同平台下具备不同的能力。这时候，可能就有必要确定浏览器位于哪个平台下。 为了跟踪分析等目的需要知道">
+<meta property="og:updated_time" content="2017-07-13T10:01:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 用户代理(userAgent)">
+<meta name="twitter:description" content="强调一下，用户代理检测是客户端检测的最后一个选择。只要可能，都应该优先采用能力检测和怪癖检测。用户代理检测一般适用以下情形：  不能直接准确地使用能力检测或怪癖检测。例如，某些浏览器实现了为将来功能预留的存根(stub)函数。在这种情况下，仅测试相应的函数是否存在还得不到足够的信息。 同一款浏览器在不同平台下具备不同的能力。这时候，可能就有必要确定浏览器位于哪个平台下。 为了跟踪分析等目的需要知道">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.xml",
+    fancybox: true,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> javascript 用户代理(userAgent) · JH.LEE </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">JH.LEE</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">JH.LEE</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          javascript 用户代理(userAgent)
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jul 13, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>强调一下，<strong>用户代理检测是</strong>客户端检测的<strong>最后一个选择</strong>。只要可能，都<strong>应该优先采用能力检测和怪癖检测</strong>。用户代理检测一般适用以下情形：</p>
+<ul>
+<li>不能直接准确地使用能力检测或怪癖检测。例如，某些浏览器实现了为将来功能预留的存根(stub)函数。在这种情况下，仅测试相应的函数是否存在还得不到足够的信息。</li>
+<li>同一款浏览器在不同平台下具备不同的能力。这时候，可能就有必要确定浏览器位于哪个平台下。</li>
+<li>为了跟踪分析等目的需要知道确切的浏览器。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 引擎、浏览器版本检测</span></div><div class="line"><span class="keyword">var</span> client = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> engine = &#123;</div><div class="line">        <span class="comment">//呈现引擎</span></div><div class="line">        ie: <span class="number">0</span>,</div><div class="line">        <span class="attr">gecko</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">webkit</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">khtml</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">opera</span>: <span class="number">0</span>,</div><div class="line">        <span class="comment">// 具体的版本</span></div><div class="line">        ver: <span class="literal">null</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> browser = &#123;</div><div class="line">        <span class="comment">// 浏览器</span></div><div class="line">        ie: <span class="number">0</span>,</div><div class="line">        <span class="attr">firefox</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">safari</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">kong</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">opera</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">chrome</span>: <span class="number">0</span>,</div><div class="line">        <span class="comment">// 具体的版本</span></div><div class="line">        ver: <span class="literal">null</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> ua = navigator.userAgent;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.opera) &#123;</div><div class="line">        engine.ver = browser.ver = <span class="built_in">window</span>.opera.version();</div><div class="line">        engine.opera = browser.opera = <span class="built_in">parseFloat</span>(engine.ver);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/AppleWebKit\/(\S+)/</span>.test(ua)) &#123;</div><div class="line">        engine.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</div><div class="line">        engine.webkit = <span class="built_in">parseFloat</span>(engine.ver);</div><div class="line"></div><div class="line">        <span class="comment">// 确定是 safari 还是 chrome</span></div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/Chrome\/(\S+)/</span>.test(ua)) &#123;</div><div class="line">            browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</div><div class="line">            browser.chrome = <span class="built_in">parseFloat</span>(browser.ver);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/Version\/(\S+)/</span>.test(ua)) &#123;</div><div class="line">            browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</div><div class="line">            browser.safari = <span class="built_in">parseFloat</span>(browser.ver);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 近似地确定版本号</span></div><div class="line">            <span class="keyword">var</span> safariVersion = <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (engine.webkit &lt; <span class="number">100</span>) &#123;</div><div class="line">                safariVersion = <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (engine.webkit &lt; <span class="number">312</span>) &#123;</div><div class="line">                safariVersion = <span class="number">1.2</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (engine.webkit &lt; <span class="number">412</span>) &#123;</div><div class="line">                safariVersion = <span class="number">1.3</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                safariVersion = <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            browser.safari = browser.ver = safariVersion;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/KHTML\/(\S+)/</span>.test(ua) || <span class="regexp">/Konqueror\/([^;]+)/</span>.test(ua)) &#123;</div><div class="line">        engine.ver = browser.ver = RgeExp[<span class="string">'$1'</span>];</div><div class="line">        engine.khtml = browser.kong = <span class="built_in">parseFloat</span>(engine.ver);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/rv:([^\)]+)\) Gecko\/\d&#123;8&#125;/</span>.test(ua)) &#123;</div><div class="line">        engine.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</div><div class="line">        engine.gecko = <span class="built_in">parseFloat</span>(engine.ver);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/Firefox\/(\S+)/</span>.test(ua)) &#123;</div><div class="line">            browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</div><div class="line">            browser.firefox = <span class="built_in">parseFloat</span>(browser.ver);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/MSIE ([^;]+)/</span>.test(ua)) &#123;</div><div class="line">        engine.ver = browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</div><div class="line">        engine.ie = browser.ie = <span class="built_in">parseFloat</span>(engine.ver);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">engine</span>: engine,</div><div class="line">        <span class="attr">browser</span>: browser</div><div class="line">    &#125;;</div><div class="line">&#125;();</div><div class="line"></div><div class="line"><span class="comment">// 引擎版本</span></div><div class="line"><span class="built_in">console</span>.log(client.engine.ver);</div><div class="line"><span class="comment">// 浏览器版本</span></div><div class="line"><span class="built_in">console</span>.log(client.browser.ver);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>还有一个<strong>平台检测</strong>功能此处未实现，待后续更新…</p>
+</blockquote>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <span>JH.LEE</span>
+    </p>
+    <p class="copyright-item">
+      <span>Origin: </span>
+      <a href="https://jeanleem6.github.io">https://jeanleem6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://jeanleem6.github.io/2017/07/13/javascript-useragent/">https://jeanleem6.github.io/2017/07/13/javascript-useragent/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/javascript/">javascript</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/07/20/google-search-skills/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">这样用Google，秒变特工</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/06/28/sublime-practical-skills/">
+        <span class="next-text nav-default">Sublime实用技巧(Mac)</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">JH.LEE</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://jeanleem6.github.io/2017/07/13/javascript-useragent/';
+        this.page.identifier = '2017/07/13/javascript-useragent/';
+        this.page.title = 'javascript 用户代理(userAgent)';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jeanleem6.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script>
+
+  </body>
+</html>
