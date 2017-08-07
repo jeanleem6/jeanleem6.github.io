@@ -196,6 +196,49 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/11/17/uninstall-mysql/">Uninstall Mysql</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 17, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="dmg-安装包"><a href="#dmg-安装包" class="headerlink" title="dmg 安装包"></a>dmg 安装包</h2><p>如果通过 dmg安装包 方式安装的Mysql，需要手动删除部分Mysql运行和配置文件，如下为删除相关文件的shell，可能不存在，但尽量查找并删除，避免出现一些莫名问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo rm /usr/<span class="built_in">local</span>/mysql</div><div class="line">sudo rm -rf /usr/<span class="built_in">local</span>/mysql*</div><div class="line">sudo rm -rf /Library/StartupItems/MySQLCOM</div><div class="line">sudo rm -rf /Library/PreferencePanes/My*</div><div class="line">vim /etc/hostconfig  (and removed the line MYSQLCOM=-YES-)</div><div class="line">rm -rf ~/Library/PreferencePanes/My*</div><div class="line">sudo rm -rf /Library/Receipts/mysql*</div><div class="line">sudo rm -rf /Library/Receipts/MySQL*</div><div class="line">sudo rm -rf /var/db/receipts/com.mysql.*</div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/17/uninstall-mysql/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/11/16/git-fresher-05/">Git 使用入门 05-Git 分支的应用</a>
         
       </h1>
@@ -833,58 +876,6 @@
 <li><p><strong>Cloning an Existing Repository</strong></p></li></ol>
           <div class="read-more">
             <a href="/2016/09/02/guide-of-git-2/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/09/02/guide-of-git-1/">Guide to use git - Section 1</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Sep 2, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>You’ll getting to know <strong>install git</strong> on different OS from this section, and then <strong>configure</strong> it on your local computer, indeed to <strong>get help</strong> somewhere.</p>
-</blockquote>
-<h2 id="Install-git"><a href="#Install-git" class="headerlink" title="Install git"></a>Install git</h2><ol>
-<li><p><strong>Installing on Linux</strong><br> If you’re on Fedora for example, you can use yum:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install git-all</div></pre></td></tr></table></figure>
-<p> If you’re on a Debian-based distribution like Ubuntu, try apt-get:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git-all</div></pre></td></tr></table></figure>
-<p> For more options, there are instructions for installing on several different Unix flavors on the Git website, at <a href="http://git-scm.com/download/linux" target="_blank" rel="external">http://git-scm.com/download/linux</a>.</p>
-</li>
-<li><p><strong>Installing on Mac</strong></p></li></ol>
-          <div class="read-more">
-            <a href="/2016/09/02/guide-of-git-1/" class="read-more-link">Read more..</a>
           </div>
         
       
