@@ -196,6 +196,141 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/11/22/mysql-shell/">Mysql Shell</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 22, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install MySQL</div></pre></td></tr></table></figure>
+<p>设置MySql开机启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/Library/LaunchAgents    <span class="comment"># 首先确认该目录是否存在，若已经存在不用执行本命令</span></div><div class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/mysql/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div></pre></td></tr></table></figure>
+<p>启动MySql服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server start</div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/22/mysql-shell/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/11/21/Mac-Nginx-MySQL-PHP/">Mac下使用Homebrew安装ST/Nginx/MySQL/PHP</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 21, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="使用homebrew-cask安装sublime"><a href="#使用homebrew-cask安装sublime" class="headerlink" title="使用homebrew-cask安装sublime"></a>使用homebrew-cask安装sublime</h2><p>先安装cask, 使用cask可以安装一些应用程序，如QQ，迅雷，谷歌浏览器等，功能和App store差不多，个人觉得这个更好管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask <span class="comment"># 没有安装cask会自动安装，已经安装cask的，会跳出cask命令列表</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Cask 常用命令</span></div><div class="line">brew cask search        <span class="comment">#列出所有可以被安装的软件</span></div><div class="line">brew cask search sublime    <span class="comment">#查找所有和sublime相关的应用</span></div><div class="line">brew cask list          <span class="comment">#列出所有通过cask安装的软件</span></div><div class="line">brew cask info sublime-text  <span class="comment">#查看 sublime 的信息</span></div><div class="line">brew cask install sublime-text  <span class="comment"># 安装sublime</span></div><div class="line">brew cask uninstall sublime-text   <span class="comment">#卸载sublime</span></div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/21/Mac-Nginx-MySQL-PHP/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/11/20/Mac-Homebrew-ZSH-Node-Npm/">Mac下安装Homebrew/ZSH/Node/NPM</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 20, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+<p><strong>自检Brew</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew doctor</div></pre></td></tr></table></figure>
+<h2 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 <a href="http://ohmyz.sh" target="_blank" rel="external">oh-my-zsh</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/20/Mac-Homebrew-ZSH-Node-Npm/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/11/17/uninstall-mysql/">Uninstall Mysql</a>
         
       </h1>
@@ -739,143 +874,6 @@
 <h2 id="通过索引访问数组元素"><a href="#通过索引访问数组元素" class="headerlink" title="通过索引访问数组元素"></a>通过索引访问数组元素</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> first = fruits[<span class="number">0</span>];</div><div class="line"><span class="comment">// apple</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> last = fruits[fruits.length - <span class="number">1</span>];</div><div class="line"><span class="comment">// banana</span></div></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2016/09/29/js-array/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/09/15/books-about-frontend/">javascript学习－阶段性书籍推荐</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Sep 15, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>在前端的进阶过程中，可以通过阶段性的学习来提高javascript技能点。以下为各阶段推荐书籍：</p>
-<h2 id="入门级"><a href="#入门级" class="headerlink" title="入门级"></a>入门级</h2><p>就是有一定的基础(比如最常见的HTML标签及其属性、事件、方法;最常见的CSS属性;基础的JavaScript编程能力)，能够完成一些简单的WEB前端需求。</p>
-<p><strong>推荐：《JavaScript dom 编程艺术》、《JavaScript权威指南》</strong></p>
-<h2 id="初级开发"><a href="#初级开发" class="headerlink" title="初级开发"></a>初级开发</h2><p>“初级开发人员的标志就是需要在中级和高级开发的指导下完成工作”。首先不要苛责代码的对错严谨，毕竟每个程序员都有这样的一个过程，就是这个级别的特征。</p>
-<p><strong>推荐：《javascript高级程序设计》(第三版)、《高性能 JavaScript》、《JavaScript语言精粹》</strong></p>
-          <div class="read-more">
-            <a href="/2016/09/15/books-about-frontend/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/09/14/get-sizes/">Get Sizes</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Sep 14, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>How can I get <code>windowWidth</code>, <code>windowHeight</code>, <code>pageWidth</code>, <code>pageHeight</code>, <code>screenWidth</code>, <code>screenHeight</code>, <code>pageX</code>, <code>pageY</code>, <code>screenX</code>, <code>screenY</code> which will work in all major browsers?</p>
-<p><img src="/2016/09/14/get-sizes/about-js-get-size.jpg" alt="getSize"></p>
-          <div class="read-more">
-            <a href="/2016/09/14/get-sizes/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/09/02/guide-of-git-2/">Guide to use git - Section 2</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Sep 2, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="Getting-a-Git-Repository"><a href="#Getting-a-Git-Repository" class="headerlink" title="Getting a Git Repository"></a>Getting a Git Repository</h2><p>You can get a Git project using two main approaches. The first takes an existing project or directory and imports it into Git. The second clones an existing Git repository from another server.</p>
-<ol>
-<li><p><strong>Initializing a Repository in an Existing Directory</strong><br> If you’re starting to track an existing project in Git, you need to go to the project’s directory and type:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure>
-<p> This creates a new subdirectory named .git that contains all of your necessary repository files – a Git repository skeleton. At this point, nothing in your project is tracked yet. (See <a href="https://git-scm.com/book/en/v2/ch00/_git_internals" target="_blank" rel="external">Git Internals</a> for more information about exactly what files are contained in the .git directory you just created.)</p>
-</li>
-<li><p><strong>Cloning an Existing Repository</strong></p></li></ol>
-          <div class="read-more">
-            <a href="/2016/09/02/guide-of-git-2/" class="read-more-link">Read more..</a>
           </div>
         
       

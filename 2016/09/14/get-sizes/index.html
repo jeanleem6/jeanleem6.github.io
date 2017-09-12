@@ -34,18 +34,18 @@
 <link rel="canonical" href="https://jeanleem6.github.io/2016/09/14/get-sizes/"/>
 
 
-<meta name="description" content="How can I get windowWidth, windowHeight, pageWidth, pageHeight, screenWidth, screenHeight, pageX, pageY, screenX, screenY which will work in all major browsers?">
+<meta name="description" content="Window SizeHow can I get windowWidth, windowHeight, pageWidth, pageHeight, screenWidth, screenHeight, pageX, pageY, screenX, screenY which will work in all major browsers?  Element Size每个HTML元素都有下列属性：">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Get Sizes">
 <meta property="og:url" content="https://jeanleem6.github.io/2016/09/14/get-sizes/index.html">
 <meta property="og:site_name" content="JH.LEE">
-<meta property="og:description" content="How can I get windowWidth, windowHeight, pageWidth, pageHeight, screenWidth, screenHeight, pageX, pageY, screenX, screenY which will work in all major browsers?">
+<meta property="og:description" content="Window SizeHow can I get windowWidth, windowHeight, pageWidth, pageHeight, screenWidth, screenHeight, pageX, pageY, screenX, screenY which will work in all major browsers?  Element Size每个HTML元素都有下列属性：">
 <meta property="og:image" content="https://jeanleem6.github.io/2016/09/14/get-sizes/about-js-get-size.jpg">
-<meta property="og:updated_time" content="2017-05-05T09:47:45.000Z">
+<meta property="og:updated_time" content="2017-09-03T23:59:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Get Sizes">
-<meta name="twitter:description" content="How can I get windowWidth, windowHeight, pageWidth, pageHeight, screenWidth, screenHeight, pageX, pageY, screenX, screenY which will work in all major browsers?">
+<meta name="twitter:description" content="Window SizeHow can I get windowWidth, windowHeight, pageWidth, pageHeight, screenWidth, screenHeight, pageX, pageY, screenX, screenY which will work in all major browsers?  Element Size每个HTML元素都有下列属性：">
 <meta name="twitter:image" content="https://jeanleem6.github.io/2016/09/14/get-sizes/about-js-get-size.jpg">
 
 
@@ -213,11 +213,66 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Window-Size"><span class="toc-text">Window Size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Element-Size"><span class="toc-text">Element Size</span></a></li></ol>
+    </div>
+  </div>
+
 
     <div class="post-content">
       
-        <p>How can I get <code>windowWidth</code>, <code>windowHeight</code>, <code>pageWidth</code>, <code>pageHeight</code>, <code>screenWidth</code>, <code>screenHeight</code>, <code>pageX</code>, <code>pageY</code>, <code>screenX</code>, <code>screenY</code> which will work in all major browsers?</p>
+        <h2 id="Window-Size"><a href="#Window-Size" class="headerlink" title="Window Size"></a>Window Size</h2><p>How can I get <code>windowWidth</code>, <code>windowHeight</code>, <code>pageWidth</code>, <code>pageHeight</code>, <code>screenWidth</code>, <code>screenHeight</code>, <code>pageX</code>, <code>pageY</code>, <code>screenX</code>, <code>screenY</code> which will work in all major browsers?</p>
 <p><img src="/2016/09/14/get-sizes/about-js-get-size.jpg" alt="getSize"></p>
+<h2 id="Element-Size"><a href="#Element-Size" class="headerlink" title="Element Size"></a>Element Size</h2><p>每个HTML元素都有下列属性：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offsetWidth</td>
+<td>clientWidth</td>
+<td>scrollWidth</td>
+</tr>
+<tr>
+<td>offsetHeight</td>
+<td>clientHeight</td>
+<td>scrollHeight</td>
+</tr>
+<tr>
+<td>offsetLeft</td>
+<td>clientLeft</td>
+<td>scrollLeft</td>
+</tr>
+<tr>
+<td>offsetTop</td>
+<td>clientTop</td>
+<td>scrollTop</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p><em>clientHeight</em> 和 <em>clientWidth</em> 用于描述元素<strong>内尺寸</strong>，是指【元素内容+内边距】大小，不包括边框（<strong>IE下实际包括</strong>）、外边距、滚动条部分</p>
+</li>
+<li><p><em>offsetHeight</em>和<em>offsetWidth</em>用于描述元素<strong>外尺寸</strong>，是指【元素内容+内边距+边框】，不包括外边距和滚动条部分</p>
+</li>
+<li><p><em>clientTop</em> 和 <em>clientLeft</em> 返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是【左、上边框宽度】</p>
+</li>
+<li><p><em>offsetTop</em> 和 <em>offsetLeft</em> 表示该元素的左上角（边框外边缘）与已定位的父容器（<em>offsetParent</em>对象）左上角的距离</p>
+</li>
+<li><p><em>offsetParent</em>对象是指元素最近的定位（relative,absolute）祖先元素，递归上溯，如果没有祖先元素是定位的话，返回null</p>
+</li>
+<li><p><em>scrollWidth</em> 和 <em>scrollHeight</em> 是元素的【内容区域+内边距+溢出尺寸】，当内容正好和内容区域匹配没有溢出时，这些属性与 <em>clientWidth</em> 和 <em>clientHeight</em> 相等</p>
+</li>
+<li><p><em>scrollLeft</em> 和 <em>scrollTop</em> 是指【元素滚动条位置】，它们是<strong>可写</strong>的</p>
+</li>
+</ol>
 <a id="more"></a>
 
       
