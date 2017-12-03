@@ -38,6 +38,7 @@
 <meta property="og:url" content="https://jeanleem6.github.io/page/3/index.html">
 <meta property="og:site_name" content="JH.LEE">
 <meta property="og:description" content="This is a bloger about FE(front engineer), so here has any articles for CSS/HTML/JS, etc.">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JH.LEE">
 <meta name="twitter:description" content="This is a bloger about FE(front engineer), so here has any articles for CSS/HTML/JS, etc.">
@@ -190,6 +191,136 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/11/02/macos-PATH/">Mac 配置环境变量</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 2, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="系统级全局变量"><a href="#系统级全局变量" class="headerlink" title="系统级全局变量"></a>系统级全局变量</h2><p>系统级全局变量针对系统所有用户，仅root用户可修改它们；<br>一般用户想修改它们，可以在命令前加<code>sudo</code>，即以root身份执行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/profile</div><div class="line">sudo vi /etc/bashrc</div></pre></td></tr></table></figure>
+<h2 id="用户级全局变量"><a href="#用户级全局变量" class="headerlink" title="用户级全局变量"></a>用户级全局变量</h2><p>对于一般用户而言，通常我们建议去修改~/.bash_profile或~/.zshrc来设置环境变量，它们是用户级的设置，只对当前用户有效。</p>
+          <div class="read-more">
+            <a href="/2016/11/02/macos-PATH/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/09/30/pronunciation-of-symbols-in-english/">Pronunciation of Symbols in English</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Sep 30, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p><code>+</code>     plus 加号；positive 正的<br><code>-</code>     minus 减号；negative 负的<br><code>±</code>     plus or minus 正负号<br><code>*</code>     is multiplied by 乘号<br><code>÷</code>     is divided by 除号<br><code>=</code>     is equal to 等于号<br><code>&gt;</code>     is more than 大于号<br><code>&lt;</code>     is less than 小于号<br><code>≤</code>     is less than or equal to 小于或等于号<br><code>≥</code>     is more than or equal to 大于或等于号<br><code>≮</code>     is not less than 不小于号<br><code>≯</code>     is not more than 不大于号<br><code>≠</code>     is not equal to 不等于号<br><code>≡</code>     is equivalent to 全等于号<br><code>≌</code>     is equal to or approximately equal to 等于或约等于号<br><code>≈</code>     is approximately equal to 约等于号  </p>
+          <div class="read-more">
+            <a href="/2016/09/30/pronunciation-of-symbols-in-english/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/09/29/js-array/">Array-JavaScript</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Sep 29, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在 JavaScript 中 Array 是一个用来构造数组的全局对象，它是一个高阶的类似有序列表的对象。</p>
+<h2 id="创建一个数组"><a href="#创建一个数组" class="headerlink" title="创建一个数组"></a>创建一个数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(fruits.length);</div><div class="line"><span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<h2 id="通过索引访问数组元素"><a href="#通过索引访问数组元素" class="headerlink" title="通过索引访问数组元素"></a>通过索引访问数组元素</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> first = fruits[<span class="number">0</span>];</div><div class="line"><span class="comment">// apple</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> last = fruits[fruits.length - <span class="number">1</span>];</div><div class="line"><span class="comment">// banana</span></div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/09/29/js-array/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -823,149 +954,6 @@
 <p><img src="/2016/08/10/hexo-theme-even/hexo-theme-even.png" alt="even"></p>
           <div class="read-more">
             <a href="/2016/08/10/hexo-theme-even/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/09/hexo-install-commands/">Hexo 安装及常用命令</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 9, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="Hexo-Installation"><a href="#Hexo-Installation" class="headerlink" title="Hexo Installation"></a>Hexo Installation</h2><p>安装前提，先检查是否安装下列应用程序：</p>
-<ul>
-<li>Xcode</li>
-<li>Node.js</li>
-<li>Git</li>
-</ul>
-<h3 id="安装-Xcode"><a href="#安装-Xcode" class="headerlink" title="安装 Xcode"></a>安装 Xcode</h3><p>请先到 App Store 安装 Xcode，Xcode 完成后，可通过两种方式安装 <strong>Xcode中Command Line Tools</strong>：</p>
-<ul>
-<li>启动 Xcode 并进入 <strong>Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install</strong> 安装命令行工具。</li>
-<li>命令行安装</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xcode-select --install</div></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2016/08/09/hexo-install-commands/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/09/Markdown-Syntax/">Markdown Syntax</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 9, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><img src="/2016/08/09/Markdown-Syntax/markdown_icon.png" alt="Markdown" title="Markdown"></p>
-<p><strong>NOTE:</strong> This is Traditional Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax" title="Markdown Syntax" target="_blank" rel="external">Markdown Syntax</a>.</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="哲学"><a href="#哲学" class="headerlink" title="哲学"></a>哲学</h3><p>Markdown的目标是实现［易读易写］。</p>
-<p>不过最需要强调的便是它的可读性。一份使用Markdown格式撰写的文件应该可以直接以纯文字发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown语法受到一些既有text-to-HTML格式的影响，包括<a href="http://docutils.sourceforge.net/mirror/setext.html" title="Setext" target="_blank" rel="external">Setext</a>、<a href="http://www.aaronsw.com/2002/atx/" title="atx" target="_blank" rel="external">atx</a>、<a href="http://textism.com/tools/textile/" title="Textile" target="_blank" rel="external">Textile</a>、<a href="http://docutils.sourceforge.net/rst.html" title="reStructuredText" target="_blank" rel="external">reStructuredText</a>、<a href="http://www.triptico.com/software/grutatxt.html" title="Grutatext" target="_blank" rel="external">Grutatext</a> 和 <a href="http://ettext.taint.org/doc/" title="EtText" target="_blank" rel="external">EtText</a>，然而最大灵感来源其实是纯文字的电子邮件格式。</p>
-          <div class="read-more">
-            <a href="/2016/08/09/Markdown-Syntax/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/05/macos-Terminal/">MAC 终端(Terminal)命令入门</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 5, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>Mac常用<em>终端</em>(Terminal)命令，帮助我们更好地使用Mac(Let’s Rock.&amp;.&amp;.)</p>
-</blockquote>
-<h2 id="访问目录"><a href="#访问目录" class="headerlink" title="访问目录"></a>访问目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">pwd</span>　　　　　　<span class="comment">#显示当前工作目录路径</span></div><div class="line"><span class="built_in">cd</span>         　　<span class="comment">#进root</span></div><div class="line">~         　 　<span class="comment">#进root</span></div><div class="line"><span class="built_in">cd</span> ~　　　　　　<span class="comment">#返回root</span></div><div class="line"><span class="built_in">cd</span> FolderName　　<span class="comment">#进入文件夹</span></div><div class="line"><span class="built_in">cd</span> ..　　　　　　<span class="comment">#上级目录</span></div><div class="line"><span class="built_in">cd</span> -　　　　　　<span class="comment">#返回上一个访问的目录</span></div></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2016/08/05/macos-Terminal/" class="read-more-link">Read more..</a>
           </div>
         
       
