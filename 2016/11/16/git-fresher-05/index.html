@@ -216,20 +216,20 @@
     <div class="post-content">
       
         <p><strong>创建分支</strong>( modify-README 为分支名)：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b modify-README</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b modify-README</span><br></pre></td></tr></table></figure>
 <p>注：创建完之后默认切换到这个分区。</p>
 <p><strong>列出所有的分支：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
 <p><strong>合并到主分支：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git merge modify-README</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge modify-README</span><br></pre></td></tr></table></figure>
 <p>注：先切换到主分支，再合并。</p>
 <a id="more"></a>
 <p><strong>修改分支名</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -m oldname newname</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m oldname newname</span><br></pre></td></tr></table></figure>
 <p><strong>删除分支：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 本地</span></div><div class="line">git branch <span class="_">-d</span> modify-README</div><div class="line"><span class="comment"># 远程</span></div><div class="line">git push origin --delete modify-README</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地</span></span><br><span class="line">git branch -d modify-README</span><br><span class="line"><span class="comment"># 远程</span></span><br><span class="line">git push origin --delete modify-README</span><br></pre></td></tr></table></figure>
 <hr>
-<p>reference:<br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">https://git-scm.com/book/zh/v2</a></p>
+<p>reference:<br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a></p>
 
       
     </div>

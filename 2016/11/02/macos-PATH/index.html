@@ -17,7 +17,7 @@
 
 
 
-  <meta name="keywords" content="Mac,server," />
+  <meta name="keywords" content="server,Mac," />
 
 
 
@@ -35,7 +35,7 @@
 
 
 <meta name="description" content="系统级全局变量系统级全局变量针对系统所有用户，仅root用户可修改它们；一般用户想修改它们，可以在命令前加sudo，即以root身份执行。 12sudo vi /etc/profilesudo vi /etc/bashrc 用户级全局变量对于一般用户而言，通常我们建议去修改~/.bash_profile或~/.zshr">
-<meta name="keywords" content="Mac,server">
+<meta name="keywords" content="server,Mac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac 配置环境变量">
 <meta property="og:url" content="https://jeanleem6.github.io/2016/11/02/macos-PATH/index.html">
@@ -223,17 +223,17 @@
     <div class="post-content">
       
         <h2 id="系统级全局变量"><a href="#系统级全局变量" class="headerlink" title="系统级全局变量"></a>系统级全局变量</h2><p>系统级全局变量针对系统所有用户，仅root用户可修改它们；<br>一般用户想修改它们，可以在命令前加<code>sudo</code>，即以root身份执行。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/profile</div><div class="line">sudo vi /etc/bashrc</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/profile</span><br><span class="line">sudo vi /etc/bashrc</span><br></pre></td></tr></table></figure>
 <h2 id="用户级全局变量"><a href="#用户级全局变量" class="headerlink" title="用户级全局变量"></a>用户级全局变量</h2><p>对于一般用户而言，通常我们建议去修改~/.bash_profile或~/.zshrc来设置环境变量，它们是用户级的设置，只对当前用户有效。</p>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#shell为bash或zsh</span></div><div class="line">vi ~/.bash_profile</div><div class="line"></div><div class="line"><span class="comment">#shell为zsh</span></div><div class="line">vi ~/.zshrc</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#shell为bash或zsh</span></span><br><span class="line">vi ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="comment">#shell为zsh</span></span><br><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>命令中的 <code>vi</code> 可改为 <code>vim</code>，效果一样<br>也可以使用 <strong>nano</strong>，一个更现代、方便的文本编辑器，底部有快捷键列表。<br>使用方式与 <strong>vim</strong> 类似： <code>nano ~/.zshrc</code></p>
 </blockquote>
-<h2 id="全局变量立即生效"><a href="#全局变量立即生效" class="headerlink" title="全局变量立即生效"></a>全局变量立即生效</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> [File PATH]</div><div class="line"></div><div class="line"><span class="comment">#例如：</span></div><div class="line"><span class="built_in">source</span> ~/.bash_profile</div><div class="line"><span class="built_in">source</span> ~/.zshrc</div></pre></td></tr></table></figure>
-<h2 id="查看环境变量的值"><a href="#查看环境变量的值" class="headerlink" title="查看环境变量的值"></a>查看环境变量的值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></div><div class="line"></div><div class="line"><span class="comment">#输出：</span></div><div class="line">/usr/<span class="built_in">local</span>/bin /usr/<span class="built_in">local</span>/sbib /usr/<span class="built_in">local</span>/opt/php56/sbin /usr/<span class="built_in">local</span>/opt/php56/bin /usr/<span class="built_in">local</span>/bin /usr/bin /bin /usr/sbin /sbin</div></pre></td></tr></table></figure>
+<h2 id="全局变量立即生效"><a href="#全局变量立即生效" class="headerlink" title="全局变量立即生效"></a>全局变量立即生效</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> [File PATH]</span><br><span class="line"></span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="查看环境变量的值"><a href="#查看环境变量的值" class="headerlink" title="查看环境变量的值"></a>查看环境变量的值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line">/usr/<span class="built_in">local</span>/bin /usr/<span class="built_in">local</span>/sbib /usr/<span class="built_in">local</span>/opt/php56/sbin /usr/<span class="built_in">local</span>/opt/php56/bin /usr/<span class="built_in">local</span>/bin /usr/bin /bin /usr/sbin /sbin</span><br></pre></td></tr></table></figure>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>以下命令是为php56添加环境变量，以替代系统自带的PHP版本，直接写入~/.zshrc，不用进vim编辑器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$(brew --prefix php56)/bin:$PATH"'</span> &gt;&gt; ~/.zshrc  <span class="comment">#for php</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$(brew --prefix php56)/sbin:$PATH"'</span> &gt;&gt; ~/.zshrc  <span class="comment">#for php-fpm</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/bin:/usr/local/sbib:$PATH"'</span> &gt;&gt; ~/.zshrc <span class="comment">#for other brew install soft</span></div><div class="line"><span class="built_in">source</span> ~/.zshrc  <span class="comment">#立即生效</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$(brew --prefix php56)/bin:$PATH"'</span> &gt;&gt; ~/.zshrc  <span class="comment">#for php</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$(brew --prefix php56)/sbin:$PATH"'</span> &gt;&gt; ~/.zshrc  <span class="comment">#for php-fpm</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/bin:/usr/local/sbib:$PATH"'</span> &gt;&gt; ~/.zshrc <span class="comment">#for other brew install soft</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc  <span class="comment">#立即生效</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：<br>1、<code>~/.bash_profile</code>中有个点<br>2、如果是新增环境变量或者是修改环境变量的值，都需要<code>source</code>一下才能立即生效。如果是删除一个环境变量，必须输入<code>exit</code>以<code>logout</code>当前<strong>shell</strong>，然后再重新打开一个新的<strong>shell</strong>并<code>login</code>才能生效。</p>
 </blockquote>
@@ -276,9 +276,9 @@
         
           <div class="post-tags">
             
-              <a href="/tags/Mac/">Mac</a>
-            
               <a href="/tags/server/">server</a>
+            
+              <a href="/tags/Mac/">Mac</a>
             
           </div>
         

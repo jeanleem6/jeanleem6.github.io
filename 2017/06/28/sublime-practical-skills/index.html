@@ -293,23 +293,23 @@
 </ul>
 <hr>
 <h2 id="隐藏不想在-SideBar-显示的文件"><a href="#隐藏不想在-SideBar-显示的文件" class="headerlink" title="隐藏不想在 SideBar 显示的文件"></a>隐藏不想在 SideBar 显示的文件</h2><p>在设置（<code>⌘ + ,</code>）中加入如下配置即可，根据需要增/删：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"folder_exclude_patterns"</span>: [<span class="string">".svn"</span>, <span class="string">".git"</span>, <span class="string">"<span class="variable">$RECYCLE</span>.BIN"</span>, <span class="string">".tmp"</span>, <span class="string">".hg"</span>, <span class="string">"CVS"</span>, <span class="string">"node_modules"</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"folder_exclude_patterns"</span>: [<span class="string">".svn"</span>, <span class="string">".git"</span>, <span class="string">"<span class="variable">$RECYCLE</span>.BIN"</span>, <span class="string">".tmp"</span>, <span class="string">".hg"</span>, <span class="string">"CVS"</span>, <span class="string">"node_modules"</span>]</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="Sublime-Text内运行javascript"><a href="#Sublime-Text内运行javascript" class="headerlink" title="Sublime Text内运行javascript"></a>Sublime Text内运行javascript</h2><ul>
 <li><p>首先安装 nodejs，这里不讲安装步骤。</p>
 </li>
 <li><p>添加build system：</p>
 <p>  在 Sublime 中依次打开 <code>Tools -&gt; Build System -&gt; New Build System…</code> 粘贴以下代码后保存(如<code>Node.sublime-build</code>), 然后把Build System设成Automatic</p>
-  <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"cmd"</span>: [</div><div class="line">        <span class="string">"/usr/local/bin/node"</span>,</div><div class="line">        <span class="string">"$file"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"selector"</span>: <span class="string">"source.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"cmd"</span>: [</span><br><span class="line">        <span class="string">"/usr/local/bin/node"</span>,</span><br><span class="line">        <span class="string">"$file"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"selector"</span>: <span class="string">"source.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>附加说明：</p>
 <p>  在以上的build文件中(Node.sublime-build), <code>/usr/local/bin/node</code>是执行程序（即node)，<code>$file</code>是当前文件名。</p>
 </li>
 <li><p>具体使用：</p>
 <p>  新建一个test.js文件, 然后输入你的测试代码, 比如:</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ ) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'i:'</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ ) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'i:'</span>, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  使用快捷键 <code>⌘ + B</code>, sublime底部会弹出命令行窗口，将得到以下执行结果:</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i: 0i: 1i: 2[Finished <span class="keyword">in</span> 0.1s]</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i: 0i: 1i: 2[Finished <span class="keyword">in</span> 0.1s]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>温馨注解:</p>
 <ol>

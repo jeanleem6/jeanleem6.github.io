@@ -246,11 +246,11 @@
 <p>比如我们提交这种形式：<code>passwd.txtsite:virtualave.net</code></p>
 <p>看到了什么？是不是觉得太不可思议了！有很多基于CGI/PHP/ASP类型的留言板存在这种问题。有时我们得到密码甚至还是明码的！管理员或许太不负责了，或许安全防范的意识太差了，如果你是网络管理员，赶快检查一下不要让恶意攻击者捡了便宜。不要太相信DES加密，即使我们的密码经过DES加密的密码，黑客们还是可以通过许多破解软件来搞定。<br>这次我们能得到包含密码的文件。“site:virtualave.net”意思是只搜索virutalave.net的URL。virutalave.net是一个网络服务器提供商。</p>
 <p>同样，我们可以搜索一些顶级域名，比如：.net.org.jp.in.gr</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">config.txtsite:.jp</div><div class="line">admin.txtsite:.tw</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config.txtsite:.jp</span><br><span class="line">admin.txtsite:.tw</span><br></pre></td></tr></table></figure>
 <p>搜索首页的目录<br>首页是非常有用的，它会提供给你许多有用的信息。<br>我们提交如下的形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;Indexof/admin&quot;</div><div class="line">&quot;Indexof/secret&quot;</div><div class="line">&quot;Indexof/cgi-bin&quot;site:.edu</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;Indexof/admin&quot;</span><br><span class="line">&quot;Indexof/secret&quot;</span><br><span class="line">&quot;Indexof/cgi-bin&quot;site:.edu</span><br></pre></td></tr></table></figure>
 <p>你可以自己定义搜索的首页字符。这样就可以获得许多信息。<br>搜索特定的文件类型<br>比如你想指定一种文件的类型，可以提交如下形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">filetype:.docsite:.milclassified</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filetype:.docsite:.milclassified</span><br></pre></td></tr></table></figure>
 <p>这个就是搜索军方的资料，你可以自定义搜索。</p>
 <h2 id="再提供一个第四篇"><a href="#再提供一个第四篇" class="headerlink" title="再提供一个第四篇"></a>再提供一个第四篇</h2><p>Google的特殊功能</p>
 <ol>

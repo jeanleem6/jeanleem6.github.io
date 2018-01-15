@@ -17,7 +17,7 @@
 
 
 
-  <meta name="keywords" content="Mac,server," />
+  <meta name="keywords" content="server,Mac," />
 
 
 
@@ -35,7 +35,7 @@
 
 
 <meta name="description" content="安装 Homebrew1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 自检Brew 1brew doctor 安装 oh-my-zsh1sh -c ">
-<meta name="keywords" content="Mac,server">
+<meta name="keywords" content="server,Mac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下安装Homebrew&#x2F;ZSH&#x2F;Node&#x2F;NPM">
 <meta property="og:url" content="https://jeanleem6.github.io/2016/11/20/Mac-Homebrew-ZSH-Node-Npm/index.html">
@@ -222,14 +222,14 @@
 
     <div class="post-content">
       
-        <h2 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+        <h2 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 <a href="http://brew.sh/" target="_blank" rel="noopener">Homebrew</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
 <p><strong>自检Brew</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew doctor</div></pre></td></tr></table></figure>
-<h2 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 <a href="http://ohmyz.sh" target="_blank" rel="external">oh-my-zsh</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
+<h2 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 <a href="http://ohmyz.sh" target="_blank" rel="noopener">oh-my-zsh</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h2><p>安装Node之前先确认以下两件事：</p>
 <ol>
-<li><p>安装 <strong>XCode</strong><br> XCode是免费的，可在<a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank" rel="external">Apple App Store</a>上找到。</p>
+<li><p>安装 <strong>XCode</strong><br> XCode是免费的，可在<a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank" rel="noopener">Apple App Store</a>上找到。</p>
 </li>
 <li><p>安装好了 <strong>Homebrew</strong></p>
 <blockquote>
@@ -242,11 +242,11 @@
 </blockquote>
 </li>
 </ol>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install node</div></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
 <!--  -->
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node -v  <span class="comment">#检查node版本</span></div><div class="line">npm -v  <span class="comment">#检查npm版本</span></div></pre></td></tr></table></figure>
-<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew update  <span class="comment"># 更新Homebrew</span></div><div class="line">brew upgrade node  <span class="comment"># 更新Node和NPM</span></div></pre></td></tr></table></figure>
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew uninstall node  <span class="comment"># 卸载Node和NPM</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v  <span class="comment">#检查node版本</span></span><br><span class="line">npm -v  <span class="comment">#检查npm版本</span></span><br></pre></td></tr></table></figure>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update  <span class="comment"># 更新Homebrew</span></span><br><span class="line">brew upgrade node  <span class="comment"># 更新Node和NPM</span></span><br></pre></td></tr></table></figure>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall node  <span class="comment"># 卸载Node和NPM</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -286,9 +286,9 @@
         
           <div class="post-tags">
             
-              <a href="/tags/Mac/">Mac</a>
-            
               <a href="/tags/server/">server</a>
+            
+              <a href="/tags/Mac/">Mac</a>
             
           </div>
         
