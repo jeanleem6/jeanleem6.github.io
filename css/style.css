@@ -1380,3 +1380,40 @@ h6 {
 @media screen and (max-width: 800px) {
   .back-to-top {
     display: none !important; } }
+
+/* ==============================*/
+/* Custom style*/
+/* ==============================*/
+/* You can override the variables in _variables.scss to customize the style*/
+hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px dashed #999;
+  font-size: 0;
+  line-height: 0; }
+
+.post .post-content h2, .post .post-content h3 {
+  position: relative; }
+
+.post .post-content h2 .headerlink, .post .post-content h3 .headerlink {
+  position: absolute;
+  top: -3px;
+  right: 102%; }
+
+.post .post-content h3 .headerlink {
+  right: 101%; }
+
+.post .post-content h3 .headerlink::before {
+  color: #2aa198; }
+
+.post-content ul {
+  margin: 15px 0; }
+
+.post-content ul li {
+  margin-bottom: 10px; }
+
+.post-content em {
+  color: #44596e; }
+
+.post .post-content a {
+  text-decoration: underline; }

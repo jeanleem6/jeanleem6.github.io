@@ -17,7 +17,7 @@
 
 
 
-  <meta name="keywords" content="Mac,tools," />
+  <meta name="keywords" content="Mac,tools,aria2," />
 
 
 
@@ -35,14 +35,14 @@
 
 
 <meta name="description" content="Mac 用户肯定都受够了百度网盘在自己电脑上的糟糕体验，至少我是如此：安装官方的 App，经常下载时中断，有时甚至 Bug 般连续中断，无奈使用浏览器下载，速度却是令人挠头。花点时间来配置 aria2，结合 Chrome，一定让你舒心。 aria2 是什么？aria2 是一款支持多种协议的轻量级命令行下载工具。有以下特">
-<meta name="keywords" content="Mac,tools">
+<meta name="keywords" content="Mac,tools,aria2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Boost Baidu-Cloud">
 <meta property="og:url" content="https://jeanleem6.github.io/2016/09/01/boost-baidu-cloud/index.html">
 <meta property="og:site_name" content="JH.LEE">
 <meta property="og:description" content="Mac 用户肯定都受够了百度网盘在自己电脑上的糟糕体验，至少我是如此：安装官方的 App，经常下载时中断，有时甚至 Bug 般连续中断，无奈使用浏览器下载，速度却是令人挠头。花点时间来配置 aria2，结合 Chrome，一定让你舒心。 aria2 是什么？aria2 是一款支持多种协议的轻量级命令行下载工具。有以下特性：  多线程连线：aria2 会自动从多个线程下载文件，并充分利用你的带宽；">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-05-04T00:40:50.000Z">
+<meta property="og:updated_time" content="2018-01-26T01:44:33.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Boost Baidu-Cloud">
 <meta name="twitter:description" content="Mac 用户肯定都受够了百度网盘在自己电脑上的糟糕体验，至少我是如此：安装官方的 App，经常下载时中断，有时甚至 Bug 般连续中断，无奈使用浏览器下载，速度却是令人挠头。花点时间来配置 aria2，结合 Chrome，一定让你舒心。 aria2 是什么？aria2 是一款支持多种协议的轻量级命令行下载工具。有以下特性：  多线程连线：aria2 会自动从多个线程下载文件，并充分利用你的带宽；">
@@ -215,7 +215,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#aria2-是什么？"><span class="toc-text">aria2 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载方式介绍"><span class="toc-text">下载方式介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、command-line-download-mode"><span class="toc-text">1、command-line download mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、RPC-server-mode，RPC服务器模式（推荐）"><span class="toc-text">2、RPC server mode，RPC服务器模式（推荐）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载-aria2"><span class="toc-text">下载 aria2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-Homebrew"><span class="toc-text">安装 Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-aria2"><span class="toc-text">安装 aria2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置配置文件"><span class="toc-text">设置配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动-RPC-模式"><span class="toc-text">启动 RPC 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何下载"><span class="toc-text">如何下载</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#aria2-是什么？"><span class="toc-text">aria2 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载方式介绍"><span class="toc-text">下载方式介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、命令行下载模式"><span class="toc-text">1、命令行下载模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、RPC服务器模式"><span class="toc-text">2、RPC服务器模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载-aria2"><span class="toc-text">下载 aria2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-Homebrew"><span class="toc-text">安装 Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-aria2"><span class="toc-text">安装 aria2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置配置文件"><span class="toc-text">设置配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动-RPC-模式"><span class="toc-text">启动 RPC 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何下载"><span class="toc-text">如何下载</span></a></li></ol></li></ol>
     </div>
   </div>
 
@@ -234,11 +234,24 @@
 <li>一种为<strong>command-line download mode(命令行下载模式)</strong>；</li>
 <li>另一种为<strong>RPC server mode(RPC服务器模式)</strong></li>
 </ul>
-<p>两种模式都可以进行下载，但第一种模式非技术人员不推荐。本人推荐第二种模式。</p>
+<p>第一种模式推荐技术人员使用；第二种模式推荐普通人使用。</p>
 <a id="more"></a>
-<h2 id="1、command-line-download-mode"><a href="#1、command-line-download-mode" class="headerlink" title="1、command-line download mode"></a>1、command-line download mode</h2><p>命令行下载可以直接使用，例如：</p>
+<h2 id="1、命令行下载模式"><a href="#1、命令行下载模式" class="headerlink" title="1、命令行下载模式"></a>1、命令行下载模式</h2><p>命令行下载可以直接使用，例如：</p>
+<p>Download from WEB:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c http://example.org/mylinux.iso</span><br></pre></td></tr></table></figure>
+<p>Download from 2 sources:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c http://a/f.iso ftp://b/f.iso</span><br></pre></td></tr></table></figure>
+<p>Download using 2 connections per host:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -x2 http://a/f.iso</span><br></pre></td></tr></table></figure>
+<p>BitTorrent:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c http://abc.org/123.torrent</span><br></pre></td></tr></table></figure>
-<h2 id="2、RPC-server-mode，RPC服务器模式（推荐）"><a href="#2、RPC-server-mode，RPC服务器模式（推荐）" class="headerlink" title="2、RPC server mode，RPC服务器模式（推荐）"></a>2、RPC server mode，RPC服务器模式（推荐）</h2><h3 id="下载-aria2"><a href="#下载-aria2" class="headerlink" title="下载 aria2"></a>下载 aria2</h3><p>你可以在<a href="http://aria2.sourceforge.net/" target="_blank" rel="noopener">aria2</a> 的 Download 下载对应的安装程序。下载之后直接双击打开安装即可。喜欢用 homebrew 的同学也可以使用命令<code>brew install aria2</code>来安装，已经安装好 aria2 的同学直接看第五步。</p>
+<p>BitTorrent Magnet URI:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c <span class="string">'magnet:?xt=urn:btih:248D0A1CD08284299DE78D5C1ED359BB46717D8C'</span></span><br></pre></td></tr></table></figure>
+<p>Metalink:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c http://example.org/mylinux.metalink</span><br></pre></td></tr></table></figure>
+<p>Download URIs found in text file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -i uris.txt</span><br></pre></td></tr></table></figure>
+<h2 id="2、RPC服务器模式"><a href="#2、RPC服务器模式" class="headerlink" title="2、RPC服务器模式"></a>2、RPC服务器模式</h2><h3 id="下载-aria2"><a href="#下载-aria2" class="headerlink" title="下载 aria2"></a>下载 aria2</h3><p>你可以在<a href="http://aria2.sourceforge.net/" target="_blank" rel="noopener">aria2</a> 的 Download 下载对应的安装程序。下载之后直接双击打开安装即可。喜欢用 homebrew 的同学也可以使用命令<code>brew install aria2</code>来安装，已经安装好 aria2 的同学直接看第五步。</p>
 <h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
 <h3 id="安装-aria2"><a href="#安装-aria2" class="headerlink" title="安装 aria2"></a>安装 aria2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install aria2</span><br></pre></td></tr></table></figure>
 <h3 id="设置配置文件"><a href="#设置配置文件" class="headerlink" title="设置配置文件"></a>设置配置文件</h3><p>aria2 提供两种方式使用，一种是直接命令行模式下载，不推荐使用这种方法，推荐使用另外一种 RPC 模式，这种方式 aria 启动之后只会安静的等待下载请求，下载完成后也只会安静的驻留后台不会自动退出。而使用RPC模式推荐做一个配置文件方便使用。我们把配置文件放在 <code>~/.aria2</code> 下，依次输入命令：</p>
@@ -256,7 +269,7 @@
 <p>依次点击 <strong>设置</strong> &gt; <strong>连接设置</strong>，将<strong>主机：</strong>的值修改为localhost</p>
 <p>如果你想关掉后台的 aria2，可以到活动监视器中找到 aria2c 杀掉，也可以在终端输入<code>kill aria2</code>之后按 Tab 键，aria2 会自动变成进程号，回车即可杀掉它。</p>
 <hr>
-<p>reference:<br><a href="http://sspai.com/32167" target="_blank" rel="noopener">http://sspai.com/32167</a></p>
+<p>reference:<br><a href="http://sspai.com/32167" target="_blank" rel="noopener">http://sspai.com/32167</a><br><a href="https://aria2.github.io" target="_blank" rel="noopener">https://aria2.github.io</a></p>
 
       
     </div>
@@ -299,6 +312,8 @@
               <a href="/tags/Mac/">Mac</a>
             
               <a href="/tags/tools/">tools</a>
+            
+              <a href="/tags/aria2/">aria2</a>
             
           </div>
         
