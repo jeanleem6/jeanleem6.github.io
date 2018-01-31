@@ -197,6 +197,59 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/11/14/ssh-on-and-off-in-Terminal/">如何通过终端开启/关闭SSH</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 14, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>SSH（Secure Shell）是一种通用的、功能强大的、基于软件的网络安全解决方案。计算机每次向网络发送数据时，SSH都会自动对其进行加密。运行 OS X 又或者是 macOS 的较新 Mac 设备都会默认预装 SSH，不过 SSH 守护进程是默认禁用的。今天我们就来一起学习如何通过终端指令来开启和关闭 SSH。</p>
+<p><strong>通过终端查看 SSH 远程登录是否已经开启</strong></p>
+<p>想要查看 Mac 上 SSH 的当前状态？使用简单的终端就可以检查 SSH 和远程登录目前是否已经开启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -getremotelogin</span><br></pre></td></tr></table></figure>
+<p>如果已经开启的话，指令会显示 “Remote Login: On” ，反之就会显示“Remote Login: Off”。</p>
+<p><strong>通过终端指令开启Mac的SSH</strong></p>
+<p>要快速开启 SSH 服务器并允许 SSH 连接进入当前 Mac，使用下列指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setremotelogin on</span><br></pre></td></tr></table></figure>
+<p>输入指令后并没有任何确认信息表明远程登录和 SSH 已经开启，但你可以使用上文提到的方法来检查是否开启成功。</p>
+<p><strong>通过终端指令关闭Mac的SSH</strong></p>
+<p>如果你想通过终端指令禁用 SSH 服务器并阻止远程连接，输入下列指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setremotelogin off</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/14/ssh-on-and-off-in-Terminal/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/11/08/mac-os-x-sierra/">全新安装 Mac OS Sierra (10.12)</a>
         
       </h1>
@@ -920,50 +973,6 @@
 </ol>
           <div class="read-more">
             <a href="/2016/08/24/emmet-hotkey/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/19/gulp-guide/">前端构建工具gulp入门教程</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 19, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><strong>本文假设你之前没有用过任何任务脚本（task runner）和命令行工具，一步步教你上手Gulp。不要怕，它其实很简单，我会分为五步向你介绍gulp并帮助你完成一些惊人的事情。那就直接开始吧。</strong></p>
-<h2 id="第一步：安装Node"><a href="#第一步：安装Node" class="headerlink" title="第一步：安装Node"></a>第一步：安装Node</h2><p>首先，最基本也最重要的是，我们需要搭建node环境。访问<a href="http://nodejs.org/" target="_blank" rel="noopener">http://nodejs.org</a>，然后点击大大的绿色的install按钮，下载完成后直接运行程序，就一切准备就绪。npm会随着安装包一起安装，稍后会用到它。</p>
-<h2 id="第二步：使用命令行"><a href="#第二步：使用命令行" class="headerlink" title="第二步：使用命令行"></a>第二步：使用命令行</h2><p>也许现在你还不是很了解什么是命令行——OS X中的<em>终端</em>（Terminal），windows中的<em>命令提示符</em>（Command Prompt），但很快你就会知道。它看起来没那么简单，但一旦掌握了它的窍门，就可以很方便的执行很多命令行程序，比如<a href="http://sass-lang.com/" target="_blank" rel="noopener">Sass</a>，<a href="https://npmjs.org/search?q=gulpplugin" target="_blank" rel="noopener">Yeoman</a>和<a href="https://github.com/wearefractal/gulp" target="_blank" rel="noopener">Git</a>等，这些都是非常有用的工具。</p>
-          <div class="read-more">
-            <a href="/2016/08/19/gulp-guide/" class="read-more-link">Read more..</a>
           </div>
         
       

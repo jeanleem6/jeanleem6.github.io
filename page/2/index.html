@@ -197,6 +197,45 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/06/13/sublime-open-in-browse/">sublime text 3 实现浏览器预览</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jun 13, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>Tools&gt;build system&gt;new build system<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"cmd"</span>: [<span class="string">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"</span>, <span class="string">"<span class="variable">$file</span>"</span>],</span><br><span class="line">  <span class="string">"selector"</span>: [<span class="string">"text.html"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存为browse.sublime-build，然后写一个html。mac上用<code>command+b</code>,windows上用<code>win+b</code></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/05/05/sublime-config/">sublime-config</a>
         
       </h1>
@@ -831,59 +870,6 @@
 </ul>
           <div class="read-more">
             <a href="/2016/11/14/git-fresher-01/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/11/14/ssh-on-and-off-in-Terminal/">如何通过终端开启/关闭SSH</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Nov 14, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>SSH（Secure Shell）是一种通用的、功能强大的、基于软件的网络安全解决方案。计算机每次向网络发送数据时，SSH都会自动对其进行加密。运行 OS X 又或者是 macOS 的较新 Mac 设备都会默认预装 SSH，不过 SSH 守护进程是默认禁用的。今天我们就来一起学习如何通过终端指令来开启和关闭 SSH。</p>
-<p><strong>通过终端查看 SSH 远程登录是否已经开启</strong></p>
-<p>想要查看 Mac 上 SSH 的当前状态？使用简单的终端就可以检查 SSH 和远程登录目前是否已经开启：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -getremotelogin</span><br></pre></td></tr></table></figure>
-<p>如果已经开启的话，指令会显示 “Remote Login: On” ，反之就会显示“Remote Login: Off”。</p>
-<p><strong>通过终端指令开启Mac的SSH</strong></p>
-<p>要快速开启 SSH 服务器并允许 SSH 连接进入当前 Mac，使用下列指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setremotelogin on</span><br></pre></td></tr></table></figure>
-<p>输入指令后并没有任何确认信息表明远程登录和 SSH 已经开启，但你可以使用上文提到的方法来检查是否开启成功。</p>
-<p><strong>通过终端指令关闭Mac的SSH</strong></p>
-<p>如果你想通过终端指令禁用 SSH 服务器并阻止远程连接，输入下列指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setremotelogin off</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2016/11/14/ssh-on-and-off-in-Terminal/" class="read-more-link">Read more..</a>
           </div>
         
       

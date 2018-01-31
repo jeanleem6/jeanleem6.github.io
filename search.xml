@@ -3,6 +3,100 @@
   
     
     <entry>
+      <title><![CDATA[搜索引擎常用技巧]]></title>
+      <url>/2018/01/31/search-engine-skills/</url>
+      <content type="html"><![CDATA[<h2 id="搜索入门"><a href="#搜索入门" class="headerlink" title="搜索入门"></a>搜索入门</h2><ol>
+<li><strong>搜索结果要求包含两个及以上关键字</strong>，以<code>空格</code>分隔；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">搜索引擎 历史</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>搜索结果不包含某些特定资讯</strong>，用减号<code>-</code>操作；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">搜索引擎 历史 -文化 -中国历史 -世界历史</span><br><span class="line">// 注意：减号后面没有空格</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>搜索结果至少包含多个关键字中的任意一个</strong>，用大写的<code>OR</code>操作；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">搜索引擎 历史 archie OR 蜘蛛 OR lycos OR yahoo -文化</span><br><span class="line">// 至少包含 [archie]、[蜘蛛]、[lycos]、[yahoo]中的一个，不包含[文化]</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>通配符</strong>，目前可以用<code>*</code>来代替单个字元，而且必须用英文的双引号<code>””</code>引起来；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“以*治国”</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>关键字的字母大小写不敏感</strong>，<code>GOD</code>和<code>god</code>搜索的结果是一样的；</p>
+</li>
+<li><p><strong>搜索整个短语或者句子</strong>，关键字可以是单词（中间没有空格），也可以是短语（中间有空格）。但是，用短语做关键字，必须加英文引号<code>””</code>，否则空格会被当作<code>与</code>操作符。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“world war I”</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>搜索引擎忽略的字元以及强制搜索</strong>，如<code>i</code>、<code>com</code>、<code>www</code>等，以及一些符号如<code>*</code>、<code>.</code>等，作忽略处理。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">www的历史 internet</span><br><span class="line">// 搜索结果中不会有与[www]相关的结果</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>搜索引擎实际上把<code>www的历史</code>这个短语分成三部分：<code>www</code>、<code>的</code>、<code>历史</code>，分别来检索，这就是<strong>搜索引擎的分词</strong>。所以尽管你输入了连续的<code>www的历史</code>，但搜索引擎还是把这个短语当成三个关键字分别检索。</p>
+</blockquote>
+<p>要对忽略的关键字进行强制检索，可以用英文双引号<code>””</code>引起来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">“www的历史” internet</span><br><span class="line">// 搜索结果中会有与[www]相关的结果</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：大部分常用英文符号（如问号，句号，逗号等）无法成为搜索关键字，加强制也不行。</p>
+</blockquote>
+<h2 id="搜索进阶"><a href="#搜索进阶" class="headerlink" title="搜索进阶"></a>搜索进阶</h2><ol>
+<li><strong>对搜索的网站进行限制</strong>——<code>site:</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">搜索引擎 技巧 site:edu.cn</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">“search engine” tips site:www.zhihu.com OR site:www.douban.com</span><br></pre></td></tr></table></figure>
+<p><code>site</code>表示搜索结果局限于某个具体网站或者网站频道，如<code>http://www.zhihu.com</code>、<code>edu.sina.com.cn</code>，或者是某个顶级域名，如<code>com.cn</code>、<code>com</code>等等。如果是要排除某网站或者顶级域名范围内的页面，只需用“–网站/顶级域名”。</p>
+<blockquote>
+<p>注意：<code>site:</code>中的冒号后面不能有空格。</p>
+</blockquote>
+<ol>
+<li><strong>在某一类档中查找资讯</strong>——<code>filetype:</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">资产负债表 filetype:doc OR filetype:xls OR filetype:ppt</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">冰与火之歌 filetype:mkv OR filetype:mp4</span><br></pre></td></tr></table></figure>
+<p><code>filetype:</code>是Google开发的非常强大实用的一个搜索语法。也就是说，Google不仅能搜索一般的文字页面，还能对某些二进位文档进行检索。</p>
+<ol>
+<li><strong>搜索的关键字包含在URL链接中</strong>——<code>inurl:</code>、<code>allinurl:</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">inurl:mp3 “这个世界会好吗”</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">allinurl:”cgi-bin” phf +com</span><br></pre></td></tr></table></figure>
+<p>网页链接中包含第一个关键字<code>mp3</code>，第二个关键字<code>这个世界会好吗</code>出现在链接中或网页文档中。</p>
+<p><code>allinurl</code>返回的网页链接中包含所有关键字。</p>
+<ol>
+<li><strong>搜索的关键字包含在网页标题中</strong>——<code>intitle:</code>、<code>allintitle:</code></li>
+</ol>
+<p><code>intitle:</code>和<code>allintitle:</code>的用法类似于上面的<code>inurl</code>和<code>allinurl</code>，只是后者对URL进行查询，而前者对网页的标题栏（即<title></title>标签中的内容）进行查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">intitle:重庆 “轨道交通”</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">allintitle:重庆 “轨道交通”</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>搜索的关键字包含在网页的“锚”(anchor)点内</strong>——<code>inanchor</code>、<code>allinanchor</code><br>用法与URL和TITLE类似。</li>
+</ol>
+<ol>
+<li><strong>搜索所有链接到某个URL位置的网页</strong>——<code>link:</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">link:www.zhihu.com</span><br><span class="line">// 搜索所有链接到http://www.zhihu.com的网页。</span><br></pre></td></tr></table></figure>
+<p>如果你拥有一个个人网站，想知道有多少人对你的网站做了链接，<code>link:</code>可以迅速达到这个目的。</p>
+<p>⚠️ <code>link:</code>不能与其他语法混合操作；另外，link只列出Google索引链接很小一部分，而非全部。</p>
+<blockquote>
+<p><strong>link的妙用：</strong>一般来说，做友情链接的网站都有相似的地方。这样，你可以通过友情链接，找到一大批具有相似内容的网站。</p>
+</blockquote>
+<ol>
+<li><strong>查找与某个页面结构内容相似的页面</strong>——<code>related:</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">related:www.zhihu.com</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>从Google伺服器上缓存页面中查询资讯</strong>——<code>cache:</code></li>
+</ol>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> google </tag>
+            
+            <tag> search </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Wiki_Resources]]></title>
       <url>/2018/01/15/Wiki-Resources/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -2384,7 +2478,7 @@
 <a id="more"></a>
 <h3 id="常用的限定符"><a href="#常用的限定符" class="headerlink" title="常用的限定符"></a>常用的限定符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-   重复零次或更多次</span><br><span class="line">*   重复一次或更多次</span><br><span class="line">?   重复零次或一次</span><br><span class="line">&#123;n&#125; 重复n次</span><br><span class="line">&#123;n,&#125;    重复n次或更多次</span><br><span class="line">&#123;n,m&#125;   重复n到m次</span><br></pre></td></tr></table></figure>
 <h3 id="常用的反义代码"><a href="#常用的反义代码" class="headerlink" title="常用的反义代码"></a>常用的反义代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\W  匹配任意不是字母，数字，下划线，汉字的字符</span><br><span class="line">\S  匹配任意不是空白符的字符</span><br><span class="line">\D  匹配任意非数字的字符</span><br><span class="line">\B  匹配不是单词开头或结束的位置</span><br><span class="line">[^x]    匹配除了x以外的任意字符</span><br><span class="line">[^aeiou]    匹配除了aeiou这几个字母以外的任意字符</span><br></pre></td></tr></table></figure>
-<h3 id="常用分组语法"><a href="#常用分组语法" class="headerlink" title="常用分组语法"></a>常用分组语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">捕获   -----------------------------------------------</span><br><span class="line">      |-  (exp)   匹配exp,并捕获文本到自动命名的组里</span><br><span class="line">      |-  (?<span class="xml"><span class="tag">&lt;<span class="name">name</span>&gt;</span>exp)    匹配exp,并捕获文本到名称为name的组里，也可以写成(?'name'exp)</span></span><br><span class="line"><span class="xml">      |_  (?:exp) 匹配exp,不捕获匹配的文本，也不给此分组分配组号</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">零宽断言 ---------------------------------------------</span></span><br><span class="line"><span class="xml">        |-  (?=exp) 匹配exp前面的位置</span></span><br><span class="line"><span class="xml">        |-  (?<span class="tag">&lt;<span class="name">=exp)</span>    匹配<span class="attr">exp</span>后面的位置</span></span></span><br><span class="line"><span class="xml">        |-  (?!exp) 匹配后面跟的不是exp的位置</span></span><br><span class="line"><span class="xml">        |_  (?<span class="tag">&lt;<span class="name">!exp)</span>    匹配前面不是<span class="attr">exp</span>的位置</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">注释   -----------------------------------------------</span></span><br><span class="line"><span class="xml">      |_  (?#comment) 这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</span></span><br></pre></td></tr></table></figure>
+<h3 id="常用分组语法"><a href="#常用分组语法" class="headerlink" title="常用分组语法"></a>常用分组语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">捕获   -----------------------------------------------</span><br><span class="line">      |-  (exp)   匹配exp,并捕获文本到自动命名的组里</span><br><span class="line">      |-  (?&lt;name&gt;exp)    匹配exp,并捕获文本到名称为name的组里，也可以写成(?'name'exp)</span><br><span class="line">      |_  (?:exp) 匹配exp,不捕获匹配的文本，也不给此分组分配组号</span><br><span class="line"></span><br><span class="line">零宽断言 ---------------------------------------------</span><br><span class="line">        |-  (?=exp) 匹配exp前面的位置</span><br><span class="line">        |-  (?&lt;=exp)    匹配exp后面的位置</span><br><span class="line">        |-  (?!exp) 匹配后面跟的不是exp的位置</span><br><span class="line">        |_  (?&lt;!exp)    匹配前面不是exp的位置</span><br><span class="line"></span><br><span class="line">注释   -----------------------------------------------</span><br><span class="line">      |_  (?#comment) 这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</span><br></pre></td></tr></table></figure>
 <h3 id="懒惰限定符"><a href="#懒惰限定符" class="headerlink" title="懒惰限定符"></a>懒惰限定符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*?  重复任意次，但尽可能少重复</span><br><span class="line">+?  重复<span class="number">1</span>次或更多次，但尽可能少重复</span><br><span class="line">??  重复<span class="number">0</span>次或<span class="number">1</span>次，但尽可能少重复</span><br><span class="line">&#123;n,m&#125;?  重复n到m次，但尽可能少重复</span><br><span class="line">&#123;n,&#125;?   重复n次以上，但尽可能少重复</span><br></pre></td></tr></table></figure>
 <h3 id="正则表达式标志"><a href="#正则表达式标志" class="headerlink" title="正则表达式标志"></a>正则表达式标志</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g   全局搜索。</span><br><span class="line">i   不区分大小写搜索。</span><br><span class="line">m   多行搜索。</span><br><span class="line">y   执行“粘性”搜索,匹配从目标字符串的当前位置开始，可以使用y标志。</span><br></pre></td></tr></table></figure>
 <h3 id="匹配汉字"><a href="#匹配汉字" class="headerlink" title="匹配汉字"></a>匹配汉字</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/[\u4e00-\u9fa5]/</span><br></pre></td></tr></table></figure>
