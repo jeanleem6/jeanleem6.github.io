@@ -5,32 +5,18 @@
     <entry>
       <title><![CDATA[搜索引擎常用技巧]]></title>
       <url>/2018/01/31/search-engine-skills/</url>
-      <content type="html"><![CDATA[<h2 id="搜索入门"><a href="#搜索入门" class="headerlink" title="搜索入门"></a>搜索入门</h2><ol>
-<li><strong>搜索结果要求包含两个及以上关键字</strong>，以<code>空格</code>分隔；</li>
-</ol>
+      <content type="html"><![CDATA[<h2 id="搜索入门"><a href="#搜索入门" class="headerlink" title="搜索入门"></a>搜索入门</h2><h3 id="多个关键字"><a href="#多个关键字" class="headerlink" title="多个关键字"></a>多个关键字</h3><p><strong>搜索结果要求包含两个及以上关键字</strong>，以<code>空格</code>分隔；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">搜索引擎 历史</span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>搜索结果不包含某些特定资讯</strong>，用减号<code>-</code>操作；</li>
-</ol>
+<h3 id="不包含特定关键字"><a href="#不包含特定关键字" class="headerlink" title="不包含特定关键字"></a>不包含特定关键字</h3><p><strong>搜索结果不包含某些特定资讯</strong>，用减号<code>-</code>操作；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">搜索引擎 历史 -文化 -中国历史 -世界历史</span><br><span class="line">// 注意：减号后面没有空格</span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>搜索结果至少包含多个关键字中的任意一个</strong>，用大写的<code>OR</code>操作；</li>
-</ol>
+<h3 id="或搜索"><a href="#或搜索" class="headerlink" title="或搜索"></a>或搜索</h3><p><strong>搜索结果至少包含多个关键字中的任意一个</strong>，用大写的<code>OR</code>操作；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">搜索引擎 历史 archie OR 蜘蛛 OR lycos OR yahoo -文化</span><br><span class="line">// 至少包含 [archie]、[蜘蛛]、[lycos]、[yahoo]中的一个，不包含[文化]</span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>通配符</strong>，目前可以用<code>*</code>来代替单个字元，而且必须用英文的双引号<code>””</code>引起来；</li>
-</ol>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>目前可以用<code>*</code>来代替单个字元，而且必须用英文的双引号<code>””</code>引起来；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“以*治国”</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p><strong>关键字的字母大小写不敏感</strong>，<code>GOD</code>和<code>god</code>搜索的结果是一样的；</p>
-</li>
-<li><p><strong>搜索整个短语或者句子</strong>，关键字可以是单词（中间没有空格），也可以是短语（中间有空格）。但是，用短语做关键字，必须加英文引号<code>””</code>，否则空格会被当作<code>与</code>操作符。</p>
-</li>
-</ol>
+<h3 id="字母大小写不敏感"><a href="#字母大小写不敏感" class="headerlink" title="字母大小写不敏感"></a>字母大小写不敏感</h3><p><code>GOD</code>和<code>god</code>搜索的结果是一样的；</p>
+<h3 id="搜整个短语或句子"><a href="#搜整个短语或句子" class="headerlink" title="搜整个短语或句子"></a>搜整个短语或句子</h3><p>关键字可以是单词（中间没有空格），也可以是短语（中间有空格）。但是，用短语做关键字，必须加英文引号<code>””</code>，否则空格会被当作<code>与</code>操作符。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“world war I”</span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>搜索引擎忽略的字元以及强制搜索</strong>，如<code>i</code>、<code>com</code>、<code>www</code>等，以及一些符号如<code>*</code>、<code>.</code>等，作忽略处理。</li>
-</ol>
+<h3 id="忽略字元及强制搜索"><a href="#忽略字元及强制搜索" class="headerlink" title="忽略字元及强制搜索"></a>忽略字元及强制搜索</h3><p>搜索引擎忽略的字元以及强制搜索，如<code>i</code>、<code>com</code>、<code>www</code>等，以及一些符号如<code>*</code>、<code>.</code>等，作忽略处理。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">www的历史 internet</span><br><span class="line">// 搜索结果中不会有与[www]相关的结果</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>搜索引擎实际上把<code>www的历史</code>这个短语分成三部分：<code>www</code>、<code>的</code>、<code>历史</code>，分别来检索，这就是<strong>搜索引擎的分词</strong>。所以尽管你输入了连续的<code>www的历史</code>，但搜索引擎还是把这个短语当成三个关键字分别检索。</p>
@@ -40,49 +26,33 @@
 <blockquote>
 <p>注意：大部分常用英文符号（如问号，句号，逗号等）无法成为搜索关键字，加强制也不行。</p>
 </blockquote>
-<h2 id="搜索进阶"><a href="#搜索进阶" class="headerlink" title="搜索进阶"></a>搜索进阶</h2><ol>
-<li><strong>对搜索的网站进行限制</strong>——<code>site:</code></li>
-</ol>
+<h2 id="搜索进阶"><a href="#搜索进阶" class="headerlink" title="搜索进阶"></a>搜索进阶</h2><h3 id="特定网站"><a href="#特定网站" class="headerlink" title="特定网站"></a>特定网站</h3><p>对搜索的网站进行限制——<code>site:</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">搜索引擎 技巧 site:edu.cn</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">“search engine” tips site:www.zhihu.com OR site:www.douban.com</span><br></pre></td></tr></table></figure>
 <p><code>site</code>表示搜索结果局限于某个具体网站或者网站频道，如<code>http://www.zhihu.com</code>、<code>edu.sina.com.cn</code>，或者是某个顶级域名，如<code>com.cn</code>、<code>com</code>等等。如果是要排除某网站或者顶级域名范围内的页面，只需用“–网站/顶级域名”。</p>
 <blockquote>
 <p>注意：<code>site:</code>中的冒号后面不能有空格。</p>
 </blockquote>
-<ol>
-<li><strong>在某一类档中查找资讯</strong>——<code>filetype:</code></li>
-</ol>
+<h3 id="特定文档"><a href="#特定文档" class="headerlink" title="特定文档"></a>特定文档</h3><p>在某一类档中查找资讯——<code>filetype:</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">资产负债表 filetype:doc OR filetype:xls OR filetype:ppt</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">冰与火之歌 filetype:mkv OR filetype:mp4</span><br></pre></td></tr></table></figure>
 <p><code>filetype:</code>是Google开发的非常强大实用的一个搜索语法。也就是说，Google不仅能搜索一般的文字页面，还能对某些二进位文档进行检索。</p>
-<ol>
-<li><strong>搜索的关键字包含在URL链接中</strong>——<code>inurl:</code>、<code>allinurl:</code></li>
-</ol>
+<h3 id="包含在URL链接中"><a href="#包含在URL链接中" class="headerlink" title="包含在URL链接中"></a>包含在URL链接中</h3><p><strong>搜索的关键字包含在URL链接中</strong>——<code>inurl:</code>、<code>allinurl:</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">inurl:mp3 “这个世界会好吗”</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">allinurl:”cgi-bin” phf +com</span><br></pre></td></tr></table></figure>
 <p>网页链接中包含第一个关键字<code>mp3</code>，第二个关键字<code>这个世界会好吗</code>出现在链接中或网页文档中。</p>
 <p><code>allinurl</code>返回的网页链接中包含所有关键字。</p>
-<ol>
-<li><strong>搜索的关键字包含在网页标题中</strong>——<code>intitle:</code>、<code>allintitle:</code></li>
-</ol>
+<h3 id="包含在网页标题中"><a href="#包含在网页标题中" class="headerlink" title="包含在网页标题中"></a>包含在网页标题中</h3><p><strong>搜索的关键字包含在网页标题中</strong>——<code>intitle:</code>、<code>allintitle:</code></p>
 <p><code>intitle:</code>和<code>allintitle:</code>的用法类似于上面的<code>inurl</code>和<code>allinurl</code>，只是后者对URL进行查询，而前者对网页的标题栏（即<title></title>标签中的内容）进行查询。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// eg1:</span><br><span class="line">intitle:重庆 “轨道交通”</span><br><span class="line"></span><br><span class="line">// eg2:</span><br><span class="line">allintitle:重庆 “轨道交通”</span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>搜索的关键字包含在网页的“锚”(anchor)点内</strong>——<code>inanchor</code>、<code>allinanchor</code><br>用法与URL和TITLE类似。</li>
-</ol>
-<ol>
-<li><strong>搜索所有链接到某个URL位置的网页</strong>——<code>link:</code></li>
-</ol>
+<h3 id="包含在网页锚点内"><a href="#包含在网页锚点内" class="headerlink" title="包含在网页锚点内"></a>包含在网页锚点内</h3><p><strong>搜索的关键字包含在网页的“锚”(anchor)点内</strong>——<code>inanchor</code>、<code>allinanchor</code><br>用法与URL和TITLE类似。</p>
+<h3 id="链接到某URL的网页"><a href="#链接到某URL的网页" class="headerlink" title="链接到某URL的网页"></a>链接到某URL的网页</h3><p><strong>搜索所有链接到某个URL位置的网页</strong>——<code>link:</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">link:www.zhihu.com</span><br><span class="line">// 搜索所有链接到http://www.zhihu.com的网页。</span><br></pre></td></tr></table></figure>
 <p>如果你拥有一个个人网站，想知道有多少人对你的网站做了链接，<code>link:</code>可以迅速达到这个目的。</p>
-<p>⚠️ <code>link:</code>不能与其他语法混合操作；另外，link只列出Google索引链接很小一部分，而非全部。</p>
+<p>⚠ <code>link:</code>不能与其他语法混合操作；另外，link只列出Google索引链接很小一部分，而非全部。</p>
 <blockquote>
 <p><strong>link的妙用：</strong>一般来说，做友情链接的网站都有相似的地方。这样，你可以通过友情链接，找到一大批具有相似内容的网站。</p>
 </blockquote>
-<ol>
-<li><strong>查找与某个页面结构内容相似的页面</strong>——<code>related:</code></li>
-</ol>
+<h3 id="页面结构相似的页面"><a href="#页面结构相似的页面" class="headerlink" title="页面结构相似的页面"></a>页面结构相似的页面</h3><p><strong>查找与某个页面结构内容相似的页面</strong>——<code>related:</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">related:www.zhihu.com</span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>从Google伺服器上缓存页面中查询资讯</strong>——<code>cache:</code></li>
-</ol>
+<h3 id="从缓存页面查询"><a href="#从缓存页面查询" class="headerlink" title="从缓存页面查询"></a>从缓存页面查询</h3><p><strong>从Google伺服器上缓存页面中查询资讯</strong>——<code>cache:</code></p>
 ]]></content>
       
         
