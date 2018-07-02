@@ -197,6 +197,50 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/06/14/jquery-on-binding-multi-events/">jquery on()方法绑定多个选择器，多个事件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jun 14, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>这样一个需求，如果用<code>live()</code>方法实现的话 非常简单，容易理解。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'nav li, #sb-nav li, #help li'</span>).live(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// code...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。<br>那上面一句如果用on的话，怎么写呢？</p>
+<p>其实查看live源码就知道，live实际是委托doucment进行事件委派的。<br>按照这个思路，可以将on方法绑定到document即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'#header .fixed-feedback-bn, #sb-sec .feedback-bn'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// code...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>还有一种情况，<code>on()</code>方法绑定<strong>多个事件</strong>，可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"table.planning_grid"</span>).on(&#123;</span><br><span class="line">    mouseenter: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseenter...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mouseleave: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseleave...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle click...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="string">"td"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>最后，用<code>on()</code>方法绑定<strong>多个选择器</strong>，多个事件则可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(&#123;</span><br><span class="line">    mouseenter: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseenter...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mouseleave: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseleave...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle click...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="string">'#header .fixed-feedback-bn, #sb-sec .feedback-bn'</span>);</span><br></pre></td></tr></table></figure></p>
+<!-- source: http://www.ghugo.com/jquery-on-method-multiple-event-selectors/ -->
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/06/13/sublime-open-in-browse/">sublime text 3 实现浏览器预览</a>
         
       </h1>
@@ -816,60 +860,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2016/11/16/git-fresher-02/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/11/14/git-fresher-01/">Git 使用入门 01-准备（Mac）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Nov 14, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>将你的 <code>code</code> 托管到 <code>git</code>，从此不用再担心：<strong>代码丢失、误删、误改</strong><br><code>git</code> <em>鼓励</em>你多提交代码，这样你的备份愈多，可回溯的点也愈多</p>
-<p>下面就来get这项技能</p>
-</blockquote>
-<h2 id="一-安装-git"><a href="#一-安装-git" class="headerlink" title="一 安装 git"></a>一 安装 git</h2><p>打开terminal，执行如下命令</p>
-<ul>
-<li><p>如果你没有安装过git，这个命令将为你<strong>自动安装</strong></p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>查看版本</strong></p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-          <div class="read-more">
-            <a href="/2016/11/14/git-fresher-01/" class="read-more-link">Read more..</a>
           </div>
         
       

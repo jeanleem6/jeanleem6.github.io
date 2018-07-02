@@ -197,6 +197,59 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/07/02/Mac-Terminal-agent/">MAC下终端走代理的几种方法</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jul 2, 2018
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h3><p>在终端中直接运行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=http://proxyAddress:port</span><br></pre></td></tr></table></figure>
+<p>这个办法的好处是简单直接，并且影响面很小（只对当前终端有效）。</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h3><p>把代理服务器地址写入shell配置文件.bashrc或者.zshrc<br>直接在.bashrc或者.zshrc添加下面内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://localhost:port"</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"http://localhost:port"</span></span><br></pre></td></tr></table></figure>
+<p>以使用shadowsocks代理为例，ss的代理端口为1080,那么应该设置为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://127.0.0.1:1080"</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"http://127.0.0.1:1080"</span></span><br></pre></td></tr></table></figure>
+<p>localhost就是一个域名，域名默认指向 127.0.0.1，两者是一样的。<br>然后ESC后:wq保存文件，接着在终端中执行source ~/.bashrc<br>或者退出当前终端再起一个终端。 这个办法的好处是把代理服务器永久保存了，下次就可以直接用了。</p>
+<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h3><p>改相应工具的配置，比如apt的配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/apt.conf</span><br></pre></td></tr></table></figure>
+<p>在文件末尾加入下面这行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Acquire::http::Proxy <span class="string">"http://proxyAddress:port"</span></span><br></pre></td></tr></table></figure>
+<p>保存apt.conf文件即可。关于apt的代理设置可以参考<a href="http://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13" target="_blank" rel="noopener">这里</a><br>关于git的代理设置看这里:<a href="http://blog.fazero.cc/2015/07/11/%E7%94%A8shadowsocks%E5%8A%A0%E9%80%9Fgit-clone/" target="_blank" rel="noopener">用shadowsocks加速git clone</a></p>
+<h3 id="方法4"><a href="#方法4" class="headerlink" title="方法4:"></a>方法4:</h3><p><a href="http://blog.fazero.cc/2015/08/31/%E5%88%A9%E7%94%A8proxychains%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8socks5%E4%BB%A3%E7%90%86/" target="_blank" rel="noopener">利用proxychains在终端使用socks5代理</a></p>
+<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><p>如果代理服务器需要登陆，这时可以直接把用户名和密码写进去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http_proxy=http://userName:password@proxyAddress:port</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/01/31/search-engine-skills/">搜索引擎常用技巧</a>
         
       </h1>
@@ -1201,50 +1254,6 @@
           <div class="read-more">
             <a href="/2017/06/14/jquery-toggle-settings/" class="read-more-link">Read more..</a>
           </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/06/14/jquery-on-binding-multi-events/">jquery on()方法绑定多个选择器，多个事件</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Jun 14, 2017
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>这样一个需求，如果用<code>live()</code>方法实现的话 非常简单，容易理解。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'nav li, #sb-nav li, #help li'</span>).live(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// code...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。<br>那上面一句如果用on的话，怎么写呢？</p>
-<p>其实查看live源码就知道，live实际是委托doucment进行事件委派的。<br>按照这个思路，可以将on方法绑定到document即可。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'#header .fixed-feedback-bn, #sb-sec .feedback-bn'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// code...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>还有一种情况，<code>on()</code>方法绑定<strong>多个事件</strong>，可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"table.planning_grid"</span>).on(&#123;</span><br><span class="line">    mouseenter: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseenter...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mouseleave: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseleave...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle click...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="string">"td"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>最后，用<code>on()</code>方法绑定<strong>多个选择器</strong>，多个事件则可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(&#123;</span><br><span class="line">    mouseenter: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseenter...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mouseleave: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle mouseleave...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Handle click...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="string">'#header .fixed-feedback-bn, #sb-sec .feedback-bn'</span>);</span><br></pre></td></tr></table></figure></p>
-<!-- source: http://www.ghugo.com/jquery-on-method-multiple-event-selectors/ -->
-
         
       
     </div>
