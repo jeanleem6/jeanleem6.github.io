@@ -224,7 +224,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://localhost:port"</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"http://localhost:port"</span></span><br></pre></td></tr></table></figure>
 <p>以使用shadowsocks代理为例，ss的代理端口为1080,那么应该设置为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://127.0.0.1:1080"</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"http://127.0.0.1:1080"</span></span><br></pre></td></tr></table></figure>
-<p>localhost就是一个域名，域名默认指向 127.0.0.1，两者是一样的。<br>然后ESC后:wq保存文件，接着在终端中执行source ~/.bashrc<br>或者退出当前终端再起一个终端。 这个办法的好处是把代理服务器永久保存了，下次就可以直接用了。</p>
+<p>localhost就是一个域名，域名默认指向 127.0.0.1，两者是一样的。<br>然后 <code>ESC</code> 后 <code>:wq</code> 保存文件，接着在终端中执行 <code>source ~/.bashrc</code><br>或者退出当前终端再起一个终端。 这个办法的好处是把代理服务器永久保存了，下次就可以直接用了。</p>
 <h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h3><p>改相应工具的配置，比如apt的配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/apt.conf</span><br></pre></td></tr></table></figure>
 <p>在文件末尾加入下面这行</p>
