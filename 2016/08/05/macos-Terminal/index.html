@@ -42,7 +42,7 @@
 <meta property="og:site_name" content="JH.LEE">
 <meta property="og:description" content="Mac常用终端(Terminal)命令，帮助我们更好地使用Mac(Let’s Rock.&amp;amp;.&amp;amp;.)  访问目录1234567pwd　　　　　　#显示当前工作目录路径cd         　　#进root~         　 　#进rootcd ~　　　　　　#返回rootcd FolderName　　#进入文件夹cd ..　　　　　　#上级目录cd -　　　　　　#返回上一个访">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-17T09:26:16.450Z">
+<meta property="og:updated_time" content="2018-08-17T09:29:52.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC 终端(Terminal)命令入门">
 <meta name="twitter:description" content="Mac常用终端(Terminal)命令，帮助我们更好地使用Mac(Let’s Rock.&amp;amp;.&amp;amp;.)  访问目录1234567pwd　　　　　　#显示当前工作目录路径cd         　　#进root~         　 　#进rootcd ~　　　　　　#返回rootcd FolderName　　#进入文件夹cd ..　　　　　　#上级目录cd -　　　　　　#返回上一个访">
@@ -240,7 +240,7 @@
 <li><code>-d</code> 使用数字而不是字母作为后缀名</li>
 <li><code>-a</code> 指定后缀名的长度，默认为2位</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">split -l line_count file newFiles_prefix <span class="comment">#指定每多少行切割一次</span></span><br><span class="line">split -b byte_count file newFiles_prefix <span class="comment">#指定切割文件大小,单位 m 或 k</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#eg:</span></span><br><span class="line">split -l 100000 dict.txt dict_ <span class="comment">#每十万行切割一次</span></span><br><span class="line">split -b 100m dict.txt dict_ <span class="comment">#每 100MB 切割一次</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">split -l line_count file newFiles_prefix <span class="comment">#指定每多少行切割一次</span></span><br><span class="line">split -b byte_count file newFiles_prefix <span class="comment">#指定切割文件大小,单位 m 或 k</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#eg:</span></span><br><span class="line">split -l 100000 dict.txt dict_ <span class="comment">#每十万行切割一次，切割完之后需要手动将后缀“.txt”加上</span></span><br><span class="line">split -b 100m dict.txt dict_ <span class="comment">#每 100MB 切割一次，切割完之后需要手动将后缀“.txt”加上</span></span><br></pre></td></tr></table></figure>
 <h2 id="新建文件（夹）"><a href="#新建文件（夹）" class="headerlink" title="新建文件（夹）"></a>新建文件（夹）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdiv 文件夹名　　　　　<span class="comment">#新建文件夹</span></span><br><span class="line">touch 文件名　　　　　　<span class="comment">#新建文件</span></span><br></pre></td></tr></table></figure>
 <h2 id="删除文件（夹）"><a href="#删除文件（夹）" class="headerlink" title="删除文件（夹）"></a>删除文件（夹）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm FileName  <span class="comment">#删除文件</span></span><br></pre></td></tr></table></figure>
 <!--  -->
