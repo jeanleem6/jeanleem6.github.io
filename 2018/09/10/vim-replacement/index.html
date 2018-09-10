@@ -34,18 +34,18 @@
 <link rel="canonical" href="https://jeanleem6.github.io/2018/09/10/vim-replacement/"/>
 
 
-<meta name="description" content="vim批量替换命令语法为 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令为： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替">
+<meta name="description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换">
 <meta name="keywords" content="vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim-replacement">
 <meta property="og:url" content="https://jeanleem6.github.io/2018/09/10/vim-replacement/index.html">
 <meta property="og:site_name" content="JH.LEE">
-<meta property="og:description" content="vim批量替换命令语法为 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令为： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换操作 [option] : 表示操作类型  g 表示全局替换; c 表示进行确">
+<meta property="og:description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换操作 [option] : 表示操作类型  g 表示全局替换; c 表示进行确认">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-10T03:34:54.393Z">
+<meta property="og:updated_time" content="2018-09-10T03:35:58.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim-replacement">
-<meta name="twitter:description" content="vim批量替换命令语法为 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令为： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换操作 [option] : 表示操作类型  g 表示全局替换; c 表示进行确">
+<meta name="twitter:description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换操作 [option] : 表示操作类型  g 表示全局替换; c 表示进行确认">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -222,9 +222,9 @@
 
     <div class="post-content">
       
-        <h2 id="vim批量替换命令"><a href="#vim批量替换命令" class="headerlink" title="vim批量替换命令"></a>vim批量替换命令</h2><p>语法为</p>
+        <h2 id="vim批量替换命令"><a href="#vim批量替换命令" class="headerlink" title="vim批量替换命令"></a>vim批量替换命令</h2><p>语法:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:[addr]s/源字符串/目的字符串/[option]</span><br></pre></td></tr></table></figure>
-<p>全局替换命令为：</p>
+<p>全局替换命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/源字符串/目的字符串/g</span><br></pre></td></tr></table></figure>
 <h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><p><strong><code>[addr]</code>  表示检索范围，省略时表示当前行。</strong></p>
 <ul>
