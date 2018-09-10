@@ -9,15 +9,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:[addr]s/源字符串/目的字符串/[option]</span><br></pre></td></tr></table></figure>
 <p>全局替换命令为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/源字符串/目的字符串/g</span><br></pre></td></tr></table></figure>
-<h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><ul>
-<li><strong><code>[addr]</code>  表示检索范围，省略时表示当前行。</strong></li>
-<li><code>&quot;1,20&quot;</code>：表示从第1行到20行；</li>
-<li><code>&quot;%&quot;</code>：   表示整个文件，同<code>&quot;1,$&quot;</code>；</li>
-<li><p><code>&quot;. ,$&quot;</code>：从当前行到文件尾；</p>
-</li>
-<li><p><strong><code>s</code> : 表示替换操作</strong></p>
-</li>
-<li><strong><code>[option]</code> : 表示操作类型</strong></li>
+<h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><p><strong><code>[addr]</code>  表示检索范围，省略时表示当前行。</strong></p>
+<ul>
+<li><code>1,20</code>：表示从第1行到20行；</li>
+<li><code>%</code>：   表示整个文件，同 <code>1,$</code>；</li>
+<li><code>. ,$</code>：从当前行到文件尾；</li>
+</ul>
+<p><strong><code>s</code> : 表示替换操作</strong></p>
+<p><strong><code>[option]</code> : 表示操作类型</strong></p>
+<ul>
 <li><code>g</code> 表示全局替换;</li>
 <li><code>c</code> 表示进行确认</li>
 <li><code>p</code> 表示替代结果逐行显示（Ctrl + L恢复屏幕）;</li>
