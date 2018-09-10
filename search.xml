@@ -3,6 +3,40 @@
   
     
     <entry>
+      <title><![CDATA[vim-replacement]]></title>
+      <url>/2018/09/10/vim-replacement/</url>
+      <content type="html"><![CDATA[<h2 id="vim批量替换命令"><a href="#vim批量替换命令" class="headerlink" title="vim批量替换命令"></a>vim批量替换命令</h2><p>语法为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:[addr]s/源字符串/目的字符串/[option]</span><br></pre></td></tr></table></figure>
+<p>全局替换命令为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/源字符串/目的字符串/g</span><br></pre></td></tr></table></figure>
+<h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><ul>
+<li><strong><code>[addr]</code>  表示检索范围，省略时表示当前行。</strong></li>
+<li><code>&quot;1,20&quot;</code>：表示从第1行到20行；</li>
+<li><code>&quot;%&quot;</code>：   表示整个文件，同<code>&quot;1,$&quot;</code>；</li>
+<li><p><code>&quot;. ,$&quot;</code>：从当前行到文件尾；</p>
+</li>
+<li><p><strong><code>s</code> : 表示替换操作</strong></p>
+</li>
+<li><strong><code>[option]</code> : 表示操作类型</strong></li>
+<li><code>g</code> 表示全局替换;</li>
+<li><code>c</code> 表示进行确认</li>
+<li><code>p</code> 表示替代结果逐行显示（Ctrl + L恢复屏幕）;</li>
+<li>省略<code>option</code>时仅对每行第一个匹配串进行替换;</li>
+<li>如果在源字符串和目的字符串中出现特殊字符，需要用 <code>\</code> 转义 如 <code>\t</code></li>
+</ul>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#将That or this 换成 This or that</span></span><br><span class="line">:%s/\(That\) or \(this\)/\u\2 or \l\1/</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#将句尾的child换成children</span></span><br><span class="line">:%s/child\([ ,.;!:?]\)/children\1/g</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#将mgi/r/abox换成mgi/r/asquare</span></span><br><span class="line">:g/mg\([ira]\)box/s//mg//my\1square/g    &lt;=&gt;  :g/mg[ira]box/s/box/square/g</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#将多个空格换成一个空格</span></span><br><span class="line">:%s/  */ /g</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#使用空格替换句号或者冒号后面的一个或者多个空格</span></span><br><span class="line">:%s/\([:.]\)  */\1 /g</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#删除所有空行</span></span><br><span class="line">:g/^$/d</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#删除所有的空白行和空行</span></span><br><span class="line">:g/^[  ][  ]*$/d</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#在每行的开始插入两个空白</span></span><br><span class="line">:%s/^/&gt;  /</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#在接下来的6行末尾加入.</span></span><br><span class="line">:.,5/$/./</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#颠倒文件的行序</span></span><br><span class="line">:g/.*/m0O  &lt;=&gt; :g/^/m0O</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#寻找不是数字的开始行,并将其移到文件尾部</span></span><br><span class="line">:g!/^[0-9]/m$ &lt;=&gt; g/^[^0-9]/m$</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#将文件的第12到17行内容复制10词放到当前文件的尾部</span></span><br><span class="line">:1,10g/^/12,17t$</span><br><span class="line"><span class="comment">#~~~~重复次数的作用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line"><span class="comment">#将chapter开始行下面的第二行的内容写道begin文件中</span></span><br><span class="line">:g/^chapter/.+2w&gt;&gt;begin</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line">:/^part2/,/^part3/g/^chapter/.+2w&gt;&gt;begin</span><br><span class="line"></span><br><span class="line"><span class="comment">#==================================================</span></span><br><span class="line">:/^part2/,/^part3/g/^chapter/.+2w&gt;&gt;begin|+t$</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> vim </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MAC下终端走代理的几种方法]]></title>
       <url>/2018/07/02/Mac-Terminal-agent/</url>
       <content type="html"><![CDATA[<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h3><p>在终端中直接运行命令</p>
@@ -1344,6 +1378,8 @@
         
         <tags>
             
+            <tag> server </tag>
+            
             <tag> Mac </tag>
             
             <tag> nginx </tag>
@@ -1351,8 +1387,6 @@
             <tag> mysql </tag>
             
             <tag> php </tag>
-            
-            <tag> server </tag>
             
         </tags>
         
@@ -1391,9 +1425,9 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> server </tag>
+            
+            <tag> Mac </tag>
             
         </tags>
         
@@ -1415,9 +1449,9 @@
         
         <tags>
             
-            <tag> mysql </tag>
-            
             <tag> server </tag>
+            
+            <tag> mysql </tag>
             
         </tags>
         
@@ -1763,9 +1797,9 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> server </tag>
+            
+            <tag> Mac </tag>
             
         </tags>
         
@@ -2863,9 +2897,9 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> server </tag>
+            
+            <tag> Mac </tag>
             
         </tags>
         
