@@ -34,18 +34,18 @@
 <link rel="canonical" href="https://jeanleem6.github.io/2018/09/10/vim-replacement/"/>
 
 
-<meta name="description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换">
+<meta name="description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g  源字符串可以用正则表达式，特殊变量需要转义（加\，比如: \(）目的字符串引用方式：  \0 或 &amp;amp;：表达式匹配的全部文本； \1：编号为 1 的捕获分组匹配的文本">
 <meta name="keywords" content="vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim-replacement">
 <meta property="og:url" content="https://jeanleem6.github.io/2018/09/10/vim-replacement/index.html">
 <meta property="og:site_name" content="JH.LEE">
-<meta property="og:description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换操作 [option] : 表示操作类型  g 表示全局替换; c 表示进行确认">
+<meta property="og:description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g  源字符串可以用正则表达式，特殊变量需要转义（加\，比如: \(）目的字符串引用方式：  \0 或 &amp;amp;：表达式匹配的全部文本； \1：编号为 1 的捕获分组匹配的文本； \2：编号为 1 的捕获分组匹配的文本； \L：将之后的所有字符转换为小写； \U：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-10T03:35:58.733Z">
+<meta property="og:updated_time" content="2018-09-20T02:49:51.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim-replacement">
-<meta name="twitter:description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g 参数说明：[addr]  表示检索范围，省略时表示当前行。  1,20：表示从第1行到20行； %：   表示整个文件，同 1,$； . ,$：从当前行到文件尾；  s : 表示替换操作 [option] : 表示操作类型  g 表示全局替换; c 表示进行确认">
+<meta name="twitter:description" content="vim批量替换命令语法: 1:[addr]s/源字符串/目的字符串/[option] 全局替换命令： 1:%s/源字符串/目的字符串/g  源字符串可以用正则表达式，特殊变量需要转义（加\，比如: \(）目的字符串引用方式：  \0 或 &amp;amp;：表达式匹配的全部文本； \1：编号为 1 的捕获分组匹配的文本； \2：编号为 1 的捕获分组匹配的文本； \L：将之后的所有字符转换为小写； \U：">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -226,6 +226,19 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:[addr]s/源字符串/目的字符串/[option]</span><br></pre></td></tr></table></figure>
 <p>全局替换命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/源字符串/目的字符串/g</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>源字符串可以用正则表达式，特殊变量需要转义（加<code>\</code>，比如: <code>\(</code>）<br>目的字符串引用方式：</p>
+<ul>
+<li><code>\0</code> 或 <code>&amp;</code>：表达式匹配的全部文本；</li>
+<li><code>\1</code>：编号为 1 的捕获分组匹配的文本；</li>
+<li><code>\2</code>：编号为 1 的捕获分组匹配的文本；</li>
+<li><code>\L</code>：将之后的所有字符转换为小写；</li>
+<li><code>\U</code>：将之后的所有字符转换为大写；</li>
+<li><code>\E</code> 或 <code>\e</code>：<code>\U</code> 和 <code>\L</code> 的作用结束；</li>
+<li><code>\l</code>：将此后一个字符转换为小写；</li>
+<li><code>\u</code>：将此后一个字符转换为大写。</li>
+</ul>
+</blockquote>
 <h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><p><strong><code>[addr]</code>  表示检索范围，省略时表示当前行。</strong></p>
 <ul>
 <li><code>1,20</code>：表示从第1行到20行；</li>

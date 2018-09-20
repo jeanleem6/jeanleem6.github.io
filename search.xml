@@ -9,6 +9,19 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:[addr]s/源字符串/目的字符串/[option]</span><br></pre></td></tr></table></figure>
 <p>全局替换命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/源字符串/目的字符串/g</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>源字符串可以用正则表达式，特殊变量需要转义（加<code>\</code>，比如: <code>\(</code>）<br>目的字符串引用方式：</p>
+<ul>
+<li><code>\0</code> 或 <code>&amp;</code>：表达式匹配的全部文本；</li>
+<li><code>\1</code>：编号为 1 的捕获分组匹配的文本；</li>
+<li><code>\2</code>：编号为 1 的捕获分组匹配的文本；</li>
+<li><code>\L</code>：将之后的所有字符转换为小写；</li>
+<li><code>\U</code>：将之后的所有字符转换为大写；</li>
+<li><code>\E</code> 或 <code>\e</code>：<code>\U</code> 和 <code>\L</code> 的作用结束；</li>
+<li><code>\l</code>：将此后一个字符转换为小写；</li>
+<li><code>\u</code>：将此后一个字符转换为大写。</li>
+</ul>
+</blockquote>
 <h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><p><strong><code>[addr]</code>  表示检索范围，省略时表示当前行。</strong></p>
 <ul>
 <li><code>1,20</code>：表示从第1行到20行；</li>
