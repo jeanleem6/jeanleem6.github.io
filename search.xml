@@ -2955,7 +2955,7 @@
 <h2 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp 文件名 目标目录　　<span class="comment">#将文件拷贝到目标目录下</span></span><br></pre></td></tr></table></figure>
 <h2 id="合并多个文件夹"><a href="#合并多个文件夹" class="headerlink" title="合并多个文件夹"></a>合并多个文件夹</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv ../*/* ./ <span class="comment">#将多个文件夹下的文档合并到一个文件夹下</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>解释：文件夹A下有a1/a2/a3子文件夹，每个子文件夹下有若干文件，则在A下面建文件夹b，进入b，调出terminal，执行 <code>{mv ../*/* ./}</code>（去掉大括号，注意最后的 <code>./</code>） ，就会把所有a1-3的子文件移动到b里面</p>
+<p><strong>解释：</strong>文件夹A下有a1/a2/a3子文件夹，每个子文件夹下有若干文件，则在A下面建文件夹b，进入b，调出terminal，执行 <code>mv ../*/* ./</code>（注意最后的 <code>./</code>） ，就会把所有a1-3的子文件移动到b里面。<br><strong>需要注意的是，如果文档太多会合并失败并报错：<code>argument list too long: mv</code>，可以分多次合并（文档数量6000左右没有问题）</strong></p>
 </blockquote>
 <h2 id="合并多个文件内容"><a href="#合并多个文件内容" class="headerlink" title="合并多个文件内容"></a>合并多个文件内容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat *.html &gt; new.txt <span class="comment">#将指定目录下所有html文件的内容合并到文本文档new.txt中</span></span><br></pre></td></tr></table></figure>
 <h2 id="切割文件"><a href="#切割文件" class="headerlink" title="切割文件"></a>切割文件</h2><p><code>split [-a] [-b] [-C] [-l] [要分割的文件名] [分割后的文件名前缀]</code></p>
