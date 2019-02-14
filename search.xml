@@ -3,6 +3,80 @@
   
     
     <entry>
+      <title><![CDATA[epub电子书制作杂录]]></title>
+      <url>/2018/11/05/making-epub-tips/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>工具准备：<a href="https://calibre-ebook.com/" target="_blank" rel="noopener">Calibre</a>，Calibre 中文轉換插件 <a href="https://github.com/Hopkins1/TradSimpChinese" target="_blank" rel="noopener">TradSimpChinese</a></p>
+</blockquote>
+<h2 id="编辑书籍-Edit-Book-简介"><a href="#编辑书籍-Edit-Book-简介" class="headerlink" title="编辑书籍/Edit Book 简介"></a><em>编辑书籍/Edit Book</em> 简介</h2><p>打开 Calibre，软件右上角工具栏中即可找到<em>编辑书籍/Edit Book</em></p>
+<ul>
+<li>左侧：文件浏览，双击任何一个文件可在中间区域查看文件源码或图片</li>
+<li>右侧：文件预览区，查看html页面预览效果</li>
+</ul>
+<h2 id="让-ibooks-支持内置字体"><a href="#让-ibooks-支持内置字体" class="headerlink" title="让 ibooks 支持内置字体"></a>让 ibooks 支持内置字体</h2><p>第一步，修改 content.opf 文件，新增一行：<code>&lt;meta property=&quot;ibooks:specified-fonts&quot;&gt;true&lt;/meta&gt;</code></p>
+<p>第二步，创建xml文件: com.apple.ibooks.display-options.xml，内容如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">display_options</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">platform</span> <span class="attr">name</span>=<span class="string">"*"</span>&gt;</span> <span class="comment">&lt;!-- allowed values for platform "iphone", "ipad", or "*" for all --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"specified-fonts"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">option</span>&gt;</span> <span class="comment">&lt;!-- must be set to "true" for embedded fonts --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">platform</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">display_options</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>第三步，点击 calibre 中的 <em>编辑书籍/Edit Book</em> 打开 <em>Edit Book</em> 工具，点击 <em>新增文件/New File</em>：</p>
+<ul>
+<li>在弹窗中输入 meta-inf/com.apple.ibooks.display-options.xml</li>
+<li>点击 <em>导入文件(图片/字体等)/Import resource file</em>，定位到第二步创建的xml文件选择打开，点 <em>确定</em> 后xml文件就添加好了。</li>
+</ul>
+<p>第四步，点击 <em>工具栏</em> 中的 <em>管理字体(TTF)</em> &gt; <em>安装字体</em>，添加字体后可通过重命名更改字体路径：Fonts/FontName.ttf</p>
+<p>第五步，在样式表中添加内置字体：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">"FontName"</span>; <span class="comment">/* FontName 可设定为任意名字 */</span></span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(../Path/FontName.ttf); <span class="comment">/* 注意将 Path 和 FontName 修改为你创建的路径名和字体名称 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="竖排，从右向左翻页"><a href="#竖排，从右向左翻页" class="headerlink" title="竖排，从右向左翻页"></a>竖排，从右向左翻页</h2><p>第一步，修改 content.opf 文件，新增一行：<code>&lt;meta content=&quot;vertical-rl&quot; name=&quot;primary-writing-mode&quot;/&gt;</code></p>
+<p>第二步，修改 content.opf 文件， 给 spine 标签增加一属性：page-progression-direction=”rtl”</p>
+<p>第三步，修改样式表，为 body 增加一属性： writing-mode: vertical-rl;</p>
+<blockquote>
+<p>有时需要<strong>局部横排</strong>显示，例如图片的说明文字可以横排显示在图片下方，可为说明文字单独设置css：writing-mode: horizontal-tb</p>
+</blockquote>
+<h2 id="添加弹注效果"><a href="#添加弹注效果" class="headerlink" title="添加弹注效果"></a>添加弹注效果</h2><p><img src="/2018/11/05/making-epub-tips/flowing_footnote.png" width="200px"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span> <span class="attr">xmlns:epub</span>=<span class="string">"http://www.idpf.org/2007/ops"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"chapter.xhtml#myNote"</span> <span class="attr">epub:type</span>=<span class="string">"noteref"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span> <span class="attr">id</span>=<span class="string">"myNote"</span> <span class="attr">epub:type</span>=<span class="string">"footnote"</span>&gt;</span>Text in popup<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，必须有这几个属性：</p>
+<ul>
+<li>html 标签: <code>xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;</code></li>
+<li>a (注释序号)：<code>epub:type=&quot;noteref&quot;</code></li>
+<li>aside (注释)：<code>epub:type=&quot;footnote&quot;</code></li>
+</ul>
+<p>aside 标签会自动隐藏，如果希望注释正常显示出来，可用 div/p 等标签替代。<br>ios 中为整屏弹注，多看等其它阅读器不支持这种方式。</p>
+</blockquote>
+<h2 id="繁体标点替换"><a href="#繁体标点替换" class="headerlink" title="繁体标点替换"></a>繁体标点替换</h2><ul>
+<li><code>“</code> 替换成 <code>「</code></li>
+<li><code>”</code> 替换成 <code>」</code></li>
+<li><code>‘</code> 替换成 <code>『</code></li>
+<li><code>’</code> 替换成 <code>』</code></li>
+</ul>
+<h2 id="修改语言"><a href="#修改语言" class="headerlink" title="修改语言"></a>修改语言</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dc:language</span>&gt;</span>zh-Hans<span class="tag">&lt;/<span class="name">dc:language</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>繁体</strong>：<code>zh-Hant</code></li>
+<li>大陆繁体：<code>zh-Hant-CN</code></li>
+<li>香港繁体：<code>zh-Hant-HK</code></li>
+<li>澳门繁体：<code>zh-Hant-MO</code></li>
+<li>新加坡繁体：<code>zh-Hant-SG</code></li>
+<li>台湾繁体：<code>zh-Hant-TW</code></li>
+<li><strong>简体</strong>：<code>zh-Hans</code></li>
+<li>大陆简体：<code>zh-Hans-CN</code></li>
+<li>香港简体：<code>zh-Hans-HK</code></li>
+<li>澳门简体：<code>zh-Hans-MO</code></li>
+<li>新加坡简体：<code>zh-Hans-SG</code></li>
+<li>台湾简体：<code>zh-Hans-TW</code></li>
+</ul>
+<h2 id="body-样式设置参考"><a href="#body-样式设置参考" class="headerlink" title="body 样式设置参考"></a>body 样式设置参考</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">5%</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: justify;</span><br><span class="line">    <span class="attribute">writing-mode</span>: vertical-rl;</span><br><span class="line">    <span class="attribute">-webkit-writing-mode</span>:vertical-rl;</span><br><span class="line">    <span class="attribute">-epub-writing-mode</span>: vertical-rl;</span><br><span class="line">    <span class="attribute">-epub-line-break</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="epub目录树结构"><a href="#epub目录树结构" class="headerlink" title="epub目录树结构"></a>epub目录树结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">├── META-INF</span><br><span class="line">│   ├── com.apple.ibooks.display-options.xml</span><br><span class="line">│   └── container.xml</span><br><span class="line">├── OEBPS</span><br><span class="line">│   ├── Fonts</span><br><span class="line">│   │   └── kangxidict.ttf</span><br><span class="line">│   ├── Images</span><br><span class="line">│   │   ├── Image00000.jpg</span><br><span class="line">│   │   ├── Image00001.jpg</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── Image00200.jpg</span><br><span class="line">│   ├── OEBPS</span><br><span class="line">│   │   └── cover.jpg</span><br><span class="line">│   ├── Styles</span><br><span class="line">│   │   ├── flow0001.css</span><br><span class="line">│   │   ├── flow0002.css</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── flow0005.css</span><br><span class="line">│   ├── Text</span><br><span class="line">│   │   ├── text00000.html</span><br><span class="line">│   │   ├── text00001.html</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── text00090.html</span><br><span class="line">│   ├── content.opf</span><br><span class="line">│   └── toc.ncx</span><br><span class="line">└── mimetype</span><br></pre></td></tr></table></figure>
+<hr>
+<p>reference:<br><a href="http://guidohenkel.com/2015/04/custom-fonts-in-ibooks/" target="_blank" rel="noopener">http://guidohenkel.com/2015/04/custom-fonts-in-ibooks/</a> (Custom Fonts)<br><a href="https://help.apple.com/itc/booksassetguide/en.lproj/static.html" target="_blank" rel="noopener">https://help.apple.com/itc/booksassetguide/en.lproj/static.html</a> （Section:<code>Pop-up Footnotes</code>）<br><a href="https://bookfere.com/post/204.html" target="_blank" rel="noopener">https://bookfere.com/post/204.html</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> epub </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[vim-replacement]]></title>
       <url>/2018/09/10/vim-replacement/</url>
       <content type="html"><![CDATA[<h2 id="vim批量替换命令"><a href="#vim批量替换命令" class="headerlink" title="vim批量替换命令"></a>vim批量替换命令</h2><p>语法:</p>
@@ -1395,9 +1469,9 @@
             
             <tag> Mac </tag>
             
-            <tag> nginx </tag>
-            
             <tag> mysql </tag>
+            
+            <tag> nginx </tag>
             
             <tag> php </tag>
             
@@ -2879,6 +2953,10 @@
 <h2 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 0777 /usr/<span class="built_in">local</span>/mysql/var/dedeadmin/  <span class="comment">#设置目录权限为0777</span></span><br></pre></td></tr></table></figure>
 <h2 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat FileName　　<span class="comment">#在终端里面直接显示文件内容</span></span><br><span class="line">cat FileName|less　　<span class="comment">#用less编辑器显示文件内容，输入:q退出编辑器</span></span><br><span class="line">ls　　<span class="comment">#列出目录下所有文件</span></span><br></pre></td></tr></table></figure>
 <h2 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp 文件名 目标目录　　<span class="comment">#将文件拷贝到目标目录下</span></span><br></pre></td></tr></table></figure>
+<h2 id="合并多个文件夹"><a href="#合并多个文件夹" class="headerlink" title="合并多个文件夹"></a>合并多个文件夹</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv ../*/* ./ <span class="comment">#将多个文件夹下的文档合并到一个文件夹下</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解释：文件夹A下有a1/a2/a3子文件夹，每个子文件夹下有若干文件，则在A下面建文件夹b，进入b，调出terminal，执行 <code>{mv ../*/* ./}</code>（去掉大括号，注意最后的 <code>./</code>） ，就会把所有a1-3的子文件移动到b里面</p>
+</blockquote>
 <h2 id="合并多个文件内容"><a href="#合并多个文件内容" class="headerlink" title="合并多个文件内容"></a>合并多个文件内容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat *.html &gt; new.txt <span class="comment">#将指定目录下所有html文件的内容合并到文本文档new.txt中</span></span><br></pre></td></tr></table></figure>
 <h2 id="切割文件"><a href="#切割文件" class="headerlink" title="切割文件"></a>切割文件</h2><p><code>split [-a] [-b] [-C] [-l] [要分割的文件名] [分割后的文件名前缀]</code></p>
 <ul>
