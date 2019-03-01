@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head><meta name="generator" content="Hexo 3.8.0">
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="description" content="Mac下使用Homebrew安装ST/Nginx/MySQL/PHP"/>
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
+  <meta name="description" content="Mac下使用Homebrew安装ST/Nginx/MySQL/PHP">
 
-  <meta name="keywords" content="server,Mac,mysql,nginx,php," />
+
+
+
+  <meta name="keywords" content="server,Mac,mysql,nginx,php,">
 
 
 
@@ -27,14 +27,14 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x">
 
 
 
-<link rel="canonical" href="https://jeanleem6.github.io/2016/11/21/Mac-Nginx-MySQL-PHP/"/>
+<link rel="canonical" href="https://jeanleem6.github.io/2016/11/21/Mac-Nginx-MySQL-PHP/">
 
 
-<meta name="description" content="使用homebrew-cask安装sublime先安装cask, 使用cask可以安装一些应用程序，如QQ，迅雷，谷歌浏览器等，功能和App store差不多，个人觉得这个更好管理 1brew cask # 没有安装cask会自动安装，已经安装cask的，会跳出cask命令列表 1234567# Cask 常用命令br">
+<meta name="description" content="使用homebrew-cask安装sublime先安装cask, 使用cask可以安装一些应用程序，如QQ，迅雷，谷歌浏览器等，功能和App store差不多，个人觉得这个更好管理 1brew cask # 没有安装cask会自动安装，已经安装cask的，会跳出cask命令列表 1234567# Cask 常用命令brew cask search        #列出所有可以被安装的软件brew">
 <meta name="keywords" content="server,Mac,mysql,nginx,php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下使用Homebrew安装ST&#x2F;Nginx&#x2F;MySQL&#x2F;PHP">
@@ -45,18 +45,18 @@
 <meta property="og:image" content="https://jeanleem6.github.io/2016/11/21/Mac-Nginx-MySQL-PHP/sublime_theme.png">
 <meta property="og:image" content="https://jeanleem6.github.io/2016/11/21/Mac-Nginx-MySQL-PHP/nginx_success.png">
 <meta property="og:image" content="https://jeanleem6.github.io/2016/11/21/Mac-Nginx-MySQL-PHP/php_info.png">
-<meta property="og:updated_time" content="2017-06-12T00:29:28.000Z">
+<meta property="og:updated_time" content="2019-03-01T07:25:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下使用Homebrew安装ST&#x2F;Nginx&#x2F;MySQL&#x2F;PHP">
 <meta name="twitter:description" content="使用homebrew-cask安装sublime先安装cask, 使用cask可以安装一些应用程序，如QQ，迅雷，谷歌浏览器等，功能和App store差不多，个人觉得这个更好管理 1brew cask # 没有安装cask会自动安装，已经安装cask的，会跳出cask命令列表 1234567# Cask 常用命令brew cask search        #列出所有可以被安装的软件brew">
 <meta name="twitter:image" content="https://jeanleem6.github.io/2016/11/21/Mac-Nginx-MySQL-PHP/sublime_theme.png">
 
 
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x">
 
 
 
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
 
 
 
@@ -183,7 +183,7 @@
         <li class="menu-search">
           <form>
             <i class="iconfont icon-search" id="open-search"></i>
-            <input type="text" class="search-input" id="search-input" />
+            <input type="text" class="search-input" id="search-input">
             <i class="iconfont icon-close" id="close-search"></i>
           </form>
         </li>
@@ -219,7 +219,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用homebrew-cask安装sublime"><span class="toc-text">使用homebrew-cask安装sublime</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#给sublime换主题"><span class="toc-text">给sublime换主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Mysql"><span class="toc-text">安装Mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装php"><span class="toc-text">安装php</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载php"><span class="toc-text">卸载php</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Nginx"><span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#别名"><span class="toc-text">别名</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用homebrew-cask安装sublime"><span class="toc-text">使用homebrew-cask安装sublime</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#给sublime换主题"><span class="toc-text">给sublime换主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Mysql"><span class="toc-text">安装Mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装php"><span class="toc-text">安装php</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-03-01-updated"><span class="toc-text">* 2019.03.01 updated *</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载php"><span class="toc-text">卸载php</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Nginx"><span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#别名"><span class="toc-text">别名</span></a></li></ol>
     </div>
   </div>
 
@@ -234,7 +234,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew cask search sublime</span><br><span class="line">==&gt; Exact match</span><br><span class="line">caskroom/cask/sublime</span><br><span class="line">==&gt; Partial matches</span><br><span class="line">caskroom/cask/sublime-text               caskroom/cask/sublime-text</span><br></pre></td></tr></table></figure>
 <p>从上面我们可以看出，要安装的sublime全称是sublime-text,我们使用<code>brew cask install sublime-text</code>来安装它</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install sublime-text</span><br></pre></td></tr></table></figure>
-<p>先给sublime text 3安装Package Control, 按住<code>control + ` </code>,在弹出的命令行输入：</p>
+<p>先给sublime text 3安装Package Control, 按住<code>control + `</code>,在弹出的命令行输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), <span class="string">'wb'</span>).write(urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="built_in">read</span>())</span><br></pre></td></tr></table></figure>
 <h3 id="给sublime换主题"><a href="#给sublime换主题" class="headerlink" title="给sublime换主题"></a>给sublime换主题</h3><p>然后<code>command + shift + p</code>,打开Package Control,输入<code>install</code>,选择<code>Package Control:Install Package</code>回车，在跳出的命令行输入选择<code>Material Theme</code>安装，然后按下图启用</p>
 <p><img src="/2016/11/21/Mac-Nginx-MySQL-PHP/sublime_theme.png" alt="sublime Theme"></p>
@@ -260,7 +260,31 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ mysql -u root -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 4</span><br><span class="line">Server version: 5.7.16 Homebrew</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
 <p>使用Homebrew卸载MySql</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall mysql</span><br><span class="line">brew cleanup</span><br><span class="line">launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br><span class="line">rm -Rf ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>
-<h2 id="安装php"><a href="#安装php" class="headerlink" title="安装php"></a>安装php</h2><p>安装php之前，请先用brew tap命令引入第三方的php库，brew仓库中没有php的安装包。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew update <span class="comment"># 安装软件前都要习惯的更新下brew源</span></span><br><span class="line">brew tap homebrew/dupes</span><br><span class="line">brew tap josegonzalez/homebrew-php</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装php"><a href="#安装php" class="headerlink" title="安装php"></a>安装php</h2><hr>
+<h3 id="2019-03-01-updated"><a href="#2019-03-01-updated" class="headerlink" title="* 2019.03.01 updated *"></a><code>* 2019.03.01 updated *</code></h3><blockquote>
+<p>Warning!<br>If you have existing PHP installations via Brew, you need to first cleanup your setup with our Upgrading Homebrew guide before continuing with this section.</p>
+</blockquote>
+<p>Up until the end of March 2018, all PHP related brews were handled by <code>Homebrew/php</code> tab, but that has been deprecated, so now we use what’s available in the <code>Homebrew/core</code> package. This should be a better maintained, but is a much less complete, set of packages.</p>
+<p>Both <strong>PHP 5.6</strong> and <strong>PHP 7.0</strong> has been deprecated and removed from Brew <a href="http://php.net/supported-versions.php" target="_blank" rel="noopener">because they are out of support</a>, and while it’s <strong>not recommended for production</strong>, there are legitimate reasons to test these unsupported versions in a development environment.</p>
+<p>Remember only <strong>PHP 7.1 through 7.3</strong> are officially supported by Brew so if you want to install <strong>PHP 5.6</strong> or <strong>PHP 7.0</strong> you will need to add this tap:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap exolnet/homebrew-deprecated</span><br></pre></td></tr></table></figure>
+<p>We will proceed by installing various verions of PHP and using a simple script to switch between them as we need. Feel free to exclude any versions you don’t want to install.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ brew install php@5.6</span><br><span class="line">$ brew install php@7.0</span><br><span class="line">$ brew install php@7.1</span><br><span class="line">$ brew install php@7.2</span><br><span class="line">$ brew install php@7.3</span><br></pre></td></tr></table></figure>
+<p>The first one will take a little bit of time as it has to install a bunch of brew dependencies. Subsequent PHP versions will install faster.</p>
+<blockquote>
+<p>Note:<br>You no longer have to <code>unlink</code> each version between installing PHP versions as they are not linked by default</p>
+</blockquote>
+<p>Also, you may have the need to tweak configuration settings of PHP to your needs. A common thing to change is the memory setting, or the <code>date.timezone</code> configuration. The <code>php.ini</code> files for each version of PHP are located in the following directories:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/etc/php/5.6/php.ini</span><br><span class="line">/usr/<span class="built_in">local</span>/etc/php/7.0/php.ini</span><br><span class="line">/usr/<span class="built_in">local</span>/etc/php/7.1/php.ini</span><br><span class="line">/usr/<span class="built_in">local</span>/etc/php/7.2/php.ini</span><br><span class="line">/usr/<span class="built_in">local</span>/etc/php/7.3/php.ini</span><br></pre></td></tr></table></figure>
+<p>Let’s switch back to the first PHP version now:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew unlink php@7.3 &amp;&amp; brew link --force --overwrite php@5.6</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Info:<br>At this point, I strongly recommend closing <strong>ALL your terminal tabs and windows</strong>. This will mean opening a new terminal to continue with the next step. This is strongly recommended because some really strange path issues can arise with existing terminals (trust me, I have seen it!).</p>
+</blockquote>
+<p>Quick test that we’re in the correct version:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br><span class="line"></span><br><span class="line">PHP 5.6.39 (cli) (built: Dec  7 2018 08:27:47)</span><br><span class="line">Copyright (c) 1997-2016 The PHP Group</span><br><span class="line">Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies</span><br><span class="line">    with Zend OPcache v7.0.6-dev, Copyright (c) 1999-2016, by Zend Technologies</span><br></pre></td></tr></table></figure>
+<hr>
+<p>安装php之前，请先用brew tap命令引入第三方的php库，brew仓库中没有php的安装包。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew update <span class="comment"># 安装软件前都要习惯的更新下brew源</span></span><br><span class="line">brew tap homebrew/dupes</span><br><span class="line">brew tap josegonzalez/homebrew-php</span><br></pre></td></tr></table></figure></p>
 <p>现在<code>brew search php</code>就可以了，出来一堆版本的php，我们就安装php5.6版本吧。<br>可以先<code>brew options php56</code>看看你安装的时候要哪些选项，我选择了下面这些,因为后面我们会用nginx作为反向代理，所以就不要用–with-apache选项了，也不要添加–without-fpm选项</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install php56 --with-imap --with-tidy --with-debug --with-pgsql --with-mysql --with-fpm</span><br></pre></td></tr></table></figure>
 <p>单独安装 php 扩展<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install php56-apcu php56-intl php56-redis php56-uuid php56-zookeeper</span><br><span class="line">    php56-thrift php56-solr php56-ssh2 php56-gmagick php56-kafka php56-libevent</span><br><span class="line">    php56-imagick php56-msgpack php56-geoip php56-mcrypt php56-swoole</span><br><span class="line">    php56-scrypt php56-xdebug php56-yaf php56-yaml php56-xhprof</span><br><span class="line">    php56-memcache php56-memcached php56-gearman</span><br></pre></td></tr></table></figure></p>
@@ -281,6 +305,20 @@
 <p>启动php-fpm之后，确保它正常运行监听9000端口：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ lsof -Pni4 | grep LISTEN | grep php</span><br><span class="line">php-fpm   18381  zjp    8u  IPv4 0xbca78421d968b30f      0t0  TCP 127.0.0.1:9000 (LISTEN)</span><br><span class="line">php-fpm   18382  zjp    0u  IPv4 0xbca78421d968b30f      0t0  TCP 127.0.0.1:9000 (LISTEN)</span><br><span class="line">php-fpm   18383  zjp    0u  IPv4 0xbca78421d968b30f      0t0  TCP 127.0.0.1:9000 (LISTEN)</span><br></pre></td></tr></table></figure>
 <h3 id="卸载php"><a href="#卸载php" class="headerlink" title="卸载php"></a>卸载php</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall php70</span><br><span class="line">brew cleanup</span><br><span class="line">xcode-select --install <span class="comment"># An "install" window will appear. Click "yes" on all the things.</span></span><br><span class="line">brew install php70</span><br></pre></td></tr></table></figure>
+<hr>
+<p><code>* 2019.03.01 updated *</code></p>
+<ul>
+<li><p>Uninstall your existing Homebrew PHP version if it is the latest release from php.net</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall --force php56</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Update your formulas:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Fix any tap link errors:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew tap --repair</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
 <h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p>查找nginx</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search nginx</span><br></pre></td></tr></table></figure>
 <p>看下信息</p>

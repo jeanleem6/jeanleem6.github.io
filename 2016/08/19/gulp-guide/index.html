@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head><meta name="generator" content="Hexo 3.8.0">
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="description" content="前端构建工具gulp入门教程"/>
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
+  <meta name="description" content="前端构建工具gulp入门教程">
 
-  <meta name="keywords" content="javascript,gulp," />
+
+
+
+  <meta name="keywords" content="javascript,gulp,">
 
 
 
@@ -27,14 +27,14 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x">
 
 
 
-<link rel="canonical" href="https://jeanleem6.github.io/2016/08/19/gulp-guide/"/>
+<link rel="canonical" href="https://jeanleem6.github.io/2016/08/19/gulp-guide/">
 
 
-<meta name="description" content="本文假设你之前没有用过任何任务脚本（task runner）和命令行工具，一步步教你上手Gulp。不要怕，它其实很简单，我会分为五步向你介绍gulp并帮助你完成一些惊人的事情。那就直接开始吧。 第一步：安装Node首先，最基本也最重要的是，我们需要搭建node环境。访问http://nodejs.org，然后点击大大的">
+<meta name="description" content="本文假设你之前没有用过任何任务脚本（task runner）和命令行工具，一步步教你上手Gulp。不要怕，它其实很简单，我会分为五步向你介绍gulp并帮助你完成一些惊人的事情。那就直接开始吧。 第一步：安装Node首先，最基本也最重要的是，我们需要搭建node环境。访问http://nodejs.org，然后点击大大的绿色的install按钮，下载完成后直接运行程序，就一切准备就绪。npm会随着安">
 <meta name="keywords" content="javascript,gulp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端构建工具gulp入门教程">
@@ -48,11 +48,11 @@
 <meta name="twitter:description" content="本文假设你之前没有用过任何任务脚本（task runner）和命令行工具，一步步教你上手Gulp。不要怕，它其实很简单，我会分为五步向你介绍gulp并帮助你完成一些惊人的事情。那就直接开始吧。 第一步：安装Node首先，最基本也最重要的是，我们需要搭建node环境。访问http://nodejs.org，然后点击大大的绿色的install按钮，下载完成后直接运行程序，就一切准备就绪。npm会随着安">
 
 
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x">
 
 
 
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
 
 
 
@@ -179,7 +179,7 @@
         <li class="menu-search">
           <form>
             <i class="iconfont icon-search" id="open-search"></i>
-            <input type="text" class="search-input" id="search-input" />
+            <input type="text" class="search-input" id="search-input">
             <i class="iconfont icon-close" id="close-search"></i>
           </form>
         </li>
@@ -224,7 +224,7 @@
       
         <p><strong>本文假设你之前没有用过任何任务脚本（task runner）和命令行工具，一步步教你上手Gulp。不要怕，它其实很简单，我会分为五步向你介绍gulp并帮助你完成一些惊人的事情。那就直接开始吧。</strong></p>
 <h2 id="第一步：安装Node"><a href="#第一步：安装Node" class="headerlink" title="第一步：安装Node"></a>第一步：安装Node</h2><p>首先，最基本也最重要的是，我们需要搭建node环境。访问<a href="http://nodejs.org/" target="_blank" rel="noopener">http://nodejs.org</a>，然后点击大大的绿色的install按钮，下载完成后直接运行程序，就一切准备就绪。npm会随着安装包一起安装，稍后会用到它。</p>
-<h2 id="第二步：使用命令行"><a href="#第二步：使用命令行" class="headerlink" title="第二步：使用命令行"></a>第二步：使用命令行</h2><p>也许现在你还不是很了解什么是命令行——OS X中的<em>终端</em>（Terminal），windows中的<em>命令提示符</em>（Command Prompt），但很快你就会知道。它看起来没那么简单，但一旦掌握了它的窍门，就可以很方便的执行很多命令行程序，比如<a href="http://sass-lang.com/" target="_blank" rel="noopener">Sass</a>，<a href="https://npmjs.org/search?q=gulpplugin" target="_blank" rel="noopener">Yeoman</a>和<a href="https://github.com/wearefractal/gulp" target="_blank" rel="noopener">Git</a>等，这些都是非常有用的工具。</p>
+<h2 id="第二步：使用命令行"><a href="#第二步：使用命令行" class="headerlink" title="第二步：使用命令行"></a>第二步：使用命令行</h2><p>也许现在你还不是很了解什么是命令行——OS X中的<em>终端</em>（Terminal），windows中的<em>命令提示符</em>（Command Prompt），但很快你就会知道。它看起来没那么简单，但一旦掌握了它的窍门，就可以很方便的执行很多命令行程序，比如<a href="http://sass-lang.com/" target="_blank" rel="noopener">Sass</a>，<a href="http://yeoman.io/" target="_blank" rel="noopener">Yeoman</a>和<a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a>等，这些都是非常有用的工具。</p>
 <a id="more"></a>
 <blockquote>
 <p>如果你很熟悉命令行，直接跳到步骤四。</p>
@@ -252,7 +252,7 @@
 <p>成功进入项目目录后，我们开始安装gulp。</p>
 <h2 id="第四步：安装gulp"><a href="#第四步：安装gulp" class="headerlink" title="第四步：安装gulp"></a>第四步：安装gulp</h2><p>我们已经知道如何使用命令行，现在尝试点新的东西，认识npm然后安装gulp。</p>
 <blockquote>
-<p><em>NPM</em>是基于命令行的node包管理工具，它可以将node的程序模块安装到项目中，在它的<a href="https://npmjs.org/doc/json.html" target="_blank" rel="noopener">官网</a>中可以查看和搜索所有可用的程序模块。作为练习你可以搜索gulp试试看。</p>
+<p><em>NPM</em>是基于命令行的node包管理工具，它可以将node的程序模块安装到项目中，在它的<a href="http://npmjs.org/" target="_blank" rel="noopener">官网</a>中可以查看和搜索所有可用的程序模块。作为练习你可以搜索gulp试试看。</p>
 </blockquote>
 <p>在命令行中输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gulp</span><br></pre></td></tr></table></figure>
@@ -263,7 +263,7 @@
 <li>最后，<code>gulp</code>是将要安装的<strong>package（包）</strong>的名字</li>
 </ul>
 <blockquote>
-<p>如果你在安装模块过程中遇到报错提示<strong>目录没有写入权限</strong>，你可以在该命令最前面加上<code>sudo</code>，但是不建议，因为这可能导致后续出现其它问题。更多解决方法可访问<a href="http://travismaynard.com/writing/getting-started-with-gulp" target="_blank" rel="noopener">Fixing npm Permissions</a>。</p>
+<p>如果你在安装模块过程中遇到报错提示<strong>目录没有写入权限</strong>，你可以在该命令最前面加上<code>sudo</code>，但是不建议，因为这可能导致后续出现其它问题。更多解决方法可访问<a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="noopener">Fixing npm Permissions</a>。</p>
 </blockquote>
 <p>运行时注意查看命令行有没有错误信息，安装完成后，你可以使用下面的命令查看<em>gulp的版本号</em>以确保gulp已经被正确安装。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br></pre></td></tr></table></figure>
@@ -317,12 +317,12 @@
 </ol>
 <p>另外，有一些参考资源供进一步学习：</p>
 <ol>
-<li><a href="https://npmjs.org/search?q=gulpplugin" target="_blank" rel="noopener">npm上的gulp组件</a></li>
-<li><a href="https://github.com/wearefractal/gulp" target="_blank" rel="noopener">gulp的Github主页</a></li>
-<li><a href="https://npmjs.org/doc/json.html" target="_blank" rel="noopener">官方package.json文档</a></li>
+<li><a href="http://yeoman.io/" target="_blank" rel="noopener">npm上的gulp组件</a></li>
+<li><a href="http://git-scm.com/" target="_blank" rel="noopener">gulp的Github主页</a></li>
+<li><a href="http://npmjs.org/" target="_blank" rel="noopener">官方package.json文档</a></li>
 </ol>
 <hr>
-<p>From: <a href="http://travismaynard.com/writing/getting-started-with-gulp" target="_blank" rel="noopener">http://travismaynard.com/writing/getting-started-with-gulp</a></p>
+<p>From: <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="noopener">http://travismaynard.com/writing/getting-started-with-gulp</a></p>
 
       
     </div>
