@@ -197,6 +197,53 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/07/13/javascript-useragent/">javascript 用户代理(userAgent)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jul 13, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>强调一下，<strong>用户代理检测是</strong>客户端检测的<strong>最后一个选择</strong>。只要可能，都<strong>应该优先采用能力检测和怪癖检测</strong>。用户代理检测一般适用以下情形：</p>
+<ul>
+<li>不能直接准确地使用能力检测或怪癖检测。例如，某些浏览器实现了为将来功能预留的存根(stub)函数。在这种情况下，仅测试相应的函数是否存在还得不到足够的信息。</li>
+<li>同一款浏览器在不同平台下具备不同的能力。这时候，可能就有必要确定浏览器位于哪个平台下。</li>
+<li>为了跟踪分析等目的需要知道确切的浏览器。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引擎、浏览器版本检测</span></span><br><span class="line"><span class="keyword">var</span> client = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> engine = &#123;</span><br><span class="line">        <span class="comment">//呈现引擎</span></span><br><span class="line">        ie: <span class="number">0</span>,</span><br><span class="line">        gecko: <span class="number">0</span>,</span><br><span class="line">        webkit: <span class="number">0</span>,</span><br><span class="line">        khtml: <span class="number">0</span>,</span><br><span class="line">        opera: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 具体的版本</span></span><br><span class="line">        ver: <span class="literal">null</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> browser = &#123;</span><br><span class="line">        <span class="comment">// 浏览器</span></span><br><span class="line">        ie: <span class="number">0</span>,</span><br><span class="line">        firefox: <span class="number">0</span>,</span><br><span class="line">        safari: <span class="number">0</span>,</span><br><span class="line">        kong: <span class="number">0</span>,</span><br><span class="line">        opera: <span class="number">0</span>,</span><br><span class="line">        chrome: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 具体的版本</span></span><br><span class="line">        ver: <span class="literal">null</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ua = navigator.userAgent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.opera) &#123;</span><br><span class="line">        engine.ver = browser.ver = <span class="built_in">window</span>.opera.version();</span><br><span class="line">        engine.opera = browser.opera = <span class="built_in">parseFloat</span>(engine.ver);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/AppleWebKit\/(\S+)/</span>.test(ua)) &#123;</span><br><span class="line">        engine.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</span><br><span class="line">        engine.webkit = <span class="built_in">parseFloat</span>(engine.ver);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 确定是 safari 还是 chrome</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/Chrome\/(\S+)/</span>.test(ua)) &#123;</span><br><span class="line">            browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</span><br><span class="line">            browser.chrome = <span class="built_in">parseFloat</span>(browser.ver);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/Version\/(\S+)/</span>.test(ua)) &#123;</span><br><span class="line">            browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</span><br><span class="line">            browser.safari = <span class="built_in">parseFloat</span>(browser.ver);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 近似地确定版本号</span></span><br><span class="line">            <span class="keyword">var</span> safariVersion = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (engine.webkit &lt; <span class="number">100</span>) &#123;</span><br><span class="line">                safariVersion = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (engine.webkit &lt; <span class="number">312</span>) &#123;</span><br><span class="line">                safariVersion = <span class="number">1.2</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (engine.webkit &lt; <span class="number">412</span>) &#123;</span><br><span class="line">                safariVersion = <span class="number">1.3</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                safariVersion = <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            browser.safari = browser.ver = safariVersion;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/KHTML\/(\S+)/</span>.test(ua) || <span class="regexp">/Konqueror\/([^;]+)/</span>.test(ua)) &#123;</span><br><span class="line">        engine.ver = browser.ver = RgeExp[<span class="string">'$1'</span>];</span><br><span class="line">        engine.khtml = browser.kong = <span class="built_in">parseFloat</span>(engine.ver);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/rv:([^\)]+)\) Gecko\/\d&#123;8&#125;/</span>.test(ua)) &#123;</span><br><span class="line">        engine.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</span><br><span class="line">        engine.gecko = <span class="built_in">parseFloat</span>(engine.ver);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/Firefox\/(\S+)/</span>.test(ua)) &#123;</span><br><span class="line">            browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</span><br><span class="line">            browser.firefox = <span class="built_in">parseFloat</span>(browser.ver);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/MSIE ([^;]+)/</span>.test(ua)) &#123;</span><br><span class="line">        engine.ver = browser.ver = <span class="built_in">RegExp</span>[<span class="string">'$1'</span>];</span><br><span class="line">        engine.ie = browser.ie = <span class="built_in">parseFloat</span>(engine.ver);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        engine: engine,</span><br><span class="line">        browser: browser</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引擎版本</span></span><br><span class="line"><span class="built_in">console</span>.log(client.engine.ver);</span><br><span class="line"><span class="comment">// 浏览器版本</span></span><br><span class="line"><span class="built_in">console</span>.log(client.browser.ver);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>还有一个<strong>平台检测</strong>功能此处未实现，待后续更新…</p>
+</blockquote>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/06/28/sublime-practical-skills/">Sublime实用技巧(Mac)</a>
         
       </h1>
@@ -824,51 +871,6 @@
 <p>注：先切换到主分支，再合并。</p>
           <div class="read-more">
             <a href="/2016/11/16/git-fresher-05/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/11/16/git-fresher-04/">Git 使用入门 04-上传本地项目到 GitHub？</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Nov 16, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>先进入项目根文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> demo</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"新建项目"</span></span><br></pre></td></tr></table></figure>
-<p>到这一步时，你要去你的 GitHub 上新建一个项目，命名为 demo （注意不要选择第三个 - 使用README 文件初始化仓库）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:你GitHub的用户名/demo.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2016/11/16/git-fresher-04/" class="read-more-link">Read more..</a>
           </div>
         
       

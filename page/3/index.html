@@ -197,6 +197,51 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/11/16/git-fresher-04/">Git 使用入门 04-上传本地项目到 GitHub？</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 16, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>先进入项目根文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> demo</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"新建项目"</span></span><br></pre></td></tr></table></figure>
+<p>到这一步时，你要去你的 GitHub 上新建一个项目，命名为 demo （注意不要选择第三个 - 使用README 文件初始化仓库）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:你GitHub的用户名/demo.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/11/16/git-fresher-04/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/11/16/git-fresher-03/">Git 使用入门 03-远程仓库的使用（Mac）</a>
         
       </h1>
@@ -906,60 +951,6 @@
 </ul>
           <div class="read-more">
             <a href="/2016/09/01/macos-fix-RDP/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/09/01/boost-baidu-cloud/">Boost Baidu-Cloud</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Sep 1, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>Mac 用户肯定都受够了百度网盘在自己电脑上的糟糕体验，至少我是如此：安装官方的 App，经常下载时中断，有时甚至 Bug 般连续中断，无奈使用浏览器下载，速度却是令人挠头。花点时间来配置 aria2，结合 Chrome，一定让你舒心。</p>
-<h2 id="aria2-是什么？"><a href="#aria2-是什么？" class="headerlink" title="aria2 是什么？"></a>aria2 是什么？</h2><p>aria2 是一款支持多种协议的轻量级命令行下载工具。有以下特性：</p>
-<ul>
-<li>多线程连线：aria2 会自动从多个线程下载文件，并充分利用你的带宽；</li>
-<li>轻量：运行时不会占用过多资源，根据官方介绍，内存占用通常在 4MB~9MB，使用 BitTorrent 协议，下行速度 2.8MB/s 时 CPU 占用率约 6%；</li>
-<li>全功能 BitTorrent 客户端；</li>
-<li>支持 RPC 界面远程控制（下文重点介绍）。</li>
-</ul>
-<h2 id="下载方式介绍"><a href="#下载方式介绍" class="headerlink" title="下载方式介绍"></a>下载方式介绍</h2><ul>
-<li>一种为<strong>command-line download mode(命令行下载模式)</strong>；</li>
-<li>另一种为<strong>RPC server mode(RPC服务器模式)</strong></li>
-</ul>
-<p>第一种模式推荐技术人员使用；第二种模式推荐普通人使用。</p>
-          <div class="read-more">
-            <a href="/2016/09/01/boost-baidu-cloud/" class="read-more-link">Read more..</a>
           </div>
         
       
