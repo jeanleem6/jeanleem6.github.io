@@ -197,6 +197,86 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2019/03/26/linux-text-stream/">Linux文本流</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Mar 26, 2019
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="文本流"><a href="#文本流" class="headerlink" title="文本流"></a>文本流</h2><p>在计算机中，所谓的数据就是<em>0</em>或1的二进制序列，但严格来说，Unix以<strong>字节</strong>（byte）来作为数据的单位，也就是说这个序列每八位（bit）为一个单位。八位的二进制数字，会落在十进制从0到255的范围内。利用ASCII编码，可以把这一个字节转换成为256个字符中的一个。所以，在Unix中，数据完全可以用字符的形式表示出来，也就是所谓的文本（text）。</p>
+<p>实际上，如果以位为单位的话，机器会更容易读懂和传输。但Unix系统坚持用字节为单位来表示数据。原因在于，相对于以位为单位的二进制数据，以字节为单位文本直接就人类可读（human readable）。这样的话，无论是计算机配置信息，还是别人写的一首诗，用户都可以直接读懂。当然，并不是所有的数据都是设计来让人读懂的。很多编译好的可执行文件中包含的内容，只有机器能读懂。打开这个文件，尽管也能看到一个个字符，但这些字符并不能组成什么有意义的文本。但Unix系统不会给这种“读不懂”的文件开后门。所有文件都是统一的形式，就能以相同的方法存储，也能共用一套处理工具，从而减少程序开发的难度。</p>
+<p>存储文本的文件，就相当于一个个存储数据的房子。在Unix的设计哲学中，一向有“万物皆文件”（Everything is a file）的说法。大部分的文件都对应了存储设备，也就是树莓派的SD卡上的信息。就连表示文件位置的目录，也是一种文件。此外，程序的配置信息，也都存储在文件中。对于Unix系统来说，文件可以广义的认为是可以提供或接收数据的对象。既然这样，Unix系统干脆把提供或接收数据的硬件也表示成文件。这其中，既有外部连接的USB设备，也包括树莓派内部的内存等硬件。在/dev目录下，就可以找到很多这样代表硬件的文件。</p>
+<p>但托瓦兹对“万物皆文件”的说法作出过纠正，改为“万物皆文本流”（<a href="http://yarchive.net/comp/linux/everything_is_file.html" target="_blank" rel="noopener">Everything is a stream of bytes</a>）。系统运行时，数据并不是在一个文件里定居。数据会在CPU的指挥下不断地流动，就好像一个勤劳的上班族。有时数据需要到办公室上班，因此被读入到内存，有时会去酒店休假，传送到外部设备。有的时候，数据需要搬个家，转移到另一个文件。在这样跑来跑去的过程中，数据像是排着队走路的人流，我们叫它<strong>文本流（text stream</strong>，或者byte stream）。然而，计算机不同设备之间的连接方法差异很大，从内存到文件的连接像是爬山，从内存到外设像是游过一条河。为此，Unix定义了<strong>流 (stream)</strong>，作为连接操作系统各处的<strong>公路</strong>标准。有了“流”，无论是从内存到外设，还是从内存到文件，所有的数据公路都是相同的格式。至于公路下面是石头还是土地，就都交给操作系统处理，不劳用户操心。</p>
+<p>(说句题外话，如果看过骇客帝国的话，一定会对文本流印象深刻。)</p>
+<p><img src="/2019/03/26/linux-text-stream/2012091402482228.jpg" alt="骇客帝国"></p>
+<h2 id="标准输入，标准输出，标准错误与重新定向"><a href="#标准输入，标准输出，标准错误与重新定向" class="headerlink" title="标准输入，标准输出，标准错误与重新定向"></a>标准输入，标准输出，标准错误与重新定向</h2><p>当Unix执行一个程序的时候，会自动打开三个流，<strong>标准输入</strong>(standard input)，<strong>标准输出</strong>(standard output)，<strong>标准错误</strong>(standard error)。比如说你打开命令行的时候，默认情况下，命令行的标准输入连接到键盘，标准输出和标准错误都连接到屏幕。对于一个程序来说，尽管它总会打开这三个流，但它会根据需要使用，并不是一定要使用。</p>
+<p>想象一下敲击一个</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>ls</span><br></pre></td></tr></table></figure>
+<p>键盘敲击的文本流(“ls\n”，\n是回车时输入的字符，表示换行)命令行 (命令行实际上也是一个程序)。命令行随后调用/bin/ls得到结果(“a.txt”)，最后这个输出的文本流(“a.txt”)流到屏幕，显示出来，比如说：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.txt</span><br></pre></td></tr></table></figure>
+<p>假设说我们不想让文本流流到屏幕，而是流到另一个文件，我们可以采用<strong>重新定向</strong>(redirect)的机制。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>ls &gt; a.txt</span><br></pre></td></tr></table></figure>
+<p><strong>重新定向标准输出</strong>。这里的<code>&gt;</code>就是提醒命令行，让它知道我现在想变换文本流的方向了，我们不让标准输出输出到屏幕，而是要到a.txt这个文件 (好像火车轨道换轨)。此时，计算机会新建一个a.txt的文件，并将命令行的标准输出指向这个文件。</p>
+<p>有另一个符号:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>ls &gt;&gt; a.txt</span><br></pre></td></tr></table></figure>
+<p>这里<code>&gt;&gt;</code>的作用也是<strong>重新定向标准输出</strong>。如果<code>a.txt</code>已经存在的话，<code>ls</code>产生的文本流会附加在<code>a.txt</code>的结尾，而不会像<code>&gt;</code>那样每次都新建<code>a.txt</code>。</p>
+<p>我们下面介绍<strong>命令echo</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>echo IamVamei</span><br></pre></td></tr></table></figure>
+<p><code>echo</code> 的作用是<strong>将文本流导向标准输出</strong>。在这里，echo的作用就是将IamVamei输出到屏幕上。如果是</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>echo IamVamei &gt; a.txt</span><br></pre></td></tr></table></figure>
+<p>a.txt中就会有IamVamei这个文本。</p>
+<p>我们也可以用<code>&lt;</code>符号来<strong>改变标准输入</strong>。比如<code>cat</code>命令，它可以<strong>从标准输入读入文本流，并输出到标准输出</strong>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat &lt; a.txt</span><br></pre></td></tr></table></figure>
+<p>我们将cat标准输入指向a.txt，文本会从文件流到cat，然后再输出到屏幕上。当然，我们还可以同时重新定向标准输出:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat &lt; a.txt &gt; b.txt</span><br></pre></td></tr></table></figure>
+<p>这样，a.txt的内容就复制到了b.txt中。</p>
+<p>我们还可以使用<code>&gt;&amp;</code>来同时重新定向标准输出和标准错误。假设我们并没有一个目录void。那么</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cd void &gt; a.txt</span><br></pre></td></tr></table></figure>
+<p>会在屏幕上返回错误信息。因为此时标准错误依然指向屏幕。当我们使用:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cd void &gt;&amp; a.txt</span><br></pre></td></tr></table></figure>
+<p>错误信息被导向a.txt。</p>
+<p>如果只想重新定向标准错误，可以使用<code>2&gt;</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cd void 2&gt; a.txt &gt; b.txt</span><br></pre></td></tr></table></figure>
+<p>标准错误对应的总是<strong>2号</strong>，所以有以上写法。标准错误输出到a.txt，标准输出输出到b.txt。</p>
+<h2 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道 (pipe)"></a>管道 (pipe)</h2><p>理解了以上的内容之后，<strong>管道</strong>的概念就易如反掌。管道可以将一个命令的输出导向另一个命令的输入，从而让两个(或者更多命令)像流水线一样连续工作，不断地处理文本流。在命令行中，我们用<code>|</code>表示管道：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat &lt; a.txt | wc</span><br></pre></td></tr></table></figure>
+<p><code>wc</code>命令代表<strong>word count</strong>，用于<strong>统计</strong>文本中的<strong>行</strong>、<strong>词</strong>以及<strong>字符</strong>的总数。a.txt中的文本先流到cat，然后从cat的标准输出流到wc的标准输入，从而让wc知道自己要处理的是a.txt这个字符串。</p>
+<p>Linux的各个命令实际上高度专业化，并尽量相互独立。每一个都只专注于一个小的功能。但通过pipe，我们可以将这些功能合在一起，实现一些复杂的目的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文本流，标准输入，标准输出，标准错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat, echo, wc</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span>, &gt;&gt;, &lt;, |</span><br></pre></td></tr></table></figure>
+<hr>
+<p>reference:<br><a href="http://www.cnblogs.com/vamei/archive/2012/09/14/2683756.html" target="_blank" rel="noopener">http://www.cnblogs.com/vamei/archive/2012/09/14/2683756.html</a></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2019/03/03/switch-python-version/">Mac中安装配置Python2、Python3及自由切换</a>
         
       </h1>
@@ -1258,80 +1338,6 @@
 <li><code>Control + A</code> 移至行或段落的开头</li>
 </ul>
 <p><strong>如果你还想学习更多快捷键，请<a href="https://support.apple.com/zh-cn/HT201236" target="_blank" rel="noopener">点击这里查看苹果官方的快捷键帮助文档。</a></strong></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/07/20/google-search-skills/">这样用Google，秒变特工</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Jul 20, 2017
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>转自微博：黑客师</p>
-<h2 id="第一篇"><a href="#第一篇" class="headerlink" title="第一篇"></a>第一篇</h2><ul>
-<li>在搜索框上输入：<code>&quot;indexof/&quot; inurl:lib</code><br>  再按搜索你将进入许多图书馆，并且一定能下载自己喜欢的书籍。</li>
-<li>在搜索框上输入：<code>&quot;indexof/&quot;cnki</code><br>  再按搜索你就可以找到许多图书馆的CNKI、VIP、超星等入口！</li>
-<li>在搜索框上输入：<code>&quot;indexof/&quot;ppt</code><br>  再按搜索你就可以突破网站入口下载powerpint作品！</li>
-<li>在搜索框上输入：<code>&quot;indexof/&quot;mp3</code><br>  再按搜索你就可以突破网站入口下载mp3、rm等影视作品！</li>
-<li>在搜索框上输入：<code>&quot;indexof/&quot;swf</code><br>  再按搜索你就可以突破网站入口下载flash作品！</li>
-<li>在搜索框上输入：<code>&quot;indexof/&quot;要下载的软件名</code><br>  再按搜索你就可以突破网站入口下载软件！</li>
-<li>再透露一下，如果你输入：<code>&quot;indexof/&quot;AVI</code></li>
-</ul>
-<blockquote>
-<p>注意引号应是英文的！</p>
-</blockquote>
-<h2 id="另补上第二篇"><a href="#另补上第二篇" class="headerlink" title="另补上第二篇"></a>另补上第二篇</h2><p><strong>Google看世界</strong></p>
-<p>在google里输入：<code>inurl:&quot;viewerframe?mode=&quot;</code></p>
-<p>只要你在GOOGLE里输入特殊的关键字，就可以搜到数千个摄象头的IP地址！<br>通过它们你就可以看到其所摄的实时影象！！<br>随便打开一个，然后按提示装一个插件，就可以看到了！</p>
-<h2 id="再补上第三篇"><a href="#再补上第三篇" class="headerlink" title="再补上第三篇"></a>再补上第三篇</h2><p>三则黑客的Google搜索技巧简介</p>
-<p>大家都知道，Google毫无疑问是当今世界上最强大的搜索引擎。然而，在黑客手中，它也是一个秘密武器，它能搜索到一些你意想不到的信息。编者把他们进行了简单的总结，不是希望您利用他们去攻击别人的网站，而是利用这些技巧去在浩如烟海的网络信息中，来个大海捞针，寻找到对您有用的信息。</p>
-<p>如果您是一名普通网民，您可以使用黑客的技巧扩大自己的视野，提高自己的检索效率；如果您是一名网管，请您赶快看看您的网站是否做好了对下面黑客探测手段的防范措施，如果没有就赶快来个亡羊补牢，毕竟隐患胜于明火，防范胜于救灾；如果您是一名黑客，相信您早以在别的黑客站点上见过类似的方法，这篇文章对您没什么用处，这里的技巧对您是小儿科，菜鸟级！您可以节省宝贵的时间做更有意义的事情，这篇文章您不用看了，到别处去吧！</p>
-<p>基于上面的考虑我编发了这篇文章。</p>
-<p><strong>搜索URL</strong></p>
-<p>比如我们提交这种形式：<code>passwd.txtsite:virtualave.net</code></p>
-<p>看到了什么？是不是觉得太不可思议了！有很多基于CGI/PHP/ASP类型的留言板存在这种问题。有时我们得到密码甚至还是明码的！管理员或许太不负责了，或许安全防范的意识太差了，如果你是网络管理员，赶快检查一下不要让恶意攻击者捡了便宜。不要太相信DES加密，即使我们的密码经过DES加密的密码，黑客们还是可以通过许多破解软件来搞定。<br>这次我们能得到包含密码的文件。“site:virtualave.net”意思是只搜索virutalave.net的URL。virutalave.net是一个网络服务器提供商。</p>
-<p>同样，我们可以搜索一些顶级域名，比如：.net.org.jp.in.gr</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config.txtsite:.jp</span><br><span class="line">admin.txtsite:.tw</span><br></pre></td></tr></table></figure>
-<p>搜索首页的目录<br>首页是非常有用的，它会提供给你许多有用的信息。<br>我们提交如下的形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;Indexof/admin&quot;</span><br><span class="line">&quot;Indexof/secret&quot;</span><br><span class="line">&quot;Indexof/cgi-bin&quot;site:.edu</span><br></pre></td></tr></table></figure>
-<p>你可以自己定义搜索的首页字符。这样就可以获得许多信息。<br>搜索特定的文件类型<br>比如你想指定一种文件的类型，可以提交如下形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filetype:.docsite:.milclassified</span><br></pre></td></tr></table></figure>
-<p>这个就是搜索军方的资料，你可以自定义搜索。</p>
-<h2 id="再提供一个第四篇"><a href="#再提供一个第四篇" class="headerlink" title="再提供一个第四篇"></a>再提供一个第四篇</h2><p>Google的特殊功能</p>
-<ol>
-<li><p>查询电话号码<br>Google的搜索栏中最新加入了电话号码和美国街区地址的查询信息。<br>个人如想查找这些列表，只要填写姓名，城市和省份。<br>如果该信息为众人所知，你就会在搜索结果页面的最上方看到搜索的电话和街区地址<br>你还可以通过以下任何一种方法找到该列表：<br>名字（或首位大写字母），姓，电话地区号<br>名字（或首位大写字母），姓，邮递区号<br>名字（或首位大写字母），姓，城市（可写州）<br>名字（或首位大写字母），姓，州<br>电话号码，包括区号<br>名字，城市，州<br>名字，邮递区号</p>
-</li>
-<li><p>查找PDF文件<br>现在GOOGLE的搜索结果中包括了PDF文件。尽管PDF文件不如HTML文件那么多，但他们经常具备一些其他文件不具备的高质量信息<br>为了显示一个搜索结果是PDF文件而不是网页，PDF文件的标题开头显示蓝色文本。<br>这就是让你知道Acrobat Reader程序会启动来阅读文件<br>如果你的计算机没装有该程序，计算机会指导你去能免费下载该程序的网页。<br>使用pdf文件时，相关的网页快照会由“text version”代替，它是pdf文档的复制文件，该文件除去了所有格式化命令。<br>如果你在没有PDF链接的情况下想看一系列搜索结果，只要在搜索栏中打上-inurldf加上你的搜索条件。<br>文字限制，主要就发这些我觉得有意思的吧。还有几个比较冷门，就不发了。</p>
-</li>
-</ol>
 
         
       
