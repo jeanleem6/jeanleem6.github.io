@@ -197,6 +197,87 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/">Multiple MySQL Versions with Homebrew</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          May 8, 2019
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="CONTENT"><a href="#CONTENT" class="headerlink" title="CONTENT"></a>CONTENT</h2><p>For homebrew version 2.1.2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew -v <span class="comment"># =&gt; Homebrew 2.1.2</span></span><br></pre></td></tr></table></figure>
+<p>Install the current version of mysql.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install current mysql version</span></span><br><span class="line">brew install mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start agent for current version of mysql (including on login)</span></span><br><span class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/mysql/*.plist ~/Library/LaunchAgents</span><br><span class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>
+<p>Install the older version of mysql.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Find older mysql versions</span></span><br><span class="line">brew search mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install older mysql version</span></span><br><span class="line">brew install mysql@5.6</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start agent for older version of mysql (including on login)</span></span><br><span class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/mysql@5.6/*.plist ~/Library/LaunchAgents</span><br><span class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql@5.6.plist</span><br></pre></td></tr></table></figure>
+<p>Then to switch to the older version.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Unlink current mysql version</span></span><br><span class="line">brew unlink mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># Check older mysql version</span></span><br><span class="line">ls /usr/<span class="built_in">local</span>/Cellar/mysql@5.6 <span class="comment"># =&gt; 5.6.43</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Link the older version</span></span><br><span class="line">brew switch mysql@5.6 5.6.43</span><br><span class="line"><span class="comment"># If the above didn't working, try this:</span></span><br><span class="line">brew link mysql@5.6 --force</span><br></pre></td></tr></table></figure>
+<p>And to switch back to the current version.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Unlink older mysql version</span></span><br><span class="line">brew unlink mysql@5.6</span><br><span class="line"></span><br><span class="line"><span class="comment"># Check current mysql version</span></span><br><span class="line">ls /usr/<span class="built_in">local</span>/Cellar/mysql <span class="comment"># =&gt; 8.0.16</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Link the current version</span></span><br><span class="line">brew switch mysql 8.0.16</span><br></pre></td></tr></table></figure>
+<p>To verify which mysql version you’re on at any time.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check which version of mysql is currently symlinked</span></span><br><span class="line">ls -l /usr/<span class="built_in">local</span>/bin/mysql <span class="comment"># =&gt; /usr/local/bin/mysql@ -&gt; ../Cellar/mysql56/5.6.43/bin/mysql</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Or using the mysql command</span></span><br><span class="line">mysql --version</span><br></pre></td></tr></table></figure>
+<p>And to unload a mysql agent for a given version.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Stop agent for current version of mysql</span></span><br><span class="line">launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br><span class="line">rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop agent for older version of mysql</span></span><br><span class="line">launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql@5.6.plist</span><br><span class="line">rm ~/Library/LaunchAgents/homebrew.mxcl.mysql@5.6.plist</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Caution"><a href="#Caution" class="headerlink" title="Caution"></a>Caution</h2><blockquote>
+<p><em>jpmelguizo:</em><br>Went with <a href="mailto:mysql@5.6" target="_blank" rel="noopener">mysql@5.6</a> and I’m getting: <code>ERROR 2002 (HY000): Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39; (2)</code> Although brew services list says <a href="mailto:mysql@5.6" target="_blank" rel="noopener">mysql@5.6</a> is started, there’s no mysqld process running and no mysql.sock file anywhere. Any ideas on how to fix it? should I just go with the deprecated mysql56 instead?</p>
+</blockquote>
+<blockquote>
+<p><em>jsweeney:</em></p>
+<p><strong>(NOTICE: If you see <code>\@</code>, it is just <code>@</code>, remove the backslash(<code>\</code>) when you copy.)</strong><br>I also had your problem. My issue was that the mysql\@5.6 was trying to boot the mysql 5.7 database (installed in the default <code>/usr/local/var</code> folder). If you want to run both in parallel on their own distinct databases, there are a few more steps to do.</p>
+<ol>
+<li>Create a new (separate) data directory and database for the 5.6 version<br> Run <code>/usr/local/Cellar/mysql\@5.6/5.6.36/bin/mysql_install_db --user=root --datadir=/usr/local/var/mysql56</code></li>
+<li>Change the configuration to start the 5.6 version pointing to this database<br>Edit <code>/usr/local/Cellar/mysql\@5.6/5.6.36/homebrew.mxcl.mysql\@5.6.plist</code> to change both <code>/usr/local/var/mysql</code> instances to <code>/usr/local/var/mysql56</code> (I didn’t put the <code>@</code> in the folder name just in case it would cause issues). <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>KeepAlive<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>Label<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>homebrew.mxcl.mysql@5.6<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>ProgramArguments<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/opt/mysql@5.6/bin/mysqld_safe<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>--bind-address=127.0.0.1<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>--datadir=/usr/local/var/mysql56<span class="tag">&lt;/<span class="name">string</span>&gt;</span> <span class="comment">&lt;!-- &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HERE --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>RunAtLoad<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>WorkingDirectory<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/var/mysql56<span class="tag">&lt;/<span class="name">string</span>&gt;</span> <span class="comment">&lt;!-- &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; AND HERE --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>Change the port of the 5.6 server - if ever you want to start both at the same time.<br>Edit <code>/usr/local/Cellar/mysql\@5.6/5.6.36/my.cnf</code>, uncomment <code>port</code> and change it to some other value than <code>3306</code>. <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># These are commonly set, remove the # and set as required.</span></span><br><span class="line"><span class="comment"># basedir = .....</span></span><br><span class="line"><span class="comment"># datadir = .....</span></span><br><span class="line">port = 3356</span><br><span class="line"><span class="comment"># server_id = .....</span></span><br><span class="line"><span class="comment"># socket = .....</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>NOTE A little caveat about connecting to the MySQL instances after such a setup. Using any kind of driver will &gt; work out of the box if you set the correct port. However, at the command line, <code>mysql</code> ignores the <code>--port</code> &gt; value by default, so you need something like this&gt;<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot --port=3356 --protocol=TCP</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>See this article for more details: <a href="https://dev.mysql.com/doc/refman/5.7/en/connecting.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.7/en/connecting.html</a></p>
+</blockquote>
+<hr>
+<p>mysql_downgrade:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Kill rails server and guard</span></span><br><span class="line">bin/spring stop</span><br><span class="line">brew services stop mysql</span><br><span class="line">brew uninstall mysql</span><br><span class="line">brew install mysql@5.5</span><br><span class="line">brew link mysql@5.5 --force</span><br><span class="line">brew services start mysql@5.5</span><br><span class="line">rbenv uninstall 2.3.3</span><br><span class="line">rbenv install 2.3.3</span><br><span class="line">gem install bundle</span><br><span class="line">gem install rubocop-rspec rubocop scss_lint rails_best_practices <span class="comment"># (optional)</span></span><br><span class="line">bundle install</span><br><span class="line">be rails db:migrate:reset</span><br></pre></td></tr></table></figure>
+<hr>
+<p>via:<br>from: <a href="https://gist.github.com/benlinton/d24471729ed6c2ace731" target="_blank" rel="noopener">https://gist.github.com/benlinton/d24471729ed6c2ace731</a><br>mysql_downgrade: <a href="https://gist.github.com/6temes/3c52f8a472f61d9676e7218a98812286" target="_blank" rel="noopener">https://gist.github.com/6temes/3c52f8a472f61d9676e7218a98812286</a></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2019/03/26/linux-text-stream/">Linux文本流</a>
         
       </h1>
@@ -225,39 +306,39 @@
 <p><img src="/2019/03/26/linux-text-stream/2012091402482228.jpg" alt="骇客帝国"></p>
 <h2 id="标准输入，标准输出，标准错误与重新定向"><a href="#标准输入，标准输出，标准错误与重新定向" class="headerlink" title="标准输入，标准输出，标准错误与重新定向"></a>标准输入，标准输出，标准错误与重新定向</h2><p>当Unix执行一个程序的时候，会自动打开三个流，<strong>标准输入</strong>(standard input)，<strong>标准输出</strong>(standard output)，<strong>标准错误</strong>(standard error)。比如说你打开命令行的时候，默认情况下，命令行的标准输入连接到键盘，标准输出和标准错误都连接到屏幕。对于一个程序来说，尽管它总会打开这三个流，但它会根据需要使用，并不是一定要使用。</p>
 <p>想象一下敲击一个</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>ls</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">ls</span></span><br></pre></td></tr></table></figure>
 <p>键盘敲击的文本流(“ls\n”，\n是回车时输入的字符，表示换行)命令行 (命令行实际上也是一个程序)。命令行随后调用/bin/ls得到结果(“a.txt”)，最后这个输出的文本流(“a.txt”)流到屏幕，显示出来，比如说：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.txt</span><br></pre></td></tr></table></figure>
 <p>假设说我们不想让文本流流到屏幕，而是流到另一个文件，我们可以采用<strong>重新定向</strong>(redirect)的机制。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>ls &gt; a.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">ls &gt; a.txt</span></span><br></pre></td></tr></table></figure>
 <p><strong>重新定向标准输出</strong>。这里的<code>&gt;</code>就是提醒命令行，让它知道我现在想变换文本流的方向了，我们不让标准输出输出到屏幕，而是要到a.txt这个文件 (好像火车轨道换轨)。此时，计算机会新建一个a.txt的文件，并将命令行的标准输出指向这个文件。</p>
 <p>有另一个符号:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>ls &gt;&gt; a.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">ls &gt;&gt; a.txt</span></span><br></pre></td></tr></table></figure>
 <p>这里<code>&gt;&gt;</code>的作用也是<strong>重新定向标准输出</strong>。如果<code>a.txt</code>已经存在的话，<code>ls</code>产生的文本流会附加在<code>a.txt</code>的结尾，而不会像<code>&gt;</code>那样每次都新建<code>a.txt</code>。</p>
 <p>我们下面介绍<strong>命令echo</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>echo IamVamei</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">echo</span> IamVamei</span></span><br></pre></td></tr></table></figure>
 <p><code>echo</code> 的作用是<strong>将文本流导向标准输出</strong>。在这里，echo的作用就是将IamVamei输出到屏幕上。如果是</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>echo IamVamei &gt; a.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">echo</span> IamVamei &gt; a.txt</span></span><br></pre></td></tr></table></figure>
 <p>a.txt中就会有IamVamei这个文本。</p>
 <p>我们也可以用<code>&lt;</code>符号来<strong>改变标准输入</strong>。比如<code>cat</code>命令，它可以<strong>从标准输入读入文本流，并输出到标准输出</strong>:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat &lt; a.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">cat &lt; a.txt</span></span><br></pre></td></tr></table></figure>
 <p>我们将cat标准输入指向a.txt，文本会从文件流到cat，然后再输出到屏幕上。当然，我们还可以同时重新定向标准输出:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat &lt; a.txt &gt; b.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">cat &lt; a.txt &gt; b.txt</span></span><br></pre></td></tr></table></figure>
 <p>这样，a.txt的内容就复制到了b.txt中。</p>
 <p>我们还可以使用<code>&gt;&amp;</code>来同时重新定向标准输出和标准错误。假设我们并没有一个目录void。那么</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cd void &gt; a.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> void &gt; a.txt</span></span><br></pre></td></tr></table></figure>
 <p>会在屏幕上返回错误信息。因为此时标准错误依然指向屏幕。当我们使用:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cd void &gt;&amp; a.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> void &gt;&amp; a.txt</span></span><br></pre></td></tr></table></figure>
 <p>错误信息被导向a.txt。</p>
 <p>如果只想重新定向标准错误，可以使用<code>2&gt;</code>:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cd void 2&gt; a.txt &gt; b.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> void 2&gt; a.txt &gt; b.txt</span></span><br></pre></td></tr></table></figure>
 <p>标准错误对应的总是<strong>2号</strong>，所以有以上写法。标准错误输出到a.txt，标准输出输出到b.txt。</p>
 <h2 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道 (pipe)"></a>管道 (pipe)</h2><p>理解了以上的内容之后，<strong>管道</strong>的概念就易如反掌。管道可以将一个命令的输出导向另一个命令的输入，从而让两个(或者更多命令)像流水线一样连续工作，不断地处理文本流。在命令行中，我们用<code>|</code>表示管道：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat &lt; a.txt | wc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">cat &lt; a.txt | wc</span></span><br></pre></td></tr></table></figure>
 <p><code>wc</code>命令代表<strong>word count</strong>，用于<strong>统计</strong>文本中的<strong>行</strong>、<strong>词</strong>以及<strong>字符</strong>的总数。a.txt中的文本先流到cat，然后从cat的标准输出流到wc的标准输入，从而让wc知道自己要处理的是a.txt这个字符串。</p>
 <p>Linux的各个命令实际上高度专业化，并尽量相互独立。每一个都只专注于一个小的功能。但通过pipe，我们可以将这些功能合在一起，实现一些复杂的目的。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文本流，标准输入，标准输出，标准错误</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat, echo, wc</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span>, &gt;&gt;, &lt;, |</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat, echo, wc</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">, &gt;&gt;, &lt;, |</span></span><br></pre></td></tr></table></figure>
 <hr>
 <p>reference:<br><a href="http://www.cnblogs.com/vamei/archive/2012/09/14/2683756.html" target="_blank" rel="noopener">http://www.cnblogs.com/vamei/archive/2012/09/14/2683756.html</a></p>
 
@@ -1220,124 +1301,6 @@
 <p> 访问<a href="http://www.w3school.com.cn/xsl/index.asp" target="_blank" rel="noopener">XSLT 教程</a>。</p>
 </li>
 </ol>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/08/07/mac-keyboard-shortcuts/">Mac Keyboard Shortcuts</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 7, 2017
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <blockquote>
-<p>苹果Mac系统常用快捷键有很多，但是很多童鞋对于这些mac快捷键都不是很熟悉，今天为大家整理的这份Mac系统常用快捷键大全，大家快收藏起来吧!平时在使用mac系统的时候可以提高不少工作效率哦!</p>
-</blockquote>
-<p>Mac中主要有四个修饰键，分别是<code>Command</code>，<code>Control</code>，<code>Option</code>和<code>Shift</code>。<br>这四个键分别有自己的图案，他们经常出现在Mac应用程序中的菜单栏里，方便你随时学习新的快捷键。</p>
-<h2 id="MAC-键盘快捷键符号"><a href="#MAC-键盘快捷键符号" class="headerlink" title="MAC 键盘快捷键符号"></a>MAC 键盘快捷键符号</h2><p><img src="/2017/08/07/mac-keyboard-shortcuts/bf74de6b-c1f0-7323-74a7-4042c0e566c1.jpg" alt="Mac Keyboard Shortcuts Symbol Legend"></p>
-<h2 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h2><p>Command是Mac里最重要的修饰键，在大多数情况下相当于Windows下的Ctrl。<br>所以以下最基本操作很好理解：</p>
-<ul>
-<li><code>Command + Z</code> 撤销</li>
-<li><code>Command + X</code> 剪切</li>
-<li><code>Command + C</code> 拷贝（Copy）</li>
-<li><code>Command + V</code> 粘贴</li>
-<li><code>Command + A</code> 全选（All）</li>
-<li><code>Command + S</code> 保存（Save)</li>
-<li><code>Command + F</code> 查找（Find）</li>
-</ul>
-<p><img src="/2017/08/07/mac-keyboard-shortcuts/51515ea4-d36d-622b-a164-2c3fcef60b1c.jpg" alt="General"></p>
-<h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><ul>
-<li><code>Option</code> 开机后立即按下，将显示启动管理器。<br>  如果Mac装有双系统或者插有启动U盘，可在启动管理器中选择启动盘</li>
-<li><code>Command + R</code> 开机后立即按下，可打开OS X的恢复功能（Recovery）</li>
-<li><code>Command + Option + P + R</code> 开机后立即按下，重置NVRAM。<br>  有些时候电脑会出现些小问题，重置NVRAM是你除了重新启动，尝试修复的第一选择。</li>
-<li><code>Command + Option + Control + Power</code> 退出所有应用程序，允许你进行文稿储存，然后关机</li>
-<li>按住 <code>Power</code> 按钮5秒 强制Mac关机</li>
-</ul>
-<p><img src="/2017/08/07/mac-keyboard-shortcuts/30c4390a-db0d-061b-cc0d-9fe08bc335a3.jpg" alt="System"></p>
-<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><ul>
-<li><code>Command + Shift + 3</code> 截取全部屏幕到文件</li>
-<li><code>Command + Shift + Control + 3</code> 截取全部屏幕到剪贴板</li>
-<li><code>Command + Shift + 4</code> 截取所选屏幕区域到一个文件，或按空格键仅捕捉一个窗口</li>
-<li><code>Command + Shift + Control + 4</code> 截取所选屏幕区域到剪贴板，或按空格键仅捕捉一个窗口</li>
-</ul>
-<p><img src="/2017/08/07/mac-keyboard-shortcuts/87180b21-818c-1007-835a-e3e5a810b3b0.jpg" alt="Capture the screen"></p>
-<h2 id="文件管理器"><a href="#文件管理器" class="headerlink" title="文件管理器"></a>文件管理器</h2><ul>
-<li><code>Command + Shift + N</code> 新建文件夹（New）</li>
-<li><code>Command + Shift + G</code> 调出窗口，可输入绝对路径直达文件夹（Go）</li>
-<li><code>return</code> 这个其实不算快捷键，点击文件，按下可重命名文件</li>
-<li><code>Command + O</code> 打开所选项。在Mac里打开文件不像Windows里直接按Enter</li>
-<li><code>Command + Option + V</code> 作用相当于Windows里的文件剪切。<br>  在其它位置上对文件复制（<code>Command-C</code>），在目的位置按下这个快捷键，文件将被剪切到此位置</li>
-<li><code>Command + ↑</code> 打开包含当前文件夹的文件夹，相当于Windows里的“向上”</li>
-<li><code>Command + Delete</code> 将文件移至废纸篓</li>
-<li><code>Command + Shift + Delete</code> 清倒废纸篓</li>
-<li><code>Space</code> 快速查看选中的文件，也就是预览功能</li>
-</ul>
-<p><img src="/2017/08/07/mac-keyboard-shortcuts/b50cb298-346f-4273-032f-e6f2860ed578.jpg" alt="Finder"></p>
-<h2 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h2><ul>
-<li><code>Command + Tab</code> 在应用程序间切换</li>
-<li><code>Command + Shift + Tab</code> 在应用程序间切换（反向）</li>
-<li><code>Command + ~</code> 在各应用中的窗口间切换</li>
-</ul>
-<p><img src="/2017/08/07/mac-keyboard-shortcuts/6e814e0a-a4c1-33a1-6123-929094eedfc2.jpg" alt="Switch"></p>
-<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ul>
-<li><code>Command + L</code> 光标直接跳至地址栏</li>
-<li><code>Control + Tab</code> 转向下一个标签页</li>
-<li><code>Control + Shift + Tab</code> 转向上一个标签页</li>
-<li><code>Command + &#39;+&#39;</code> 放大页面</li>
-<li><code>Command + &#39;-&#39;</code> 缩小页面</li>
-</ul>
-<p><img src="/2017/08/07/mac-keyboard-shortcuts/f1878a65-814d-44c7-f32b-c2a6e4f625d6.jpg" alt="Safari"></p>
-<h2 id="应用程序中"><a href="#应用程序中" class="headerlink" title="应用程序中"></a>应用程序中</h2><ul>
-<li><code>Command + H</code> 隐藏（Hide）当前正在运行的应用程序窗口</li>
-<li><code>Command + Option + H</code> 隐藏（Hide）其他应用程序窗口</li>
-<li><code>Command + Q</code> 退出（Quit）最前面的应用程序</li>
-<li><code>Command + Shift + Z</code> 重做，也就是撤销的逆向操作</li>
-<li><code>Command + Tab</code> 在打开的应用程序列表中转到下一个最近使用的应用程序，相当于Windows中（Alt+Tab）</li>
-<li><code>Command + Option + esc</code> 打开“强制退出”窗口，如果有应用程序无响应，可在窗口列表中选择强制退出</li>
-</ul>
-<h2 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a>文本处理</h2><ul>
-<li><code>Command + B</code> 切换所选文字粗体（Bold）显示</li>
-<li><code>fn + Delete</code> 相当于PC全尺寸键盘上的Delete，也就是向后删除</li>
-<li><code>fn + ↑</code> 向上滚动一页（Page Up）</li>
-<li><code>fn + ↓</code> 向下滚动一页（Page Down）</li>
-<li><code>fn + ←</code> 滚动至文稿开头（Home）</li>
-<li><code>fn + →</code> 滚动至文稿末尾（End）</li>
-<li><code>Command + →</code> 将光标移至当前行的行尾</li>
-<li><code>Command + ←</code> 将光标移至当前行的行首</li>
-<li><code>Command + ↓</code> 将光标移至文稿末尾</li>
-<li><code>Command + ↑</code> 将光标移至文稿开头</li>
-<li><code>Option + →</code> 将光标移至下一个单词的末尾</li>
-<li><code>Option + ←</code> 将光标移至上一个单词的开头</li>
-<li><code>Control + A</code> 移至行或段落的开头</li>
-</ul>
-<p><strong>如果你还想学习更多快捷键，请<a href="https://support.apple.com/zh-cn/HT201236" target="_blank" rel="noopener">点击这里查看苹果官方的快捷键帮助文档。</a></strong></p>
 
         
       
