@@ -42,7 +42,7 @@
 <meta property="og:site_name" content="JH.LEE">
 <meta property="og:description" content="将你的 code 托管到 git，从此不用再担心：代码丢失、误删、误改git 鼓励你多提交代码，这样你的备份愈多，可回溯的点也愈多   下面就来get这项技能  一 安装 git打开terminal，执行如下命令  如果你没有安装过git，这个命令将为你自动安装   1git  查看版本   1git --version">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-05-05T00:59:56.000Z">
+<meta property="og:updated_time" content="2019-05-08T06:52:29.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用入门 01-准备（Mac）">
 <meta name="twitter:description" content="将你的 code 托管到 git，从此不用再担心：代码丢失、误删、误改git 鼓励你多提交代码，这样你的备份愈多，可回溯的点也愈多   下面就来get这项技能  一 安装 git打开terminal，执行如下命令  如果你没有安装过git，这个命令将为你自动安装   1git  查看版本   1git --version">
@@ -256,7 +256,7 @@
 <h2 id="四-建立-SSH-key"><a href="#四-建立-SSH-key" class="headerlink" title="四 建立 SSH key"></a>四 建立 SSH key</h2><p>SSH key 可以让你在你的电脑和 Git 之间建立安全的加密连接</p>
 <ul>
 <li><p>创建 SSH key</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh-keygen -t rsa -C <span class="string">"example@gmail.com"</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"example@gmail.com"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看你的 public key</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
@@ -265,7 +265,7 @@
 </li>
 </ul>
 <blockquote>
-<p>如果不能建立连接，<a href="/2016/11/14/on-off-SSH-in-terminal/">检查SSH是否开启</a></p>
+<p>如果不能建立连接，<a href="/2016/11/14/ssh-on-and-off-in-Terminal/">检查SSH是否开启</a></p>
 </blockquote>
 <p>到此，准备工作完成。</p>
 <p><a href="/2016/11/16/git-fresher-02/">下一篇</a>介绍<a href="/2016/11/16/git-fresher-02/">git基础</a></p>
