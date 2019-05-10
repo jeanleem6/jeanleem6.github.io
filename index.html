@@ -197,6 +197,61 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2019/05/10/Change-Lanunchpad-Icon-Size/">Change Lanunchpad Icon Size</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          May 10, 2019
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p><strong>How to Adjust the Icon Grid Count of Launchpad in Mac OS X</strong></p>
+<p>replacing the <code>X</code> numbers for the appropriate columns and grid icon counts</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int X;defaults write com.apple.dock springboard-rows -int X;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
+<p>For example, to set the Launchpad grid to <code>8 × 7</code> you’d use the following syntax:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
+<p>If you want to return to the default setting, just change the column and row counts back to what yours was originally. <strong>The default on my MacBook Pro Retina display is a 5 x 7 grid</strong>, but yours may be different depending on screen size and screen resolution.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7;defaults write com.apple.dock springboard-rows -int 5;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>The commands</strong> for customizing the Launchpad layout <strong>can also be split apart</strong> if desired like so:</p>
+<p><strong>Set the Launchpad Column Icon Count</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7</span><br></pre></td></tr></table></figure>
+<p><strong>Set the Launchpad Row App Icon Count</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-rows -int 8</span><br></pre></td></tr></table></figure>
+<p><strong>Reset Launchpad</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock ResetLaunchPad -bool TRUE;</span><br></pre></td></tr></table></figure>
+<p><strong>Relaunch the Dock with killall</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
+<p>You can also choose to just set a custom row or just a custom column count, but you must <strong>reset and refresh the Launchpad</strong>, and finally killall Dock to relaunch the Dock in Mac OS X and have the changes to take effect regardless of how you customize it.</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/">Multiple MySQL Versions with Homebrew</a>
         
       </h1>
@@ -1228,79 +1283,6 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载 xml 文档</span></span><br><span class="line"><span class="keyword">var</span> xmlhttp,xmlDoc;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;<span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">    xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;<span class="comment">// code for IE6, IE5</span></span><br><span class="line">    xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"cd_catalog.xml"</span>,<span class="literal">false</span>);</span><br><span class="line">xmlhttp.send();</span><br><span class="line">xmlDoc=xmlhttp.responseXML;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在 HTML 元素中显示 XML 数据</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayCD</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cds=xmlDoc.getElementsByTagName(<span class="string">"CD"</span>);</span><br><span class="line">    <span class="keyword">var</span> cd_shelves = <span class="built_in">document</span>.getElementById(<span class="string">'showCD'</span>);</span><br><span class="line">    <span class="keyword">var</span> cd_list = <span class="built_in">document</span>.createElement(<span class="string">'ul'</span>);</span><br><span class="line">    cd_list.setAttribute(<span class="string">'class'</span>,<span class="string">'cd_list'</span>);</span><br><span class="line">    cd_shelves.appendChild(cd_list);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> title,artist,price,cd_item,txt;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,lens = cds.length; i&lt;lens; i++) &#123;</span><br><span class="line">        cd_item = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取 xml DOM 内容</span></span><br><span class="line">        title=(cds[i].getElementsByTagName(<span class="string">"TITLE"</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].nodeValue);</span><br><span class="line">        artist=(cds[i].getElementsByTagName(<span class="string">"ARTIST"</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].nodeValue);</span><br><span class="line">        price=(cds[i].getElementsByTagName(<span class="string">"PRICE"</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].nodeValue);</span><br><span class="line">        txt=<span class="string">'&lt;span class="title"&gt;'</span> + title +</span><br><span class="line">            <span class="string">'&lt;/span&gt;&lt;span class="artist"&gt;'</span> + artist +</span><br><span class="line">            <span class="string">'&lt;/span&gt;&lt;span class="price"&gt;'</span>+ price + <span class="string">'&lt;/span&gt;'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将 xml DOM 内容添加到 HTML 文档</span></span><br><span class="line">        cd_item.innerHTML = txt;</span><br><span class="line">        cd_list.appendChild(cd_item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*CD List*/</span></span><br><span class="line"><span class="selector-class">.cd_list</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">3.2%</span>;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-tag">li</span>&#123;<span class="attribute">position</span>:relative;<span class="attribute">margin-top</span>:<span class="number">5px</span>; <span class="attribute">overflow</span>:hidden;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-tag">span</span>&#123;<span class="attribute">float</span>:left;<span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">2%</span> <span class="number">1000px</span>;<span class="attribute">margin-bottom</span>:-<span class="number">990px</span>;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-class">.title</span>&#123;<span class="attribute">width</span>:<span class="number">36%</span>;<span class="attribute">background-color</span>:<span class="number">#f0f8ff</span>&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-class">.artist</span>&#123;<span class="attribute">width</span>:<span class="number">31%</span>;<span class="attribute">background-color</span>:<span class="number">#fff0f8</span>;<span class="attribute">font-style</span>:italic;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-class">.year</span>&#123;<span class="attribute">width</span>:<span class="number">21%</span>;<span class="attribute">background-color</span>:<span class="number">#f0f1ff</span>;<span class="attribute">text-align</span>:center&#125;</span><br></pre></td></tr></table></figure>
 <p><strong> Result:</strong><br><img src="/2017/08/29/XML-study-entry-2/1767C1AB-4580-46BF-B912-9FA31A30B592.png" alt="XML DATA"></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/08/27/XML-study-entry-1/">XML Entry-1</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 27, 2017
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"COOKING"</span> <span class="attr">id</span>=<span class="string">"501"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Every Italian<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>Giada De Laurentiis<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">date</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">month</span>&gt;</span>05<span class="tag">&lt;/<span class="name">month</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">day</span>&gt;</span>23<span class="tag">&lt;/<span class="name">day</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">date</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>30.00<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"CHILDREN"</span> <span class="attr">id</span>=<span class="string">"502"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">date</span>&gt;</span>2005/10/01<span class="tag">&lt;/<span class="name">date</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"WEB"</span> <span class="attr">id</span>=<span class="string">"503"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>Erik T. Ray<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">year</span>&gt;</span>2003<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p><strong>基础知识整理：</strong></p>
-<ul>
-<li>必须有根元素</li>
-<li>元素标签对大小写敏感</li>
-<li>标签必须闭合</li>
-<li>元素必须备正确的嵌套</li>
-<li><p>标签属性必须加引号（单／双都行）</p>
-<blockquote>
-<p>在此极力推荐的理念是：<strong>元数据</strong> <em>[有关数据的数据]</em> 应当存储为属性（如上面代码中的<code>id=&quot;501&quot;</code>，它仅仅是一个标识符，用于标识不同的书籍，它并不是数据的组成部分）；而<strong>数据本身</strong>应当存储为元素。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p><strong>避免使用属性的理由：</strong></p>
-<ul>
-<li>属性无法包含多重的值（元素可以）</li>
-<li>属性无法描述树结构（元素可以）</li>
-<li>属性不易扩展（为未来的变化）</li>
-<li><p>属性难以阅读和维护</p>
-<p>尽量使用元素来描述数据。而仅仅使用属性来提供与数据无关的信息。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>xml 文档的合法性验证：</strong></p>
-<p> 通过 DTD 验证的 xml 文档是合法的 xml。访问<a href="http://www.w3school.com.cn/dtd/index.asp" target="_blank" rel="noopener">DTD教程</a></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE note [</span><br><span class="line">  &lt;!ELEMENT note (to,from,heading,body)&gt;</span><br><span class="line">  &lt;!ELEMENT to      (#PCDATA)&gt;</span><br><span class="line">  &lt;!ELEMENT from    (#PCDATA)&gt;</span><br><span class="line">  &lt;!ELEMENT heading (#PCDATA)&gt;</span><br><span class="line">  &lt;!ELEMENT body    (#PCDATA)&gt;</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></figure>
-<p> 另一种 DTD 的代替者是 XML Schema。访问<a href="http://www.w3school.com.cn/schema/index.asp" target="_blank" rel="noopener">XML Schema 教程</a></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;xs:element name=&quot;note&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;xs:complexType&gt;</span><br><span class="line">  &lt;xs:sequence&gt;</span><br><span class="line">    &lt;xs:element name=&quot;to&quot;      type=&quot;xs:string&quot;/&gt;</span><br><span class="line">    &lt;xs:element name=&quot;from&quot;    type=&quot;xs:string&quot;/&gt;</span><br><span class="line">    &lt;xs:element name=&quot;heading&quot; type=&quot;xs:string&quot;/&gt;</span><br><span class="line">    &lt;xs:element name=&quot;body&quot;    type=&quot;xs:string&quot;/&gt;</span><br><span class="line">  &lt;/xs:sequence&gt;</span><br><span class="line">&lt;/xs:complexType&gt;</span><br><span class="line"></span><br><span class="line">&lt;/xs:element&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>给 xml 添加样式</strong></p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span><br><span class="line">&lt;?xml-stylesheet type="text/xsl" href="simple.xsl"?&gt; <span class="comment">&lt;!-- xslt，xml 的推荐样式文件 --&gt;</span></span><br><span class="line">&lt;?xml-stylesheet type="text/css" href="simple.css"?&gt; <span class="comment">&lt;!-- css --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">breakfast_menu</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">food</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Belgian Waffles<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>$5.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">       two of our famous Belgian Waffles</span><br><span class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">calories</span>&gt;</span>650<span class="tag">&lt;/<span class="name">calories</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">food</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">breakfast_menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p> 访问<a href="http://www.w3school.com.cn/xsl/index.asp" target="_blank" rel="noopener">XSLT 教程</a>。</p>
-</li>
-</ol>
 
         
       

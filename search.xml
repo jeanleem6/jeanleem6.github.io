@@ -3,6 +3,38 @@
   
     
     <entry>
+      <title><![CDATA[Change Lanunchpad Icon Size]]></title>
+      <url>/2019/05/10/Change-Lanunchpad-Icon-Size/</url>
+      <content type="html"><![CDATA[<p><strong>How to Adjust the Icon Grid Count of Launchpad in Mac OS X</strong></p>
+<p>replacing the <code>X</code> numbers for the appropriate columns and grid icon counts</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int X;defaults write com.apple.dock springboard-rows -int X;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
+<p>For example, to set the Launchpad grid to <code>8 × 7</code> you’d use the following syntax:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
+<p>If you want to return to the default setting, just change the column and row counts back to what yours was originally. <strong>The default on my MacBook Pro Retina display is a 5 x 7 grid</strong>, but yours may be different depending on screen size and screen resolution.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7;defaults write com.apple.dock springboard-rows -int 5;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>The commands</strong> for customizing the Launchpad layout <strong>can also be split apart</strong> if desired like so:</p>
+<p><strong>Set the Launchpad Column Icon Count</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7</span><br></pre></td></tr></table></figure>
+<p><strong>Set the Launchpad Row App Icon Count</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-rows -int 8</span><br></pre></td></tr></table></figure>
+<p><strong>Reset Launchpad</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock ResetLaunchPad -bool TRUE;</span><br></pre></td></tr></table></figure>
+<p><strong>Relaunch the Dock with killall</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
+<p>You can also choose to just set a custom row or just a custom column count, but you must <strong>reset and refresh the Launchpad</strong>, and finally killall Dock to relaunch the Dock in Mac OS X and have the changes to take effect regardless of how you customize it.</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> mac </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Multiple MySQL Versions with Homebrew]]></title>
       <url>/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/</url>
       <content type="html"><![CDATA[<h2 id="CONTENT"><a href="#CONTENT" class="headerlink" title="CONTENT"></a>CONTENT</h2><p>For homebrew version 2.1.2</p>

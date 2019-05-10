@@ -197,6 +197,79 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/08/27/XML-study-entry-1/">XML Entry-1</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Aug 27, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"COOKING"</span> <span class="attr">id</span>=<span class="string">"501"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Every Italian<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>Giada De Laurentiis<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">date</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">month</span>&gt;</span>05<span class="tag">&lt;/<span class="name">month</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">day</span>&gt;</span>23<span class="tag">&lt;/<span class="name">day</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">date</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>30.00<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"CHILDREN"</span> <span class="attr">id</span>=<span class="string">"502"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">date</span>&gt;</span>2005/10/01<span class="tag">&lt;/<span class="name">date</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"WEB"</span> <span class="attr">id</span>=<span class="string">"503"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>Erik T. Ray<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">year</span>&gt;</span>2003<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>基础知识整理：</strong></p>
+<ul>
+<li>必须有根元素</li>
+<li>元素标签对大小写敏感</li>
+<li>标签必须闭合</li>
+<li>元素必须备正确的嵌套</li>
+<li><p>标签属性必须加引号（单／双都行）</p>
+<blockquote>
+<p>在此极力推荐的理念是：<strong>元数据</strong> <em>[有关数据的数据]</em> 应当存储为属性（如上面代码中的<code>id=&quot;501&quot;</code>，它仅仅是一个标识符，用于标识不同的书籍，它并不是数据的组成部分）；而<strong>数据本身</strong>应当存储为元素。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>避免使用属性的理由：</strong></p>
+<ul>
+<li>属性无法包含多重的值（元素可以）</li>
+<li>属性无法描述树结构（元素可以）</li>
+<li>属性不易扩展（为未来的变化）</li>
+<li><p>属性难以阅读和维护</p>
+<p>尽量使用元素来描述数据。而仅仅使用属性来提供与数据无关的信息。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>xml 文档的合法性验证：</strong></p>
+<p> 通过 DTD 验证的 xml 文档是合法的 xml。访问<a href="http://www.w3school.com.cn/dtd/index.asp" target="_blank" rel="noopener">DTD教程</a></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE note [</span><br><span class="line">  &lt;!ELEMENT note (to,from,heading,body)&gt;</span><br><span class="line">  &lt;!ELEMENT to      (#PCDATA)&gt;</span><br><span class="line">  &lt;!ELEMENT from    (#PCDATA)&gt;</span><br><span class="line">  &lt;!ELEMENT heading (#PCDATA)&gt;</span><br><span class="line">  &lt;!ELEMENT body    (#PCDATA)&gt;</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></figure>
+<p> 另一种 DTD 的代替者是 XML Schema。访问<a href="http://www.w3school.com.cn/schema/index.asp" target="_blank" rel="noopener">XML Schema 教程</a></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;xs:element name=&quot;note&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;xs:complexType&gt;</span><br><span class="line">  &lt;xs:sequence&gt;</span><br><span class="line">    &lt;xs:element name=&quot;to&quot;      type=&quot;xs:string&quot;/&gt;</span><br><span class="line">    &lt;xs:element name=&quot;from&quot;    type=&quot;xs:string&quot;/&gt;</span><br><span class="line">    &lt;xs:element name=&quot;heading&quot; type=&quot;xs:string&quot;/&gt;</span><br><span class="line">    &lt;xs:element name=&quot;body&quot;    type=&quot;xs:string&quot;/&gt;</span><br><span class="line">  &lt;/xs:sequence&gt;</span><br><span class="line">&lt;/xs:complexType&gt;</span><br><span class="line"></span><br><span class="line">&lt;/xs:element&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>给 xml 添加样式</strong></p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span><br><span class="line">&lt;?xml-stylesheet type="text/xsl" href="simple.xsl"?&gt; <span class="comment">&lt;!-- xslt，xml 的推荐样式文件 --&gt;</span></span><br><span class="line">&lt;?xml-stylesheet type="text/css" href="simple.css"?&gt; <span class="comment">&lt;!-- css --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">breakfast_menu</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">food</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Belgian Waffles<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>$5.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">       two of our famous Belgian Waffles</span><br><span class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">calories</span>&gt;</span>650<span class="tag">&lt;/<span class="name">calories</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">food</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">breakfast_menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 访问<a href="http://www.w3school.com.cn/xsl/index.asp" target="_blank" rel="noopener">XSLT 教程</a>。</p>
+</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/08/07/mac-keyboard-shortcuts/">Mac Keyboard Shortcuts</a>
         
       </h1>
@@ -926,51 +999,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cask 常用命令</span></span><br><span class="line">brew cask search        <span class="comment">#列出所有可以被安装的软件</span></span><br><span class="line">brew cask search sublime    <span class="comment">#查找所有和sublime相关的应用</span></span><br><span class="line">brew cask list          <span class="comment">#列出所有通过cask安装的软件</span></span><br><span class="line">brew cask info sublime-text  <span class="comment">#查看 sublime 的信息</span></span><br><span class="line">brew cask install sublime-text  <span class="comment"># 安装sublime</span></span><br><span class="line">brew cask uninstall sublime-text   <span class="comment">#卸载sublime</span></span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2016/11/21/Mac-Nginx-MySQL-PHP/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/11/20/Mac-Homebrew-ZSH-Node-Npm/">Mac下安装Homebrew/ZSH/Node/NPM</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Nov 20, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 <a href="http://brew.sh/" target="_blank" rel="noopener">Homebrew</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<p><strong>自检Brew</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
-<h2 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 <a href="http://ohmyz.sh" target="_blank" rel="noopener">oh-my-zsh</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2016/11/20/Mac-Homebrew-ZSH-Node-Npm/" class="read-more-link">Read more..</a>
           </div>
         
       
