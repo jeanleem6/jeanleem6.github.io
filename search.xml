@@ -1993,7 +1993,7 @@
 <p><img src="/2016/11/08/mac-os-x-sierra/disk_tool.jpg" alt="磁盘工具"></p>
 <a id="more"></a>
 <p>然后打开终端，执行下面的命令就可以了:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/Sierra --applicationpath /Applications/Install\ macOS\ Sierra.app</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/Sierra --applicationpath /Applications/Install\ macOS\ High\ Sierra.app</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上面这个代码应该是能看懂它的意思的，如果看不懂的话，那也没有关系，你在格式化U盘的时候，一定要注意取名叫<code>Sierra</code>，然后拷贝上面的代码到终端执行就可以了。就是那么的简单，你的U盘启动盘就做好了。然后备份你电脑的资料，重启电脑，按住<code>option</code>选择U盘的盘符安装就行了。</p>
 </blockquote>
@@ -3250,6 +3250,8 @@
 <h2 id="显示隐藏文件"><a href="#显示隐藏文件" class="headerlink" title="显示隐藏文件"></a>显示隐藏文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -boolean <span class="literal">true</span> ; killall Finder</span><br></pre></td></tr></table></figure>
 <h2 id="恢复隐藏"><a href="#恢复隐藏" class="headerlink" title="恢复隐藏"></a>恢复隐藏</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -boolean <span class="literal">false</span> ; killall Finder</span><br></pre></td></tr></table></figure>
 <h2 id="查看文件大小分布"><a href="#查看文件大小分布" class="headerlink" title="查看文件大小分布"></a>查看文件大小分布</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">du -sh *   <span class="comment"># 查看根目录下，所有文件的大小分布</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### 查看Library目录下，所有文件的大小分布</span></span><br><span class="line"><span class="built_in">cd</span> ~/Library</span><br><span class="line">ls</span><br><span class="line">du -d 1 -h</span><br><span class="line"><span class="comment">#### 其它文件夹知道怎么操作了吧……^o^</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装任何来源的软件"><a href="#安装任何来源的软件" class="headerlink" title="安装任何来源的软件"></a>安装任何来源的软件</h2><p><code>Terminal</code> 中输入如下代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         
