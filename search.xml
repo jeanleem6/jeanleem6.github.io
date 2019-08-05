@@ -1267,7 +1267,7 @@
 <p>  安装之后重启sublime。</p>
 </li>
 <li><p>SublimeLinter 插件：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SublimeLinter</span><br><span class="line">SublimeLinter-jshint</span><br><span class="line">SublimeLinter-csslint</span><br><span class="line">SublimeLinter-contrib-htmlhint</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SublimeLinter</span><br><span class="line">SublimeLinter-jshint</span><br><span class="line">SublimeLinter-csslint</span><br><span class="line">SublimeLinter-contrib-htmlhint <span class="comment">#not working now, can be instead by SublimeLinter-html-tidy</span></span><br><span class="line">SublimeLinter-html-tidy</span><br></pre></td></tr></table></figure>
 <p>  ST3开始 SublimeLinter 只是一个框架，并没有实际的检查验证功能。需要单独安装，如上面的js验证插件<code>SublimeLinter-jshint</code>、css验证插件<code>SublimeLinter-csslint</code>和html验证插件<code>SublimeLinter-contrib-htmlhint</code>。<br>  插件安装之后，打开命令行工具（Terminal）全局安装相应的功能包：</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g jshint</span><br><span class="line">npm install -g csslint</span><br><span class="line">npm install -g htmlhint@latest</span><br></pre></td></tr></table></figure>
 <p>  参数设置(<code>Preferences → Package Settings → SublimeLinter → Settings - user</code>)：</p>
@@ -1693,13 +1693,13 @@
             
             <tag> Mac </tag>
             
-            <tag> server </tag>
-            
             <tag> nginx </tag>
             
             <tag> mysql </tag>
             
             <tag> php </tag>
+            
+            <tag> server </tag>
             
         </tags>
         
@@ -1762,9 +1762,9 @@
         
         <tags>
             
-            <tag> server </tag>
-            
             <tag> mysql </tag>
+            
+            <tag> server </tag>
             
         </tags>
         
