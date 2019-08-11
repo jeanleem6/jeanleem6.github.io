@@ -3,6 +3,44 @@
   
     
     <entry>
+      <title><![CDATA[Configure SublimeLinter-html-tidy]]></title>
+      <url>/2019/08/11/Configure-SublimeLinter-html-tidy/</url>
+      <content type="html"><![CDATA[<h3 id="Ready-Works"><a href="#Ready-Works" class="headerlink" title="Ready Works:"></a>Ready Works:</h3><ol>
+<li>Install <a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">Sublime Text 3</a></li>
+<li>Install <em>SublimeLinter</em></li>
+<li><a href="https://tidybatchfiles.info/tidy.zip" target="_blank" rel="noopener">Download tidy.zip</a> from <a href="https://tidybatchfiles.info/" target="_blank" rel="noopener">HTML Tidy for Windows</a></li>
+<li>Install <em>SublimeLinter HTML Tidy</em></li>
+</ol>
+<p>Step 2 and 4 install from <code>Package Control: Install Package</code>. Not introduce here.</p>
+<h3 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h3><ul>
+<li>解压第3步下载的文件得到 <code>tidy.exe</code>，拷贝到目录<code>C:/Users/Username/tidy</code>，其它目录也可以。</li>
+<li>依次打开：<code>Preferences &gt; Package Settings &gt; SublimeLinter &gt; Settings</code></li>
+<li><p>下滑找到 <code>paths</code> 节点，如下：</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"paths"</span>: &#123;</span><br><span class="line">        <span class="attr">"linux"</span>: [],</span><br><span class="line">        <span class="attr">"osx"</span>: [],</span><br><span class="line">        <span class="attr">"windows"</span>: []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拷贝 <code>tidy.exe</code> 所在的目录到 <code>windows</code> 项：</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"paths"</span>: &#123;</span><br><span class="line">      <span class="attr">"linux"</span>: [],</span><br><span class="line">      <span class="attr">"osx"</span>: [],</span><br><span class="line">      <span class="attr">"windows"</span>: [<span class="string">"~/tidy"</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：路径 <code>&quot;~/tidy&quot;</code> 是相对用户目录的路径，即 <code>C:/Users/Username</code>，路径不包含 <code>tidy.exe</code> 程序本身。当然，用<strong>绝对路径</strong>或<strong>其它目录</strong>也是可以的（如：<code>d:/tidy</code>）。</p>
+</blockquote>
+</li>
+<li><p>Done!!</p>
+</li>
+</ul>
+<hr>
+<p><a href="https://jecosolutions.com/linting-html-with-sublime-text-3-sublimelinter-html-tidy-for-windows-and-sublimelinter-html-tidy-on-windows/" target="_blank" rel="noopener">阅读原文</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> sublime </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Change Lanunchpad Icon Size]]></title>
       <url>/2019/05/10/Change-Lanunchpad-Icon-Size/</url>
       <content type="html"><![CDATA[<p><strong>How to Adjust the Icon Grid Count of Launchpad in Mac OS X</strong></p>
@@ -1693,13 +1731,13 @@
             
             <tag> Mac </tag>
             
-            <tag> nginx </tag>
+            <tag> server </tag>
             
             <tag> mysql </tag>
             
-            <tag> php </tag>
+            <tag> nginx </tag>
             
-            <tag> server </tag>
+            <tag> php </tag>
             
         </tags>
         
@@ -1762,9 +1800,9 @@
         
         <tags>
             
-            <tag> mysql </tag>
-            
             <tag> server </tag>
+            
+            <tag> mysql </tag>
             
         </tags>
         

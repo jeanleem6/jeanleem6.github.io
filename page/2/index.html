@@ -197,6 +197,69 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/08/29/XML-study-entry-2/">XML Entry-2</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Aug 29, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="XMLHttpRequest-对象"><a href="#XMLHttpRequest-对象" class="headerlink" title="XMLHttpRequest 对象"></a>XMLHttpRequest 对象</h2><p>XMLHttpRequest 对象用于在后台与服务器交换数据。<br>它是开发者的梦想，因为它可以做以下事情：</p>
+<ul>
+<li>在不重新加载页面的情况下更新网页</li>
+<li>在页面已加载后从服务器请求数据</li>
+<li>在页面已加载后从服务器接收数据</li>
+<li>在后台向服务器发送数据</li>
+</ul>
+<p><strong>创建 XMLHttpRequest 对象</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>); <span class="comment">//老版本IE（IE5 和 IE6）使用 ActiveX 对象</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>下面的代码片段把 xml 文档解析到 xml DOM 对象中</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xmlHttpRequest</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xmlhttp = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            alert(<span class="string">'Your browser does not support XMLHTTP!'</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> xmlDoc;</span><br><span class="line"></span><br><span class="line">    xmlhttp.onreadystatechange = state_Change;</span><br><span class="line">    xmlhttp.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">    xmlhttp.send(<span class="literal">null</span>);</span><br><span class="line">    xmlDoc = xmlhttp.responseXML;</span><br><span class="line">    <span class="keyword">return</span> xmlDoc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">state_Change</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span>) &#123;<span class="comment">// 4 = "loaded"</span></span><br><span class="line">        <span class="keyword">if</span> (xmlhttp.status==<span class="number">200</span>) &#123;<span class="comment">// 200 = OK</span></span><br><span class="line">            <span class="comment">// ...our code here...</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">"Problem retrieving XML data"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注释：<code>onreadystatechange</code> 是一个事件句柄。它的值 (state_Change) 是一个函数的名称，当 <code>XMLHttpRequest</code> 对象的状态发生改变时，会触发此函数。状态从 0 (uninitialized) 到 4 (complete) 进行变化。仅在状态为 4 时，我们才执行代码。</p>
+</blockquote>
+<h2 id="解析xml-文档"><a href="#解析xml-文档" class="headerlink" title="解析xml 文档"></a>解析xml 文档</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">    xmlhttp = <span class="keyword">new</span> xmlHttpRequest();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xmlhttp.open(<span class="string">'GET'</span>,<span class="string">'book.xml'</span>,<span class="literal">false</span>);</span><br><span class="line">xmlhttp.send(<span class="literal">null</span>);</span><br><span class="line">xmlDoc = xmlhttp.responseXML;</span><br></pre></td></tr></table></figure>
+<p><strong>其它方法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 微软的 XML 解析，内建于IE5+</span></span><br><span class="line"><span class="keyword">var</span> xmlDoc=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLDOM"</span>); <span class="comment">//创建一个空的 XML 文档对象</span></span><br><span class="line">xmlDoc.async=<span class="string">"false"</span>; <span class="comment">//关闭异步加载，确保在文档完全加载之前解析器不会继续脚本的执行。</span></span><br><span class="line">xmlDoc.load(<span class="string">"note.xml"</span>); <span class="comment">//加载名为 "note.xml" 的 XML 文档</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 Firefox 及其他浏览器中的 XML 解析器</span></span><br><span class="line"><span class="keyword">var</span> xmlDoc=<span class="built_in">document</span>.implementation.createDocument(<span class="string">""</span>,<span class="string">""</span>,<span class="literal">null</span>);</span><br><span class="line">xmlDoc.async=<span class="string">"false"</span>;</span><br><span class="line">xmlDoc.load(<span class="string">"note.xml"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="解析-XML-字符串"><a href="#解析-XML-字符串" class="headerlink" title="解析 XML 字符串"></a>解析 XML 字符串</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">txt=<span class="string">"&lt;bookstore&gt;&lt;book&gt;"</span>;</span><br><span class="line">txt=txt+<span class="string">"&lt;title&gt;Everyday Italian&lt;/title&gt;"</span>;</span><br><span class="line">txt=txt+<span class="string">"&lt;author&gt;Giada De Laurentiis&lt;/author&gt;"</span>;</span><br><span class="line">txt=txt+<span class="string">"&lt;year&gt;2005&lt;/year&gt;"</span>;</span><br><span class="line">txt=txt+<span class="string">"&lt;/book&gt;&lt;/bookstore&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.DOMParser) &#123;</span><br><span class="line">    parser=<span class="keyword">new</span> DOMParser();</span><br><span class="line">    xmlDoc=parser.parseFromString(txt,<span class="string">"text/xml"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">//IE</span></span><br><span class="line">    xmlDoc=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLDOM"</span>);</span><br><span class="line">    xmlDoc.async=<span class="string">"false"</span>;</span><br><span class="line">    xmlDoc.loadXML(txt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：IE 使用 <code>loadXML()</code> 方法来解析 XML 字符串，而其他浏览器使用 <code>DOMParser</code> 对象。<br>注：<code>loadXML()</code> 方法用于加载字符串（文本），<code>load()</code> 用于加载文件。</p>
+</blockquote>
+<h2 id="xml-DOM"><a href="#xml-DOM" class="headerlink" title="xml DOM"></a>xml DOM</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- xml 文档：cd_catalog.xml --&gt;</span></span><br><span class="line">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">CATALOG</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">CD</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>Empire Burlesque<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ARTIST</span>&gt;</span>Bob Dylan<span class="tag">&lt;/<span class="name">ARTIST</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">COUNTRY</span>&gt;</span>USA<span class="tag">&lt;/<span class="name">COUNTRY</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">COMPANY</span>&gt;</span>Columbia<span class="tag">&lt;/<span class="name">COMPANY</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PRICE</span>&gt;</span>10.90<span class="tag">&lt;/<span class="name">PRICE</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">YEAR</span>&gt;</span>1985<span class="tag">&lt;/<span class="name">YEAR</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">CD</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">CATALOG</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>CD List<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"showCD"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载 xml 文档</span></span><br><span class="line"><span class="keyword">var</span> xmlhttp,xmlDoc;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;<span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">    xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;<span class="comment">// code for IE6, IE5</span></span><br><span class="line">    xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"cd_catalog.xml"</span>,<span class="literal">false</span>);</span><br><span class="line">xmlhttp.send();</span><br><span class="line">xmlDoc=xmlhttp.responseXML;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在 HTML 元素中显示 XML 数据</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayCD</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cds=xmlDoc.getElementsByTagName(<span class="string">"CD"</span>);</span><br><span class="line">    <span class="keyword">var</span> cd_shelves = <span class="built_in">document</span>.getElementById(<span class="string">'showCD'</span>);</span><br><span class="line">    <span class="keyword">var</span> cd_list = <span class="built_in">document</span>.createElement(<span class="string">'ul'</span>);</span><br><span class="line">    cd_list.setAttribute(<span class="string">'class'</span>,<span class="string">'cd_list'</span>);</span><br><span class="line">    cd_shelves.appendChild(cd_list);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> title,artist,price,cd_item,txt;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,lens = cds.length; i&lt;lens; i++) &#123;</span><br><span class="line">        cd_item = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取 xml DOM 内容</span></span><br><span class="line">        title=(cds[i].getElementsByTagName(<span class="string">"TITLE"</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].nodeValue);</span><br><span class="line">        artist=(cds[i].getElementsByTagName(<span class="string">"ARTIST"</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].nodeValue);</span><br><span class="line">        price=(cds[i].getElementsByTagName(<span class="string">"PRICE"</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].nodeValue);</span><br><span class="line">        txt=<span class="string">'&lt;span class="title"&gt;'</span> + title +</span><br><span class="line">            <span class="string">'&lt;/span&gt;&lt;span class="artist"&gt;'</span> + artist +</span><br><span class="line">            <span class="string">'&lt;/span&gt;&lt;span class="price"&gt;'</span>+ price + <span class="string">'&lt;/span&gt;'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将 xml DOM 内容添加到 HTML 文档</span></span><br><span class="line">        cd_item.innerHTML = txt;</span><br><span class="line">        cd_list.appendChild(cd_item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*CD List*/</span></span><br><span class="line"><span class="selector-class">.cd_list</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">3.2%</span>;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-tag">li</span>&#123;<span class="attribute">position</span>:relative;<span class="attribute">margin-top</span>:<span class="number">5px</span>; <span class="attribute">overflow</span>:hidden;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-tag">span</span>&#123;<span class="attribute">float</span>:left;<span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">2%</span> <span class="number">1000px</span>;<span class="attribute">margin-bottom</span>:-<span class="number">990px</span>;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-class">.title</span>&#123;<span class="attribute">width</span>:<span class="number">36%</span>;<span class="attribute">background-color</span>:<span class="number">#f0f8ff</span>&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-class">.artist</span>&#123;<span class="attribute">width</span>:<span class="number">31%</span>;<span class="attribute">background-color</span>:<span class="number">#fff0f8</span>;<span class="attribute">font-style</span>:italic;&#125;</span><br><span class="line"><span class="selector-class">.cd_list</span> <span class="selector-class">.year</span>&#123;<span class="attribute">width</span>:<span class="number">21%</span>;<span class="attribute">background-color</span>:<span class="number">#f0f1ff</span>;<span class="attribute">text-align</span>:center&#125;</span><br></pre></td></tr></table></figure>
+<p><strong> Result:</strong><br><img src="/2017/08/29/XML-study-entry-2/1767C1AB-4580-46BF-B912-9FA31A30B592.png" alt="XML DATA"></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/08/27/XML-study-entry-1/">XML Entry-1</a>
         
       </h1>
@@ -955,50 +1018,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql.server start</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2016/11/22/mysql-shell/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/11/21/Mac-Nginx-MySQL-PHP/">Mac下使用Homebrew安装ST/Nginx/MySQL/PHP</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Nov 21, 2016
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="使用homebrew-cask安装sublime"><a href="#使用homebrew-cask安装sublime" class="headerlink" title="使用homebrew-cask安装sublime"></a>使用homebrew-cask安装sublime</h2><p>先安装cask, 使用cask可以安装一些应用程序，如QQ，迅雷，谷歌浏览器等，功能和App store差不多，个人觉得这个更好管理</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask <span class="comment"># 没有安装cask会自动安装，已经安装cask的，会跳出cask命令列表</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cask 常用命令</span></span><br><span class="line">brew cask search        <span class="comment">#列出所有可以被安装的软件</span></span><br><span class="line">brew cask search sublime    <span class="comment">#查找所有和sublime相关的应用</span></span><br><span class="line">brew cask list          <span class="comment">#列出所有通过cask安装的软件</span></span><br><span class="line">brew cask info sublime-text  <span class="comment">#查看 sublime 的信息</span></span><br><span class="line">brew cask install sublime-text  <span class="comment"># 安装sublime</span></span><br><span class="line">brew cask uninstall sublime-text   <span class="comment">#卸载sublime</span></span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2016/11/21/Mac-Nginx-MySQL-PHP/" class="read-more-link">Read more..</a>
           </div>
         
       
