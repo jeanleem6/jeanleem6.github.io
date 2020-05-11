@@ -1395,7 +1395,11 @@ hr {
   font-size: 0;
   line-height: 0; }
 
-.post .post-content h2, .post .post-content h3 {
+.post .post-content {
+  padding-left: 1.2em; }
+
+.post .post-content h2,
+.post .post-content h3 {
   position: relative; }
 
 /*.post .post-content h2 .headerlink,.post .post-content h3 .headerlink{position:absolute;top:-3px;right:102%;}*/
@@ -1418,30 +1422,57 @@ hr {
 .post .post-content a:hover {
   border-bottom-color: steelblue; }
 
-.post-content b, .post-content strong {
+.post-content b,
+.post-content strong {
   font-weight: 500;
   color: #c05b4d; }
 
 .post .post-content code {
   color: green; }
 
+.post .post-content .headerlink::before {
+  color: #c05b4d;
+  font-style: italic;
+  opacity: 0.1; }
+
+.post .post-content h1:hover .headerlink::before,
+.post .post-content h2:hover .headerlink::before,
+.post .post-content h3:hover .headerlink::before {
+  color: #c05b4d;
+  opacity: 1; }
+
 .post .post-content h1 .headerlink::before {
-  content: '#'; }
+  content: "§";
+  position: absolute;
+  top: 0.2em;
+  left: -1.2em; }
 
 .post .post-content h2 .headerlink::before {
-  content: '##'; }
+  content: "§";
+  position: absolute;
+  top: 0.2em;
+  left: -1.2em;
+  font-size: smaller; }
 
 .post .post-content h3 .headerlink::before {
-  content: '###'; }
+  content: "♦";
+  position: absolute;
+  top: 0.1em;
+  left: -1.2em;
+  font-size: smaller; }
 
-.post .post-content h4 .headerlink::before {
-  content: '####'; }
-
+/*.post .post-content h4 .headerlink::before {
+	content: "####";
+}
 .post .post-content h5 .headerlink::before {
-  content: '#####'; }
-
+	content: "#####";
+}
 .post .post-content h6 .headerlink::before {
-  content: '######'; }
+	content: "######";
+}*/
+/* post toc content */
+.post .post-toc .post-toc-content {
+  font-size: 13px; }
 
 /*@media screen and (min-width:800px){
     .container .main {margin-top:130px;}
