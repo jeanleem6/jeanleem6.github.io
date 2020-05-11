@@ -1287,7 +1287,7 @@
 <h2 id="汉化（非必需）"><a href="#汉化（非必需）" class="headerlink" title="汉化（非必需）"></a>汉化（非必需）</h2><p>将文件 <a href="Default.sublime-package">Default.sublime-package</a> 拷贝到目录：<code>/Installed Packages/</code></p>
 <h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><p>下载：<a href="http://cloud.alphadn.com/blog/yahei-consolas.zip" target="_blank" rel="noopener">Yahei Consolas Hybrid.ttf</a></p>
 <p>这是我最喜欢的、编程用的等宽字体，中英文字体都支持。</p>
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p><img src="/2017/05/05/sublime-config/plugin.png" alt="Plugin"></p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p><img src="/2017/05/05/sublime-config/plugin.jpg" alt="Plugin"></p>
 <ul>
 <li><p>Package Control:<br>  安装插件时，如果提示：<em>There are no packages available for installation</em><br>  可能原因：<em>网络问题(需科学上网)、插件服务器不能访问</em><br>  可以打开 <code>Preferences</code> &gt; <code>Package Settings</code> &gt; <code>Install Package</code> &gt; <code>Settings-User</code> 并添加以下内容：</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"channels"</span>:</span><br><span class="line">[</span><br><span class="line">    <span class="string">"https://raw.githubusercontent.com/wilon/sublime/master/download/channel_v3.json"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
