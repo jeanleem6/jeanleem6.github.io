@@ -592,7 +592,7 @@
         
 
         
-          <p>SSH（Secure Shell）是一种通用的、功能强大的、基于软件的网络安全解决方案。计算机每次向网络发送数据时，SSH都会自动对其进行加密。运行 OS X 又或者是 macOS 的较新 Mac 设备都会默认预装 SSH，不过 SSH 守护进程是默认禁用的。今天我们就来一起学习如何通过终端指令来开启和关闭 SSH。</p>
+          <h2 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h2><p>SSH（Secure Shell）是一种通用的、功能强大的、基于软件的网络安全解决方案。计算机每次向网络发送数据时，SSH都会自动对其进行加密。运行 OS X 又或者是 macOS 的较新 Mac 设备都会默认预装 SSH，不过 SSH 守护进程是默认禁用的。今天我们就来一起学习如何通过终端指令来开启和关闭 SSH。</p>
 <p><strong>通过终端查看 SSH 远程登录是否已经开启</strong></p>
 <p>想要查看 Mac 上 SSH 的当前状态？使用简单的终端就可以检查 SSH 和远程登录目前是否已经开启：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -getremotelogin</span><br></pre></td></tr></table></figure>
@@ -604,6 +604,26 @@
 <p><strong>通过终端指令关闭Mac的SSH</strong></p>
 <p>如果你想通过终端指令禁用 SSH 服务器并阻止远程连接，输入下列指令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setremotelogin off</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Testing your SSH connection:</p>
+<p>After you’ve set up your SSH key and added it to your GitHub account, you can test your connection.</p>
+<ol>
+<li>Open Git Bash.</li>
+<li><p>Enter the following:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<p> You may see a warning like this:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; The authenticity of host <span class="string">'github.com (IP ADDRESS)'</span> can<span class="string">'t be established.</span></span><br><span class="line"><span class="string">&gt; RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></span><br><span class="line"><span class="string">&gt; Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+<p> or like this:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; The authenticity of host <span class="string">'github.com (IP ADDRESS)'</span> can<span class="string">'t be established.</span></span><br><span class="line"><span class="string">&gt; RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span></span><br><span class="line"><span class="string">&gt; Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Verify that the fingerprint in the message you see matches one of the messages in step 2, then type <code>yes</code>:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Hi username! You<span class="string">'ve successfully authenticated, but GitHub does not</span></span><br><span class="line"><span class="string">&gt; provide shell access.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Verify that the resulting message contains your username. If you receive a “permission denied” message, see “<a href="https://help.github.com/en/articles/error-permission-denied-publickey" target="_blank" rel="noopener">Error: Permission denied (publickey)</a>“.</p>
+</li>
+</ol>
+<hr>
+<p><a href="https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection" target="_blank" rel="noopener">reference</a></p>
           <div class="read-more">
             <a href="/2016/11/14/ssh-on-and-off-in-Terminal/" class="read-more-link">Read more..</a>
           </div>
