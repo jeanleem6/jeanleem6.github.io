@@ -34,6 +34,8 @@ $ npm install hexo-renderer-scss --save #解析 sass
 $ npm install hexo-renderer-swig --save #解析 swig
 ```
 
+> **注意：** node 版本太高可能导致 `hexo-renderer-scss` 安装失败，可以将 node 降到 `14.18.3` 再安装。这只是我遇到的情况，这个问题以后也可能被修复。
+
 ## 三、自动解析图片的发布路径
 
 hexo-renderer-marked 3.1.0 引入了一个新选项，允许您在 Markdown 中嵌入图像而不使用 asset_img 标签插件。
