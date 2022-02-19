@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="js-RegExp"/><meta name="keywords" content="javascript, RegExp, Banksy7" /><link rel="alternate" href="/default" title="Banksy7" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<link rel="canonical" href="https://jeanleem6.github.io/2017/10/05/js-RegExp/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>js-RegExp - Banksy7</title>
+  <meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Banksy7</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">js-RegExp
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-10-05
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%AD%A3%E5%88%99"><span class="toc-text">创建正则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E5%BD%A2%E5%BC%8F"><span class="toc-text">字面量形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">RegExp 构造函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RegExp-%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7"><span class="toc-text">RegExp 实例属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RegExp-%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="toc-text">RegExp 实例方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-exec"><span class="toc-text">1. exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-test"><span class="toc-text">2. test()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RegExp-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%B1%9E%E6%80%A7"><span class="toc-text">RegExp 构造函数属性</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="创建正则"><a href="#创建正则" class="headerlink" title="创建正则"></a>创建正则</h2><h3 id="字面量形式"><a href="#字面量形式" class="headerlink" title="字面量形式"></a>字面量形式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> expression = <span class="hljs-regexp">/pattern/</span>flags;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>pattern</code>: 可以是任何简单或复杂的正则表达式，可以包含字符类、限定符、分组、向前查找以及反向应用；</li>
+<li><code>flags</code>:<ul>
+<li><code>g</code> 全局模式(global)，即应用于所有字符串，而非发现第一个匹配项时立即停止；</li>
+<li><code>i</code> 不区分大小写(case-insensitive)模式；</li>
+<li><code>m</code> 多行(multiline)模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。</li>
+</ul>
+</li>
+</ul>
+<p>模式(pattern)中使用的<strong>元字符</strong>都必须转义。正则中的元字符包括：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">( [ &#123; \ ^ $ | ) ? * + .]&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="RegExp-构造函数"><a href="#RegExp-构造函数" class="headerlink" title="RegExp 构造函数"></a>RegExp 构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> expression = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&#x27;pattern&#x27;</span>, <span class="hljs-string">&#x27;flags&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：传递给 RegExp 构造函数的两个参数都是字符串，所以在某些情况下需要对字符进行双重转义。所有元字符都必须双重转义（例如<code>\n</code>，字符 <code>\</code> 在字符串中通常被转义为 <code>\\</code>，而在正则表达式字符串中就会变成 <code>\\\\</code>。）</p>
+</blockquote>
+<h2 id="RegExp-实例属性"><a href="#RegExp-实例属性" class="headerlink" title="RegExp 实例属性"></a>RegExp 实例属性</h2><ul>
+<li><code>global</code> ：布尔值，表示是否设置了 <code>g</code> 标志；</li>
+<li><code>ignoreCase</code> ：布尔值，表示是否设置了 <code>i</code> 标志；</li>
+<li><code>lastIndex</code> ：整数，表示开始搜索下一个匹配项的字符位置，从 0 算起；</li>
+<li><code>multiline</code> ：布尔值，表示是否设置了 <code>m</code> 标志；</li>
+<li><code>source</code> ：正则的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> pattern1 = <span class="hljs-regexp">/\[bc\]at/i</span>;<br><br><span class="hljs-title function_">alert</span>(pattern1.<span class="hljs-property">global</span>);  <span class="hljs-comment">//false</span><br><span class="hljs-title function_">alert</span>(pattern1.<span class="hljs-property">ignoreCase</span>);  <span class="hljs-comment">//true</span><br><span class="hljs-title function_">alert</span>(pattern1.<span class="hljs-property">multiline</span>);  <span class="hljs-comment">//false</span><br><span class="hljs-title function_">alert</span>(pattern1.<span class="hljs-property">lastIndex</span>);  <span class="hljs-comment">//0</span><br><span class="hljs-title function_">alert</span>(pattern1.<span class="hljs-property">source</span>);  <span class="hljs-comment">//&quot;\[bc\]at&quot;</span><br><br><span class="hljs-keyword">var</span> pattern2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&quot;\\[bc\\]at&quot;</span>, <span class="hljs-string">&quot;i&quot;</span>);<br><br><span class="hljs-title function_">alert</span>(pattern2.<span class="hljs-property">global</span>);  <span class="hljs-comment">//false</span><br><span class="hljs-title function_">alert</span>(pattern2.<span class="hljs-property">ignoreCase</span>);  <span class="hljs-comment">//true</span><br><span class="hljs-title function_">alert</span>(pattern2.<span class="hljs-property">multiline</span>);  <span class="hljs-comment">//false</span><br><span class="hljs-title function_">alert</span>(pattern2.<span class="hljs-property">lastIndex</span>);  <span class="hljs-comment">//0</span><br><span class="hljs-title function_">alert</span>(pattern2.<span class="hljs-property">source</span>); <span class="hljs-comment">//&quot;\[bc\]at&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="RegExp-实例方法"><a href="#RegExp-实例方法" class="headerlink" title="RegExp 实例方法"></a>RegExp 实例方法</h2><h3 id="1-exec"><a href="#1-exec" class="headerlink" title="1. exec()"></a>1. exec()</h3><p><code>exec()</code> 方法用于捕获组，它接收一个参数，即要应用模式的字符串，然后返回包含第一个匹配项的数组；或在没有匹配项的情况下返回 null。</p>
+<p>它返回的数组包含两个额外的属性：<code>index</code> 和 <code>input</code>。</p>
+<ul>
+<li><code>index</code> 表示匹配项在字符串中的位置；</li>
+<li><code>input</code> 表示应用正则表达式的字符串。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> text = <span class="hljs-string">&quot;mom and dad and baby&quot;</span>;<br><span class="hljs-keyword">var</span> pattern = <span class="hljs-regexp">/mom( and dad( and baby)?)?/gi</span>;<br><br><span class="hljs-keyword">var</span> matches = pattern.<span class="hljs-title function_">exec</span>(text);<br><span class="hljs-title function_">alert</span>(matches.<span class="hljs-property">index</span>); <span class="hljs-comment">// 0</span><br><span class="hljs-title function_">alert</span>(matches.<span class="hljs-property">input</span>); <span class="hljs-comment">// &quot;mom and dad and baby&quot;</span><br><span class="hljs-title function_">alert</span>(matches[<span class="hljs-number">0</span>]); <span class="hljs-comment">// &quot;mom and dad and baby&quot;</span><br><span class="hljs-title function_">alert</span>(matches[<span class="hljs-number">1</span>]); <span class="hljs-comment">// &quot; and dad and baby&quot;</span><br><span class="hljs-title function_">alert</span>(matches[<span class="hljs-number">2</span>]); <span class="hljs-comment">// &quot; and baby&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-test"><a href="#2-test" class="headerlink" title="2. test()"></a>2. test()</h3><p><code>test()</code> 接收一个字符串参数。在模式与该参数匹配的情况下返回 true；否则，返回 false。</p>
+<p>在只想知道目标字符串与某个模式是否匹配，但不需要知道其文本内容的情况下，使用这个方法非常方便。因此，<code>test()</code> 方法经常被用在 if 语句中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> text = <span class="hljs-string">&quot;000-00-0000&quot;</span>;<br><span class="hljs-keyword">var</span> pattern = <span class="hljs-regexp">/\d&#123;3&#125;-\d&#123;2&#125;-\d&#123;4&#125;/</span>;<br><br><span class="hljs-keyword">if</span> (pattern.<span class="hljs-title function_">test</span>(text))&#123;<br>    <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;The pattern was matched.&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>RegExp 实例继承的 <code>toLocaleString()</code> 和 <code>toString()</code> 方法都返回正则表达式的字面量，与创建正则的方式无关。而 <code>valueOf()</code> 方法返回正则表达式本身。</p>
+<h2 id="RegExp-构造函数属性"><a href="#RegExp-构造函数属性" class="headerlink" title="RegExp 构造函数属性"></a>RegExp 构造函数属性</h2><p>| 长属性名 | 短属性名 | 说明 |<br>|- - - | - - - | - - -|<br>| input | $_ | 最近一次要匹配的字符串。Opera未实现此属性 |<br>| lastMatch | $&amp; | 最近一次的匹配项。Opera未实现此属性 |<br>| lastParen | $+ | 最后一次匹配的捕获组。Opera未实现此属性 |<br>| leftContext | $` | input 字符串中 lastMatch 之前的文本 |<br>| multiline | $* | 布尔值，表示是否所有表达式都使用多行模式。IE和Opera未实现此属性 |<br>| rightContext | $’ | input 字符串中 lastMatch 之后的文本 |</p>
+<p>除了上面这几个属性外，还有9个用于存储捕获组的构造函数属性。访问这些属性的语法是：<code>RegExp.$1</code>、<code>RegExp.$2</code>…<code>RegExp.$3</code>，分别用于存储第一、第二…第九个匹配的捕获组。在调用 <code>exec()</code> 或 <code>test()</code> 方法时，这些属性会被自动填充。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> text = <span class="hljs-string">&quot;this has been a short summer&quot;</span>;<br><span class="hljs-keyword">var</span> pattern = <span class="hljs-regexp">/(..)or(.)/g</span>;<br><br><span class="hljs-keyword">if</span> (pattern.<span class="hljs-title function_">test</span>(text))&#123;<br>    <span class="hljs-title function_">alert</span>(<span class="hljs-title class_">RegExp</span>.<span class="hljs-property">$1</span>); <span class="hljs-comment">// sh</span><br>    <span class="hljs-title function_">alert</span>(<span class="hljs-title class_">RegExp</span>.<span class="hljs-property">$2</span>); <span class="hljs-comment">// t</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://jeanleem6.github.io">banksy7 <jhlee007@gmail.com></a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://jeanleem6.github.io/2017/10/05/js-RegExp/">https://jeanleem6.github.io/2017/10/05/js-RegExp/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/javascript/">javascript</a>
+            <a href="/tags/RegExp/">RegExp</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2017/10/06/js-function/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">js-function</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2017/09/11/css-counters/">
+        <span class="next-text nav-default">Using css counters</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">banksy7 <jhlee007@gmail.com></span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://jeanleem6.github.io/2017/10/05/js-RegExp/';
+        this.page.identifier = '2017/10/05/js-RegExp/';
+        this.page.title = 'js-RegExp';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jeanleem6.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Mysql Shell"/><meta name="keywords" content="mysql, Banksy7" /><link rel="alternate" href="/default" title="Banksy7" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<link rel="canonical" href="https://jeanleem6.github.io/2016/11/22/mysql-shell/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Mysql Shell - Banksy7</title>
+  <meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Banksy7</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Mysql Shell
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-11-22
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-MySQL"><span class="toc-text">Install MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fix-Errors"><span class="toc-text">Fix Errors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access-MySQL"><span class="toc-text">Access MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Show-DataBase"><span class="toc-text">Show DataBase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-DataBase"><span class="toc-text">Create DataBase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete-DataBase"><span class="toc-text">Delete DataBase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access-a-Database"><span class="toc-text">Access a Database</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OverView-Tables"><span class="toc-text">OverView Tables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-Table"><span class="toc-text">Create a Table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Table%E2%80%99s-Organization"><span class="toc-text">Table’s Organization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Information-to-a-Table"><span class="toc-text">Add Information to a Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update-Information-in-the-Table"><span class="toc-text">Update Information in the Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-and-Delete-a-Column"><span class="toc-text">Add and Delete a Column</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete-a-Row"><span class="toc-text">Delete a Row</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install MySQL<br></code></pre></td></tr></table></figure>
+
+<p>设置MySql开机启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/Library/LaunchAgents    <span class="hljs-comment"># 首先确认该目录是否存在，若已经存在不用执行本命令</span><br><span class="hljs-built_in">ln</span> -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents<br>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist<br></code></pre></td></tr></table></figure>
+
+<p>启动MySql服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql.server start<br></code></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="Fix-Errors"><a href="#Fix-Errors" class="headerlink" title="Fix Errors"></a>Fix Errors</h2><p>如果在启动过程中出现如下错误：<code>ERROR! The server quit without updating PID file</code> ，使用以下方法修复。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chmod</span> -R 755 /usr/local/var/mysql<br><span class="hljs-built_in">rm</span> -Rf /usr/local/var/mysql/Your-Machine-Name.local.err<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注:将Your-Machine-Name替换为机器名称。</p>
+</blockquote>
+<hr>
+<h2 id="Access-MySQL"><a href="#Access-MySQL" class="headerlink" title="Access MySQL"></a>Access MySQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql -u root -p<br></code></pre></td></tr></table></figure>
+
+<h2 id="Show-DataBase"><a href="#Show-DataBase" class="headerlink" title="Show DataBase"></a>Show DataBase</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql&gt; show databases;<br>+--------------------+<br>| Database           |<br>+--------------------+<br>| information_schema |<br>| mysql              |<br>| performance_schema |<br>| sys                |<br>+--------------------+<br>4 rows <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.00 sec)<br></code></pre></td></tr></table></figure>
+
+<h2 id="Create-DataBase"><a href="#Create-DataBase" class="headerlink" title="Create DataBase"></a>Create DataBase</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">CREATE DATABASE database name;<br><span class="hljs-comment"># eg:</span><br>CREATE DATABASE myblog<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql&gt; show databases;<br>+--------------------+<br>| Database           |<br>+--------------------+<br>| information_schema |<br>| myblog             |<br>| mysql              |<br>| performance_schema |<br>| sys                |<br>+--------------------+<br>5 rows <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.00 sec)<br></code></pre></td></tr></table></figure>
+
+<h2 id="Delete-DataBase"><a href="#Delete-DataBase" class="headerlink" title="Delete DataBase"></a>Delete DataBase</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">DROP DATABASE database name;<br><span class="hljs-comment"># eg:</span><br>DROP DATABASE<br></code></pre></td></tr></table></figure>
+
+<h2 id="Access-a-Database"><a href="#Access-a-Database" class="headerlink" title="Access a Database"></a>Access a Database</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">USE myblog;<br></code></pre></td></tr></table></figure>
+
+<h3 id="OverView-Tables"><a href="#OverView-Tables" class="headerlink" title="OverView Tables"></a>OverView Tables</h3><p>In the same way that you could check the available databases, you can also see an overview of the tables that the database contains.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">SHOW tables;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Create-a-Table"><a href="#Create-a-Table" class="headerlink" title="Create a Table"></a>Create a Table</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">CREATE TABLE potluck (<span class="hljs-built_in">id</span> INT NOT NULL PRIMARY KEY AUTO_INCREMENT,<br>name VARCHAR(20),<br>food VARCHAR(30),<br>confirmed CHAR(1),<br>signup_date DATE);<br></code></pre></td></tr></table></figure>
+
+<p>This command accomplishes a number of things:</p>
+<ol>
+<li>It has created a table called potluck within the directory, events.</li>
+<li>We have set up 5 columns in the table—id, name, food, confirmed, and signup date.</li>
+<li>The “id” column has a command (INT NOT NULL PRIMARY KEY AUTO_INCREMENT) that automatically numbers each row.</li>
+<li>The “name” column has been limited by the VARCHAR command to be under 20 characters long.</li>
+<li>The “food” column designates the food each person will bring. The VARCHAR limits text to be under 30 characters.</li>
+<li>The “confirmed” column records whether the person has RSVP’d with one letter, Y or N.</li>
+<li>The “date” column will show when they signed up for the event. MySQL requires that dates be written as yyyy-mm-dd</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql&gt; SHOW TABLES;<br>+------------------+<br>| Tables_in_myblog |<br>+------------------+<br>| potluck          |<br>+------------------+<br>1 row <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.01 sec)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Table’s-Organization"><a href="#Table’s-Organization" class="headerlink" title="Table’s Organization"></a>Table’s Organization</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">DESCRIBE potluck;<br></code></pre></td></tr></table></figure>
+
+<p>For example,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql&gt;DESCRIBE potluck;<br>+-------------+-------------+------+-----+---------+----------------+<br>| Field       | Type        | Null | Key | Default | Extra          |<br>+-------------+-------------+------+-----+---------+----------------+<br>| <span class="hljs-built_in">id</span>          | int(11)     | NO   | PRI | NULL    | auto_increment |<br>| name        | varchar(20) | YES  |     | NULL    |                |<br>| food        | varchar(30) | YES  |     | NULL    |                |<br>| confirmed   | char(1)     | YES  |     | NULL    |                |<br>| signup_date | <span class="hljs-built_in">date</span>        | YES  |     | NULL    |                |<br>+-------------+-------------+------+-----+---------+----------------+<br>5 rows <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.01 sec)<br></code></pre></td></tr></table></figure>
+
+<h2 id="Add-Information-to-a-Table"><a href="#Add-Information-to-a-Table" class="headerlink" title="Add Information to a Table"></a>Add Information to a Table</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">INSERT INTO `potluck` (`<span class="hljs-built_in">id</span>`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-string">&quot;Casserole&quot;</span>,<span class="hljs-string">&quot;Y&quot;</span>, <span class="hljs-string">&#x27;2016-11-22&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>Once you input that in, you will see the words:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Query OK, 1 row affected (0.00 sec)<br></code></pre></td></tr></table></figure>
+
+<p>Let’s add a couple more people to our group:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">INSERT INTO `potluck` (`<span class="hljs-built_in">id</span>`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, <span class="hljs-string">&quot;Sandy&quot;</span>, <span class="hljs-string">&quot;Key Lime Tarts&quot;</span>,<span class="hljs-string">&quot;N&quot;</span>, <span class="hljs-string">&#x27;2016-11-22&#x27;</span>);<br>INSERT INTO `potluck` (`<span class="hljs-built_in">id</span>`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, <span class="hljs-string">&quot;Tom&quot;</span>, <span class="hljs-string">&quot;BBQ&quot;</span>,<span class="hljs-string">&quot;Y&quot;</span>, <span class="hljs-string">&#x27;2016-11-18&#x27;</span>);<br>INSERT INTO `potluck` (`<span class="hljs-built_in">id</span>`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, <span class="hljs-string">&quot;Tina&quot;</span>, <span class="hljs-string">&quot;Salad&quot;</span>,<span class="hljs-string">&quot;Y&quot;</span>, <span class="hljs-string">&#x27;2016-11-15&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<!--  -->
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql&gt; SELECT * FROM potluck;<br>+----+-------+----------------+-----------+-------------+<br>| <span class="hljs-built_in">id</span> | name  | food           | confirmed | signup_date |<br>+----+-------+----------------+-----------+-------------+<br>|  1 | John  | Casserole      | Y         | 2012-04-11  |<br>|  2 | Sandy | Key Lime Tarts | N         | 2012-04-14  |<br>|  3 | Tom   | BBQ            | Y         | 2012-04-18  |<br>|  4 | Tina  | Salad          | Y         | 2012-04-10  |<br>+----+-------+----------------+-----------+-------------+<br>4 rows <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.00 sec)<br></code></pre></td></tr></table></figure>
+
+<h2 id="Update-Information-in-the-Table"><a href="#Update-Information-in-the-Table" class="headerlink" title="Update Information in the Table"></a>Update Information in the Table</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">UPDATE `potluck`<br>SET<br>`confirmed` = <span class="hljs-string">&#x27;Y&#x27;</span><br>WHERE `potluck`.`name` =<span class="hljs-string">&#x27;Sandy&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Add-and-Delete-a-Column"><a href="#Add-and-Delete-a-Column" class="headerlink" title="Add and Delete a Column"></a>Add and Delete a Column</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ALTER TABLE potluck ADD email VARCHAR(40);  <span class="hljs-comment"># Add</span><br>ALTER TABLE potluck ADD email VARCHAR(40) AFTER name;  <span class="hljs-comment"># Add a Column &#x27;email&#x27; after &#x27;name&#x27;</span><br>ALTER TABLE potluck DROP email;  <span class="hljs-comment"># Delete</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Delete-a-Row"><a href="#Delete-a-Row" class="headerlink" title="Delete a Row"></a>Delete a Row</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">DELETE from [table name] <span class="hljs-built_in">where</span> [column name]=[field text];<br></code></pre></td></tr></table></figure>
+
+<p>For example,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql&gt; DELETE from potluck  <span class="hljs-built_in">where</span> name=<span class="hljs-string">&#x27;Sandy&#x27;</span>;<br>Query OK, 1 row affected (0.00 sec)<br><br>mysql&gt; SELECT * FROM potluck;<br>+----+------+-----------+-----------+-------------+<br>| <span class="hljs-built_in">id</span> | name | food      | confirmed | signup_date |<br>+----+------+-----------+-----------+-------------+<br>|  1 | John | Casserole | Y         | 2012-04-11  |<br>|  3 | Tom  | BBQ       | Y         | 2012-04-18  |<br>|  4 | Tina | Salad     | Y         | 2012-04-10  |<br>+----+------+-----------+-----------+-------------+<br>3 rows <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.00 sec)<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Notice that the <code>id numbers</code> associated with each person <code>remain the same</code>.</p>
+</blockquote>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://jeanleem6.github.io">banksy7 <jhlee007@gmail.com></a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://jeanleem6.github.io/2016/11/22/mysql-shell/">https://jeanleem6.github.io/2016/11/22/mysql-shell/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/mysql/">mysql</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2016/11/23/vim-guide/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">vim 使用</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2016/11/21/Mac-Nginx-MySQL-PHP/">
+        <span class="next-text nav-default">Mac下使用Homebrew安装ST/Nginx/MySQL/PHP</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">banksy7 <jhlee007@gmail.com></span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://jeanleem6.github.io/2016/11/22/mysql-shell/';
+        this.page.identifier = '2016/11/22/mysql-shell/';
+        this.page.title = 'Mysql Shell';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jeanleem6.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+</body>
+</html>

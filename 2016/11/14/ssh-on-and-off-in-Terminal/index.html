@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="如何通过终端开启/关闭SSH"/><meta name="keywords" content="server, ssh, Banksy7" /><link rel="alternate" href="/default" title="Banksy7" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<link rel="canonical" href="https://jeanleem6.github.io/2016/11/14/ssh-on-and-off-in-Terminal/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>如何通过终端开启/关闭SSH - Banksy7</title>
+  <meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Banksy7</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">如何通过终端开启/关闭SSH
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-11-14
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac-OS"><span class="toc-text">Mac OS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h2><p>SSH（Secure Shell）是一种通用的、功能强大的、基于软件的网络安全解决方案。计算机每次向网络发送数据时，SSH都会自动对其进行加密。运行 OS X 又或者是 macOS 的较新 Mac 设备都会默认预装 SSH，不过 SSH 守护进程是默认禁用的。今天我们就来一起学习如何通过终端指令来开启和关闭 SSH。</p>
+<p><strong>通过终端查看 SSH 远程登录是否已经开启</strong></p>
+<p>想要查看 Mac 上 SSH 的当前状态？使用简单的终端就可以检查 SSH 和远程登录目前是否已经开启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemsetup -getremotelogin<br></code></pre></td></tr></table></figure>
+
+<p>如果已经开启的话，指令会显示 “Remote Login: On” ，反之就会显示“Remote Login: Off”。</p>
+<p><strong>通过终端指令开启Mac的SSH</strong></p>
+<p>要快速开启 SSH 服务器并允许 SSH 连接进入当前 Mac，使用下列指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemsetup -setremotelogin on<br></code></pre></td></tr></table></figure>
+
+<p>输入指令后并没有任何确认信息表明远程登录和 SSH 已经开启，但你可以使用上文提到的方法来检查是否开启成功。</p>
+<p><strong>通过终端指令关闭Mac的SSH</strong></p>
+<p>如果你想通过终端指令禁用 SSH 服务器并阻止远程连接，输入下列指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemsetup -setremotelogin off<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Testing your SSH connection:</p>
+<p>After you’ve set up your SSH key and added it to your GitHub account, you can test your connection.</p>
+<ol>
+<li>Open Git Bash.</li>
+<li>Enter the following: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ssh -T git@github.com<br><span class="hljs-comment"># Attempts to ssh to GitHub</span><br></code></pre></td></tr></table></figure>
+ You may see a warning like this: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt; The authenticity of host <span class="hljs-string">&#x27;github.com (IP ADDRESS)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span><br><span class="hljs-string">&gt; RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="hljs-string">&gt; Are you sure you want to continue connecting (yes/no)?</span><br></code></pre></td></tr></table></figure>
+ or like this: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt; The authenticity of host <span class="hljs-string">&#x27;github.com (IP ADDRESS)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span><br><span class="hljs-string">&gt; RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span><br><span class="hljs-string">&gt; Are you sure you want to continue connecting (yes/no)?</span><br></code></pre></td></tr></table></figure></li>
+<li>Verify that the fingerprint in the message you see matches one of the messages in step 2, then type <code>yes</code>: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt; Hi username! You<span class="hljs-string">&#x27;ve successfully authenticated, but GitHub does not</span><br><span class="hljs-string">&gt; provide shell access.</span><br></code></pre></td></tr></table></figure></li>
+<li>Verify that the resulting message contains your username. If you receive a “permission denied” message, see “<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/error-permission-denied-publickey">Error: Permission denied (publickey)</a>“.</li>
+</ol>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection">reference</a></p>
+<span id="more"></span>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://jeanleem6.github.io">banksy7 <jhlee007@gmail.com></a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://jeanleem6.github.io/2016/11/14/ssh-on-and-off-in-Terminal/">https://jeanleem6.github.io/2016/11/14/ssh-on-and-off-in-Terminal/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/server/">server</a>
+            <a href="/tags/ssh/">ssh</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2016/11/14/git-fresher-01/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Git 使用入门 01-准备（Mac）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2016/11/08/mac-os-x-sierra/">
+        <span class="next-text nav-default">全新安装 Mac OS Sierra (10.12)</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">banksy7 <jhlee007@gmail.com></span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://jeanleem6.github.io/2016/11/14/ssh-on-and-off-in-Terminal/';
+        this.page.identifier = '2016/11/14/ssh-on-and-off-in-Terminal/';
+        this.page.title = '如何通过终端开启/关闭SSH';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jeanleem6.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+</body>
+</html>

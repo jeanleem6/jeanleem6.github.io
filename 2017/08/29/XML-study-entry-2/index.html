@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="XML Entry-2"/><meta name="keywords" content="xml, Banksy7" /><link rel="alternate" href="/default" title="Banksy7" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<link rel="canonical" href="https://jeanleem6.github.io/2017/08/29/XML-study-entry-2/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>XML Entry-2 - Banksy7</title>
+  <meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Banksy7</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">XML Entry-2
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-08-29
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XMLHttpRequest-%E5%AF%B9%E8%B1%A1"><span class="toc-text">XMLHttpRequest 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90xml-%E6%96%87%E6%A1%A3"><span class="toc-text">解析xml 文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90-XML-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">解析 XML 字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-DOM"><span class="toc-text">xml DOM</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="XMLHttpRequest-对象"><a href="#XMLHttpRequest-对象" class="headerlink" title="XMLHttpRequest 对象"></a>XMLHttpRequest 对象</h2><p>XMLHttpRequest 对象用于在后台与服务器交换数据。<br>它是开发者的梦想，因为它可以做以下事情：</p>
+<ul>
+<li>在不重新加载页面的情况下更新网页</li>
+<li>在页面已加载后从服务器请求数据</li>
+<li>在页面已加载后从服务器接收数据</li>
+<li>在后台向服务器发送数据</li>
+</ul>
+<p><strong>创建 XMLHttpRequest 对象</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Javascript">xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>); <span class="hljs-comment">//老版本IE（IE5 和 IE6）使用 ActiveX 对象</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>下面的代码片段把 xml 文档解析到 xml DOM 对象中</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs Javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">xmlHttpRequest</span>(<span class="hljs-params">url</span>) &#123;<br>    <span class="hljs-keyword">var</span> xmlhttp = <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>        xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>    &#125; <span class="hljs-keyword">catch</span> (e) &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&#x27;Microsoft.XMLHTTP&#x27;</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (e) &#123;<br>            <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;Your browser does not support XMLHTTP!&#x27;</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">var</span> xmlDoc;<br><br>    xmlhttp.<span class="hljs-property">onreadystatechange</span> = state_Change;<br>    xmlhttp.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;GET&#x27;</span>, url, <span class="hljs-literal">true</span>);<br>    xmlhttp.<span class="hljs-title function_">send</span>(<span class="hljs-literal">null</span>);<br>    xmlDoc = xmlhttp.<span class="hljs-property">responseXML</span>;<br>    <span class="hljs-keyword">return</span> xmlDoc;<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">state_Change</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (xmlhttp.<span class="hljs-property">readyState</span>==<span class="hljs-number">4</span>) &#123;<span class="hljs-comment">// 4 = &quot;loaded&quot;</span><br>        <span class="hljs-keyword">if</span> (xmlhttp.<span class="hljs-property">status</span>==<span class="hljs-number">200</span>) &#123;<span class="hljs-comment">// 200 = OK</span><br>            <span class="hljs-comment">// ...our code here...</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;Problem retrieving XML data&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注释：<code>onreadystatechange</code> 是一个事件句柄。它的值 (state_Change) 是一个函数的名称，当 <code>XMLHttpRequest</code> 对象的状态发生改变时，会触发此函数。状态从 0 (uninitialized) 到 4 (complete) 进行变化。仅在状态为 4 时，我们才执行代码。</p>
+</blockquote>
+<h2 id="解析xml-文档"><a href="#解析xml-文档" class="headerlink" title="解析xml 文档"></a>解析xml 文档</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Javascript"><span class="hljs-keyword">var</span> xmlhttp = <span class="hljs-literal">null</span>;<br><span class="hljs-keyword">if</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">XMLHttpRequest</span>) &#123;<br>    xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title function_">xmlHttpRequest</span>();<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&#x27;Microsoft.XMLHTTP&#x27;</span>);<br>&#125;<br><br>xmlhttp.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;GET&#x27;</span>,<span class="hljs-string">&#x27;book.xml&#x27;</span>,<span class="hljs-literal">false</span>);<br>xmlhttp.<span class="hljs-title function_">send</span>(<span class="hljs-literal">null</span>);<br>xmlDoc = xmlhttp.<span class="hljs-property">responseXML</span>;<br></code></pre></td></tr></table></figure>
+
+<p><strong>其它方法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Javascript"><span class="hljs-comment">// 微软的 XML 解析，内建于IE5+</span><br><span class="hljs-keyword">var</span> xmlDoc=<span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&quot;Microsoft.XMLDOM&quot;</span>); <span class="hljs-comment">//创建一个空的 XML 文档对象</span><br>xmlDoc.<span class="hljs-property">async</span>=<span class="hljs-string">&quot;false&quot;</span>; <span class="hljs-comment">//关闭异步加载，确保在文档完全加载之前解析器不会继续脚本的执行。</span><br>xmlDoc.<span class="hljs-title function_">load</span>(<span class="hljs-string">&quot;note.xml&quot;</span>); <span class="hljs-comment">//加载名为 &quot;note.xml&quot; 的 XML 文档</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Javascript"><span class="hljs-comment">// 在 Firefox 及其他浏览器中的 XML 解析器</span><br><span class="hljs-keyword">var</span> xmlDoc=<span class="hljs-variable language_">document</span>.<span class="hljs-property">implementation</span>.<span class="hljs-title function_">createDocument</span>(<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-literal">null</span>);<br>xmlDoc.<span class="hljs-property">async</span>=<span class="hljs-string">&quot;false&quot;</span>;<br>xmlDoc.<span class="hljs-title function_">load</span>(<span class="hljs-string">&quot;note.xml&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h2 id="解析-XML-字符串"><a href="#解析-XML-字符串" class="headerlink" title="解析 XML 字符串"></a>解析 XML 字符串</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs Javascript">txt=<span class="hljs-string">&quot;&lt;bookstore&gt;&lt;book&gt;&quot;</span>;<br>txt=txt+<span class="hljs-string">&quot;&lt;title&gt;Everyday Italian&lt;/title&gt;&quot;</span>;<br>txt=txt+<span class="hljs-string">&quot;&lt;author&gt;Giada De Laurentiis&lt;/author&gt;&quot;</span>;<br>txt=txt+<span class="hljs-string">&quot;&lt;year&gt;2005&lt;/year&gt;&quot;</span>;<br>txt=txt+<span class="hljs-string">&quot;&lt;/book&gt;&lt;/bookstore&gt;&quot;</span>;<br><br><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">DOMParser</span>) &#123;<br>    parser=<span class="hljs-keyword">new</span> <span class="hljs-title class_">DOMParser</span>();<br>    xmlDoc=parser.<span class="hljs-title function_">parseFromString</span>(txt,<span class="hljs-string">&quot;text/xml&quot;</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">//IE</span><br>    xmlDoc=<span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&quot;Microsoft.XMLDOM&quot;</span>);<br>    xmlDoc.<span class="hljs-property">async</span>=<span class="hljs-string">&quot;false&quot;</span>;<br>    xmlDoc.<span class="hljs-title function_">loadXML</span>(txt);<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注：IE 使用 <code>loadXML()</code> 方法来解析 XML 字符串，而其他浏览器使用 <code>DOMParser</code> 对象。<br>注：<code>loadXML()</code> 方法用于加载字符串（文本），<code>load()</code> 用于加载文件。</p>
+</blockquote>
+<h2 id="xml-DOM"><a href="#xml-DOM" class="headerlink" title="xml DOM"></a>xml DOM</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- xml 文档：cd_catalog.xml --&gt;</span><br><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">CATALOG</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">CD</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">TITLE</span>&gt;</span>Empire Burlesque<span class="hljs-tag">&lt;/<span class="hljs-name">TITLE</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ARTIST</span>&gt;</span>Bob Dylan<span class="hljs-tag">&lt;/<span class="hljs-name">ARTIST</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">COUNTRY</span>&gt;</span>USA<span class="hljs-tag">&lt;/<span class="hljs-name">COUNTRY</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">COMPANY</span>&gt;</span>Columbia<span class="hljs-tag">&lt;/<span class="hljs-name">COMPANY</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">PRICE</span>&gt;</span>10.90<span class="hljs-tag">&lt;/<span class="hljs-name">PRICE</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">YEAR</span>&gt;</span>1985<span class="hljs-tag">&lt;/<span class="hljs-name">YEAR</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">CD</span>&gt;</span><br>    ...<br><span class="hljs-tag">&lt;/<span class="hljs-name">CATALOG</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>CD List<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;showCD&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs Javascript"><span class="hljs-comment">//加载 xml 文档</span><br><span class="hljs-keyword">var</span> xmlhttp,xmlDoc;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">XMLHttpRequest</span>) &#123;<span class="hljs-comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span><br>    xmlhttp=<span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>&#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">// code for IE6, IE5</span><br>    xmlhttp=<span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>);<br>&#125;<br><br>xmlhttp.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&quot;cd_catalog.xml&quot;</span>,<span class="hljs-literal">false</span>);<br>xmlhttp.<span class="hljs-title function_">send</span>();<br>xmlDoc=xmlhttp.<span class="hljs-property">responseXML</span>;<br><br><span class="hljs-comment">//在 HTML 元素中显示 XML 数据</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">displayCD</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> cds=xmlDoc.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;CD&quot;</span>);<br>    <span class="hljs-keyword">var</span> cd_shelves = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;showCD&#x27;</span>);<br>    <span class="hljs-keyword">var</span> cd_list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;ul&#x27;</span>);<br>    cd_list.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;class&#x27;</span>,<span class="hljs-string">&#x27;cd_list&#x27;</span>);<br>    cd_shelves.<span class="hljs-title function_">appendChild</span>(cd_list);<br><br>    <span class="hljs-keyword">var</span> title,artist,price,cd_item,txt;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>,lens = cds.<span class="hljs-property">length</span>; i&lt;lens; i++) &#123;<br>        cd_item = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;li&#x27;</span>);<br><br>        <span class="hljs-comment">//获取 xml DOM 内容</span><br>        title=(cds[i].<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;TITLE&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">childNodes</span>[<span class="hljs-number">0</span>].<span class="hljs-property">nodeValue</span>);<br>        artist=(cds[i].<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;ARTIST&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">childNodes</span>[<span class="hljs-number">0</span>].<span class="hljs-property">nodeValue</span>);<br>        price=(cds[i].<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;PRICE&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">childNodes</span>[<span class="hljs-number">0</span>].<span class="hljs-property">nodeValue</span>);<br>        txt=<span class="hljs-string">&#x27;&lt;span class=&quot;title&quot;&gt;&#x27;</span> + title +<br>            <span class="hljs-string">&#x27;&lt;/span&gt;&lt;span class=&quot;artist&quot;&gt;&#x27;</span> + artist +<br>            <span class="hljs-string">&#x27;&lt;/span&gt;&lt;span class=&quot;price&quot;&gt;&#x27;</span>+ price + <span class="hljs-string">&#x27;&lt;/span&gt;&#x27;</span>;<br><br>        <span class="hljs-comment">//将 xml DOM 内容添加到 HTML 文档</span><br>        cd_item.<span class="hljs-property">innerHTML</span> = txt;<br>        cd_list.<span class="hljs-title function_">appendChild</span>(cd_item);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/*CD List*/</span><br><span class="hljs-selector-class">.cd_list</span>&#123;<span class="hljs-attribute">margin</span>:<span class="hljs-number">0</span> <span class="hljs-number">3.2%</span>;&#125;<br><span class="hljs-selector-class">.cd_list</span> <span class="hljs-selector-tag">li</span>&#123;<span class="hljs-attribute">position</span>:relative;<span class="hljs-attribute">margin-top</span>:<span class="hljs-number">5px</span>; <span class="hljs-attribute">overflow</span>:hidden;&#125;<br><span class="hljs-selector-class">.cd_list</span> <span class="hljs-selector-tag">span</span>&#123;<span class="hljs-attribute">float</span><span class="hljs-selector-pseudo">:left</span>;<span class="hljs-attribute">padding</span>:<span class="hljs-number">10px</span> <span class="hljs-number">2%</span> <span class="hljs-number">1000px</span>;<span class="hljs-attribute">margin-bottom</span>:-<span class="hljs-number">990px</span>;&#125;<br><span class="hljs-selector-class">.cd_list</span> <span class="hljs-selector-class">.title</span>&#123;<span class="hljs-attribute">width</span>:<span class="hljs-number">36%</span>;<span class="hljs-attribute">background-color</span>:<span class="hljs-number">#f0f8ff</span>&#125;<br><span class="hljs-selector-class">.cd_list</span> <span class="hljs-selector-class">.artist</span>&#123;<span class="hljs-attribute">width</span>:<span class="hljs-number">31%</span>;<span class="hljs-attribute">background-color</span>:<span class="hljs-number">#fff0f8</span>;<span class="hljs-attribute">font-style</span>:italic;&#125;<br><span class="hljs-selector-class">.cd_list</span> <span class="hljs-selector-class">.year</span>&#123;<span class="hljs-attribute">width</span>:<span class="hljs-number">21%</span>;<span class="hljs-attribute">background-color</span>:<span class="hljs-number">#f0f1ff</span>;<span class="hljs-attribute">text-align</span>:center&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>Result:</strong><br><img src="/2017/08/29/XML-study-entry-2/1767C1AB-4580-46BF-B912-9FA31A30B592.png" alt="XML DATA"></p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://jeanleem6.github.io">banksy7 <jhlee007@gmail.com></a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://jeanleem6.github.io/2017/08/29/XML-study-entry-2/">https://jeanleem6.github.io/2017/08/29/XML-study-entry-2/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/xml/">xml</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2017/09/11/css-counters/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Using css counters</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2017/08/27/XML-study-entry-1/">
+        <span class="next-text nav-default">XML Entry-1</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">banksy7 <jhlee007@gmail.com></span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://jeanleem6.github.io/2017/08/29/XML-study-entry-2/';
+        this.page.identifier = '2017/08/29/XML-study-entry-2/';
+        this.page.title = 'XML Entry-2';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jeanleem6.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+</body>
+</html>

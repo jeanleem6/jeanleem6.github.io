@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Multiple MySQL Versions with Homebrew"/><meta name="keywords" content="mysql, Banksy7" /><link rel="alternate" href="/default" title="Banksy7" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<link rel="canonical" href="https://jeanleem6.github.io/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Multiple MySQL Versions with Homebrew - Banksy7</title>
+  <meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Banksy7</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Multiple MySQL Versions with Homebrew
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-08
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CONTENT"><span class="toc-text">CONTENT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caution"><span class="toc-text">Caution</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="CONTENT"><a href="#CONTENT" class="headerlink" title="CONTENT"></a>CONTENT</h2><p>For homebrew version 2.1.2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew -v <span class="hljs-comment"># =&gt; Homebrew 2.1.2</span><br></code></pre></td></tr></table></figure>
+
+<p>Install the current version of mysql.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Install current mysql version</span><br>brew install mysql<br><br><span class="hljs-comment"># Start agent for current version of mysql (including on login)</span><br><span class="hljs-built_in">ln</span> -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents<br>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist<br></code></pre></td></tr></table></figure>
+
+<p>Install the older version of mysql.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Find older mysql versions</span><br>brew search mysql<br><br><span class="hljs-comment"># Install older mysql version</span><br>brew install mysql@5.6<br><br><span class="hljs-comment"># Start agent for older version of mysql (including on login)</span><br><span class="hljs-built_in">ln</span> -sfv /usr/local/opt/mysql@5.6/*.plist ~/Library/LaunchAgents<br>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql@5.6.plist<br></code></pre></td></tr></table></figure>
+
+<p>Then to switch to the older version.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Unlink current mysql version</span><br>brew <span class="hljs-built_in">unlink</span> mysql<br><br><span class="hljs-comment"># Check older mysql version</span><br><span class="hljs-built_in">ls</span> /usr/local/Cellar/mysql@5.6 <span class="hljs-comment"># =&gt; 5.6.43</span><br><br><span class="hljs-comment"># Link the older version</span><br>brew switch mysql@5.6 5.6.43<br><span class="hljs-comment"># If the above didn&#x27;t working, try this:</span><br>brew <span class="hljs-built_in">link</span> mysql@5.6 --force<br></code></pre></td></tr></table></figure>
+
+<p>And to switch back to the current version.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Unlink older mysql version</span><br>brew <span class="hljs-built_in">unlink</span> mysql@5.6<br><br><span class="hljs-comment"># Check current mysql version</span><br><span class="hljs-built_in">ls</span> /usr/local/Cellar/mysql <span class="hljs-comment"># =&gt; 8.0.16</span><br><br><span class="hljs-comment"># Link the current version</span><br>brew switch mysql 8.0.16<br></code></pre></td></tr></table></figure>
+
+<p>To verify which mysql version you’re on at any time.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Check which version of mysql is currently symlinked</span><br><span class="hljs-built_in">ls</span> -l /usr/local/bin/mysql <span class="hljs-comment"># =&gt; /usr/local/bin/mysql@ -&gt; ../Cellar/mysql56/5.6.43/bin/mysql</span><br><br><span class="hljs-comment"># Or using the mysql command</span><br>mysql --version<br></code></pre></td></tr></table></figure>
+
+<p>And to unload a mysql agent for a given version.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Stop agent for current version of mysql</span><br>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist<br><span class="hljs-built_in">rm</span> ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist<br><br><span class="hljs-comment"># Stop agent for older version of mysql</span><br>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql@5.6.plist<br><span class="hljs-built_in">rm</span> ~/Library/LaunchAgents/homebrew.mxcl.mysql@5.6.plist<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Caution"><a href="#Caution" class="headerlink" title="Caution"></a>Caution</h2><blockquote>
+<p><em>jpmelguizo:</em><br>Went with <a href="mailto:&#109;&#121;&#115;&#x71;&#108;&#64;&#x35;&#x2e;&#x36;">&#109;&#121;&#115;&#x71;&#108;&#64;&#x35;&#x2e;&#x36;</a> and I’m getting: <code>ERROR 2002 (HY000): Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39; (2)</code> Although brew services list says <a href="mailto:&#109;&#121;&#115;&#x71;&#108;&#x40;&#x35;&#x2e;&#x36;">&#109;&#121;&#115;&#x71;&#108;&#x40;&#x35;&#x2e;&#x36;</a> is started, there’s no mysqld process running and no mysql.sock file anywhere. Any ideas on how to fix it? should I just go with the deprecated mysql56 instead?</p>
+</blockquote>
+<blockquote>
+<p><em>jsweeney:</em></p>
+<p><strong>(NOTICE: If you see <code>\@</code>, it is just <code>@</code>, remove the backslash(<code>\</code>) when you copy.)</strong><br>I also had your problem. My issue was that the mysql@5.6 was trying to boot the mysql 5.7 database (installed in the default <code>/usr/local/var</code> folder). If you want to run both in parallel on their own distinct databases, there are a few more steps to do.</p>
+<ol>
+<li>Create a new (separate) data directory and database for the 5.6 version<br> Run <code>/usr/local/Cellar/mysql\@5.6/5.6.36/bin/mysql_install_db --user=root --datadir=/usr/local/var/mysql56</code></li>
+<li>Change the configuration to start the 5.6 version pointing to this database<br>  Edit <code>/usr/local/Cellar/mysql\@5.6/5.6.36/homebrew.mxcl.mysql\@5.6.plist</code> to change both <code>/usr/local/var/mysql</code> instances to <code>/usr/local/var/mysql56</code> (I didn’t put the <code>@</code> in the folder name just in case it would cause issues). <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plist</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.0&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>KeepAlive<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Label<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>homebrew.mxcl.mysql@5.6<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>ProgramArguments<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>/usr/local/opt/mysql@5.6/bin/mysqld_safe<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>--bind-address=127.0.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>--datadir=/usr/local/var/mysql56<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span> <span class="hljs-comment">&lt;!-- &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HERE --&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>RunAtLoad<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>WorkingDirectory<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>/usr/local/var/mysql56<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span> <span class="hljs-comment">&lt;!-- &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; AND HERE --&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plist</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>Change the port of the 5.6 server - if ever you want to start both at the same time.<br>Edit <code>/usr/local/Cellar/mysql\@5.6/5.6.36/my.cnf</code>, uncomment <code>port</code> and change it to some other value than <code>3306</code>. <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># These are commonly set, remove the # and set as required.</span><br><span class="hljs-comment"># basedir = .....</span><br><span class="hljs-comment"># datadir = .....</span><br>port = 3356<br><span class="hljs-comment"># server_id = .....</span><br><span class="hljs-comment"># socket = .....</span><br></code></pre></td></tr></table></figure>
+NOTE A little caveat about connecting to the MySQL instances after such a setup. Using any kind of driver will &gt; work out of the box if you set the correct port. However, at the command line, <code>mysql</code> ignores the <code>--port</code> &gt; value by default, so you need something like this&gt; <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql -uroot --port=3356 --protocol=TCP<br></code></pre></td></tr></table></figure>
+See this article for more details: <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/connecting.html">https://dev.mysql.com/doc/refman/5.7/en/connecting.html</a></li>
+</ol>
+</blockquote>
+<hr>
+<p>mysql_downgrade:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Kill rails server and guard</span><br>bin/spring stop<br>brew services stop mysql<br>brew uninstall mysql<br>brew install mysql@5.5<br>brew <span class="hljs-built_in">link</span> mysql@5.5 --force<br>brew services start mysql@5.5<br>rbenv uninstall 2.3.3<br>rbenv install 2.3.3<br>gem install bundle<br>gem install rubocop-rspec rubocop scss_lint rails_best_practices <span class="hljs-comment"># (optional)</span><br>bundle install<br>be rails db:migrate:reset<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>via:<br>from: <a target="_blank" rel="noopener" href="https://gist.github.com/benlinton/d24471729ed6c2ace731">https://gist.github.com/benlinton/d24471729ed6c2ace731</a><br>mysql_downgrade: <a target="_blank" rel="noopener" href="https://gist.github.com/6temes/3c52f8a472f61d9676e7218a98812286">https://gist.github.com/6temes/3c52f8a472f61d9676e7218a98812286</a></p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://jeanleem6.github.io">banksy7 <jhlee007@gmail.com></a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://jeanleem6.github.io/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/">https://jeanleem6.github.io/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/mysql/">mysql</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/10/Change-Lanunchpad-Icon-Size/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Change Lanunchpad Icon Size</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/03/26/linux-text-stream/">
+        <span class="next-text nav-default">Linux文本流</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">banksy7 <jhlee007@gmail.com></span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://jeanleem6.github.io/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/';
+        this.page.identifier = '2019/05/08/Multiple-MySQL-Versions-with-Homebrew/';
+        this.page.title = 'Multiple MySQL Versions with Homebrew';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jeanleem6.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+</body>
+</html>
