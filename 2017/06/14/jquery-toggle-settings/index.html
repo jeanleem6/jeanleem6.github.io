@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="jquery toggle()及相关动画设置" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="jQuery, Banksy7" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Banksy7" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://jeanleem6.github.io/2017/06/14/jquery-toggle-settings/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>jquery toggle()及相关动画设置 - Banksy7</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Banksy7</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      jquery toggle()及相关动画设置
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-06-14
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#toggle"><span class="toc-number">1.</span> <span class="toc-text">toggle()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slideToggle"><span class="toc-number">2.</span> <span class="toc-text">slideToggle()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fading%E2%80%94%E2%80%94%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BA"><span class="toc-number">3.</span> <span class="toc-text">Fading——淡入淡出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeIn"><span class="toc-number">3.1.</span> <span class="toc-text">fadeIn()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeOut"><span class="toc-number">3.2.</span> <span class="toc-text">fadeOut()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeToggle"><span class="toc-number">3.3.</span> <span class="toc-text">fadeToggle()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeTo"><span class="toc-number">3.4.</span> <span class="toc-text">fadeTo()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E6%B7%B1"><span class="toc-number">4.</span> <span class="toc-text">引深</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E4%B9%8B%E7%9B%B8%E5%85%B3%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">jQuery之相关动画效果操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81show-%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9C"><span class="toc-number">5.1.</span> <span class="toc-text">1、show()显示效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81hide-%E9%9A%90%E8%97%8F%E6%95%88%E6%9E%9C"><span class="toc-number">5.2.</span> <span class="toc-text">2、hide()隐藏效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81toggle-%E9%9A%90%E8%97%8F%E6%98%BE%E7%A4%BA%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%EF%BC%8C%E5%BD%93%E7%9B%AE%E5%89%8D%E4%B8%BA%E6%98%BE%E7%A4%BA%E5%88%99%E9%9A%90%E8%97%8F%EF%BC%8C%E5%BD%93%E7%9B%AE%E5%89%8D%E4%B8%BA%E9%9A%90%E8%97%8F%E5%88%99%E6%98%BE%E7%A4%BA"><span class="toc-number">5.3.</span> <span class="toc-text">3、toggle()隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81slideDown-%E5%90%91%E4%B8%8B%E6%98%BE%E7%A4%BA%EF%BC%8Cslow-%E6%98%AF%E6%B0%B4%E5%B9%B3%E4%B8%8E%E5%9E%82%E7%9B%B4%E6%96%B9%E5%90%91%E5%90%8C%E6%97%B6%E5%B1%95%E5%BC%80%EF%BC%8C%E8%80%8CslideDown%E6%98%AF%E4%BB%85%E4%BB%85%E5%9C%A8%E5%9E%82%E7%9B%B4%E6%96%B9%E5%90%91%E5%90%91%E4%B8%8B%E5%B1%95%E5%BC%80"><span class="toc-number">5.4.</span> <span class="toc-text">4、slideDown()向下显示，slow()是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81slideUp-%E5%90%91%E4%B8%8A%E9%9A%90%E8%97%8F-hide-%E6%98%AF%E6%B0%B4%E5%B9%B3%E4%B8%8E%E5%9E%82%E7%9B%B4%E4%B8%A4%E4%B8%AA%E6%96%B9%E5%90%91%E7%9A%84%EF%BC%8C%E8%80%8CslideUp-%E4%BB%85%E4%BB%85%E6%98%AF%E5%9E%82%E7%9B%B4%E6%96%B9%E5%90%91%E5%90%91%E4%B8%8A%E6%94%B6%E8%B5%B7%E9%9A%90%E8%97%8F"><span class="toc-number">5.5.</span> <span class="toc-text">5、slideUp()向上隐藏,　　hide()是水平与垂直两个方向的，而slideUp()仅仅是垂直方向向上收起隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81slideToggle%E5%9E%82%E7%9B%B4%E6%96%B9%E5%90%91%E4%B8%8A%E5%88%87%E6%8D%A2-toggle%E6%98%AF%E6%B0%B4%E5%B9%B3%E4%B8%8E%E5%9E%82%E7%9B%B4%E4%B8%A4%E4%B8%AA%E6%96%B9%E5%90%91%E4%B8%8A%E7%9A%84%EF%BC%8C%E8%80%8CslideToggle%E6%98%AF%E4%BB%85%E4%BB%85%E5%9E%82%E7%9B%B4%E6%96%B9%E5%90%91%E7%9A%84%E3%80%82"><span class="toc-number">5.6.</span> <span class="toc-text">6、slideToggle垂直方向上切换,toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81fadeIn-%E4%BB%A5%E6%94%B9%E5%8F%98%E9%80%8F%E6%98%8E%E5%BA%A6%E6%9D%A5%E6%98%BE%E7%A4%BA"><span class="toc-number">5.7.</span> <span class="toc-text">7、fadeIn() 以改变透明度来显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81fadeOut-%E4%BB%A5%E6%94%B9%E5%8F%98%E9%80%8F%E6%98%8E%E5%BA%A6%E6%9D%A5%E9%9A%90%E8%97%8F"><span class="toc-number">5.8.</span> <span class="toc-text">8、fadeOut() 以改变透明度来隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81fadeToggle-%E4%BB%A5%E6%94%B9%E5%8F%98%E9%80%8F%E6%98%8E%E5%BA%A6%E6%9D%A5%E5%88%87%E6%8D%A2%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%8A%B6%E6%80%81"><span class="toc-number">5.9.</span> <span class="toc-text">9、fadeToggle() 以改变透明度来切换显示隐藏状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81fadeTo-%E7%94%B1%E6%8C%87%E5%AE%9A%E7%9A%84%E6%97%B6%E9%97%B4%E5%B0%86%E9%80%8F%E6%98%8E%E5%BA%A6%E6%94%B9%E5%8F%98%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9A%84%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-number">5.10.</span> <span class="toc-text">10、fadeTo() 由指定的时间将透明度改变到指定的透明度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81animate-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E7%94%BB%EF%BC%8C%E4%B8%80%E8%88%AC%E6%9D%A5%E8%AF%B4%E6%95%B0%E5%AD%97%E5%8F%98%E5%8A%A8%E9%83%BD%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%BA%8E%E5%8A%A8%E7%94%BB%E3%80%82"><span class="toc-number">5.11.</span> <span class="toc-text">11、animate() 自定义动画，一般来说数字变动都可以用于动画。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81stop-%E5%81%9C%E6%AD%A2%E6%AD%A3%E5%9C%A8%E6%89%A7%E8%A1%8C%E5%8A%A8%E7%94%BB"><span class="toc-number">5.12.</span> <span class="toc-text">12、stop() 停止正在执行动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81delay-%E5%BB%B6%E8%BF%9F%E6%89%A7%E8%A1%8C%E5%8A%A8%E7%94%BB%EF%BC%9A%E5%BD%93%E4%B8%80%E4%B8%AA%E5%8A%A8%E7%94%BBstop-%E4%BA%86%E4%B9%8B%E5%90%8E%E8%BF%98%E8%83%BD%E5%A4%9F%E7%94%A8delay-%E6%9D%A5%E5%BB%B6%E8%BF%9F%E6%89%A7%E8%A1%8C%E3%80%82%E4%BB%8E%E5%81%9C%E6%AD%A2%E4%BD%8D%E7%BD%AE%E7%BB%A7%E7%BB%AD%E6%89%A7%E8%A1%8C%E3%80%82%E5%BD%93%E7%84%B6%E7%94%A8%E5%8E%9F%E6%9D%A5%E7%9A%84%E6%96%B9%E6%B3%95%E7%BB%A7%E7%BB%AD%E6%89%A7%E8%A1%8C%E4%B9%9F%E4%B8%8D%E5%8F%AF%EF%BC%8C%E4%B8%8D%E8%BF%87%E6%B2%A1%E6%9C%89%E5%BB%B6%E6%97%B6%E6%95%88%E6%9E%9C%E3%80%82"><span class="toc-number">5.13.</span> <span class="toc-text">13、delay() 延迟执行动画：当一个动画stop()了之后还能够用delay()来延迟执行。从停止位置继续执行。当然用原来的方法继续执行也不可，不过没有延时效果。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81jQuery-fx-off-%E8%AF%A5%E5%B1%9E%E6%80%A7%E5%8F%AA%E6%98%AF%E6%98%AF%E5%90%A6%E5%85%B3%E9%97%AD%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%9A%84%E5%8A%A8%E7%94%BB-%E5%85%B3%E9%97%AD%E5%8A%A8%E7%94%BB%E4%B9%8B%E5%90%8E%EF%BC%8C%E6%B2%A1%E6%9C%89%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C%EF%BC%8C%E6%89%80%E6%9C%89%E8%AE%BE%E7%BD%AE%E4%BA%86%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E7%9A%84%E5%8A%A8%E7%94%BB%E4%BC%9A%E7%9E%AC%E9%97%B4%E5%AE%8C%E6%88%90%E3%80%82%E6%B3%A8%E6%84%8F%E6%AD%A4%E5%B1%9E%E6%80%A7%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E3%80%82%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%8D%E5%90%8C%E5%BD%B1%E5%93%8D%E7%9A%84%E8%8C%83%E5%9B%B4%E4%B9%9F%E4%B8%8D%E5%90%8C%E3%80%82"><span class="toc-number">5.14.</span> <span class="toc-text">14、jQuery.fx.off 该属性只是是否关闭当前页面上的动画,关闭动画之后，没有动画效果，所有设置了执行时间的动画会瞬间完成。注意此属性出现的位置。出现的位置不同影响的范围也不同。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81jQuery-fx-interval-%E8%AF%A5%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E5%8A%A8%E7%94%BB%E7%9A%84%E5%B8%A7%E9%80%9F%EF%BC%8C%E5%8D%95%E4%BD%8D%E6%98%AF%E6%AF%AB%E7%A7%92%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%AE%BE%E7%BD%AE%E7%9A%84%E6%97%B6%E9%97%B4%E8%B6%8A%E5%B0%8F%EF%BC%8C%E5%B0%B1%E8%B6%8A%E5%B9%B3%E6%BB%91%E3%80%82%EF%BC%8C%E5%B1%9E%E6%80%A7%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%90%8C%E6%A0%B7%E6%9C%89%E5%BD%B1%E5%93%8D%E8%8C%83%E5%9B%B4"><span class="toc-number">5.15.</span> <span class="toc-text">15、jQuery.fx.interval　　&#x2F;&#x2F;该属性设置动画的帧速，单位是毫秒，如果设置的时间越小，就越平滑。，属性出现的位置同样有影响范围</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h2 id="toggle"><a href="#toggle" class="headerlink" title="toggle()"></a>toggle()</h2><p><code>toggle() 方法切换元素的可见状态。</code><br>如果被选元素可见，则隐藏这些元素，如果被选元素隐藏，则显示这些元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(selector).<span class="title function_">toggle</span>(speed,callback,<span class="keyword">switch</span>) <span class="comment">//水平显隐动画</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 栗子</span></span><br><span class="line">$(<span class="string">&quot;.btn1&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    $(<span class="string">&quot;p&quot;</span>).<span class="title function_">toggle</span>(<span class="number">200</span>);</span><br><span class="line">    $(<span class="string">&quot;p&quot;</span>).<span class="title function_">toggle</span>(<span class="literal">true</span>);  <span class="comment">//显示所有 p 元素</span></span><br><span class="line">    $(<span class="string">&quot;p&quot;</span>).<span class="title function_">toggle</span>(<span class="literal">false</span>);  <span class="comment">//隐藏所有 p 元素</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>[参数]说明：</em></p>
+<ul>
+<li><strong>speed:</strong> 可选。规定元素从可见到隐藏的速度（或者相反）。默认为 “0”。<br>  在设置速度的情况下，元素从可见到隐藏的过程中，会逐渐地改变其高度、宽度、外边距、内边距和透明度。<em>如果设置此参数，则无法使用 switch 参数。</em><br>  <strong>可能的值：</strong>毫秒 （比如 1500）、slow、normal、fast</li>
+<li><strong>callback</strong>: 可选。toggle 函数执行完之后，要执行的函数。<em>除非设置了 speed 参数，否则不能设置该参数。</em></li>
+<li><strong>switch</strong>: 可选。布尔值。规定 toggle 是否<em>隐藏(false)<em>或</em>显示(true)<em>所有被选元素。</em>如果设置此参数，则无法使用 speed 和 callback 参数。</em></li>
+</ul>
+<span id="more"></span>
+
+<h2 id="slideToggle"><a href="#slideToggle" class="headerlink" title="slideToggle()"></a>slideToggle()</h2><p><code>slideToggle() 方法通过使用滑动效果（高度变化）来切换元素的可见状态。</code><br>如果被选元素是可见的，则隐藏这些元素，如果被选元素是隐藏的，则显示这些元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(selector).<span class="title function_">slideToggle</span>(speed,callback) <span class="comment">//垂直显隐动画</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 栗子</span></span><br><span class="line">$(<span class="string">&quot;.btn1&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    $(<span class="string">&quot;p&quot;</span>).<span class="title function_">slideToggle</span>(<span class="number">200</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>[参数]说明：</em></p>
+<ul>
+<li><strong>speed:</strong> 可选。规定元素从可见到隐藏的速度（或者相反）。默认为 “normal”。在设置速度的情况下，元素在切换的过程中，会逐渐地改变其高度（这样会创造滑动效果）。 <strong>可能的值：</strong>毫秒 （比如 1500）、slow、normal、fast</li>
+<li><strong>callback</strong>: 可选。toggle 函数执行完之后，要执行的函数。<em>除非设置了 speed 参数，否则不能设置该参数。</em></li>
+</ul>
+<h2 id="Fading——淡入淡出"><a href="#Fading——淡入淡出" class="headerlink" title="Fading——淡入淡出"></a>Fading——淡入淡出</h2><p>通过 jQuery，您可以实现元素的<strong>淡入淡出</strong>效果。</p>
+<p>jQuery 拥有下面四种 fade 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fadeIn</span>()</span><br><span class="line"><span class="title function_">fadeOut</span>()</span><br><span class="line"><span class="title function_">fadeToggle</span>()</span><br><span class="line"><span class="title function_">fadeTo</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="fadeIn"><a href="#fadeIn" class="headerlink" title="fadeIn()"></a>fadeIn()</h3><p><code>fadeIn() 用于淡入已隐藏的元素。</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(selector).<span class="title function_">fadeIn</span>(speed,callback);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 栗子</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">fadeIn</span>();</span><br><span class="line">    $(<span class="string">&quot;#div2&quot;</span>).<span class="title function_">fadeIn</span>(<span class="string">&quot;slow&quot;</span>);</span><br><span class="line">    $(<span class="string">&quot;#div3&quot;</span>).<span class="title function_">fadeIn</span>(<span class="number">3000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>[参数]说明：</em></p>
+<ul>
+<li><strong>speed</strong>：可选，参数规定效果的时长。它可以取以下值：slow、fast 或毫秒。</li>
+<li><strong>callback</strong>：可选，参数是 fading 完成后所执行的函数名称。</li>
+</ul>
+<h3 id="fadeOut"><a href="#fadeOut" class="headerlink" title="fadeOut()"></a>fadeOut()</h3><p><code>fadeOut() 用于淡出可见元素。</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(selector).<span class="title function_">fadeOut</span>(speed,callback);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 栗子</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">fadeOut</span>();</span><br><span class="line">    $(<span class="string">&quot;#div2&quot;</span>).<span class="title function_">fadeOut</span>(<span class="string">&quot;slow&quot;</span>);</span><br><span class="line">    $(<span class="string">&quot;#div3&quot;</span>).<span class="title function_">fadeOut</span>(<span class="number">3000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>[参数]说明：</em></p>
+<ul>
+<li><strong>speed</strong>：可选，参数规定效果的时长。它可以取以下值：slow、fast 或毫秒。</li>
+<li><strong>callback</strong>：可选，参数是 fading 完成后所执行的函数名称。</li>
+</ul>
+<h3 id="fadeToggle"><a href="#fadeToggle" class="headerlink" title="fadeToggle()"></a>fadeToggle()</h3><p><code>fadeToggle() 方法可以在 fadeIn() 与 fadeOut() 方法之间进行切换。</code><br>如果元素已淡出，则 fadeToggle() 会向元素添加淡入效果。<br>如果元素已淡入，则 fadeToggle() 会向元素添加淡出效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(selector).<span class="title function_">fadeToggle</span>(speed,callback);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 栗子</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">fadeToggle</span>();</span><br><span class="line">    $(<span class="string">&quot;#div2&quot;</span>).<span class="title function_">fadeToggle</span>(<span class="string">&quot;slow&quot;</span>);</span><br><span class="line">    $(<span class="string">&quot;#div3&quot;</span>).<span class="title function_">fadeToggle</span>(<span class="number">3000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>[参数]说明：</em></p>
+<ul>
+<li><strong>speed</strong>：可选，参数规定效果的时长。它可以取以下值：slow、fast 或毫秒。</li>
+<li><strong>callback</strong>：可选，参数是 fading 完成后所执行的函数名称。</li>
+</ul>
+<h3 id="fadeTo"><a href="#fadeTo" class="headerlink" title="fadeTo()"></a>fadeTo()</h3><p><code>fadeTo() 方法允许渐变为给定的不透明度（值介于 0 与 1 之间）。</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(selector).<span class="title function_">fadeTo</span>(speed,opacity,callback);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 栗子</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">fadeTo</span>(<span class="string">&quot;slow&quot;</span>,<span class="number">0.15</span>);</span><br><span class="line">    $(<span class="string">&quot;#div2&quot;</span>).<span class="title function_">fadeTo</span>(<span class="string">&quot;slow&quot;</span>,<span class="number">0.4</span>);</span><br><span class="line">    $(<span class="string">&quot;#div3&quot;</span>).<span class="title function_">fadeTo</span>(<span class="string">&quot;slow&quot;</span>,<span class="number">0.7</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>[参数]说明：</em></p>
+<ul>
+<li><strong>speed</strong>：必须，参数规定效果的时长。它可以取以下值：slow、fast 或毫秒。</li>
+<li><strong>opacity</strong>：必须，参数将淡入淡出效果设置为给定的不透明度（值介于 0 与 1 之间）。</li>
+<li><strong>callback</strong>：可选，参数是 fading 完成后所执行的函数名称。</li>
+</ul>
+<h2 id="引深"><a href="#引深" class="headerlink" title="引深"></a>引深</h2><p>同样的道理，jquery的show()和hide（）方向怎么设置呢？同样也可以用slideDown()和slideUp()来解决。达到你想要的效果！</p>
+<h2 id="jQuery之相关动画效果操作"><a href="#jQuery之相关动画效果操作" class="headerlink" title="jQuery之相关动画效果操作"></a>jQuery之相关动画效果操作</h2><blockquote>
+<p>哈哈哈，加入你对上面的案例，在我说了之后不熟练，不熟悉的话，可以复习一下jquery的动画效果了！下面我列举一下！</p>
+</blockquote>
+<h3 id="1、show-显示效果"><a href="#1、show-显示效果" class="headerlink" title="1、show()显示效果"></a>1、show()显示效果</h3><p>语法：show(speed,callback)　　Number&#x2F;String,Function　speend为动画执行时间，单位为毫秒。也可以为slow”,”normal”,”fast”　callback可选,为当动画完成时执行的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">show</span>(speed,[easing],callback)　　<span class="title class_">Number</span>/<span class="title class_">String</span>　　easing默认是swing,可选linear;</span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">show</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;动画显示完成!&quot;</span>); &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、hide-隐藏效果"><a href="#2、hide-隐藏效果" class="headerlink" title="2、hide()隐藏效果"></a>2、hide()隐藏效果</h3><p>语法:hide(speed,callback)　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">hide</span>(speed,easing,callback)　　<span class="title class_">Number</span>/<span class="title class_">String</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">hide</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;动画隐藏完成&quot;</span>) &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、toggle-隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示"><a href="#3、toggle-隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示" class="headerlink" title="3、toggle()隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示"></a>3、toggle()隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示</h3><p>语法：toggle(speed,callback)　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">toggle</span>(speed,callback)　　<span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">toggle</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;动画效果切换完成&quot;</span>) &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、slideDown-向下显示，slow-是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开"><a href="#4、slideDown-向下显示，slow-是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开" class="headerlink" title="4、slideDown()向下显示，slow()是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开"></a>4、slideDown()向下显示，slow()是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开</h3><p>语法:slideDown(speed,callback)　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">slideDown</span>(speed,[easing],callback)　　<span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">slideDown</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;向下展开显示成功!&quot;</span>); &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、slideUp-向上隐藏-hide-是水平与垂直两个方向的，而slideUp-仅仅是垂直方向向上收起隐藏"><a href="#5、slideUp-向上隐藏-hide-是水平与垂直两个方向的，而slideUp-仅仅是垂直方向向上收起隐藏" class="headerlink" title="5、slideUp()向上隐藏,　　hide()是水平与垂直两个方向的，而slideUp()仅仅是垂直方向向上收起隐藏"></a>5、slideUp()向上隐藏,　　hide()是水平与垂直两个方向的，而slideUp()仅仅是垂直方向向上收起隐藏</h3><p>语法:slideUp(speed,callback)　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">slideUp</span>(speed,[easing],callback)　　<span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">slideUp</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;向上收起隐藏成功!&quot;</span>); &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、slideToggle垂直方向上切换-toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。"><a href="#6、slideToggle垂直方向上切换-toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。" class="headerlink" title="6、slideToggle垂直方向上切换,toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。"></a>6、slideToggle垂直方向上切换,toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。</h3><p>语法:slideToggle(speed,callback)　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">slideToggle</span>(speed,[easing],callback)　　<span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">slideToggle</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;水平方向上切换成功&quot;</span>); &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、fadeIn-以改变透明度来显示"><a href="#7、fadeIn-以改变透明度来显示" class="headerlink" title="7、fadeIn() 以改变透明度来显示"></a>7、fadeIn() 以改变透明度来显示</h3><p>语法：fadeIn(speed,callback)　　　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fadeIn</span>(speed,[easing],callback)　　<span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title class_">FadeIn</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;淡入显示成功!&quot;</span>); &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、fadeOut-以改变透明度来隐藏"><a href="#8、fadeOut-以改变透明度来隐藏" class="headerlink" title="8、fadeOut() 以改变透明度来隐藏"></a>8、fadeOut() 以改变透明度来隐藏</h3><p>语法：fadeOut(speed,callback)　　 Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fadeOut</span>(speed,[easing],callcack)　　   <span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">fadeOut</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;淡出隐藏成功!&quot;</span>); &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="9、fadeToggle-以改变透明度来切换显示隐藏状态"><a href="#9、fadeToggle-以改变透明度来切换显示隐藏状态" class="headerlink" title="9、fadeToggle() 以改变透明度来切换显示隐藏状态"></a>9、fadeToggle() 以改变透明度来切换显示隐藏状态</h3><p>语法: fadeToggle(speed,callback)　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fadeToggle</span>(speed,[easing],callback)　　　　<span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">fadeToggle</span>(<span class="number">3000</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;淡入淡出切换成功!&quot;</span>); &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="10、fadeTo-由指定的时间将透明度改变到指定的透明度"><a href="#10、fadeTo-由指定的时间将透明度改变到指定的透明度" class="headerlink" title="10、fadeTo() 由指定的时间将透明度改变到指定的透明度"></a>10、fadeTo() 由指定的时间将透明度改变到指定的透明度</h3><p>语法：fadeTo(speed,callback)　　　　Number&#x2F;String,Function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fadeTo</span>([speed],opacity,[easing],[fn])　　<span class="title class_">Number</span>/<span class="title class_">String</span>,<span class="title class_">Float</span>,<span class="title class_">String</span>,<span class="title class_">Function</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">fadeTo</span>(<span class="number">3000</span>,<span class="number">0.22</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="title function_">alert</span>(<span class="string">&quot;透明度改变成功!&quot;</span>); &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="11、animate-自定义动画，一般来说数字变动都可以用于动画。"><a href="#11、animate-自定义动画，一般来说数字变动都可以用于动画。" class="headerlink" title="11、animate() 自定义动画，一般来说数字变动都可以用于动画。"></a>11、animate() 自定义动画，一般来说数字变动都可以用于动画。</h3><p>语法：animate(params,speed,easing,callback);　　样式参数，时间，可选择，函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">animate</span>(&#123; <span class="attr">width</span>:300px,height,300px &#125;,<span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 其中params要用中括号括起来，可以使用的css样式参数。</span></span><br><span class="line"><span class="comment">// 注意要采用骆驼法则，如font-size要写成fontSize。颜色渐变不支持。</span></span><br><span class="line"></span><br><span class="line">backgroundPosition</span><br><span class="line">borderWidth</span><br><span class="line">borderBottomWidth</span><br><span class="line">borderLeftWidth</span><br><span class="line">borderRightWidth</span><br><span class="line">borderTopWidth</span><br><span class="line">borderSpacing</span><br><span class="line">margin</span><br><span class="line">marginBottom</span><br><span class="line">marginLeft</span><br><span class="line">marginRight</span><br><span class="line">marginTop</span><br><span class="line">outlineWidth</span><br><span class="line">padding</span><br><span class="line">paddingBottom</span><br><span class="line">paddingLeft</span><br><span class="line">paddingRight</span><br><span class="line">paddingTop</span><br><span class="line">height</span><br><span class="line">width</span><br><span class="line">maxHeight</span><br><span class="line">maxWidth</span><br><span class="line">minHeight</span><br><span class="line">maxWidth</span><br><span class="line">font</span><br><span class="line">fontSize</span><br><span class="line">bottom</span><br><span class="line">left</span><br><span class="line">right</span><br><span class="line">top</span><br><span class="line">letterSpacing</span><br><span class="line">wordSpacing</span><br><span class="line">lineHeight</span><br><span class="line">textIndent</span><br></pre></td></tr></table></figure>
+
+<h3 id="12、stop-停止正在执行动画"><a href="#12、stop-停止正在执行动画" class="headerlink" title="12、stop() 停止正在执行动画"></a>12、<code>stop()</code> 停止正在执行动画</h3><p><code>stop([clearQueue],[gotoEnd])</code>;　　两个参数均为布尔值，第一个表示，是否停止动画执行、第二个表示，如果停止，是否立即变为执行完成的状态，如果设置为否，则停留在执行一半的状态。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">hide</span>(<span class="number">5000</span>)　　<span class="comment">//此动画正在执行</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">stop</span>();　　　　<span class="comment">//上一行代码指定的动画停止在一半状态</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">stop</span>(<span class="literal">true</span>,<span class="literal">true</span>);　　<span class="comment">//停止当前动画，同时动画切换到完成执行状态。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="13、delay-延迟执行动画：当一个动画stop-了之后还能够用delay-来延迟执行。从停止位置继续执行。当然用原来的方法继续执行也不可，不过没有延时效果。"><a href="#13、delay-延迟执行动画：当一个动画stop-了之后还能够用delay-来延迟执行。从停止位置继续执行。当然用原来的方法继续执行也不可，不过没有延时效果。" class="headerlink" title="13、delay() 延迟执行动画：当一个动画stop()了之后还能够用delay()来延迟执行。从停止位置继续执行。当然用原来的方法继续执行也不可，不过没有延时效果。"></a>13、<code>delay()</code> 延迟执行动画：当一个动画stop()了之后还能够用delay()来延迟执行。从停止位置继续执行。当然用原来的方法继续执行也不可，不过没有延时效果。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">delay</span>(duration,[queueName])　　<span class="comment">//设置一个延迟值来执行动画　　Integer,String</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">delay</span>(<span class="number">3000</span>).<span class="title function_">hide</span>(<span class="number">3000</span>);　　<span class="comment">//表示在3000毫秒后执行hide(3000);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="14、jQuery-fx-off-该属性只是是否关闭当前页面上的动画-关闭动画之后，没有动画效果，所有设置了执行时间的动画会瞬间完成。注意此属性出现的位置。出现的位置不同影响的范围也不同。"><a href="#14、jQuery-fx-off-该属性只是是否关闭当前页面上的动画-关闭动画之后，没有动画效果，所有设置了执行时间的动画会瞬间完成。注意此属性出现的位置。出现的位置不同影响的范围也不同。" class="headerlink" title="14、jQuery.fx.off 该属性只是是否关闭当前页面上的动画,关闭动画之后，没有动画效果，所有设置了执行时间的动画会瞬间完成。注意此属性出现的位置。出现的位置不同影响的范围也不同。"></a>14、<code>jQuery.fx.off</code> 该属性只是是否关闭当前页面上的动画,关闭动画之后，没有动画效果，所有设置了执行时间的动画会瞬间完成。注意此属性出现的位置。出现的位置不同影响的范围也不同。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    jQuery.<span class="property">fx</span>.<span class="property">off</span> = <span class="literal">true</span>;　　<span class="comment">//属性在事件外面，对页面加载后执行的所有动画有效</span></span><br><span class="line"></span><br><span class="line">    $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;　　<span class="comment">//属性如果写在这里，仅仅对当前点击事件无效，不影响其他事件的动画</span></span><br><span class="line"></span><br><span class="line">        $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">hide</span>(<span class="number">3000</span>);　　<span class="comment">//注意由于jQuery.fx.off设置为了true,因此3000毫秒失效，相当于hide();</span></span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="15、jQuery-fx-interval-该属性设置动画的帧速，单位是毫秒，如果设置的时间越小，就越平滑。，属性出现的位置同样有影响范围"><a href="#15、jQuery-fx-interval-该属性设置动画的帧速，单位是毫秒，如果设置的时间越小，就越平滑。，属性出现的位置同样有影响范围" class="headerlink" title="15、jQuery.fx.interval　　&#x2F;&#x2F;该属性设置动画的帧速，单位是毫秒，如果设置的时间越小，就越平滑。，属性出现的位置同样有影响范围"></a>15、jQuery.fx.interval　　&#x2F;&#x2F;该属性设置动画的帧速，单位是毫秒，如果设置的时间越小，就越平滑。，属性出现的位置同样有影响范围</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    jQuery.<span class="property">fx</span>.<span class="property">interval</span> = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;　　</span><br><span class="line"></span><br><span class="line">        $(<span class="string">&quot;#div1&quot;</span>).<span class="title function_">hide</span>(<span class="number">3000</span>);　　　<span class="comment">//jQuery.fx.interval设置为1000，也就是1秒钟，改变一次效果。　</span></span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<!-- source: http://www.haorooms.com/post/jquery_toggle_dr -->
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/jQuery/">jQuery</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2017/06/28/sublime-practical-skills/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Sublime实用技巧(Mac)</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2017/06/14/jquery-on-binding-multi-events/">  
+        <span class="next-text nav-default">jquery on()方法绑定多个选择器，多个事件</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="utterances-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Banksy7</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+  
+<script>
+  var container = document.getElementById('utterances-container');
+  var script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', 'jeanleem6/store-hexo-comments');
+  script.setAttribute('issue-term', 'title');
+  script.setAttribute('theme', 'github-light');
+  script.setAttribute('label', 'utterances');
+  script.crossorigin = 'anonymous';
+  script.async = true;
+
+  container.appendChild(script);
+</script>
+  
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

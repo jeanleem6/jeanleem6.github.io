@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Linux文本流" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="linux, vim, Banksy7" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Banksy7" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://jeanleem6.github.io/2019/03/26/linux-text-stream/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>Linux文本流 - Banksy7</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Banksy7</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Linux文本流
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-03-26
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">文本流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%EF%BC%8C%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%EF%BC%8C%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E4%B8%8E%E9%87%8D%E6%96%B0%E5%AE%9A%E5%90%91"><span class="toc-number">2.</span> <span class="toc-text">标准输入，标准输出，标准错误与重新定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E9%81%93-pipe"><span class="toc-number">3.</span> <span class="toc-text">管道 (pipe)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h2 id="文本流"><a href="#文本流" class="headerlink" title="文本流"></a>文本流</h2><p>在计算机中，所谓的数据就是<em>0</em>或1的二进制序列，但严格来说，Unix以<strong>字节</strong>（byte）来作为数据的单位，也就是说这个序列每八位（bit）为一个单位。八位的二进制数字，会落在十进制从0到255的范围内。利用ASCII编码，可以把这一个字节转换成为256个字符中的一个。所以，在Unix中，数据完全可以用字符的形式表示出来，也就是所谓的文本（text）。</p>
+<p>实际上，如果以位为单位的话，机器会更容易读懂和传输。但Unix系统坚持用字节为单位来表示数据。原因在于，相对于以位为单位的二进制数据，以字节为单位文本直接就人类可读（human readable）。这样的话，无论是计算机配置信息，还是别人写的一首诗，用户都可以直接读懂。当然，并不是所有的数据都是设计来让人读懂的。很多编译好的可执行文件中包含的内容，只有机器能读懂。打开这个文件，尽管也能看到一个个字符，但这些字符并不能组成什么有意义的文本。但Unix系统不会给这种“读不懂”的文件开后门。所有文件都是统一的形式，就能以相同的方法存储，也能共用一套处理工具，从而减少程序开发的难度。</p>
+<p>存储文本的文件，就相当于一个个存储数据的房子。在Unix的设计哲学中，一向有“万物皆文件”（Everything is a file）的说法。大部分的文件都对应了存储设备，也就是树莓派的SD卡上的信息。就连表示文件位置的目录，也是一种文件。此外，程序的配置信息，也都存储在文件中。对于Unix系统来说，文件可以广义的认为是可以提供或接收数据的对象。既然这样，Unix系统干脆把提供或接收数据的硬件也表示成文件。这其中，既有外部连接的USB设备，也包括树莓派内部的内存等硬件。在&#x2F;dev目录下，就可以找到很多这样代表硬件的文件。</p>
+<p>但托瓦兹对“万物皆文件”的说法作出过纠正，改为“万物皆文本流”（<a target="_blank" rel="noopener" href="http://yarchive.net/comp/linux/everything_is_file.html">Everything is a stream of bytes</a>）。系统运行时，数据并不是在一个文件里定居。数据会在CPU的指挥下不断地流动，就好像一个勤劳的上班族。有时数据需要到办公室上班，因此被读入到内存，有时会去酒店休假，传送到外部设备。有的时候，数据需要搬个家，转移到另一个文件。在这样跑来跑去的过程中，数据像是排着队走路的人流，我们叫它<strong>文本流（text stream</strong>，或者byte stream）。然而，计算机不同设备之间的连接方法差异很大，从内存到文件的连接像是爬山，从内存到外设像是游过一条河。为此，Unix定义了<strong>流 (stream)<strong>，作为连接操作系统各处的</strong>公路</strong>标准。有了“流”，无论是从内存到外设，还是从内存到文件，所有的数据公路都是相同的格式。至于公路下面是石头还是土地，就都交给操作系统处理，不劳用户操心。</p>
+<p>(说句题外话，如果看过骇客帝国的话，一定会对文本流印象深刻。)</p>
+<p><img src="/2019/03/26/linux-text-stream/2012091402482228.jpg" alt="骇客帝国"></p>
+<h2 id="标准输入，标准输出，标准错误与重新定向"><a href="#标准输入，标准输出，标准错误与重新定向" class="headerlink" title="标准输入，标准输出，标准错误与重新定向"></a>标准输入，标准输出，标准错误与重新定向</h2><p>当Unix执行一个程序的时候，会自动打开三个流，<strong>标准输入</strong>(standard input)，<strong>标准输出</strong>(standard output)，<strong>标准错误</strong>(standard error)。比如说你打开命令行的时候，默认情况下，命令行的标准输入连接到键盘，标准输出和标准错误都连接到屏幕。对于一个程序来说，尽管它总会打开这三个流，但它会根据需要使用，并不是一定要使用。</p>
+<p>想象一下敲击一个</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">ls</span></span></span><br></pre></td></tr></table></figure>
+
+<p>键盘敲击的文本流(“ls\n”，\n是回车时输入的字符，表示换行)命令行 (命令行实际上也是一个程序)。命令行随后调用&#x2F;bin&#x2F;ls得到结果(“a.txt”)，最后这个输出的文本流(“a.txt”)流到屏幕，显示出来，比如说：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.txt</span><br></pre></td></tr></table></figure>
+
+<p>假设说我们不想让文本流流到屏幕，而是流到另一个文件，我们可以采用<strong>重新定向</strong>(redirect)的机制。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">ls</span> &gt; a.txt</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>重新定向标准输出</strong>。这里的<code>&gt;</code>就是提醒命令行，让它知道我现在想变换文本流的方向了，我们不让标准输出输出到屏幕，而是要到a.txt这个文件 (好像火车轨道换轨)。此时，计算机会新建一个a.txt的文件，并将命令行的标准输出指向这个文件。</p>
+<p>有另一个符号:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">ls</span> &gt;&gt; a.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>这里<code>&gt;&gt;</code>的作用也是<strong>重新定向标准输出</strong>。如果<code>a.txt</code>已经存在的话，<code>ls</code>产生的文本流会附加在<code>a.txt</code>的结尾，而不会像<code>&gt;</code>那样每次都新建<code>a.txt</code>。</p>
+<p>我们下面介绍<strong>命令echo</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">echo</span> IamVamei</span></span><br></pre></td></tr></table></figure>
+
+<p><code>echo</code> 的作用是<strong>将文本流导向标准输出</strong>。在这里，echo的作用就是将IamVamei输出到屏幕上。如果是</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">echo</span> IamVamei &gt; a.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>a.txt中就会有IamVamei这个文本。</p>
+<p>我们也可以用<code>&lt;</code>符号来<strong>改变标准输入</strong>。比如<code>cat</code>命令，它可以<strong>从标准输入读入文本流，并输出到标准输出</strong>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">cat</span> &lt; a.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>我们将cat标准输入指向a.txt，文本会从文件流到cat，然后再输出到屏幕上。当然，我们还可以同时重新定向标准输出:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">cat</span> &lt; a.txt &gt; b.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，a.txt的内容就复制到了b.txt中。</p>
+<p>我们还可以使用<code>&gt;&amp;</code>来同时重新定向标准输出和标准错误。假设我们并没有一个目录void。那么</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">cd</span> void &gt; a.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>会在屏幕上返回错误信息。因为此时标准错误依然指向屏幕。当我们使用:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">cd</span> void &gt;&amp; a.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>错误信息被导向a.txt。</p>
+<p>如果只想重新定向标准错误，可以使用<code>2&gt;</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">cd</span> void 2&gt; a.txt &gt; b.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>标准错误对应的总是<strong>2号</strong>，所以有以上写法。标准错误输出到a.txt，标准输出输出到b.txt。</p>
+<h2 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道 (pipe)"></a>管道 (pipe)</h2><p>理解了以上的内容之后，<strong>管道</strong>的概念就易如反掌。管道可以将一个命令的输出导向另一个命令的输入，从而让两个(或者更多命令)像流水线一样连续工作，不断地处理文本流。在命令行中，我们用<code>|</code>表示管道：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">cat</span> &lt; a.txt | <span class="built_in">wc</span></span></span><br></pre></td></tr></table></figure>
+
+<p><code>wc</code>命令代表<strong>word count</strong>，用于<strong>统计</strong>文本中的<strong>行</strong>、<strong>词</strong>以及<strong>字符</strong>的总数。a.txt中的文本先流到cat，然后从cat的标准输出流到wc的标准输入，从而让wc知道自己要处理的是a.txt这个字符串。</p>
+<p>Linux的各个命令实际上高度专业化，并尽量相互独立。每一个都只专注于一个小的功能。但通过pipe，我们可以将这些功能合在一起，实现一些复杂的目的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文本流，标准输入，标准输出，标准错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat, echo, wc</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">, &gt;&gt;, &lt;, |</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>reference:<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/vamei/archive/2012/09/14/2683756.html">http://www.cnblogs.com/vamei/archive/2012/09/14/2683756.html</a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/linux/">linux</a>
+      
+      <a href="/tags/vim/">vim</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2019/05/08/Multiple-MySQL-Versions-with-Homebrew/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Multiple MySQL Versions with Homebrew</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2019/03/03/switch-python-version/">  
+        <span class="next-text nav-default">Mac中安装配置Python2、Python3及自由切换</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="utterances-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Banksy7</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+  
+<script>
+  var container = document.getElementById('utterances-container');
+  var script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', 'jeanleem6/store-hexo-comments');
+  script.setAttribute('issue-term', 'title');
+  script.setAttribute('theme', 'github-light');
+  script.setAttribute('label', 'utterances');
+  script.crossorigin = 'anonymous';
+  script.async = true;
+
+  container.appendChild(script);
+</script>
+  
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

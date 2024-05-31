@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="This is a bloger about FE(front engineer), so here has any articles for CSS/HTML/JS, etc." />
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Banksy7" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://jeanleem6.github.io/page/4/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>Banksy7</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Banksy7</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+  
+  
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/22/mysql-shell/">Mysql Shell</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-22
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install MySQL</span><br></pre></td></tr></table></figure>
+
+<p>设置MySql开机启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/Library/LaunchAgents    <span class="comment"># 首先确认该目录是否存在，若已经存在不用执行本命令</span></span><br><span class="line"><span class="built_in">ln</span> -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents</span><br><span class="line">launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>
+
+<p>启动MySql服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql.server start</span><br></pre></td></tr></table></figure>
+    <div class="read-more">
+      <a href="/2016/11/22/mysql-shell/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/21/Mac-Nginx-MySQL-PHP/">Mac下使用Homebrew安装ST/Nginx/MySQL/PHP</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-21
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="使用homebrew-cask安装sublime"><a href="#使用homebrew-cask安装sublime" class="headerlink" title="使用homebrew-cask安装sublime"></a>使用homebrew-cask安装sublime</h2><p>先安装cask, 使用cask可以安装一些应用程序，如QQ，迅雷，谷歌浏览器等，功能和App store差不多，个人觉得这个更好管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask <span class="comment"># 没有安装cask会自动安装，已经安装cask的，会跳出cask命令列表</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cask 常用命令</span></span><br><span class="line">brew cask search        <span class="comment">#列出所有可以被安装的软件</span></span><br><span class="line">brew cask search sublime    <span class="comment">#查找所有和sublime相关的应用</span></span><br><span class="line">brew cask list          <span class="comment">#列出所有通过cask安装的软件</span></span><br><span class="line">brew cask info sublime-text  <span class="comment">#查看 sublime 的信息</span></span><br><span class="line">brew cask install sublime-text  <span class="comment"># 安装sublime</span></span><br><span class="line">brew cask uninstall sublime-text   <span class="comment">#卸载sublime</span></span><br></pre></td></tr></table></figure>
+    <div class="read-more">
+      <a href="/2016/11/21/Mac-Nginx-MySQL-PHP/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/20/Mac-Homebrew-ZSH-Node-Npm/">Mac下安装Homebrew/ZSH/Node/NPM</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-20
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h2 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 <a target="_blank" rel="noopener" href="http://brew.sh/">Homebrew</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>自检Brew</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 <a target="_blank" rel="noopener" href="http://ohmyz.sh/">oh-my-zsh</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<!-- more  -->
+
+<h2 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h2><p>安装Node之前先确认以下两件事：</p>
+<ol>
+<li><p>安装 <strong>XCode</strong><br> XCode是免费的，可在<a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Apple App Store</a>上找到。</p>
+</li>
+<li><p>安装好了 <strong>Homebrew</strong></p>
+<blockquote>
+<p><strong>为什么使用Homebrew</strong></p>
+<ol>
+<li>通过安装包安装Node，必须通过<code>sudo</code>来取得administrators的权限以正确安装；而通过Homebrew来安装Node（或其它package）有一个好处就是不需要取得administrators权限，这确保了电脑的安全。</li>
+<li>通过安装包安装Node，需要添加node的路径到你的<code>system $PATH</code>，这会让新手心生畏惧；虽然Homebrew这种方法需要安装几种不同的软件，但是只需简单的点击和等待，这是一种稍微耗时一点的方法，但是更安全。</li>
+<li>Homebrew对程序员来说是一个非常棒的工具。首先，它让移除Node变得非常简单（一条简单的命令搞定）；第二，让你安装其它有用的packages（如git、Ruby、wget等）变得非常非常简单。</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+
+<!--  -->
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v  <span class="comment">#检查node版本</span></span><br><span class="line">npm -v  <span class="comment">#检查npm版本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update  <span class="comment"># 更新Homebrew</span></span><br><span class="line">brew upgrade node  <span class="comment"># 更新Node和NPM</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall node  <span class="comment"># 卸载Node和NPM</span></span><br></pre></td></tr></table></figure>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/17/uninstall-mysql/">Uninstall Mysql</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-17
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="dmg-安装包"><a href="#dmg-安装包" class="headerlink" title="dmg 安装包"></a>dmg 安装包</h2><p>如果通过 dmg安装包 方式安装的Mysql，需要手动删除部分Mysql运行和配置文件，如下为删除相关文件的shell，可能不存在，但尽量查找并删除，避免出现一些莫名问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> /usr/local/mysql</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /usr/local/mysql*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /Library/StartupItems/MySQLCOM</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /Library/PreferencePanes/My*</span><br><span class="line">vim /etc/hostconfig  (and removed the line MYSQLCOM=-YES-)</span><br><span class="line"><span class="built_in">rm</span> -rf ~/Library/PreferencePanes/My*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /Library/Receipts/mysql*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /Library/Receipts/MySQL*</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /var/db/receipts/com.mysql.*</span><br></pre></td></tr></table></figure>
+    <div class="read-more">
+      <a href="/2016/11/17/uninstall-mysql/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/16/git-fresher-05/">Git 使用入门 05-Git 分支的应用</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-16
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p><strong>创建分支</strong>( modify-README 为分支名)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b modify-README</span><br></pre></td></tr></table></figure>
+
+<p>注：创建完之后默认切换到这个分区。</p>
+<p><strong>列出所有的分支：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<p><strong>合并到主分支：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge modify-README</span><br></pre></td></tr></table></figure>
+
+<p>注：先切换到主分支，再合并。</p>
+    <div class="read-more">
+      <a href="/2016/11/16/git-fresher-05/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/16/git-fresher-04/">Git 使用入门 04-上传本地项目到 GitHub？</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-16
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p>先进入项目根文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> demo</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;新建项目&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>到这一步时，你要去你的 GitHub 上新建一个项目，命名为 demo （注意不要选择第三个 - 使用README 文件初始化仓库）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:你GitHub的用户名/demo.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+    <div class="read-more">
+      <a href="/2016/11/16/git-fresher-04/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/16/git-fresher-03/">Git 使用入门 03-远程仓库的使用（Mac）</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-16
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote  <span class="comment"># 至少应该能看到 origin - 这是 Git 给你克隆的仓库服务器的默认名字</span></span><br><span class="line">git remote -v  <span class="comment"># 显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;shortname&gt; &lt;url&gt;  <span class="comment"># 添加一个新的远程 Git 仓库</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 例如：</span></span><br><span class="line">git remote add pb https://github.com/paulboone/ticgit</span><br></pre></td></tr></table></figure>
+    <div class="read-more">
+      <a href="/2016/11/16/git-fresher-03/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/16/git-fresher-02/">Git 使用入门 02-基础（Mac）</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-16
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <blockquote>
+<p>将你的 <code>code</code> 托管到 <code>git</code>，从此不用再担心：<strong>代码丢失、误删、误改</strong><br><code>git</code> <em>鼓励</em>你多提交代码，这样你的备份愈多，可回溯的点也愈多</p>
+</blockquote>
+<h2 id="clone-项目"><a href="#clone-项目" class="headerlink" title="clone 项目"></a>clone 项目</h2><p>clone项目时自定义本地仓库的名字<strong>mydemo</strong>；如果不自定义，可去掉</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/jeanleem6/demo mydemo  <span class="comment"># mydemo为可选项</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h2><p>如果你打算使用 Git 来对现有的项目进行管理，你只需要进入该项目目录并输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+    <div class="read-more">
+      <a href="/2016/11/16/git-fresher-02/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/14/git-fresher-01/">Git 使用入门 01-准备（Mac）</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-14
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <blockquote>
+<p>将你的 <code>code</code> 托管到 <code>git</code>，从此不用再担心：<strong>代码丢失、误删、误改</strong><br><code>git</code> <em>鼓励</em>你多提交代码，这样你的备份愈多，可回溯的点也愈多</p>
+</blockquote>
+<blockquote>
+<p>下面就来get这项技能</p>
+</blockquote>
+<h2 id="一-安装-git"><a href="#一-安装-git" class="headerlink" title="一 安装 git"></a>一 安装 git</h2><p>打开terminal，执行如下命令</p>
+<ul>
+<li><p>如果你没有安装过git，这个命令将为你<strong>自动安装</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看版本</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure></li>
+</ul>
+    <div class="read-more">
+      <a href="/2016/11/14/git-fresher-01/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/11/14/ssh-on-and-off-in-Terminal/">如何通过终端开启/关闭SSH</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-11-14
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h2><p>SSH（Secure Shell）是一种通用的、功能强大的、基于软件的网络安全解决方案。计算机每次向网络发送数据时，SSH都会自动对其进行加密。运行 OS X 又或者是 macOS 的较新 Mac 设备都会默认预装 SSH，不过 SSH 守护进程是默认禁用的。今天我们就来一起学习如何通过终端指令来开启和关闭 SSH。</p>
+<p><strong>通过终端查看 SSH 远程登录是否已经开启</strong></p>
+<p>想要查看 Mac 上 SSH 的当前状态？使用简单的终端就可以检查 SSH 和远程登录目前是否已经开启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -getremotelogin</span><br></pre></td></tr></table></figure>
+
+<p>如果已经开启的话，指令会显示 “Remote Login: On” ，反之就会显示“Remote Login: Off”。</p>
+<p><strong>通过终端指令开启Mac的SSH</strong></p>
+<p>要快速开启 SSH 服务器并允许 SSH 连接进入当前 Mac，使用下列指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setremotelogin on</span><br></pre></td></tr></table></figure>
+
+<p>输入指令后并没有任何确认信息表明远程登录和 SSH 已经开启，但你可以使用上文提到的方法来检查是否开启成功。</p>
+<p><strong>通过终端指令关闭Mac的SSH</strong></p>
+<p>如果你想通过终端指令禁用 SSH 服务器并阻止远程连接，输入下列指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setremotelogin off</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Testing your SSH connection:</p>
+<p>After you’ve set up your SSH key and added it to your GitHub account, you can test your connection.</p>
+<ol>
+<li>Open Git Bash.</li>
+<li>Enter the following: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+ You may see a warning like this: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; The authenticity of host <span class="string">&#x27;github.com (IP ADDRESS)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">&gt; RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></span><br><span class="line"><span class="string">&gt; Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+ or like this: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; The authenticity of host <span class="string">&#x27;github.com (IP ADDRESS)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">&gt; RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span></span><br><span class="line"><span class="string">&gt; Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure></li>
+<li>Verify that the fingerprint in the message you see matches one of the messages in step 2, then type <code>yes</code>: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Hi username! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not</span></span><br><span class="line"><span class="string">&gt; provide shell access.</span></span><br></pre></td></tr></table></figure></li>
+<li>Verify that the resulting message contains your username. If you receive a “permission denied” message, see “<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/error-permission-denied-publickey">Error: Permission denied (publickey)</a>“.</li>
+</ol>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection">reference</a></p>
+    <div class="read-more">
+      <a href="/2016/11/14/ssh-on-and-off-in-Terminal/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+    
+  <nav class="pagination">  
+      
+      <a class="prev" href="/page/3/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text">上一页</span>  
+      </a>  
+      
+      
+      <a class="next" href="/page/5/">  
+        <span class="next-text">下一页</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  
+</section>
+        </div>
+          
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Banksy7</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

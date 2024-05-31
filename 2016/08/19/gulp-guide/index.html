@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="前端构建工具gulp入门教程" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="javascript, gulp, Banksy7" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Banksy7" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://jeanleem6.github.io/2016/08/19/gulp-guide/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>前端构建工具gulp入门教程 - Banksy7</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Banksy7</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      前端构建工具gulp入门教程
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-08-19
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AE%89%E8%A3%85Node"><span class="toc-number">1.</span> <span class="toc-text">第一步：安装Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-number">2.</span> <span class="toc-text">第二步：使用命令行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%AE%9A%E4%BD%8D%E5%88%B0%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.</span> <span class="toc-text">第三步：定位到项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E5%AE%89%E8%A3%85gulp"><span class="toc-number">4.</span> <span class="toc-text">第四步：安装gulp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E6%96%B0%E5%BB%BAGulpfile%E6%96%87%E4%BB%B6%EF%BC%8C%E8%BF%90%E8%A1%8Cgulp"><span class="toc-number">5.</span> <span class="toc-text">第五步：新建Gulpfile文件，运行gulp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E7%BB%84%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">引入组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lint%E4%BB%BB%E5%8A%A1"><span class="toc-number">5.2.</span> <span class="toc-text">Lint任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sass%E4%BB%BB%E5%8A%A1"><span class="toc-number">5.3.</span> <span class="toc-text">Sass任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scripts-%E4%BB%BB%E5%8A%A1"><span class="toc-number">5.4.</span> <span class="toc-text">Scripts 任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Watch%E4%BB%BB%E5%8A%A1"><span class="toc-number">5.5.</span> <span class="toc-text">Watch任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Default%E4%BB%BB%E5%8A%A1"><span class="toc-number">5.6.</span> <span class="toc-text">Default任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="toc-number">6.</span> <span class="toc-text">结束语</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>本文假设你之前没有用过任何任务脚本（task runner）和命令行工具，一步步教你上手Gulp。不要怕，它其实很简单，我会分为五步向你介绍gulp并帮助你完成一些惊人的事情。那就直接开始吧。</strong></p>
+<h2 id="第一步：安装Node"><a href="#第一步：安装Node" class="headerlink" title="第一步：安装Node"></a>第一步：安装Node</h2><p>首先，最基本也最重要的是，我们需要搭建node环境。访问[<a href="http://nodejs.org]">http://nodejs.org]</a> <a target="_blank" rel="noopener" href="http://nodejs.org/">a1</a>，然后点击大大的绿色的install按钮，下载完成后直接运行程序，就一切准备就绪。npm会随着安装包一起安装，稍后会用到它。</p>
+<h2 id="第二步：使用命令行"><a href="#第二步：使用命令行" class="headerlink" title="第二步：使用命令行"></a>第二步：使用命令行</h2><p>也许现在你还不是很了解什么是命令行——OS X中的<em>终端</em>（Terminal），windows中的<em>命令提示符</em>（Command Prompt），但很快你就会知道。它看起来没那么简单，但一旦掌握了它的窍门，就可以很方便的执行很多命令行程序，比如[Sass] <a target="_blank" rel="noopener" href="http://sass-lang.com/">a2</a>，[Yeoman] <a target="_blank" rel="noopener" href="http://yeoman.io/">a3</a>和[Git] <a target="_blank" rel="noopener" href="http://git-scm.com/">a4</a>等，这些都是非常有用的工具。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>如果你很熟悉命令行，直接跳到步骤四。</p>
+</blockquote>
+<p>为了确保Node已经正确安装，我们执行几个简单的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+<p>回车（Enter），如果正确安装的话，你会看到所安装的Node的版本号，接下来看看npm。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p>这同样能得到npm的版本号。</p>
+<p>如果这两行命令没有得到返回，可能node就没有安装正确，尝试重启下命令行工具，如果还不行的话，只能回到第一步进行重装。</p>
+<h2 id="第三步：定位到项目"><a href="#第三步：定位到项目" class="headerlink" title="第三步：定位到项目"></a>第三步：定位到项目</h2><p>现在，我们已经大致了解了命令行并且知道如何简单使用它，接下来只需要两个简单的命令就能定位到文件目录并看看目录里都有些什么文件。</p>
+<ul>
+<li><p>定位到目录</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/path/filename  <span class="comment"># OS X</span></span><br><span class="line"><span class="built_in">cd</span> d:/www/my-project  <span class="comment"># windows</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列出文件列表</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span>  <span class="comment"># OS X</span></span><br><span class="line"><span class="built_in">dir</span> <span class="comment"># windows</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>注意OS X与windows之间的区别，建议多敲敲这两个命令，了解文件系统并知道文件都在哪里。</p>
+</blockquote>
+<p>习惯使用了这两个命令后，就要进入我们的项目目录，这个目录各不相同，举个例子，这是我进入我项目目录的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Applications/XAMPP/xamppfiles/htdocs/my-project</span><br></pre></td></tr></table></figure>
+
+<p>成功进入项目目录后，我们开始安装gulp。</p>
+<h2 id="第四步：安装gulp"><a href="#第四步：安装gulp" class="headerlink" title="第四步：安装gulp"></a>第四步：安装gulp</h2><p>我们已经知道如何使用命令行，现在尝试点新的东西，认识npm然后安装gulp。</p>
+<blockquote>
+<p><em>NPM</em>是基于命令行的node包管理工具，它可以将node的程序模块安装到项目中，在它的[官网] <a target="_blank" rel="noopener" href="http://npmjs.org/">a5</a>中可以查看和搜索所有可用的程序模块。作为练习你可以搜索gulp试试看。</p>
+</blockquote>
+<p>在命令行中输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gulp</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>npm</code> 基于命令行的package（包）管理<strong>工具</strong></li>
+<li><code>install</code> npm工具的一个指令－－<strong>安装</strong></li>
+<li><code>-g</code> 表示安装到<strong>全局环境</strong>（可选项），以便任何项目都能使用它</li>
+<li>最后，<code>gulp</code>是将要安装的<strong>package（包）</strong>的名字</li>
+</ul>
+<blockquote>
+<p>如果你在安装模块过程中遇到报错提示<strong>目录没有写入权限</strong>，你可以在该命令最前面加上<code>sudo</code>，但是不建议，因为这可能导致后续出现其它问题。更多解决方法可访问[Fixing npm Permissions] <a target="_blank" rel="noopener" href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">a6</a>。</p>
+</blockquote>
+<p>运行时注意查看命令行有没有错误信息，安装完成后，你可以使用下面的命令查看<em>gulp的版本号</em>以确保gulp已经被正确安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br></pre></td></tr></table></figure>
+
+<p>接下来，我们需要将gulp安装到项目本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/path/project  <span class="comment"># 切换到项目目录(如果当前不在项目目录)</span></span><br><span class="line">npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
+
+<p>这里，我们使用<code>--save-dev</code>来更新<strong>package.json</strong>文件，更新<strong>devDependencies</strong>值，以表明项目需要<em>依赖</em>gulp。</p>
+<p>Dependencies可以向其他参与项目的人指明项目在开发环境和生产环境中的node模块依懒关系，想要更加深入的了解它可以看看<a target="_blank" rel="noopener" href="https://docs.npmjs.com/files/package.json#dependencies">package.json文档</a>。</p>
+<p>现在，gulp已经安装好了，下一步将设置我们的gulp文件。差不多快要完成✅了！</p>
+<h2 id="第五步：新建Gulpfile文件，运行gulp"><a href="#第五步：新建Gulpfile文件，运行gulp" class="headerlink" title="第五步：新建Gulpfile文件，运行gulp"></a>第五步：新建Gulpfile文件，运行gulp</h2><p>安装好gulp后我们需要告诉它要为我们执行哪些任务，首先，我们自己需要弄清楚项目需要哪些任务。假定我们已经设计好如下任务：</p>
+<ul>
+<li>检查Javascript</li>
+<li>编译Sass（或Less之类的）文件</li>
+<li>合并Javascript</li>
+<li>压缩并重命名合并后的Javascript</li>
+</ul>
+<p><strong>安装依赖组件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>提醒下，如果以上命令提示权限错误，需要添加sudo再次尝试。</p>
+<p><strong>新建gulpfile文件</strong></p>
+<p>现在，组件都可以为我们所用，可以开始写gulpfile文件让gulp来完成我们之前设计好的任务。</p>
+<p>gulp只有<em>五个方法</em>： <strong>task</strong>，<strong>run</strong>，<strong>watch</strong>，<strong>src</strong>，和<strong>dest</strong>，在项目根目录新建一个js文件并命名为<code>gulpfile.js</code>，把下面的代码粘贴进去：</p>
+<p><strong>gulpfile.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 gulp</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入组件</span></span><br><span class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">&#x27;gulp-jshint&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">&#x27;gulp-rename&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检查脚本</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;lint&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;js/*.js&#x27;</span>)</span><br><span class="line">      .<span class="title function_">pipe</span>(<span class="title function_">jshint</span>())</span><br><span class="line">      .<span class="title function_">pipe</span>(jshint.<span class="title function_">reporter</span>(<span class="string">&#x27;default&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译Sass</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;sass&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;scss/*.scss&#x27;</span>)</span><br><span class="line">      .<span class="title function_">pipe</span>(<span class="title function_">sass</span>())</span><br><span class="line">      .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;dist/css&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 合并，压缩文件</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;scripts&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;js/*.js&#x27;</span>)</span><br><span class="line">      .<span class="title function_">pipe</span>(<span class="title function_">concat</span>(<span class="string">&#x27;all.js&#x27;</span>))</span><br><span class="line">      .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;dist&#x27;</span>))</span><br><span class="line">      .<span class="title function_">pipe</span>(<span class="title function_">rename</span>(<span class="string">&#x27;all.min.js&#x27;</span>))</span><br><span class="line">      .<span class="title function_">pipe</span>(<span class="title function_">uglify</span>())</span><br><span class="line">      .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;dist/js&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听文件变化</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;watch&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">watch</span>(<span class="string">&#x27;js/*.js&#x27;</span>, [<span class="string">&#x27;lint&#x27;</span>, <span class="string">&#x27;scripts&#x27;</span>]);</span><br><span class="line">    gulp.<span class="title function_">watch</span>(<span class="string">&#x27;scss/*.scss&#x27;</span>, [<span class="string">&#x27;sass&#x27;</span>]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, [<span class="string">&#x27;lint&#x27;</span>, <span class="string">&#x27;sass&#x27;</span>, <span class="string">&#x27;scripts&#x27;</span>, <span class="string">&#x27;watch&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>现在，分段解释下这段代码。</p>
+<h3 id="引入组件"><a href="#引入组件" class="headerlink" title="引入组件"></a>引入组件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">&#x27;gulp-jshint&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">&#x27;gulp-rename&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这一步，我们引入了核心的gulp和其他依赖组件，接下来，分开创建<code>lint</code>, <code>sass</code>, <code>scripts</code> 和 <code>default</code>这四个不同的任务。</p>
+<h3 id="Lint任务"><a href="#Lint任务" class="headerlink" title="Lint任务"></a>Lint任务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;lint&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">src</span>(<span class="string">&#x27;js/*.js&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">jshint</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(jshint.<span class="title function_">reporter</span>(<span class="string">&#x27;default&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Lint任务会检查<code>js/</code>目录下的js文件有没有报错或警告。</p>
+<h3 id="Sass任务"><a href="#Sass任务" class="headerlink" title="Sass任务"></a>Sass任务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;sass&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">src</span>(<span class="string">&#x27;scss/*.scss&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">sass</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;dist/css&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>sass</strong>任务会编译<code>scss/</code>目录下的scss文件，并把编译完成的css文件保存到<code>dist/css</code>目录中。</p>
+<h3 id="Scripts-任务"><a href="#Scripts-任务" class="headerlink" title="Scripts 任务"></a>Scripts 任务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;scripts&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">src</span>(<span class="string">&#x27;js/*.js&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">concat</span>(<span class="string">&#x27;all.js&#x27;</span>))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;dist/js&#x27;</span>))</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">rename</span>(<span class="string">&#x27;all.min.js&#x27;</span>))</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">uglify</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;dist/js&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>scripts</strong>任务会合并<code>js/</code>目录下所有的js文件并输出到<code>dist/js</code>目录，然后gulp会重命名、压缩合并的文件，也输出到<code>dist/js</code>目录。</p>
+<h3 id="Watch任务"><a href="#Watch任务" class="headerlink" title="Watch任务"></a>Watch任务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;watch&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">watch</span>(<span class="string">&#x27;js/*.js&#x27;</span>, [<span class="string">&#x27;lint&#x27;</span>, <span class="string">&#x27;scripts&#x27;</span>]);</span><br><span class="line">    gulp.<span class="title function_">watch</span>(<span class="string">&#x27;scss/*.scss&#x27;</span>, [<span class="string">&#x27;sass&#x27;</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>watch</strong>任务用于监听指定目录文件的变化。当你书写代码或修改文件时，<code>gulp.watch()</code>方法会监听到这些变化并自动运行回调定义的其他任务，所以我们不用每次都切换到命令行工具去执行gulp命令。</p>
+<h3 id="Default任务"><a href="#Default任务" class="headerlink" title="Default任务"></a>Default任务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, [<span class="string">&#x27;lint&#x27;</span>, <span class="string">&#x27;sass&#x27;</span>, <span class="string">&#x27;scripts&#x27;</span>, <span class="string">&#x27;watch&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>最后，我们通过<strong>default</strong>任务来分组索引其它任务，在命令行中输入（不带参数的）<code>gulp</code>命令后，将执行<strong>default</strong>任务中定义的所有任务。</p>
+<p>现在，回到命令行，可以直接运行gulp任务了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp</span><br></pre></td></tr></table></figure>
+
+<p>这将执行定义的default任务，换言之，这和以下的命令式同一个意思</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp default</span><br></pre></td></tr></table></figure>
+
+<p>当然，我们可以运行在gulpfile.js中定义的任意任务，比如，现在运行sass任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp sass</span><br></pre></td></tr></table></figure>
+
+<p>Pretty cool, eh?</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>现在已经做到了设置gulp任务然后运行他们，现在再回顾下之前学习的。</p>
+<ol>
+<li>学习了安装Node环境</li>
+<li>学习了简单使用命令行</li>
+<li>学习了用命令行进入项目目录</li>
+<li>学习了使用npm和安装gulp</li>
+<li>学习了如何运行gulp任务</li>
+</ol>
+<p>另外，有一些参考资源供进一步学习：</p>
+<ol>
+<li>[npm上的gulp组件] <a target="_blank" rel="noopener" href="http://yeoman.io/">a3</a></li>
+<li>[gulp的Github主页] <a target="_blank" rel="noopener" href="http://git-scm.com/">a4</a></li>
+<li>[官方package.json文档] <a target="_blank" rel="noopener" href="http://npmjs.org/">a5</a></li>
+</ol>
+<hr>
+<p>From: [<a target="_blank" rel="noopener" href="http://travismaynard.com/writing/getting-started-with-gulp]">http://travismaynard.com/writing/getting-started-with-gulp]</a> <a target="_blank" rel="noopener" href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">a6</a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/javascript/">javascript</a>
+      
+      <a href="/tags/gulp/">gulp</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2016/08/24/emmet-hotkey/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Emmet Hotkey</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2016/08/17/RegEx/">  
+        <span class="next-text nav-default">RegEx-(Regular Expression)</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="utterances-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Banksy7</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+  
+<script>
+  var container = document.getElementById('utterances-container');
+  var script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', 'jeanleem6/store-hexo-comments');
+  script.setAttribute('issue-term', 'title');
+  script.setAttribute('theme', 'github-light');
+  script.setAttribute('label', 'utterances');
+  script.crossorigin = 'anonymous';
+  script.async = true;
+
+  container.appendChild(script);
+</script>
+  
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

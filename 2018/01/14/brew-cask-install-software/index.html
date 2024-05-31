@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="brew_cask_install_software" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Mac, tools, Banksy7" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Banksy7" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://jeanleem6.github.io/2018/01/14/brew-cask-install-software/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>brew_cask_install_software - Banksy7</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Banksy7</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Banksy7</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      brew_cask_install_software
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2018-01-14
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    <p>首先你需要改装下Mac的Terminal，在终端里安装homebrew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL &lt;a href=<span class="string">&quot;https://raw.githubusercontent.com/Homebrew/install/master/install&quot;</span></span></span></span><br></pre></td></tr></table></figure>
+
+<p>你可以方便快捷的通过类似于<code>brew install python3</code>的命令安装诸如MySQL、R亦或是一些你需要的包，其他的命令参见homebrew官网，你可以方便的升级或卸载各种各样的包</p>
+<p>另外在这里推荐你 <code>brew install cask</code></p>
+<p>比如说我们想安装纯洁的chrome浏览器 <code>brew cask install google-chrome</code>就好啦，而且下载速度很快，当然哪天用的不舒服了，uninstall就好</p>
+<p>附上安装和卸载Yandex的图</p>
+<p><img src="/2018/01/14/brew-cask-install-software/165839nk1c2bqgw4qqbcab.png"></p>
+<p>安装完后 应用程序栏就会出现</p>
+<p>然后卸载<code>brew cask uninstall yandex</code>，毕竟我的主力浏览器是Safari和Chrome，当然安卓端大力推荐Yandex<br><img src="/2018/01/14/brew-cask-install-software/170054cxxdqoz7ozo5xzc7.png"></p>
+<p>非常的方便快捷有没有<br>对了，记得 <code>brew cask cleanup</code>清理缓存及软链</p>
+<p>另外<code>brew cask</code> 和 <code>brew</code>的区别在于 brew主要用来下载一些不带界面的命令行下的工具<br>brew cask主要用来下载一些图形化界面的应用软件，下载好后会自动安装，并能在mac中直接运行使用</p>
+<hr>
+<p>再安利一个小东西 <strong>you-get</strong><br>一个基于 Python 3 的下载工具。使用 You-Get 可以很轻松的下载到网络上的视频、图片及音乐，油管的也可以哦<br><img src="/2018/01/14/brew-cask-install-software/171135m4zaax6ardkp4aka.png"></p>
+<p>详情请参见<a target="_blank" rel="noopener" href="https://you-get.org/">you-get 主页</a></p>
+<p>这里是一个youtube视频下载的实例<br><img src="/2018/01/14/brew-cask-install-software/246E39B3-6EF5-4066-AB16-ACDC94FC4948.png"></p>
+<p>你可以通过Mac的terminal学习Linux的command line ，如果出现了command not found，这个时候你可以通过homebrew来安装那些缺失的包附上一个链接：<a target="_blank" rel="noopener" href="https://billie66.github.io/TLCL/book/">Linux 命令行学习网站</a></p>
+<p>值得一提的一些命令行</p>
+<p>显示&#x2F;不显示 隐藏文件 <code>defaults write com.apple.finder AppleShowAllFiles TRUE/FAUSE</code></p>
+<p>还有如果你把Mac玩坏了，可以参考一下这篇文章：制作正式版 <a target="_blank" rel="noopener" href="http://www.jianshu.com/p/a1851d7deee8">macOS 10.12 Sierra 安装 U盘</a>，亲测有效</p>
+<p>哦对了，Mac的终端需要美化，具体步骤可以参考：<a target="_blank" rel="noopener" href="http://linfan.info/blog/2012/02/27/colorful-terminal-in-mac/">让Mac OS X的终端多姿多彩</a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Mac/">Mac</a>
+      
+      <a href="/tags/tools/">tools</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2018/01/15/Wiki-Resources/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Wiki_Resources</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2017/11/15/ios-autoplay-video/">  
+        <span class="next-text nav-default">iOS 微信 音频 视频自动播放</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="utterances-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jhlee007@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/jeanleem6" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Banksy7</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+  
+<script>
+  var container = document.getElementById('utterances-container');
+  var script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', 'jeanleem6/store-hexo-comments');
+  script.setAttribute('issue-term', 'title');
+  script.setAttribute('theme', 'github-light');
+  script.setAttribute('label', 'utterances');
+  script.crossorigin = 'anonymous';
+  script.async = true;
+
+  container.appendChild(script);
+</script>
+  
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>
