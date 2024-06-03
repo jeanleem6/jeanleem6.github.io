@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="jquery on()方法绑定多个选择器，多个事件" />
+<meta name="description" content="💬聊一聊 jquery 的 &lt;code&gt;on()&lt;/code&gt; 方法💬" />
 
 
 <!-- Website keywords -->
@@ -193,17 +193,19 @@
 
   <div class="post-content">
     
-    <p>这样一个需求，如果用<code>live()</code>方法实现的话 非常简单，容易理解。</p>
+    <p>这样一个需求，如果用 <code>live()</code> 方法实现的话 非常简单，容易理解。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;nav li, #sb-nav li, #help li&#x27;</span>).<span class="title function_">live</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// code...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。<br>那上面一句如果用on的话，怎么写呢？</p>
-<p>其实查看live源码就知道，live实际是委托doucment进行事件委派的。<br>按照这个思路，可以将on方法绑定到document即可。</p>
+<p>jquery在1.7版本后，建议大家用on方法代替之前的bind、live、delegate方法。</p>
+<p>那上面一句如果用on的话，怎么写呢？</p>
+<p>其实查看live源码就知道，live实际是委托doucment进行事件委派的。</p>
+<p>按照这个思路，可以将on方法绑定到document即可。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;#header .fixed-feedback-bn, #sb-sec .feedback-bn&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">     <span class="comment">// code...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>还有一种情况，<code>on()</code>方法绑定<strong>多个事件</strong>，可以这样写：</p>
+<p>还有一种情况，<code>on()</code> 方法绑定<strong>多个事件</strong>，可以这样写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;table.planning_grid&quot;</span>).<span class="title function_">on</span>(&#123;</span><br><span class="line">    <span class="attr">mouseenter</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// Handle mouseenter...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">mouseleave</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// Handle mouseleave...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">click</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// Handle click...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="string">&quot;td&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>最后，用<code>on()</code>方法绑定<strong>多个选择器</strong>，多个事件则可以这样写：</p>
+<p>最后，用 <code>on()</code> 方法绑定<strong>多个选择器</strong>，多个事件则可以这样写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">on</span>(&#123;</span><br><span class="line">    <span class="attr">mouseenter</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// Handle mouseenter...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">mouseleave</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// Handle mouseleave...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">click</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// Handle click...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;#header .fixed-feedback-bn, #sb-sec .feedback-bn&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <!-- source: http://www.ghugo.com/jquery-on-method-multiple-event-selectors/ -->

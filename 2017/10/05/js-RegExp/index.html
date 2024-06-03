@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="js-RegExp" />
+<meta name="description" content="💬聊一聊 javascript 中的&lt;b&gt;正则&lt;/b&gt; ...💬" />
 
 
 <!-- Website keywords -->
@@ -244,7 +244,6 @@
 <h2 id="RegExp-构造函数属性"><a href="#RegExp-构造函数属性" class="headerlink" title="RegExp 构造函数属性"></a>RegExp 构造函数属性</h2><p>| 长属性名 | 短属性名 | 说明 |<br>|- - - | - - - | - - -|<br>| input | $_ | 最近一次要匹配的字符串。Opera未实现此属性 |<br>| lastMatch | $&amp; | 最近一次的匹配项。Opera未实现此属性 |<br>| lastParen | $+ | 最后一次匹配的捕获组。Opera未实现此属性 |<br>| leftContext | $` | input 字符串中 lastMatch 之前的文本 |<br>| multiline | $* | 布尔值，表示是否所有表达式都使用多行模式。IE和Opera未实现此属性 |<br>| rightContext | $’ | input 字符串中 lastMatch 之后的文本 |</p>
 <p>除了上面这几个属性外，还有9个用于存储捕获组的构造函数属性。访问这些属性的语法是：<code>RegExp.$1</code>、<code>RegExp.$2</code>…<code>RegExp.$3</code>，分别用于存储第一、第二…第九个匹配的捕获组。在调用 <code>exec()</code> 或 <code>test()</code> 方法时，这些属性会被自动填充。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;this has been a short summer&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/(..)or(.)/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (pattern.<span class="title function_">test</span>(text))&#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="title class_">RegExp</span>.<span class="property">$1</span>); <span class="comment">// sh</span></span><br><span class="line">    <span class="title function_">alert</span>(<span class="title class_">RegExp</span>.<span class="property">$2</span>); <span class="comment">// t</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     
   </div>

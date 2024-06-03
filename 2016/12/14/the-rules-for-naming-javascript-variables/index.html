@@ -195,21 +195,24 @@
     
     <p>以下是JavaScript变量的命名规则：</p>
 <ol>
-<li><p><strong>变量名不能以数字开头</strong><br> 例如：<code>3x</code>、<code>2goats</code>或者<code>76trombones</code>都是<em>非法的</em>变量名；<br> 当然，你可以在变量名中使用数字。<br> 例如：<code>up2me</code>或者<code>go4it</code>都是<em>合法的</em>变量名。</p>
+<li><p><strong>变量名不能以数字开头</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 3x, 2goats, 76trombones <span class="comment">// 非法变量名</span></span><br><span class="line"><span class="keyword">var</span> up2me, go4it <span class="comment">// 合法变量名</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>变量名不能包含数学或逻辑运算符</strong><br> 例如：<code>2*something</code>或者<code>this+that</code>都是非法的，因为 * 和 + 都是算数运算符，也同样适用于<code>^, /, \, !</code>等符号。</p>
+<li><p><strong>变量名不能包含数学或逻辑运算符</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="number">2</span>*something, <span class="variable language_">this</span>+that <span class="comment">// 非法的，因为 * 和 + 都是算数运算符，也同样适用于 ^, /, \, ! 等符号。</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>变量名不能包含任何形式的标点符号，除了下划线<code>_</code></strong><br> 例如：<code>some:thing</code>、<code>big#</code>或者<code>do&#39;to</code>都是非法的。<br> 下划线是一个例外，它可以用在变量名的开头、中间、末尾。<br> 例如：<code>_pounds</code>、<code>some_thing</code>或者<code>gallons_</code>都是合法的。</p>
- <span id="more"></span>
+<li><p><strong>变量名不能包含任何形式的标点符号，除了下划线 <code>_</code></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="attr">some</span>:thing, big#, <span class="keyword">do</span><span class="string">&#x27;to // 非法</span></span><br><span class="line"><span class="string">var _pounds, some_thing, gallons_ // 合法</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>任何时候，变量名都不能含有空格</strong></p>
 </li>
-<li><p><strong>变量名不能为JavaScript的保留字</strong><br> 例如：<code>window</code>、<code>open</code>、<code>location</code>、<code>string</code>等都是非法的变量名。<br> 当然，你可以将保留字作为变量名的一部分。<br> 例如：<code>thatWindow</code>、<code>someString</code>、<code>theLocation</code>都是合法的。</p>
+<li><p><strong>变量名不能为JavaScript的保留字</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable language_">window</span>, open, location, string <span class="comment">// 非法</span></span><br><span class="line"><span class="keyword">var</span> thatWindow, someString, theLocation <span class="comment">// 合法 (将保留字作为变量名的一部分是合法的)</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>变量名对大小写敏感</strong><br> 例如，在JavaScript中以下都是完全不同的变量名：<br> <code>gasbag</code>、<code>Gasbag</code>、<code>GasBag</code>、<code>gasBag</code></p>
-</li>
+<li><p><strong>变量名对大小写敏感</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gasbag, <span class="title class_">Gasbag</span>, <span class="title class_">GasBag</span>, gasBag <span class="comment">// 它们是完全不同的变量名</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>如果不能确定，你可以[点击这里] <a target="_blank" rel="noopener" href="https://mothereff.in/js-variables">link-01</a>查看你的变量名是否合法。</p>
+<p>如果不能确定，你可以<a target="_blank" rel="noopener" href="https://mothereff.in/js-variables">点击这里</a>查看你的变量名是否合法。</p>
 
     
   </div>
