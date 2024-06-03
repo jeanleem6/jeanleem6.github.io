@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="Sublime实用技巧(Mac)" />
+<meta name="description" content="Sublime 常用快捷键(Mac)" />
 
 
 <!-- Website keywords -->
@@ -279,18 +279,18 @@
 <li><p>首先安装 nodejs，这里不讲安装步骤。</p>
 </li>
 <li><p>添加 build system：</p>
-<p>在 Sublime 中依次打开 <code>Tools -&gt; Build System -&gt; New Build System…</code> 粘贴以下代码后保存(如<code>Node.sublime-build</code>), 然后把 Build System 设成 Automatic</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;cmd&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;/usr/local/bin/node&quot;</span><span class="punctuation">,</span> <span class="string">&quot;$file&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;selector&quot;</span><span class="punctuation">:</span> <span class="string">&quot;source.js&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>  在 Sublime 中依次打开 <code>Tools -&gt; Build System -&gt; New Build System…</code> 粘贴以下代码后保存(如<code>Node.sublime-build</code>), 然后把 Build System 设成 Automatic</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;cmd&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;/usr/local/bin/node&quot;</span><span class="punctuation">,</span> <span class="string">&quot;$file&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;selector&quot;</span><span class="punctuation">:</span> <span class="string">&quot;source.js&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>附加说明：</p>
-<p>在以上的 build 文件中(Node.sublime-build), <code>/usr/local/bin/node</code>是执行程序（即 node)，<code>$file</code>是当前文件名。</p>
+<p>  在以上的 build 文件中(Node.sublime-build), <code>/usr/local/bin/node</code>是执行程序（即 node)，<code>$file</code>是当前文件名。</p>
 </li>
 <li><p>具体使用：</p>
-<p>新建一个 test.js 文件, 然后输入你的测试代码, 比如:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;i:&#x27;</span>, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  新建一个 test.js 文件, 然后输入你的测试代码, 比如:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;i:&#x27;</span>, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>使用快捷键 <code>⌘ + B</code>, sublime 底部会弹出命令行窗口，将得到以下执行结果:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i: 0i: 1i: 2[Finished <span class="keyword">in</span> 0.1s]</span><br></pre></td></tr></table></figure>
+<p>  使用快捷键 <code>⌘ + B</code>, sublime 底部会弹出命令行窗口，将得到以下执行结果:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i: 0i: 1i: 2[Finished <span class="keyword">in</span> 0.1s]</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>温馨注解:</p>

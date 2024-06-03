@@ -203,7 +203,35 @@
     <h2 id="Window-Size"><a href="#Window-Size" class="headerlink" title="Window Size"></a>Window Size</h2><p>How can I get <code>windowWidth</code>, <code>windowHeight</code>, <code>pageWidth</code>, <code>pageHeight</code>, <code>screenWidth</code>, <code>screenHeight</code>, <code>pageX</code>, <code>pageY</code>, <code>screenX</code>, <code>screenY</code> which will work in all major browsers?</p>
 <p><img src="/2016/09/14/get-sizes/about-js-get-size.jpg" alt="getSize"></p>
 <h2 id="Element-Size"><a href="#Element-Size" class="headerlink" title="Element Size"></a>Element Size</h2><p>每个HTML元素都有下列属性：</p>
-<p>|  |  |  |<br>|- - -|- - - |- - - |<br>|offsetWidth | clientWidth | scrollWidth |<br>| offsetHeight | clientHeight | scrollHeight |<br>| offsetLeft | clientLeft | scrollLeft |<br>| offsetTop | clientTop | scrollTop |</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>offsetWidth</td>
+<td>clientWidth</td>
+<td>scrollWidth</td>
+</tr>
+<tr>
+<td>offsetHeight</td>
+<td>clientHeight</td>
+<td>scrollHeight</td>
+</tr>
+<tr>
+<td>offsetLeft</td>
+<td>clientLeft</td>
+<td>scrollLeft</td>
+</tr>
+<tr>
+<td>offsetTop</td>
+<td>clientTop</td>
+<td>scrollTop</td>
+</tr>
+</tbody></table>
 <ol>
 <li><p><em>clientHeight</em> 和 <em>clientWidth</em> 用于描述元素<strong>内尺寸</strong>，是指【元素内容+内边距】大小，不包括边框（<strong>IE下实际包括</strong>）、外边距、滚动条部分</p>
 </li>

@@ -177,6 +177,122 @@
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/2016/09/02/guide-of-git-1/">Guide to use git - Section 1</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-09-02
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <blockquote>
+<p>You’ll getting to know <strong>install git</strong> on different OS from this section, and then <strong>configure</strong> it on your local computer, indeed to <strong>get help</strong> somewhere.</p>
+</blockquote>
+<h2 id="Install-git"><a href="#Install-git" class="headerlink" title="Install git"></a>Install git</h2><ol>
+<li><p><strong>Installing on Linux</strong><br> If you’re on Fedora for example, you can use yum:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install git-all</span><br></pre></td></tr></table></figure>
+<p> If you’re on a Debian-based distribution like Ubuntu, try apt-get:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git-all</span><br></pre></td></tr></table></figure>
+<p> For more options, there are instructions for installing on several different Unix flavors on the Git website, at <a target="_blank" rel="noopener" href="http://git-scm.com/download/linux">http://git-scm.com/download/linux</a>.</p>
+</li>
+<li><p><strong>Installing on Mac</strong></p></li></ol>
+    <div class="read-more">
+      <a href="/2016/09/02/guide-of-git-1/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/09/01/macos-fix-RDP/">Mac-RDP</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-09-01
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p><strong>mac远程桌面连接windows 8.1 update，提示： 远程桌面连接无法验证您希望连接的计算机的身份</strong></p>
+<p><strong>Solution:</strong></p>
+<blockquote>
+<p>Verify that the firewall <strong>allows</strong> remote desktop connections with <strong>RDP</strong> (Port 3389)</p>
+</blockquote>
+<ul>
+<li><p>Click <strong>Start&#x2F;Run</strong>. Type <code>gpedit.msc</code> and click <strong>OK</strong> to open <strong>The Group Policy Editor</strong>.</p>
+</li>
+<li><p>In the left hand sidebar, <strong>expand</strong></p>
+<ol>
+<li>Computer Configuration</li>
+<li>Administrative Templates</li>
+<li>Windows Components</li>
+<li>Remote Desktop Session Host</li>
+</ol>
+</li>
+<li><p>Select <strong>Security</strong>. Change <strong>Require use of specific security layer for remote desktop (RDP) connection</strong> to <strong>Enabled</strong></p>
+</li>
+<li><p>and select <strong>RDP</strong> in the <strong>Options</strong> pane. Change <strong>Require user authentication for remote connections by using Network Level Authentication</strong> to <strong>Disabled</strong></p>
+</li>
+<li><p>Close <strong>Group Policy Editor</strong> and <strong>reboot</strong> the machine for changes to take effect.</p>
+</li>
+</ul>
+    <div class="read-more">
+      <a href="/2016/09/01/macos-fix-RDP/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/2016/09/01/boost-baidu-cloud/">Boost Baidu-Cloud</a>
       
     </h1>
@@ -558,96 +674,6 @@
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-<span class="keyword">select</span> <span class="comment">--install</span></span><br></pre></td></tr></table></figure>
     <div class="read-more">
       <a href="/2016/08/09/hexo-install-commands/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2016/08/09/Markdown-Syntax/">Markdown Syntax</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2016-08-09
-      </span>
-      
-      
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <p>![Markdown] <a href="markdown_icon.png" title="Markdown">img1</a></p>
-<p><strong>NOTE:</strong> This is Traditional Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to [Markdown Syntax] <a target="_blank" rel="noopener" href="http://daringfireball.net/projects/markdown/syntax" title="Markdown Syntax">a1</a>.</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="哲学"><a href="#哲学" class="headerlink" title="哲学"></a>哲学</h3><p>Markdown的目标是实现［易读易写］。</p>
-<p>不过最需要强调的便是它的可读性。一份使用Markdown格式撰写的文件应该可以直接以纯文字发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown语法受到一些既有text-to-HTML格式的影响，包括<a target="_blank" rel="noopener" href="http://docutils.sourceforge.net/mirror/setext.html" title="Setext">Setext</a>、<a target="_blank" rel="noopener" href="http://www.aaronsw.com/2002/atx/" title="atx">atx</a>、<a target="_blank" rel="noopener" href="http://textism.com/tools/textile/" title="Textile">Textile</a>、<a target="_blank" rel="noopener" href="http://docutils.sourceforge.net/rst.html" title="reStructuredText">reStructuredText</a>、<a target="_blank" rel="noopener" href="http://www.triptico.com/software/grutatxt.html" title="Grutatext">Grutatext</a> 和 <a target="_blank" rel="noopener" href="http://ettext.taint.org/doc/" title="EtText">EtText</a>，然而最大灵感来源其实是纯文字的电子邮件格式。</p>
-    <div class="read-more">
-      <a href="/2016/08/09/Markdown-Syntax/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2016/08/05/macos-Terminal/">MAC 终端(Terminal)命令入门</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2016-08-05
-      </span>
-      
-      
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <blockquote>
-<p>Mac常用<em>终端</em>(Terminal)命令，帮助我们更好地使用Mac(Let’s Rock.&amp;.&amp;.)</p>
-</blockquote>
-<h2 id="访问目录"><a href="#访问目录" class="headerlink" title="访问目录"></a>访问目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span>　　　　　　<span class="comment">#显示当前工作目录路径</span></span><br><span class="line"><span class="built_in">cd</span>         　　<span class="comment">#进root</span></span><br><span class="line">~         　 　<span class="comment">#进root</span></span><br><span class="line"><span class="built_in">cd</span> ~　　　　　　<span class="comment">#返回root</span></span><br><span class="line"><span class="built_in">cd</span> FolderName　　<span class="comment">#进入文件夹</span></span><br><span class="line"><span class="built_in">cd</span> ..　　　　　　<span class="comment">#上级目录</span></span><br><span class="line"><span class="built_in">cd</span> -　　　　　　<span class="comment">#返回上一个访问的目录</span></span><br></pre></td></tr></table></figure>
-    <div class="read-more">
-      <a href="/2016/08/05/macos-Terminal/" class="read-more-link">阅读更多</a>
     </div>
     
     

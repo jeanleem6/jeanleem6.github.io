@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="MAC下终端走代理的几种方法" />
+<meta name="description" content="Mac 终端代理设置" />
 
 
 <!-- Website keywords -->
@@ -193,33 +193,33 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-number">1.</span> <span class="toc-text">方法1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-number">2.</span> <span class="toc-text">方法2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%953"><span class="toc-number">3.</span> <span class="toc-text">方法3:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%954"><span class="toc-number">4.</span> <span class="toc-text">方法4:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">补充：</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-number">1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-number">2.</span> <span class="toc-text">方法2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%953"><span class="toc-number">3.</span> <span class="toc-text">方法3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%954"><span class="toc-number">4.</span> <span class="toc-text">方法4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text">补充</span></a></li></ol>
     </div>
   </div>
   
 
   <div class="post-content">
     
-    <h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h3><p>在终端中直接运行命令</p>
+    <h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><p>在终端中直接运行命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=http://proxyAddress:port</span><br></pre></td></tr></table></figure>
 
 <p>这个办法的好处是简单直接，并且影响面很小（只对当前终端有效）。</p>
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h3><p>把代理服务器地址写入shell配置文件.bashrc或者.zshrc<br>直接在.bashrc或者.zshrc添加下面内容</p>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>把代理服务器地址写入shell配置文件.bashrc或者.zshrc<br>直接在.bashrc或者.zshrc添加下面内容</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://localhost:port&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://localhost:port&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>以使用shadowsocks代理为例，ss的代理端口为1080,那么应该设置为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://127.0.0.1:1080&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://127.0.0.1:1080&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>localhost就是一个域名，域名默认指向 127.0.0.1，两者是一样的。<br>然后 <code>ESC</code> 后 <code>:wq</code> 保存文件，接着在终端中执行 <code>source ~/.bashrc</code><br>或者退出当前终端再起一个终端。 这个办法的好处是把代理服务器永久保存了，下次就可以直接用了。</p>
-<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h3><p>改相应工具的配置，比如apt的配置</p>
+<p>localhost就是一个域名，域名默认指向 <code>127.0.0.1</code>，两者是一样的。<br>然后按 <code>ESC</code> 退出编辑模式，输入 <code>:wq</code> 保存文件，接着在终端中执行 <code>source ~/.bashrc</code> 启用设置修改<br>或者退出当前终端再起一个终端。 这个办法的好处是把代理服务器永久保存了，下次就可以直接用了。</p>
+<h2 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h2><p>改相应工具的配置，比如 apt 的配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/apt.conf</span><br></pre></td></tr></table></figure>
 
 <p>在文件末尾加入下面这行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Acquire::http::Proxy <span class="string">&quot;http://proxyAddress:port&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>保存apt.conf文件即可。关于apt的代理设置可以参考<a target="_blank" rel="noopener" href="http://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13">这里</a><br>关于git的代理设置看这里:<a target="_blank" rel="noopener" href="http://blog.fazero.cc/2015/07/11/%E7%94%A8shadowsocks%E5%8A%A0%E9%80%9Fgit-clone/">用shadowsocks加速git clone</a></p>
-<h3 id="方法4"><a href="#方法4" class="headerlink" title="方法4:"></a>方法4:</h3><p><a target="_blank" rel="noopener" href="http://blog.fazero.cc/2015/08/31/%E5%88%A9%E7%94%A8proxychains%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8socks5%E4%BB%A3%E7%90%86/">利用proxychains在终端使用socks5代理</a></p>
-<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><p>如果代理服务器需要登陆，这时可以直接把用户名和密码写进去</p>
+<p>保存 <code>apt.conf</code> 文件即可。关于 apt 的代理设置可以参考<a target="_blank" rel="noopener" href="http://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13">这里</a><br>关于 git 的代理设置看这里:<del><a target="_blank" rel="noopener" href="http://blog.fazero.cc/2015/07/11/%E7%94%A8shadowsocks%E5%8A%A0%E9%80%9Fgit-clone/">用shadowsocks加速git clone</a></del> (此链接已失联)</p>
+<h2 id="方法4"><a href="#方法4" class="headerlink" title="方法4"></a>方法4</h2><p><del><a target="_blank" rel="noopener" href="http://blog.fazero.cc/2015/08/31/%E5%88%A9%E7%94%A8proxychains%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8socks5%E4%BB%A3%E7%90%86/">利用proxychains在终端使用socks5代理</a></del> (此链接已失联)</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>如果代理服务器需要登陆，这时可以直接把用户名和密码写进去</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http_proxy=http://userName:password@proxyAddress:port</span><br></pre></td></tr></table></figure>
 
     
@@ -248,7 +248,7 @@
       
       <a class="prev" href="/2018/09/10/vim-replacement/">  
         <i class="iconfont icon-left"></i>  
-        <span class="prev-text nav-default">vim-replacement</span>  
+        <span class="prev-text nav-default">vim 批量替换命令</span>  
         <span class="prev-text nav-mobile">上一篇</span>  
       </a>  
       

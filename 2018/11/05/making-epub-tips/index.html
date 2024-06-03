@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="epub电子书制作杂录" />
+<meta name="description" content="简要介绍如何制作 epub 文档" />
 
 
 <!-- Website keywords -->
@@ -209,26 +209,25 @@
 <li>右侧：文件预览区，查看html页面预览效果</li>
 </ul>
 <h2 id="让-ibooks-支持内置字体"><a href="#让-ibooks-支持内置字体" class="headerlink" title="让 ibooks 支持内置字体"></a>让 ibooks 支持内置字体</h2><p>第一步，修改 content.opf 文件，新增一行：<code>&lt;meta property=&quot;ibooks:specified-fonts&quot;&gt;true&lt;/meta&gt;</code></p>
-<p>第二步，创建xml文件: com.apple.ibooks.display-options.xml，内容如下：</p>
+<p>第二步，创建xml文件: <code>com.apple.ibooks.display-options.xml</code>，内容如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">display_options</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">platform</span> <span class="attr">name</span>=<span class="string">&quot;*&quot;</span>&gt;</span> <span class="comment">&lt;!-- allowed values for platform &quot;iphone&quot;, &quot;ipad&quot;, or &quot;*&quot; for all --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">&quot;specified-fonts&quot;</span>&gt;</span>true<span class="tag">&lt;/<span class="name">option</span>&gt;</span> <span class="comment">&lt;!-- must be set to &quot;true&quot; for embedded fonts --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">platform</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">display_options</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>第三步，点击 calibre 中的 <em>编辑书籍&#x2F;Edit Book</em> 打开 <em>Edit Book</em> 工具，点击 <em>新增文件&#x2F;New File</em>：</p>
 <ul>
-<li>在弹窗中输入 meta-inf&#x2F;com.apple.ibooks.display-options.xml</li>
+<li>在弹窗中输入 <code>meta-inf/com.apple.ibooks.display-options.xml</code></li>
 <li>点击 <em>导入文件(图片&#x2F;字体等)&#x2F;Import resource file</em>，定位到第二步创建的xml文件选择打开，点 <em>确定</em> 后xml文件就添加好了。</li>
 </ul>
-<p>第四步，点击 <em>工具栏</em> 中的 <em>管理字体(TTF)</em> &gt; <em>安装字体</em>，添加字体后可通过重命名更改字体路径：Fonts&#x2F;FontName.ttf</p>
+<p>第四步，点击 <em>工具栏</em> 中的 <em>管理字体(TTF)</em> &gt; <em>安装字体</em>，添加字体后可通过重命名更改字体路径：<code>Fonts/FontName.ttf</code></p>
 <p>第五步，在样式表中添加内置字体：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;FontName&quot;</span>; <span class="comment">/* FontName 可设定为任意名字 */</span></span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">../Path/FontName.ttf</span>); <span class="comment">/* 注意将 Path 和 FontName 修改为你创建的路径名和字体名称 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="竖排，从右向左翻页"><a href="#竖排，从右向左翻页" class="headerlink" title="竖排，从右向左翻页"></a>竖排，从右向左翻页</h2><p>第一步，修改 content.opf 文件，新增一行：<code>&lt;meta content=&quot;vertical-rl&quot; name=&quot;primary-writing-mode&quot;/&gt;</code></p>
-<p>第二步，修改 content.opf 文件， 给 spine 标签增加一属性：page-progression-direction&#x3D;”rtl”</p>
-<p>第三步，修改样式表，为 body 增加一属性： writing-mode: vertical-rl;</p>
+<p>第二步，修改 content.opf 文件， 给 spine 标签增加一属性：<code>page-progression-direction=&quot;rtl&quot;</code></p>
+<p>第三步，修改样式表，为 body 增加一属性： <code>writing-mode: vertical-rl</code>;</p>
 <blockquote>
 <p>有时需要<strong>局部横排</strong>显示，例如图片的说明文字可以横排显示在图片下方，可为说明文字单独设置css：writing-mode: horizontal-tb</p>
 </blockquote>
-<h2 id="添加弹注效果"><a href="#添加弹注效果" class="headerlink" title="添加弹注效果"></a>添加弹注效果</h2><img src="/2018/11/05/making-epub-tips/flowing_footnote.png" width="200px">
-
+<h2 id="添加弹注效果"><a href="#添加弹注效果" class="headerlink" title="添加弹注效果"></a>添加弹注效果</h2><p><img src="/2018/11/05/making-epub-tips/flowing_footnote.png" alt="footnote"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="attr">xmlns:epub</span>=<span class="string">&quot;http://www.idpf.org/2007/ops&quot;</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;chapter.xhtml#myNote&quot;</span> <span class="attr">epub:type</span>=<span class="string">&quot;noteref&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span> <span class="attr">id</span>=<span class="string">&quot;myNote&quot;</span> <span class="attr">epub:type</span>=<span class="string">&quot;footnote&quot;</span>&gt;</span>Text in popup<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -238,7 +237,7 @@
 <li>a (注释序号)：<code>epub:type=&quot;noteref&quot;</code></li>
 <li>aside (注释)：<code>epub:type=&quot;footnote&quot;</code></li>
 </ul>
-<p>aside 标签会自动隐藏，如果希望注释正常显示出来，可用 div&#x2F;p 等标签替代。<br>ios 中为整屏弹注，多看等其它阅读器不支持这种方式。</p>
+<p>aside 标签会自动隐藏，如果希望注释正常显示出来，可用 <code>div</code> &#x2F; <code>p</code> 等标签替代。<br>ios 中为整屏弹注，多看等其它阅读器不支持这种方式。</p>
 </blockquote>
 <h2 id="繁体标点替换"><a href="#繁体标点替换" class="headerlink" title="繁体标点替换"></a>繁体标点替换</h2><ul>
 <li><code>“</code> 替换成 <code>「</code></li>
@@ -264,11 +263,10 @@
 </ul>
 <h2 id="body-样式设置参考"><a href="#body-样式设置参考" class="headerlink" title="body 样式设置参考"></a>body 样式设置参考</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">5%</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: justify;</span><br><span class="line">    <span class="attribute">writing-mode</span>: vertical-rl;</span><br><span class="line">    -webkit-<span class="attribute">writing-mode</span>:vertical-rl;</span><br><span class="line">    -epub-<span class="attribute">writing-mode</span>: vertical-rl;</span><br><span class="line">    -epub-<span class="attribute">line-break</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-<h2 id="epub目录树结构"><a href="#epub目录树结构" class="headerlink" title="epub目录树结构"></a>epub目录树结构</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">├── <span class="keyword">META</span><span class="literal">-INF</span></span><br><span class="line">│   ├── com.apple.ibooks.display-options.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   └── container</span>.<span class="keyword">xml</span></span><br><span class="line"><span class="title">├── OEBPS</span></span><br><span class="line">│   ├── Fonts</span><br><span class="line">│   │   └── kangxidict.ttf</span><br><span class="line">│   ├── Images</span><br><span class="line">│   │   ├── Image00000.jpg</span><br><span class="line">│   │   ├── Image00001.jpg</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── Image00200.jpg</span><br><span class="line">│   ├── OEBPS</span><br><span class="line">│   │   └── cover.jpg</span><br><span class="line">│   ├── Styles</span><br><span class="line">│   │   ├── flow0001.css</span><br><span class="line">│   │   ├── flow0002.css</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── flow0005.css</span><br><span class="line">│   ├── Text</span><br><span class="line">│   │   ├── text00000.html</span><br><span class="line">│   │   ├── text00001.html</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── text00090.html</span><br><span class="line">│   ├── content.opf</span><br><span class="line">│   └── toc.ncx</span><br><span class="line">└── mimetype</span><br></pre></td></tr></table></figure>
+<h2 id="epub目录树结构"><a href="#epub目录树结构" class="headerlink" title="epub目录树结构"></a>epub目录树结构</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">├── META-INF</span><br><span class="line">│   ├── com.apple.ibooks.display-options.xml</span><br><span class="line">│   └── container.xml</span><br><span class="line">├── OEBPS</span><br><span class="line">│   ├── Fonts</span><br><span class="line">│   │   └── kangxidict.ttf</span><br><span class="line">│   ├── Images</span><br><span class="line">│   │   ├── Image00000.jpg</span><br><span class="line">│   │   ├── Image00001.jpg</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── Image00200.jpg</span><br><span class="line">│   ├── OEBPS</span><br><span class="line">│   │   └── cover.jpg</span><br><span class="line">│   ├── Styles</span><br><span class="line">│   │   ├── flow0001.css</span><br><span class="line">│   │   ├── flow0002.css</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── flow0005.css</span><br><span class="line">│   ├── Text</span><br><span class="line">│   │   ├── text00000.html</span><br><span class="line">│   │   ├── text00001.html</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   │   └── text00090.html</span><br><span class="line">│   ├── content.opf</span><br><span class="line">│   └── toc.ncx</span><br><span class="line">└── mimetype</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>reference:<br><a target="_blank" rel="noopener" href="http://guidohenkel.com/2015/04/custom-fonts-in-ibooks/">http://guidohenkel.com/2015/04/custom-fonts-in-ibooks/</a> (Custom Fonts)<br><a target="_blank" rel="noopener" href="https://help.apple.com/itc/booksassetguide/en.lproj/static.html">https://help.apple.com/itc/booksassetguide/en.lproj/static.html</a> （Section:<code>Pop-up Footnotes</code>）<br><a target="_blank" rel="noopener" href="https://bookfere.com/post/204.html">https://bookfere.com/post/204.html</a></p>
+<p>reference:<br><a target="_blank" rel="noopener" href="http://guidohenkel.com/2015/04/custom-fonts-in-ibooks/">Custom Fonts</a><br><a target="_blank" rel="noopener" href="https://help.apple.com/itc/booksassetguide/en.lproj/static.html">Pop-up Footnotes</a>（Section: <strong>Pop-up Footnotes</strong>）<br><a target="_blank" rel="noopener" href="https://bookfere.com/post/204.html">如何把 Kindle 电子书的横排文字改成竖排</a></p>
 
     
   </div>
@@ -300,7 +298,7 @@
       
       
       <a class="next" href="/2018/09/10/vim-replacement/">  
-        <span class="next-text nav-default">vim-replacement</span>  
+        <span class="next-text nav-default">vim 批量替换命令</span>  
         <span class="prev-text nav-mobile">下一篇</span>  
         <i class="iconfont icon-right"></i>  
       </a>  

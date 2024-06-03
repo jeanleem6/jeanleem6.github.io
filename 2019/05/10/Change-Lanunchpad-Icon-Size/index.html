@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="Change Lanunchpad Icon Size" />
+<meta name="description" content="How to Adjust the Icon Grid Count of Launchpad in Mac OS X？" />
 
 
 <!-- Website keywords -->
@@ -190,11 +190,17 @@
   </header>
 
   
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Adjust-the-Icon-Grid-Count-of-Launchpad-in-Mac-OS-X"><span class="toc-number">1.</span> <span class="toc-text">How to Adjust the Icon Grid Count of Launchpad in Mac OS X</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set-the-Launchpad-Column-Icon-Count"><span class="toc-number">2.</span> <span class="toc-text">Set the Launchpad Column Icon Count</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set-the-Launchpad-Row-App-Icon-Count"><span class="toc-number">3.</span> <span class="toc-text">Set the Launchpad Row App Icon Count</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reset-Launchpad"><span class="toc-number">4.</span> <span class="toc-text">Reset Launchpad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relaunch-the-Dock-with-killall"><span class="toc-number">5.</span> <span class="toc-text">Relaunch the Dock with killall</span></a></li></ol>
+    </div>
+  </div>
+  
 
   <div class="post-content">
     
-    <p><strong>How to Adjust the Icon Grid Count of Launchpad in Mac OS X</strong></p>
-<p>replacing the <code>X</code> numbers for the appropriate columns and grid icon counts</p>
+    <h2 id="How-to-Adjust-the-Icon-Grid-Count-of-Launchpad-in-Mac-OS-X"><a href="#How-to-Adjust-the-Icon-Grid-Count-of-Launchpad-in-Mac-OS-X" class="headerlink" title="How to Adjust the Icon Grid Count of Launchpad in Mac OS X"></a>How to Adjust the Icon Grid Count of Launchpad in Mac OS X</h2><p>replacing the <code>X</code> numbers for the appropriate columns and grid icon counts</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int X;defaults write com.apple.dock springboard-rows -int X;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
 
 <p>For example, to set the Launchpad grid to <code>8 × 7</code> you’d use the following syntax:</p>
@@ -203,19 +209,14 @@
 <p>If you want to return to the default setting, just change the column and row counts back to what yours was originally. <strong>The default on my MacBook Pro Retina display is a 5 x 7 grid</strong>, but yours may be different depending on screen size and screen resolution.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7;defaults write com.apple.dock springboard-rows -int 5;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock</span><br></pre></td></tr></table></figure>
 
-<hr>
 <p><strong>The commands</strong> for customizing the Launchpad layout <strong>can also be split apart</strong> if desired like so:</p>
-<p><strong>Set the Launchpad Column Icon Count</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7</span><br></pre></td></tr></table></figure>
+<h2 id="Set-the-Launchpad-Column-Icon-Count"><a href="#Set-the-Launchpad-Column-Icon-Count" class="headerlink" title="Set the Launchpad Column Icon Count"></a>Set the Launchpad Column Icon Count</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 7</span><br></pre></td></tr></table></figure>
 
-<p><strong>Set the Launchpad Row App Icon Count</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-rows -int 8</span><br></pre></td></tr></table></figure>
+<h2 id="Set-the-Launchpad-Row-App-Icon-Count"><a href="#Set-the-Launchpad-Row-App-Icon-Count" class="headerlink" title="Set the Launchpad Row App Icon Count"></a>Set the Launchpad Row App Icon Count</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-rows -int 8</span><br></pre></td></tr></table></figure>
 
-<p><strong>Reset Launchpad</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock ResetLaunchPad -bool TRUE;</span><br></pre></td></tr></table></figure>
+<h2 id="Reset-Launchpad"><a href="#Reset-Launchpad" class="headerlink" title="Reset Launchpad"></a>Reset Launchpad</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock ResetLaunchPad -bool TRUE;</span><br></pre></td></tr></table></figure>
 
-<p><strong>Relaunch the Dock with killall</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
+<h2 id="Relaunch-the-Dock-with-killall"><a href="#Relaunch-the-Dock-with-killall" class="headerlink" title="Relaunch the Dock with killall"></a>Relaunch the Dock with killall</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
 
 <p>You can also choose to just set a custom row or just a custom column count, but you must <strong>reset and refresh the Launchpad</strong>, and finally killall Dock to relaunch the Dock in Mac OS X and have the changes to take effect regardless of how you customize it.</p>
 

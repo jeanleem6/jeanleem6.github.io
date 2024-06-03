@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="Configure SublimeLinter-html-tidy" />
+<meta name="description" content="为 sublime 配置 html 格式检查工具：tidy" />
 
 
 <!-- Website keywords -->
@@ -193,14 +193,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ready-Works"><span class="toc-number">1.</span> <span class="toc-text">Ready Works:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure"><span class="toc-number">2.</span> <span class="toc-text">Configure</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ready-Works"><span class="toc-number">1.</span> <span class="toc-text">Ready Works</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure"><span class="toc-number">2.</span> <span class="toc-text">Configure</span></a></li></ol>
     </div>
   </div>
   
 
   <div class="post-content">
     
-    <h3 id="Ready-Works"><a href="#Ready-Works" class="headerlink" title="Ready Works:"></a>Ready Works:</h3><ol>
+    <h3 id="Ready-Works"><a href="#Ready-Works" class="headerlink" title="Ready Works"></a>Ready Works</h3><ol>
 <li>Install <a target="_blank" rel="noopener" href="https://www.sublimetext.com/3">Sublime Text 3</a></li>
 <li>Install <em>SublimeLinter</em></li>
 <li><a target="_blank" rel="noopener" href="https://tidybatchfiles.info/tidy.zip">Download tidy.zip</a> from <a target="_blank" rel="noopener" href="https://tidybatchfiles.info/">HTML Tidy for Windows</a></li>
@@ -213,9 +213,10 @@
 <li><p>依次打开：<code>Preferences &gt; Package Settings &gt; SublimeLinter &gt; Settings</code></p>
 </li>
 <li><p>下滑找到 <code>paths</code> 节点，如下：</p>
-  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;linux&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;osx&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;linux&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;osx&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>拷贝 <code>tidy.exe</code> 所在的目录到 <code>windows</code> 项：</p>
-  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;linux&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;osx&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;~/tidy&quot;</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;linux&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;osx&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;~/tidy&quot;</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>注意：路径 <code>&quot;~/tidy&quot;</code> 是相对用户目录的路径，即 <code>C:/Users/Username</code>，路径不包含 <code>tidy.exe</code> 程序本身。当然，用<strong>绝对路径</strong>或<strong>其它目录</strong>也是可以的（如：<code>d:/tidy</code>）。</p>
